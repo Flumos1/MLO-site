@@ -41,11 +41,22 @@ window.IVM_PARAMS = {
    "alpha": 1.0,
    "d": 1.3,
    "T": 60
+  },
+  "baltic_bases": {
+   "alpha": 1.0,
+   "d": 1.0,
+   "T": 60
+  },
+  "ukraine_fin": {
+   "alpha": 1.0,
+   "d": 1.7,
+   "T": 180
   }
  },
  "checks": {
   "baltic": {
    "ratio": 1.9563,
+   "ratio30": 0.4583,
    "required": 1.0,
    "p_sufficient": 0.6314,
    "window": [
@@ -57,18 +68,21 @@ window.IVM_PARAMS = {
   },
   "ukraine": {
    "ratio": 1.6849,
+   "ratio30": 1.6849,
    "required": 1.7,
    "p_sufficient": 0.4982,
    "window": []
   },
   "ukraine_cf": {
    "ratio": 1.3214,
+   "ratio30": 1.3214,
    "required": 1.7,
    "p_sufficient": 0.4499,
    "window": []
   },
   "iran": {
    "ratio": 6.8435,
+   "ratio30": 6.8435,
    "required": 1.3,
    "p_sufficient": 0.7969,
    "window": [
@@ -77,6 +91,25 @@ window.IVM_PARAMS = {
      60
     ]
    ]
+  },
+  "baltic_bases": {
+   "ratio": 1.9563,
+   "ratio30": 0.4183,
+   "required": 1.0,
+   "p_sufficient": 0.6314,
+   "window": [
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  "ukraine_fin": {
+   "ratio": 1.6849,
+   "ratio30": 1.6849,
+   "required": 1.7,
+   "p_sufficient": 0.4982,
+   "window": []
   }
  },
  "salvo_check": {

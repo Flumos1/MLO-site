@@ -1633,17 +1633,29 @@ const coClassName = (k) => (LANG === "en" ? CO_CLASSES_EN : CO_CLASSES)[k][0];
 const CO_TYPES = [
   ["troops", "Войска", "входят в силы на театре F(t)"],
   ["supply", "Снабжение", "в F не входит: в модели боя добавляет резерв и темп восполнения"],
-  ["intel", "Разведка", "множитель эффективности стороны × (1 + 0,15·ρ)"]
+  ["intel", "Разведка", "множитель эффективности стороны × (1 + 0,15·ρ)"],
+  ["base", "Территория", "предоставляет территорию: войска остальных участников стороны приближаются к театру, D_эфф = D − ρ·max(0; D − D_B), D_B — D этого участника"],
+  ["finance", "Финансы", "в F не входят: деньги превращаются в резерв и восполнение (15% потенциала за 90 сут), расстояние не ослабляет"]
 ];
 const CO_TYPES_EN = [
   ["troops", "Troops", "counted in theatre forces F(t)"],
   ["supply", "Supply", "not in F: in the battle model it adds reserve and replacement rate"],
-  ["intel", "Intelligence", "effectiveness multiplier × (1 + 0.15·ρ)"]
+  ["intel", "Intelligence", "effectiveness multiplier × (1 + 0.15·ρ)"],
+  ["base", "Territory", "provides territory: the side's other members move closer to the theatre, D_eff = D − ρ·max(0; D − D_B), D_B — this member's D"],
+  ["finance", "Finance", "not in F: money turns into reserve and replacement (15% of potential over 90 days), distance does not weaken it"]
 ];
 const coType = (k) => (LANG === "en" ? CO_TYPES_EN : CO_TYPES).find((t) => t[0] === k);
 // Участник: ρ — надёжность, s — доля сил на театре, D — удалённость, тыс. км, τ — задержка вступления, сут.
 function pt(key, rho, s, D, tau, cls = "", types = "T") {
-  return { key, rho, s, D, tau, cls, troops: types.includes("T"), supply: types.includes("S"), intel: types.includes("I"), on: true };
+  return { key, rho, s, D, tau, cls, troops: types.includes("T"), supply: types.includes("S"), intel: types.includes("I"), on: true, base: types.includes("B"), finance: types.includes("F") };
+}
+// Допущения (повторяют core/lanmil/coalition.py): FIN_ETA — доля потенциала, которую деньги покупают за FIN_TAU сут.
+const FIN_ETA = .15, FIN_TAU = 90;
+// Удалённость участника с учётом территории, предоставленной другими участниками стороны (лучший провайдер).
+function dEff(list, p) {
+  let red = 0;
+  for (const q of list) if (q !== p && q.on && q.base) red = Math.max(red, q.rho * Math.max(0, p.D - q.D));
+  return p.D - red;
 }
 const CO_PRESETS = {
   real: {
@@ -1675,6 +1687,20 @@ const CO_PRESETS = {
       note_en: "Document 3, example 5.1: an air and missile campaign, low defence coefficient. Russia is linked to Iran by a partnership without military obligations (ρ = 0.05).",
       A: [pt("ISR", 1, .7, 1.6, 0), pt("USA", .9, .2, 1, 0, "B")],
       B: [pt("IRN", 1, 1, 0, 0), pt("AXR", .5, 1, 0, 0, "E"), pt("RUS", .05, .02, 2, 30, "C")]
+    },
+    baltic_bases: {
+      name: "Прибалтика с базированием: Польша и страны Балтии предоставляют территорию", name_en: "Baltic with basing: Poland and the Baltic states provide territory", alpha: 1, d: 1, T: 60,
+      note: "Новый сценарий (19.10.2026): те же стороны и допущения, что в «Прибалтике», но Польша и страны Балтии, Финляндия, Швеция дают территорию (тип «Территория»): войска Германии, Великобритании, Франции и особенно США развёртываются от баз у театра (D_эфф = D − ρ·(D − 0,3)), а не из глубины. Эффект действует только на силы, прибывающие после τ.",
+      note_en: "New scenario (19.10.2026): the same sides and assumptions as \"Baltic\", but Poland and the Baltic states, Finland and Sweden provide territory (type \"Territory\"): German, UK, French and above all US forces deploy from bases near the theatre (D_eff = D − ρ·(D − 0.3)) rather than from depth. The effect applies only to forces arriving after τ.",
+      A: [pt("RUS", 1, .4, .3, 0), pt("BLR", .7, .5, .2, 0, "A")],
+      B: [pt("NBF", .95, .6, .3, 0, "A", "TB"), pt("POL", .95, .6, .3, 3, "A", "TB"), pt("DEU", .85, .3, 1, 7, "A"), pt("GBR", .85, .25, 1.8, 14, "A"), pt("FRA", .8, .25, 1.8, 21, "A"), pt("USA", .7, .15, 7, 30, "A")]
+    },
+    ukraine_fin: {
+      name: "Россия против Украины с финансированием союзников (Германия, Великобритания, Франция, США)", name_en: "Russia vs. Ukraine with allied financing (Germany, UK, France, US)", alpha: 1, d: 1.7, T: 180,
+      note: "Новый сценарий (19.10.2026): к поставкам Германии, Великобритании и Франции добавлены финансы (тип «Финансы», s = 0,05) и вклад США (s = 0,10, ρ = 0,7). Финансы в F не входят: они увеличивают резерв и восполнение Украины (15% потенциала провайдера за 90 сут — допущение прототипа). Масштаб s — допущение сценария, не данные.",
+      note_en: "New scenario (19.10.2026): financing (type \"Finance\", s = 0.05) is added to the deliveries of Germany, the UK and France, plus a US contribution (s = 0.10, ρ = 0.7). Finance is not part of F: it increases Ukraine's reserve and replacement (15% of the provider's potential over 90 days — a prototype assumption). The scale of s is a scenario assumption, not data.",
+      A: [pt("RUS", 1, .6, .5, 0), pt("PRK", .6, .1, .5, 0, "B"), pt("BLR", .3, .2, .3, 0, "A")],
+      B: [pt("UKR", 1, 1, 0, 0), pt("DEU", .9, .05, 1.5, 0, "D", "SF"), pt("GBR", .9, .05, 2, 0, "D", "SF"), pt("FRA", .9, .05, 2, 0, "D", "SF"), pt("USA", .7, .1, 7, 0, "B", "F")]
     }
   },
   demo: {
@@ -1837,10 +1863,11 @@ function selfCheck() {
   const bad = [...salvoBad];
   for (const [k, chk] of Object.entries(IP.checks)) {
     const pr = CO_PRESETS.real[k]; if (!pr) { bad.push(k + ": нет сценария"); continue; }
-    const F = (side) => pr[side].reduce((s, p) => { const m = mem(p.key); return s + (m && p.troops && p.tau <= 0 ? p.rho * p.s * Math.exp(KAPPA * m.ivm) * Math.exp(-p.D / Math.max(m.lam, .1)) : 0); }, 0);
+    const F = (side) => pr[side].reduce((s, p) => { const m = mem(p.key); return s + (m && p.troops && p.tau <= 0 ? p.rho * p.s * Math.exp(KAPPA * m.ivm) * Math.exp(-dEff(pr[side], p) / Math.max(m.lam, .1)) : 0); }, 0);
+    const F30 = (side) => pr[side].reduce((s, p) => { const m = mem(p.key); return s + (m && p.troops ? p.rho * p.s * Math.exp(KAPPA * m.ivm) * Math.exp(-dEff(pr[side], p) / Math.max(m.lam, .1)) * gIn(Math.min(30, pr.T), p.tau) : 0); }, 0);
     const e = (side) => Math.min(1.6, pr[side].reduce((s, p) => (p.intel ? s * (1 + .15 * p.rho) : s), 1));
-    const r = F("A") / F("B"), R = Math.pow(e("B") * pr.d / e("A"), 1 / pr.alpha);
-    if (Math.abs(r - chk.ratio) > .01 || Math.abs(R - chk.required) > .01) bad.push(`${k}: ${r.toFixed(2)} / ${R.toFixed(2)} вместо ${chk.ratio} / ${chk.required}`);
+    const r = F("A") / F("B"), R = Math.pow(e("B") * pr.d / e("A"), 1 / pr.alpha), r30 = F30("A") / F30("B");
+    if (Math.abs(r - chk.ratio) > .01 || Math.abs(R - chk.required) > .01 || (chk.ratio30 != null && Math.abs(r30 - chk.ratio30) > .01)) bad.push(`${k}: ${r.toFixed(2)} / ${R.toFixed(2)} (сутки 30: ${r30.toFixed(2)}) вместо ${chk.ratio} / ${chk.required} (${chk.ratio30})`);
   }
   if (bad.length) console.warn("Самопроверка прототипа: расхождение с ядром — " + bad.join("; "));
   return { ok: !bad.length, bad };
@@ -1884,7 +1911,7 @@ function coalAt(side, t) {
   let F = 0;
   const parts = coal.sides[side].map((p, i) => {
     const m = member(p.key);
-    const v = m && p.on && p.troops ? p.rho * p.s * unitsOf(m) * Math.exp(-p.D / Math.max(m.lam, .1)) * gIn(t, p.tau) : 0;
+    const v = m && p.on && p.troops ? p.rho * p.s * unitsOf(m) * Math.exp(-dEff(coal.sides[side], p) / Math.max(m.lam, .1)) * gIn(t, p.tau) : 0;
     F += v;
     return { p, m, v, i };
   });
@@ -1899,13 +1926,14 @@ function coalLanch(side) {
   let X0 = 0, R = 0, r = 0;
   const reinf = [];
   for (const p of list) {
-    const m = member(p.key), full = 10 * p.rho * p.s * unitsOf(m), fade = Math.exp(-p.D / Math.max(m.lam, .1));
+    const m = member(p.key), full = 10 * p.rho * p.s * unitsOf(m), fade = Math.exp(-dEff(coal.sides[side], p) / Math.max(m.lam, .1));
     const res = full * (.2 + 1.6 * m.sus), rate = res / (60 + 240 * (1 - m.sus));
     if (p.troops) {
       if (p.tau <= 0) X0 += full * fade; else reinf.push({ amt: full * fade, tau: p.tau });
       R += res * fade; r += rate * fade;
     }
     if (p.supply) { R += res; r += rate; }
+    if (p.finance) { const rf = FIN_ETA * full; R += rf; r += rf / FIN_TAU; }
   }
   const n = list.length - 1;
   const name = lead ? lead.name + (n > 0 ? L(` + ${n} ${plural(n, "союзник", "союзника", "союзников")}`, ` + ${n} ${n === 1 ? "ally" : "allies"}`) : "") : L("нет участников", "no members");
@@ -1999,8 +2027,9 @@ function renderCoalResults() {
     $("co-sum-" + side).textContent = `${fmt(at.F, 1)} ${L("у.е.", "CPU")} · e = ${fmt(coalE(side), 2)}`;
     at.parts.forEach(({ p, m, v: val, i }) => {
       const f = $(`co-${side}-${i}-foot`); if (!f || !m) return;
-      const role = !p.on ? L("не участвует", "not participating") : !p.troops ? (p.supply || p.intel ? [p.supply && L("снабжение", "supply"), p.intel && L("разведка", "intelligence")].filter(Boolean).join(L(" и ", " and ")) + L(" без войск", " without troops") : L("вклад не выбран", "no contribution selected"))
-        : gIn(t, p.tau) <= 0 ? L(`войска прибывают после ${p.tau}-х суток`, `troops arrive after day ${p.tau}`) : L(`на сутки ${t}: ${fmt(val, 1)} у.е.`, `on day ${t}: ${fmt(val, 1)} CPU`);
+      const extras = [p.supply && L("снабжение", "supply"), p.intel && L("разведка", "intelligence"), p.base && L("территория", "territory"), p.finance && L("финансы", "finance")].filter(Boolean);
+      const role = !p.on ? L("не участвует", "not participating") : !p.troops ? (extras.length ? extras.join(L(" и ", " and ")) + L(" без войск", " without troops") : L("вклад не выбран", "no contribution selected"))
+        : gIn(t, p.tau) <= 0 ? L(`войска прибывают после ${p.tau}-х суток`, `troops arrive after day ${p.tau}`) : L(`на сутки ${t}: ${fmt(val, 1)} у.е.`, `on day ${t}: ${fmt(val, 1)} CPU`) + (extras.length ? " + " + extras.join(", ") : "");
       f.textContent = L(`ИВМ без союзов ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} тыс. км · ${role}`, `MPI without alliances ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} thousand km · ${role}`);
     });
   });
@@ -2009,22 +2038,26 @@ function renderCoalResults() {
   renderCoalBars(atA, atB, t);
   drawCoalGraph($("co-graph"), atA, atB);
   $("co-formula").textContent = L(
-`F(t) = Σ ρⱼ · sⱼ · Mⱼ · e^(−Dⱼ/λⱼ) · g(t − τⱼ)          по участникам с вкладом «войска»
+`F(t) = Σ ρⱼ · sⱼ · Mⱼ · e^(−D_эфф,ⱼ/λⱼ) · g(t − τⱼ)      по участникам с вкладом «войска»
+D_эфф = D − ρ_B · max(0; D − D_B)  при участнике с вкладом «территория» (лучший провайдер); без него D_эфф = D
 Mⱼ = exp(κ · ИВМⱼ / 100),  κ = 2,6·ln 10 ≈ ${fmt(KAPPA, 2)};  ИВМⱼ — автономная мощь, без СЯС и столпа «Союзы»
 g(t − τ) = 0 до τ, затем линейно до 1 за ${RAMP} сут;  τ = 0 — силы на театре с первого дня
 e = Π (1 + 0,15·ρⱼ) по участникам с вкладом «разведка», не выше 1,6:   e_A = ${fmt(eA, 2)},  e_B = ${fmt(eB, 2)}
 Нужно A для прорыва:  R = (e_B · d / e_A)^(1/α) = (${fmt(eB, 2)} · ${fmt(coal.d, 1)} / ${fmt(eA, 2)})^(1/${fmt(coal.alpha, 2)}) = ${fmt(R, 2)}
 Сутки ${t}:  F_A = ${fmt(atA.F, 1)} у.е.,  F_B = ${fmt(atB.F, 1)} у.е.,  A : B = ${ratioTxt(ratio)}
 Снабжение в F не входит: в модели боя оно добавляет стороне резерв R и темп восполнения r.
+Финансы в F не входят: R += η · 10·ρ·s·M,  r += η · 10·ρ·s·M / τ_F,  η = ${FIN_ETA},  τ_F = ${FIN_TAU} сут (допущения прототипа).
 P(перевеса хватает) = Φ(ln(A:B ÷ R) / σ),  σ = ${fmt(MODEL_SIGMA, 1)} — ошибка модели по 10 войнам 2018–2025 гг.
 Сверка с ядром (core/export_params.py): ${selfCheckText()}.`,
-`F(t) = Σ ρⱼ · sⱼ · Mⱼ · e^(−Dⱼ/λⱼ) · g(t − τⱼ)          over members contributing "troops"
+`F(t) = Σ ρⱼ · sⱼ · Mⱼ · e^(−D_effⱼ/λⱼ) · g(t − τⱼ)        over members contributing "troops"
+D_eff = D − ρ_B · max(0; D − D_B) when a member contributes "territory" (best provider); without one D_eff = D
 Mⱼ = exp(κ · MPIⱼ / 100),  κ = 2.6·ln 10 ≈ ${fmt(KAPPA, 2)};  MPIⱼ — autonomous power, excl. nuclear and the "Alliances" pillar
 g(t − τ) = 0 until τ, then linear to 1 over ${RAMP} days;  τ = 0 — forces in theatre from day one
 e = Π (1 + 0.15·ρⱼ) over members contributing "intelligence", capped at 1.6:   e_A = ${fmt(eA, 2)},  e_B = ${fmt(eB, 2)}
 A needs to break through:  R = (e_B · d / e_A)^(1/α) = (${fmt(eB, 2)} · ${fmt(coal.d, 1)} / ${fmt(eA, 2)})^(1/${fmt(coal.alpha, 2)}) = ${fmt(R, 2)}
 Day ${t}:  F_A = ${fmt(atA.F, 1)} CPU,  F_B = ${fmt(atB.F, 1)} CPU,  A : B = ${ratioTxt(ratio)}
 Supply is not part of F: in the battle model it adds reserve R and replacement rate r to a side.
+Finance is not part of F: R += η · 10·ρ·s·M,  r += η · 10·ρ·s·M / τ_F,  η = ${FIN_ETA},  τ_F = ${FIN_TAU} days (prototype assumptions).
 P(superiority suffices) = Φ(ln(A:B ÷ R) / σ),  σ = ${fmt(MODEL_SIGMA, 1)} — model error over 10 wars of 2018–2025.
 Check against the core (core/export_params.py): ${selfCheckText()}.`);
 }
