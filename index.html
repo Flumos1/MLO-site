@@ -244,6 +244,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <button class="tab" role="tab" id="t-coalition" data-tab="coalition" aria-selected="false">Коалиции</button>
       <button class="tab" role="tab" id="t-lanchester" data-tab="lanchester" aria-selected="false">Модель боя</button>
       <button class="tab" role="tab" id="t-monitor" data-tab="monitor" aria-selected="false">Монитор очагов</button>
+      <button class="tab" role="tab" id="t-competitors" data-tab="competitors" aria-selected="false">Сравнение с рынком</button>
 <button class="tab" role="tab" id="t-method" data-tab="method" aria-selected="false">Методика и веса</button>
       <button class="tab" role="tab" id="t-catalog" data-tab="catalog" aria-selected="false">Показатели</button>
     </nav>
@@ -258,6 +259,21 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 
   <!-- РЕЙТИНГ -->
   <section id="tab-rating" class="stack">
+    <div class="panel" style="border-color:var(--accent)">
+      <div class="panel-head">
+        <div style="min-width:0">
+          <h3 style="color:var(--accent)">Проверено, а не только заявлено</h3>
+          <p class="small" style="margin-top:4px">Единственный открытый индекс военной мощи с опубликованным протоколом проверки на реальных войнах и очагах напряжённости — промахи и ограничения не скрываются.</p>
+        </div>
+        <button class="btn" id="rating-to-competitors">Сравнить с TENET MCI, GFP, IISS →</button>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="lbl">AUC монитора очагов</span><div class="big num">0,96</div><div class="sub">вне выборки, 780 пар, 5 460 прогнозов</div></div>
+        <div class="tile"><span class="lbl">Проверка на войнах</span><div class="big num">10</div><div class="sub">2018–2025 гг., протокол зафиксирован до расчёта</div></div>
+        <div class="tile"><span class="lbl">Исторических сражений</span><div class="big num">404</div><div class="sub">CDB90 — измерен показатель закона Ланчестера α</div></div>
+        <div class="tile"><span class="lbl">Методика</span><div class="big num">открыта</div><div class="sub">весь код и данные — у конкурентов ядро проприетарное</div></div>
+      </div>
+    </div>
     <div class="panel">
       <div class="panel-head">
         <div>
@@ -624,6 +640,58 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     </div>
   </section>
 
+  <!-- СРАВНЕНИЕ С РЫНКОМ -->
+  <section id="tab-competitors" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Чем ИВМ отличается от аналогов</h2>
+          <p class="muted small">Главный конкурент — TENET Intelligence, Military Capability Index (MCI, США): 150+ стран, проприетарное ядро, заявлен квадратичный закон Ланчестера, проверки на войнах не опубликовано. Разбор — docs/Конкуренты_и_новизна.md.</p>
+        </div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Критерий</th><th>ИВМ «Ланчестер–Осипов»</th><th>TENET MCI</th><th>Global Firepower</th><th>IISS Military Balance</th></tr></thead>
+          <tbody>
+            <tr><td>Методика</td><td class="num" style="text-align:left">код и формулы открыты</td><td>проприетарная</td><td>закрытая формула</td><td>закрытая</td></tr>
+            <tr><td>Закон боя</td><td style="text-align:left">α измерен на 404 сражениях (0,65–0,98) — квадратичный закон отвергнут</td><td>декларирует N²</td><td>нет явной модели боя</td><td>нет модели боя</td></tr>
+            <tr><td>Проверка на истории</td><td style="text-align:left">10 войн 2018–2025, протокол до расчёта, промахи опубликованы</td><td>не опубликована</td><td>нет</td><td>нет</td></tr>
+            <tr><td>Неопределённость</td><td style="text-align:left">интервалы, Монте-Карло, индексы Соболя, σ модели</td><td>не видно</td><td>точечные числа</td><td>точечные числа</td></tr>
+            <tr><td>Монитор очагов</td><td style="text-align:left">AUC 0,96 вне выборки, 780 пар</td><td>нет (MERIDIAN — влияние, без проверки)</td><td>нет</td><td>нет</td></tr>
+            <tr><td>Модель боя и коалиции</td><td style="text-align:left">Ланчестер–Хельмболд, залпы Хьюза, коалиции (ρ, s, τ, D)</td><td>не опубликована</td><td>нет</td><td>нет</td></tr>
+            <tr><td>Охват стран</td><td>40 (пилот) / 8 эксперты</td><td>150+</td><td>145+</td><td>170+</td></tr>
+            <tr><td>Показатели</td><td>253 (≈215 в индексе пилота)</td><td>200+</td><td>60+</td><td>нет единого индекса</td></tr>
+            <tr><td>Экспертная оценка</td><td style="text-align:left">панель Дельфи (готова к запуску), пока — временная оценка ИИ класса D</td><td>штат бывших военных и разведчиков</td><td>неизвестно</td><td>штат аналитиков (эталон данных)</td></tr>
+            <tr><td>Данные</td><td style="text-align:left">открытые источники (SIPRI, UCDP, ВБ и др.)</td><td>вероятно платные OSINT</td><td>смешанные, без ссылок на каждую цифру</td><td>платные, закрытые</td></tr>
+            <tr><td>Стоимость доступа</td><td>бесплатно</td><td>платный (B2B)</td><td>бесплатно (реклама)</td><td>платное издание</td></tr>
+            <tr><td>Честность прогноза</td><td style="text-align:left">признано: баланс сил по индексу предсказывает войны не лучше равновероятного — опубликовано как ограничение</td><td>маркетинг без проверок</td><td>не заявляет прогноз</td><td>не заявляет прогноз</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted" style="margin-top:10px">Где сильнее рынок: охват стран (150+ у TENET и IISS против 40 в пилоте ИВМ), доступ к закрытым разведданным, устоявшийся продукт и клиентская база. Где сильнее ИВМ: проверяемость, прозрачность методики, измеренные (не декларированные) параметры закона боя, честно опубликованные ограничения.</p>
+    </div>
+    <div class="cols-even">
+      <div class="panel">
+        <div class="panel-head"><h3>TENET MCI: что заявлено</h3></div>
+        <ul class="list">
+          <li>«На основе законов Ланчестера», формула — Effectiveness = N² × Quality (квадратичный закон)</li>
+          <li>Четыре блока: структура сил, технологическая оснащённость, операционная эффективность, устойчивость снабжения</li>
+          <li>Консультативный совет из бывших военных и разведчиков США (доверие через имена, не через проверку)</li>
+          <li>Страница «Forecast Record» обещает публиковать промахи — доступ закрыт «для квалифицированных партнёров»</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Что измерения CDB90 показывают о квадратичном законе</h3></div>
+        <ul class="list">
+          <li>404 сражения 1900–1973 гг.: показатель α = 0,65 [0,46; 0,84] — близко к линейному закону, не к квадратичному (α = 2)</li>
+          <li>С поправкой на качественное превосходство нападающего: α = 0,98 [0,80; 1,18] — линейный закон, не квадратичный</li>
+          <li>Соотношение численности почти не улучшает прогноз исхода сражения (R² = 0,04) — решают качество, руководство и мораль</li>
+          <li>Полный разбор и измерение разведки (i) и воли (m*) — <code>docs/word/08_Модели_боя_и_новизна.docx</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="tab-catalog" class="stack" hidden>
     <div class="panel">
       <div class="panel-head">
@@ -977,7 +1045,7 @@ document.addEventListener("mousemove", (ev) => {
 });
 
 /* ---------- Вкладки ---------- */
-const TABS = ["rating", "profile", "compare", "coalition", "lanchester", "monitor", "method", "catalog"];
+const TABS = ["rating", "profile", "compare", "coalition", "lanchester", "monitor", "competitors", "method", "catalog"];
 /* ---------- Монитор очагов (core/monitor.py → data/pilot/monitor_2026.json → window.MONITOR_DATA) ---------- */
 function renderMonitor() {
   const M = window.MONITOR_DATA;
@@ -1220,6 +1288,7 @@ function renderCompare() {
   $("cmp-table").innerHTML = gaps.slice(0, 15).map((g) => `<tr><td class="num">${g.id}</td><td>${esc(g.name)}</td>${real ? "" : `<td>${esc(g.tag)}</td>`}<td class="num">${fmt(g.va * 100, 0)}</td><td class="num">${fmt(g.vb * 100, 0)}</td><td class="num ${g.d >= 0 ? "delta-up" : "delta-down"}">${g.d >= 0 ? "+" : "−"}${fmt(Math.abs(g.d) * 100, 0)}</td></tr>`).join("");
 }
 $("cmp-to-lanch").addEventListener("click", () => { ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; setLanchSides(); openTab("lanchester"); });
+$("rating-to-competitors").addEventListener("click", () => openTab("competitors"));
 
 /* ---------- Модель боя (Ланчестер) ---------- */
 const LG = { N: [], Q: [], S: [] }; // заполняется в regroup()
@@ -1543,7 +1612,7 @@ function selfCheck() {
   const salvoBad = !sc ? [] : [
     ...airDefense(sc.input).map((r, i) => Math.abs(r.leak - sc.leak[i]) > 1e-3 || Math.abs(r.magazine - sc.magazine[i]) > 1e-3 ? `ПВО, сутки ${i + 1}` : null).filter(Boolean),
     ...hughesSalvo(sc.hughes_input).map((v, i) => (Math.abs(v - sc.hughes[i]) > 1e-3 ? "залпы Хьюза" : null)).filter(Boolean)];
-  const mem =(k) => { const c = window.REAL_DATA.countries[k]; if (c) return { ivm: c.auto / 100, lam: c.lam }; const x = EXTRA_REAL.find((e) => e.id === k); return x ? { ivm: x.ivm / 100, lam: x.lam } : null; };
+  const mem = (k) => { const c = window.REAL_DATA.countries[k]; if (c) return { ivm: c.auto / 100, lam: c.lam }; const x = EXTRA_REAL.find((e) => e.id === k); return x ? { ivm: x.ivm / 100, lam: x.lam } : null; };
   const bad = [...salvoBad];
   for (const [k, chk] of Object.entries(IP.checks)) {
     const pr = CO_PRESETS.real[k]; if (!pr) { bad.push(k + ": нет сценария"); continue; }
