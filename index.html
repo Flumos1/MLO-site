@@ -282,7 +282,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 <main class="wrap">
   <div class="banner">
     <strong id="banner-tag"></strong><span id="banner-text" style="flex:1 1 320px"></span>
-    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
+    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="wide" data-i18n-en="126 countries · extended">126 государств · расширенный</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
   </div>
 
   <!-- РЕЙТИНГ -->
@@ -1004,17 +1004,34 @@ function buildReal() {
 /* Пилот на 40 странах: нормированные значения 253 показателей, σ и признак восстановления
    (core/run.py -> data/pilot/proto_2025.json -> prototype/pilot.js). Показатели с данными менее чем у половины стран не входят в индекс. */
 const PD = window.PILOT_DATA || null;
-function buildPilot() {
-  const C = PD.countries.map((c) => ({ ...c })), n = C.length;
+const AD = () => (DS && DS.kind === "wide" ? window.WIDE_DATA : PD); // данные активного набора с пилотным форматом
+function buildPilot(data = PD, kind = "pilot") {
+  const C = data.countries.map((c) => ({ ...c })), n = C.length;
   const V = new Float64Array(n * nI), SIG = new Float64Array(n * nI), IMP = new Uint8Array(n * nI);
   C.forEach((c, ci) => {
     for (let ii = 0; ii < nI; ii++) {
-      const k = ci * nI + ii, v = PD.V[ci][ii];
-      V[k] = v == null ? NaN : v; SIG[k] = PD.S[ci][ii] || 0; IMP[k] = PD.imp[ci][ii];
+      const k = ci * nI + ii, v = data.V[ci][ii];
+      V[k] = v == null ? NaN : v; SIG[k] = data.S[ci][ii] || 0; IMP[k] = data.imp[ci][ii];
     }
   });
-  return { kind: "pilot", countries: C, V, SIG, IMP, COMPLETE: C.map((c) => c.coverage), INC: Uint8Array.from(PD.include) };
+  return { kind, countries: C, V, SIG, IMP, COMPLETE: C.map((c) => c.coverage), INC: Uint8Array.from(data.include) };
 }
+// Расширенный набор (126 стран): тот же формат, отдельный файл wide.js (≈ 1 МБ) — подгружается при первом выборе набора.
+let wideLoading = null;
+function loadWide() {
+  if (window.WIDE_DATA) return Promise.resolve(window.WIDE_DATA);
+  if (!wideLoading) {
+    wideLoading = new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = "wide.js";
+      s.onload = () => resolve(window.WIDE_DATA);
+      s.onerror = () => { wideLoading = null; reject(new Error("wide.js")); };
+      document.head.appendChild(s);
+    });
+  }
+  return wideLoading;
+}
+const isPilotLike = () => DS.kind === "pilot" || DS.kind === "wide";
 const isReal = () => DS.kind === "real";
 const isDemo = () => DS.kind === "demo";
 const inIndex = (ii) => !DS.INC || DS.INC[ii] === 1;
@@ -1110,7 +1127,7 @@ function ranksOf(vals) {
 function runMC(o, runs) {
   const rng = mulberry32(20261012);
   const vals = Array.from({ length: nC }, () => []), rks = Array.from({ length: nC }, () => []);
-  const Vp = new Float64Array(V.length), NP = PILLARS.length, pilot = DS.kind === "pilot";
+  const Vp = new Float64Array(V.length), NP = PILLARS.length, pilot = isPilotLike();
   const pn = pilot ? new Float64Array(nC * NP) : null;
   for (let r = 0; r < runs; r++) {
     for (let k = 0; k < V.length; k++) Vp[k] = clamp(V[k] + SIG[k] * gauss(rng), .01, 1);
@@ -1348,19 +1365,19 @@ function renderProfile() {
   }
   $("pf-tbl-title").textContent = L("Показатели столпа", "Pillar indicators");
   $("pf-thead").innerHTML = `<tr><th>ID</th><th>${L("Показатель", "Indicator")}</th><th>${L("Роль", "Role")}</th><th class="num">${L("Оценка", "Value")}</th><th class="num">±σ</th><th>${L("Данные", "Data")}</th></tr>`;
-  const p = ui.pfPillar, pilot = DS.kind === "pilot";
+  const p = ui.pfPillar, pilot = isPilotLike();
   if (pilot) {
     $("pf-tbl-note").hidden = false;
-    $("pf-tbl-note").textContent = L(`Пилот: в индекс входят ${PD.include.filter(Boolean).length} из ${nI} показателей — те, по которым есть данные хотя бы у половины стран. ` +
-      "Пропуски в них восстановлены по средней той же страны в столпе с повышенной σ. Значение, год, источник и класс достоверности — в столбцах таблицы (источник «ai» — оценка ИИ до экспертной панели, класс D); полный список ссылок — data/pilot/slice_2025.csv.",
-      `Pilot: ${PD.include.filter(Boolean).length} of ${nI} indicators enter the index — those with data for at least half the countries. ` +
-      "Gaps in them are imputed from the same country's pillar mean with an increased σ. Value, year, source and reliability class are in the table columns (source \"ai\" — a pre-panel AI estimate, class D); the full reference list is in data/pilot/slice_2025.csv.");
+    $("pf-tbl-note").textContent = L(`${DS.kind === "wide" ? "Расширенный набор" : "Пилот"}: в индекс входят ${AD().include.filter(Boolean).length} из ${nI} показателей — те, по которым есть данные хотя бы у половины стран. ` +
+      "Пропуски в них восстановлены по средней той же страны в столпе с повышенной σ. Значение, год, источник и класс достоверности — в столбцах таблицы (источник «ai» — оценка ИИ до экспертной панели, класс D); полный список ссылок — data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.",
+      `${DS.kind === "wide" ? "Extended set" : "Pilot"}: ${AD().include.filter(Boolean).length} of ${nI} indicators enter the index — those with data for at least half the countries. ` +
+      "Gaps in them are imputed from the same country's pillar mean with an increased σ. Value, year, source and reliability class are in the table columns (source \"ai\" — a pre-panel AI estimate, class D); the full reference list is in data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.");
   }
   const REL = L({ A: "официальная статистика", B: "исследовательская база", C: "OSINT или пересчёт", D: "экспертная оценка" },
     { A: "official statistics", B: "research database", C: "OSINT or derived", D: "expert estimate" });
   $("pf-table").innerHTML = IND.map((ind, ii) => ({ ind, ii })).filter((x) => x.ind.pillar === p).map(({ ind, ii }) => {
-    const k = ci * nI + ii, v = X[k], raw = pilot ? PD.raw[ci][ii] : null;
-    const [yr, rel, src] = pilot ? (PD.meta[ci][ii] || "||").split("|") : ["", "", ""];
+    const k = ci * nI + ii, v = X[k], raw = pilot ? AD().raw[ci][ii] : null;
+    const [yr, rel, src] = pilot ? (AD().meta[ci][ii] || "||").split("|") : ["", "", ""];
     const sub = pilot && raw != null ? `${fmt(raw, Math.abs(raw) < 10 ? 2 : 0)} ${esc(unitName(ind))} · ${yr}` : `${esc(unitName(ind))} · ${esc(ind.sources.map(srcKey).join(", "))}`;
     let data;
     if (!inIndex(ii)) data = `<span class="chip" data-tip="${L("Данных меньше чем у половины стран — показатель не входит в индекс", "Data for fewer than half the countries — the indicator is not in the index")}">${L("не в индексе", "not in index")}${raw != null ? "" : L(", нет данных", ", no data")}</span>`;
@@ -2221,10 +2238,10 @@ function renderMethod() {
     pillar: "MPI = Aggregate(all 12 pillars, incl. nuclear)",
     mult: "MPI = Aggregate(excl. nuclear) · (1 + 0.3·P_nuclear) / 1.3" }[state.nuclear]);
   const real = isReal();
-  $("m-formula").textContent = (DS.kind === "pilot"
-    ? L(`0. Пилот:        в индексе ${PD.include.filter(Boolean).length} из ${nI} показателей (данные хотя бы у половины стран); пропуски — средняя страны в столпе, σ ≥ 0,10
+  $("m-formula").textContent = (isPilotLike()
+    ? L(`0. ${DS.kind === "wide" ? "Расширенный набор" : "Пилот"}:        в индексе ${AD().include.filter(Boolean).length} из ${nI} показателей (данные хотя бы у половины стран); пропуски — средняя страны в столпе, σ ≥ 0,10
                   границы шкал рассчитаны в core/lanmil (лог — 3 порядка ниже лидера выборки)
-`, `0. Pilot:        ${PD.include.filter(Boolean).length} of ${nI} indicators in the index (data for at least half the countries); gaps — country mean in the pillar, σ ≥ 0.10
+`, `0. ${DS.kind === "wide" ? "Extended set" : "Pilot"}:        ${AD().include.filter(Boolean).length} of ${nI} indicators in the index (data for at least half the countries); gaps — country mean in the pillar, σ ≥ 0.10
                   scale bounds computed in core/lanmil (log scale — 3 orders of magnitude below the sample leader)
 `) : "") + (real
     ? L(`1. Баллы столпов:  экспертные оценки P = 0…100 на глобальной шкале с погрешностью σ (5–14 баллов по классу данных)
@@ -2269,18 +2286,28 @@ function fillCountrySelect(el, val) { el.innerHTML = COUNTRIES.map((c, i) => `<o
 const BANNER = {
   real: ["Реальные данные · октябрь 2026", "8 государств оценены экспертно по 12 столпам (балл ± σ) по открытым данным SIPRI, IISS и официальных бюджетов; 253 показателя для них ещё не собраны. Перекрывающиеся интервалы означают, что места статистически неразличимы."],
   demo: ["Демо-режим", "14 вымышленных государств, значения показателей синтетические. Режим показывает работу всех 253 показателей и расчётную схему, а не реальный баланс сил."],
+  wide: ["Расширенный набор · срез 2025", "126 государств: 40 пилотных и 86 новых — оценка только по открытым автоматически собранным данным (ВБ, МВФ, SIPRI, Factbook, Global Firepower, UCDP, ООН и др.). У новых стран нет оценки ИИ по 67 показателям, таблиц ВВТ и ручных данных IISS, поэтому 40–50% их значений восстановлено — интервалы широкие, а страны с сильным качеством при небольшой численности (Канада, Нидерланды, Швейцария) занижены. Состав индекса тот же, что у пилота; места пилотных стран почти не изменились (ранговая корреляция 0,9998)."],
   pilot: ["Пилот · срез 2025", "40 государств по открытым данным (ВБ, МВФ, SIPRI, UCDP, Factbook, Википедия, Global Firepower). В индекс входят показатели, по которым есть данные у половины стран. 67 показателей без объективного измерителя (подготовка, исправность, командование, запасы) до экспертной панели заполнены оценкой ИИ — класс D, источник «ai», самый низкий приоритет; крупные армии по-прежнему оцениваются выше, чем у экспертов."]
 };
 const BANNER_EN = {
   real: ["Real data · October 2026", "8 countries assessed by experts across 12 pillars (score ± σ) using open SIPRI, IISS and official budget data; 253 indicators are not yet collected for them. Overlapping intervals mean ranks are statistically indistinguishable."],
   demo: ["Demo mode", "14 fictional countries, indicator values are synthetic. This mode shows all 253 indicators and the calculation scheme at work, not a real balance of power."],
+  wide: ["Extended set · 2025 snapshot", "126 countries: 40 pilot and 86 new — assessed only from open, automatically collected data (World Bank, IMF, SIPRI, Factbook, Global Firepower, UCDP, UN and others). The new countries have no AI estimate for 67 indicators, no equipment tables and no manual IISS data, so 40–50% of their values are imputed — intervals are wide, and countries with strong quality but small numbers (Canada, the Netherlands, Switzerland) are underrated. The index composition is the same as in the pilot; pilot countries' ranks hardly changed (rank correlation 0.9998)."],
   pilot: ["Pilot · 2025 snapshot", "40 countries from open data (World Bank, IMF, SIPRI, UCDP, Factbook, Wikipedia, Global Firepower). The index includes indicators with data for at least half the countries. 67 indicators without an objective measure (training, readiness, command, stockpiles) are filled with an AI estimate until the expert panel — class D, source \"ai\", lowest priority; large armies are still scored higher than experts would."]
 };
 function useDataset(kind) {
-  if (!["real", "demo", "pilot"].includes(kind)) kind = "real";
+  if (!["real", "demo", "pilot", "wide"].includes(kind)) kind = "real";
   if (kind === "pilot" && !PD) kind = "real";
+  if (kind === "wide" && !window.WIDE_DATA) {
+    // подгрузка wide.js; пока файл грузится, показываем пилот (или текущий набор), затем переключаемся
+    document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("загрузка…", "loading…"); });
+    loadWide().then(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("126 государств · расширенный", "126 countries · extended"); }); useDataset("wide"); })
+      .catch(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") { b.textContent = L("126 государств · расширенный", "126 countries · extended"); b.disabled = true; } }); if (!DS) useDataset(PD ? "pilot" : "real"); });
+    if (DS) return;
+    kind = PD ? "pilot" : "real";
+  }
   if (kind === "real" && !REAL.length) kind = "demo";
-  DS = kind === "real" ? buildReal() : kind === "pilot" ? buildPilot() : buildDemo();
+  DS = kind === "real" ? buildReal() : kind === "pilot" ? buildPilot() : kind === "wide" ? buildPilot(window.WIDE_DATA, "wide") : buildDemo();
   COUNTRIES = DS.countries; nC = COUNTRIES.length; V = DS.V; SIG = DS.SIG; IMP = DS.IMP; COMPLETE = DS.COMPLETE;
   regroup();
   try { localStorage.setItem("ivm-dataset", kind); } catch (e) { /* хранилище недоступно — выбор не запоминается */ }
@@ -2295,6 +2322,7 @@ function useDataset(kind) {
     if (b.dataset.v === "real") b.disabled = !REAL.length;
     if (b.dataset.v === "pilot") b.disabled = !PD;
   });
+  if (kind !== "wide" && !window.WIDE_DATA) setTimeout(() => loadWide().catch(() => { /* файла нет — набор останется недоступным */ }), 5000); // фоновая подгрузка после открытия: переключение на расширенный набор мгновенное
   fillCountrySelect($("pf-country"), ui.profile); fillCountrySelect($("cmp-a"), ui.cmpA); fillCountrySelect($("cmp-b"), ui.cmpB);
   $("co-preset").innerHTML = Object.entries(coalPresets()).map(([k, p]) => `<option value="${k}">${esc(coalPresetName(p))}</option>`).join("") + `<option value="custom">${L("Своя коалиция", "Custom coalition")}</option>`;
   det = compute(V, state);
