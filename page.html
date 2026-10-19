@@ -251,27 +251,30 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       </svg>
       <div class="brand-txt">
         <span class="brand-mark">ИВМ <b>·</b> Ланчестер–Осипов</span>
-        <span class="brand-sub">индекс военной мощи · <span id="ind-count">253</span> показателя · 12 столпов</span>
+        <span class="brand-sub"><span data-i18n-en="Military Power Index ·">индекс военной мощи ·</span> <span id="ind-count">253</span> <span data-i18n-en="indicators · 12 pillars">показателя · 12 столпов</span></span>
       </div>
     </div>
     <nav class="tabs" role="tablist" aria-label="Разделы">
-      <button class="tab" role="tab" id="t-rating" data-tab="rating" aria-selected="true">Рейтинг</button>
-      <button class="tab" role="tab" id="t-profile" data-tab="profile" aria-selected="false">Профиль страны</button>
-      <button class="tab" role="tab" id="t-compare" data-tab="compare" aria-selected="false">Сравнение</button>
-      <button class="tab" role="tab" id="t-coalition" data-tab="coalition" aria-selected="false">Коалиции</button>
-      <button class="tab" role="tab" id="t-lanchester" data-tab="lanchester" aria-selected="false">Модель боя</button>
-      <button class="tab" role="tab" id="t-monitor" data-tab="monitor" aria-selected="false">Монитор очагов</button>
-      <button class="tab" role="tab" id="t-competitors" data-tab="competitors" aria-selected="false">Конкуренты</button>
-<button class="tab" role="tab" id="t-method" data-tab="method" aria-selected="false">Методика и веса</button>
-      <button class="tab" role="tab" id="t-catalog" data-tab="catalog" aria-selected="false">Показатели</button>
+      <button class="tab" role="tab" id="t-rating" data-tab="rating" aria-selected="true" data-i18n-en="Rating">Рейтинг</button>
+      <button class="tab" role="tab" id="t-profile" data-tab="profile" aria-selected="false" data-i18n-en="Country profile">Профиль страны</button>
+      <button class="tab" role="tab" id="t-compare" data-tab="compare" aria-selected="false" data-i18n-en="Compare">Сравнение</button>
+      <button class="tab" role="tab" id="t-coalition" data-tab="coalition" aria-selected="false" data-i18n-en="Coalitions">Коалиции</button>
+      <button class="tab" role="tab" id="t-lanchester" data-tab="lanchester" aria-selected="false" data-i18n-en="Battle model">Модель боя</button>
+      <button class="tab" role="tab" id="t-monitor" data-tab="monitor" aria-selected="false" data-i18n-en="Flashpoint monitor">Монитор очагов</button>
+      <button class="tab" role="tab" id="t-competitors" data-tab="competitors" aria-selected="false" data-i18n-en="Competitors">Конкуренты</button>
+<button class="tab" role="tab" id="t-method" data-tab="method" aria-selected="false" data-i18n-en="Methodology &amp; weights">Методика и веса</button>
+      <button class="tab" role="tab" id="t-catalog" data-tab="catalog" aria-selected="false" data-i18n-en="Indicators">Показатели</button>
     </nav>
+    <span class="seg sm" id="lang-switch" role="group" aria-label="Язык · Language" style="margin-left:auto">
+      <button data-v="ru" aria-pressed="true">RU</button><button data-v="en" aria-pressed="false">EN</button>
+    </span>
   </div>
 </header>
 
 <main class="wrap">
   <div class="banner">
     <strong id="banner-tag"></strong><span id="banner-text" style="flex:1 1 320px"></span>
-    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных"><button data-v="real">8 государств · эксперты</button><button data-v="pilot">40 государств · пилот</button><button data-v="demo">Демо · 14 вымышленных</button></span>
+    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
   </div>
 
   <!-- РЕЙТИНГ -->
@@ -279,42 +282,42 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     <div class="panel" style="border-color:var(--accent)">
       <div class="panel-head">
         <div style="min-width:0">
-          <h3 style="color:var(--accent)">Проверено, а не только заявлено</h3>
-          <p class="small" style="margin-top:4px">Единственный открытый индекс военной мощи с опубликованным протоколом проверки на реальных войнах и очагах напряжённости — промахи и ограничения не скрываются.</p>
+          <h3 style="color:var(--accent)" data-i18n-en="Proven, not just claimed">Проверено, а не только заявлено</h3>
+          <p class="small" style="margin-top:4px" data-i18n-en="The only open military power index with a published protocol for testing against real wars and flashpoints — mistakes and limits are not hidden.">Единственный открытый индекс военной мощи с опубликованным протоколом проверки на реальных войнах и очагах напряжённости — промахи и ограничения не скрываются.</p>
         </div>
-        <button class="btn" id="rating-to-competitors">Сравнить с TENET MCI, GFP, IISS →</button>
+        <button class="btn" id="rating-to-competitors" data-i18n-en="Compare with TENET MCI, GFP, IISS →">Сравнить с TENET MCI, GFP, IISS →</button>
       </div>
       <div class="tiles">
-        <div class="tile"><span class="lbl">AUC монитора очагов</span><div class="big num">0,96</div><div class="sub">вне выборки, 780 пар, 5 460 прогнозов</div></div>
-        <div class="tile"><span class="lbl">Проверка на войнах</span><div class="big num">10</div><div class="sub">2018–2025 гг., протокол зафиксирован до расчёта</div></div>
-        <div class="tile"><span class="lbl">Исторических сражений</span><div class="big num">404</div><div class="sub">CDB90 — измерен показатель закона Ланчестера α</div></div>
-        <div class="tile"><span class="lbl">Методика</span><div class="big num">открыта</div><div class="sub">весь код и данные — у конкурентов ядро проприетарное</div></div>
+        <div class="tile"><span class="lbl" data-i18n-en="Flashpoint monitor AUC">AUC монитора очагов</span><div class="big num">0,96</div><div class="sub" data-i18n-en="out-of-sample, 780 pairs, 5,460 forecasts">вне выборки, 780 пар, 5 460 прогнозов</div></div>
+        <div class="tile"><span class="lbl" data-i18n-en="Tested on wars">Проверка на войнах</span><div class="big num">10</div><div class="sub" data-i18n-en="2018–2025, protocol fixed before the run">2018–2025 гг., протокол зафиксирован до расчёта</div></div>
+        <div class="tile"><span class="lbl" data-i18n-en="Historical battles">Исторических сражений</span><div class="big num">404</div><div class="sub" data-i18n-en="CDB90 — Lanchester's law exponent α measured">CDB90 — измерен показатель закона Ланчестера α</div></div>
+        <div class="tile"><span class="lbl" data-i18n-en="Methodology">Методика</span><div class="big num" data-i18n-en="open">открыта</div><div class="sub" data-i18n-en="all code and data — competitors' cores are proprietary">весь код и данные — у конкурентов ядро проприетарное</div></div>
       </div>
     </div>
     <div class="panel">
       <div class="panel-head">
         <div>
-          <h2>Рейтинг военной мощи</h2>
+          <h2 data-i18n-en="Military power rating">Рейтинг военной мощи</h2>
           <p class="muted small" id="rating-settings"></p>
         </div>
         <div class="row">
           <div class="field" style="min-width:200px">
-            <label for="rating-measure">Показать</label>
+            <label for="rating-measure" data-i18n-en="Show">Показать</label>
             <select id="rating-measure"></select>
           </div>
           <div class="field" style="min-width:220px">
-            <label for="rating-D">Удалённость театра, тыс. км</label>
+            <label for="rating-D" data-i18n-en="Theatre distance, thousand km">Удалённость театра, тыс. км</label>
             <div class="range-line"><input type="range" id="rating-D" data-bind="D" min="0" max="12" step="0.5"><output data-out="D"></output></div>
           </div>
         </div>
       </div>
-      <div class="rank-head"><span>#</span><span>Государство</span><span>ИВМ, 0–100 · усы: 90% интервал</span><span style="text-align:right">ИВМ</span><span style="text-align:right">Место</span><span>12 столпов</span></div>
+      <div class="rank-head"><span>#</span><span data-i18n-en="Country">Государство</span><span data-i18n-en="MPI, 0–100 · whiskers: 90% interval">ИВМ, 0–100 · усы: 90% интервал</span><span style="text-align:right">ИВМ</span><span style="text-align:right" data-i18n-en="Rank">Место</span><span data-i18n-en="12 pillars">12 столпов</span></div>
       <div id="rank-list"></div>
       <div class="legend" style="margin-top:12px">
-        <span><span class="sw" style="background:var(--side-b);height:10px"></span>Значение индекса</span>
-        <span><span class="sw" style="background:var(--ink);height:2px"></span>90% интервал (Монте-Карло, <span id="mc-runs">300</span> прогонов)</span>
-        <span>Столп: 0 <span class="legend-ramp"><i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h5"></i><i class="h6"></i></span> 100</span>
-        <span class="muted">Нажмите на строку, чтобы открыть профиль.</span>
+        <span><span class="sw" style="background:var(--side-b);height:10px"></span><span data-i18n-en="Index value">Значение индекса</span></span>
+        <span><span class="sw" style="background:var(--ink);height:2px"></span><span data-i18n-en="90% interval (Monte Carlo,">90% интервал (Монте-Карло,</span> <span id="mc-runs">300</span> <span data-i18n-en="runs)">прогонов)</span></span>
+        <span><span data-i18n-en="Pillar: 0">Столп: 0</span> <span class="legend-ramp"><i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h5"></i><i class="h6"></i></span> 100</span>
+        <span class="muted" data-i18n-en="Click a row to open the profile.">Нажмите на строку, чтобы открыть профиль.</span>
       </div>
     </div>
   </section>
@@ -327,30 +330,30 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
           <h2 id="pf-title"></h2>
           <span id="pf-chips" class="row" style="gap:6px"></span>
         </div>
-        <div class="field" style="min-width:200px"><label for="pf-country">Государство</label><select id="pf-country"></select></div>
+        <div class="field" style="min-width:200px"><label for="pf-country" data-i18n-en="Country">Государство</label><select id="pf-country"></select></div>
       </div>
       <div class="tiles" id="pf-tiles"></div>
     </div>
     <div class="cols-even">
       <div class="panel">
-        <div class="panel-head"><h3>Профиль по 12 столпам</h3></div>
+        <div class="panel-head"><h3 data-i18n-en="Profile across 12 pillars">Профиль по 12 столпам</h3></div>
         <div class="radar-box" id="pf-radar"></div>
         <div class="legend" id="pf-radar-legend" style="justify-content:center"></div>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>Оценки столпов</h3><span class="muted small">серая метка — медиана выборки</span></div>
+        <div class="panel-head"><h3 data-i18n-en="Pillar scores">Оценки столпов</h3><span class="muted small" data-i18n-en="grey mark — sample median">серая метка — медиана выборки</span></div>
         <div class="hbars" id="pf-bars"></div>
       </div>
     </div>
     <div class="cols-even">
       <div class="panel">
-        <div class="panel-head"><h3>Сильные стороны</h3><span class="muted small">разница с медианой</span></div>
+        <div class="panel-head"><h3 data-i18n-en="Strengths">Сильные стороны</h3><span class="muted small" data-i18n-en="difference vs. median">разница с медианой</span></div>
         <ul class="list" id="pf-strong"></ul>
-        <div class="panel-head" style="margin-top:16px"><h3>Уязвимости</h3></div>
+        <div class="panel-head" style="margin-top:16px"><h3 data-i18n-en="Vulnerabilities">Уязвимости</h3></div>
         <ul class="list" id="pf-weak"></ul>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>Входы для модели боя</h3><button class="btn" id="pf-to-lanch">Смоделировать бой →</button></div>
+        <div class="panel-head"><h3 data-i18n-en="Battle model inputs">Входы для модели боя</h3><button class="btn" id="pf-to-lanch" data-i18n-en="Simulate battle →">Смоделировать бой →</button></div>
         <p class="small muted" style="margin-bottom:10px" id="pf-lanch-note"></p>
         <dl class="kv" id="pf-lanch"></dl>
       </div>
@@ -369,23 +372,23 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <section id="tab-compare" class="stack" hidden>
     <div class="panel">
       <div class="panel-head">
-        <h2>Сравнение двух государств</h2>
+        <h2 data-i18n-en="Compare two countries">Сравнение двух государств</h2>
         <div class="row">
-          <div class="field" style="min-width:180px"><label for="cmp-a">Сторона A</label><select id="cmp-a"></select></div>
-          <div class="field" style="min-width:180px"><label for="cmp-b">Сторона B</label><select id="cmp-b"></select></div>
-          <button class="btn btn-primary" id="cmp-to-lanch">Смоделировать бой A против B →</button>
+          <div class="field" style="min-width:180px"><label for="cmp-a" data-i18n-en="Side A">Сторона A</label><select id="cmp-a"></select></div>
+          <div class="field" style="min-width:180px"><label for="cmp-b" data-i18n-en="Side B">Сторона B</label><select id="cmp-b"></select></div>
+          <button class="btn btn-primary" id="cmp-to-lanch" data-i18n-en="Simulate battle A vs. B →">Смоделировать бой A против B →</button>
         </div>
       </div>
       <div class="tiles" id="cmp-tiles"></div>
     </div>
     <div class="cols-even">
       <div class="panel">
-        <div class="panel-head"><h3>Профили</h3></div>
+        <div class="panel-head"><h3 data-i18n-en="Profiles">Профили</h3></div>
         <div class="radar-box" id="cmp-radar"></div>
         <div class="legend" id="cmp-legend" style="justify-content:center"></div>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>Перевес по столпам</h3><span class="muted small">влево — A, вправо — B</span></div>
+        <div class="panel-head"><h3 data-i18n-en="Advantage by pillar">Перевес по столпам</h3><span class="muted small" data-i18n-en="left — A, right — B">влево — A, вправо — B</span></div>
         <div class="hbars" id="cmp-div"></div>
       </div>
     </div>
@@ -400,35 +403,35 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     <div class="panel">
       <div class="panel-head">
         <div style="min-width:0; flex:1 1 360px">
-          <h2>Конструктор коалиций</h2>
+          <h2 data-i18n-en="Coalition builder">Конструктор коалиций</h2>
           <p class="muted small" id="co-note"></p>
         </div>
         <div class="row">
-          <div class="field" style="min-width:min(100%,300px)"><label for="co-preset">Сценарий</label><select id="co-preset"></select></div>
-          <button class="btn" id="co-reset">Вернуть значения сценария</button>
+          <div class="field" style="min-width:min(100%,300px)"><label for="co-preset" data-i18n-en="Scenario">Сценарий</label><select id="co-preset"></select></div>
+          <button class="btn" id="co-reset" data-i18n-en="Reset scenario values">Вернуть значения сценария</button>
         </div>
       </div>
       <div class="co-cond">
         <div class="field">
-          <label for="co-alpha">Показатель закона <span class="sym">α</span></label>
+          <label for="co-alpha"><span data-i18n-en="Law exponent">Показатель закона</span> <span class="sym">α</span></label>
           <div class="range-line"><input type="range" id="co-alpha" min="0.5" max="2" step="0.05"><output id="co-alpha-out"></output></div>
         </div>
         <div class="field">
-          <label for="co-d">Коэффициент обороны <span class="sym">d</span></label>
+          <label for="co-d"><span data-i18n-en="Defence coefficient">Коэффициент обороны</span> <span class="sym">d</span></label>
           <select id="co-d">
-            <option value="1">1,0 · подготовленная или укреплённая оборона (сражения CDB90)</option>
-            <option value="1.3">1,3 · поспешная оборона, удары по ПВО</option>
-            <option value="1.7">1,7 · Украина 2024–2025: отношение потерь техники (Oryx)</option>
-            <option value="2.5">2,5 · прежнее допущение «подготовленная оборона, дроны»</option>
-            <option value="3">3,0 · прежнее допущение «горы, укрепрайон»</option>
+            <option value="1" data-i18n-en="1.0 · prepared or fortified defence (CDB90 battles)">1,0 · подготовленная или укреплённая оборона (сражения CDB90)</option>
+            <option value="1.3" data-i18n-en="1.3 · hasty defence, air-defence strikes">1,3 · поспешная оборона, удары по ПВО</option>
+            <option value="1.7" data-i18n-en="1.7 · Ukraine 2024–2025: equipment loss ratio (Oryx)">1,7 · Украина 2024–2025: отношение потерь техники (Oryx)</option>
+            <option value="2.5" data-i18n-en="2.5 · former assumption &quot;prepared defence, drones&quot;">2,5 · прежнее допущение «подготовленная оборона, дроны»</option>
+            <option value="3" data-i18n-en="3.0 · former assumption &quot;mountains, fortified area&quot;">3,0 · прежнее допущение «горы, укрепрайон»</option>
           </select>
         </div>
         <div class="field">
-          <label for="co-T">Горизонт, сут</label>
+          <label for="co-T" data-i18n-en="Horizon, days">Горизонт, сут</label>
           <select id="co-T"><option>30</option><option>60</option><option>90</option><option>180</option></select>
         </div>
         <div class="field">
-          <label for="co-t">Сутки для разбивки вклада</label>
+          <label for="co-t" data-i18n-en="Day for contribution breakdown">Сутки для разбивки вклада</label>
           <div class="range-line"><input type="range" id="co-t" min="0" max="60" step="1"><output id="co-t-out"></output></div>
         </div>
       </div>
@@ -436,8 +439,8 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 
     <div class="panel">
       <div class="panel-head">
-        <h3>Баланс сил на театре</h3>
-        <button class="btn btn-primary" id="co-to-lanch">Смоделировать бой коалиций →</button>
+        <h3 data-i18n-en="Force balance in theatre">Баланс сил на театре</h3>
+        <button class="btn btn-primary" id="co-to-lanch" data-i18n-en="Simulate coalition battle →">Смоделировать бой коалиций →</button>
       </div>
       <div class="stack" style="gap:12px">
         <div class="tiles" id="co-tiles"></div>
@@ -447,20 +450,20 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 
     <div class="cols-even">
       <div class="panel co-side">
-        <div class="panel-head"><h3>Сторона A · наступает</h3><span class="co-sum" id="co-sum-A"></span></div>
+        <div class="panel-head"><h3 data-i18n-en="Side A · attacking">Сторона A · наступает</h3><span class="co-sum" id="co-sum-A"></span></div>
         <div class="plist" id="co-list-A"></div>
-        <div class="co-add"><select id="co-add-A" aria-label="Участник для стороны A"></select><button class="btn" id="co-addbtn-A">Добавить в A</button></div>
+        <div class="co-add"><select id="co-add-A" aria-label="Участник для стороны A"></select><button class="btn" id="co-addbtn-A" data-i18n-en="Add to A">Добавить в A</button></div>
       </div>
       <div class="panel co-side b">
-        <div class="panel-head"><h3>Сторона B · обороняется</h3><span class="co-sum" id="co-sum-B"></span></div>
+        <div class="panel-head"><h3 data-i18n-en="Side B · defending">Сторона B · обороняется</h3><span class="co-sum" id="co-sum-B"></span></div>
         <div class="plist" id="co-list-B"></div>
-        <div class="co-add"><select id="co-add-B" aria-label="Участник для стороны B"></select><button class="btn" id="co-addbtn-B">Добавить в B</button></div>
+        <div class="co-add"><select id="co-add-B" aria-label="Участник для стороны B"></select><button class="btn" id="co-addbtn-B" data-i18n-en="Add to B">Добавить в B</button></div>
       </div>
     </div>
 
     <div class="panel">
       <div class="panel-head">
-        <h3>Баланс во времени</h3>
+        <h3 data-i18n-en="Balance over time">Баланс во времени</h3>
         <div class="legend" id="co-legend"></div>
       </div>
       <div class="chart-box" id="co-chart"></div>
@@ -468,17 +471,17 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 
     <div class="cols-even">
       <div class="panel">
-        <div class="panel-head"><h3>Вклад участников</h3><span class="muted small" id="co-bars-day"></span></div>
+        <div class="panel-head"><h3 data-i18n-en="Contribution by member">Вклад участников</h3><span class="muted small" id="co-bars-day"></span></div>
         <div class="stack" style="gap:14px" id="co-bars"></div>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>Граф союзов</h3><span class="muted small">толщина ребра — надёжность <span class="sym">ρ</span>, буква — класс обязательства</span></div>
+        <div class="panel-head"><h3 data-i18n-en="Alliance graph">Граф союзов</h3><span class="muted small"><span data-i18n-en="edge thickness — reliability">толщина ребра — надёжность</span> <span class="sym">ρ</span>, <span data-i18n-en="letter — commitment class">буква — класс обязательства</span></span></div>
         <div class="co-graph chart-box" id="co-graph"></div>
       </div>
     </div>
 
     <div class="panel">
-      <div class="panel-head"><h3>Формулы с текущими параметрами</h3></div>
+      <div class="panel-head"><h3 data-i18n-en="Formulas with current parameters">Формулы с текущими параметрами</h3></div>
       <div class="formula" id="co-formula"></div>
     </div>
   </section>
@@ -488,58 +491,58 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     <div class="cols">
       <div class="stack">
         <div class="panel stack" style="gap:12px">
-          <h2>Сценарий</h2>
+          <h2 data-i18n-en="Scenario">Сценарий</h2>
           <div class="side-card a">
-            <div class="field"><label for="ln-a">Сторона A · наступает</label><select id="ln-a"></select></div>
+            <div class="field"><label for="ln-a" data-i18n-en="Side A · attacking">Сторона A · наступает</label><select id="ln-a"></select></div>
             <div class="inputs" id="ln-a-inputs"></div>
           </div>
           <div class="side-card b">
-            <div class="field"><label for="ln-b">Сторона B · обороняется на своей территории</label><select id="ln-b"></select></div>
+            <div class="field"><label for="ln-b" data-i18n-en="Side B · defending on home ground">Сторона B · обороняется на своей территории</label><select id="ln-b"></select></div>
             <div class="inputs" id="ln-b-inputs"></div>
           </div>
-          <button class="btn" id="ln-reset">Вернуть входы из индекса</button>
+          <button class="btn" id="ln-reset" data-i18n-en="Reset inputs from index">Вернуть входы из индекса</button>
         </div>
         <div class="panel stack" style="gap:12px">
-          <h3>Условия</h3>
+          <h3 data-i18n-en="Conditions">Условия</h3>
           <div class="field">
-            <label for="ln-alpha">Показатель закона <span class="sym">α</span></label>
+            <label for="ln-alpha"><span data-i18n-en="Law exponent">Показатель закона</span> <span class="sym">α</span></label>
             <div class="range-line"><input type="range" id="ln-alpha" min="0.5" max="2" step="0.05"><output id="ln-alpha-out"></output></div>
-            <span class="hint">1 — линейный закон (огонь по площадям), 2 — квадратичный (прицельный огонь). По 404 сражениям 1900–1973 гг. (CDB90) при равной эффективности сторон α ≈ 1,0 [0,8; 1,2] — это значение по умолчанию.</span>
+            <span class="hint" data-i18n-en="1 — linear law (area fire), 2 — quadratic (aimed fire). Across 404 battles 1900–1973 (CDB90) with equal side effectiveness α ≈ 1.0 [0.8; 1.2] — this is the default.">1 — линейный закон (огонь по площадям), 2 — квадратичный (прицельный огонь). По 404 сражениям 1900–1973 гг. (CDB90) при равной эффективности сторон α ≈ 1,0 [0,8; 1,2] — это значение по умолчанию.</span>
           </div>
           <div class="field">
-            <label for="ln-D">Удалённость театра от A, тыс. км</label>
+            <label for="ln-D" data-i18n-en="Theatre distance from A, thousand km">Удалённость театра от A, тыс. км</label>
             <div class="range-line"><input type="range" id="ln-D" min="0" max="10" step="0.5"><output id="ln-D-out"></output></div>
-            <span class="hint" id="ln-D-hint" hidden>Для коалиции A удалённость задана по каждому участнику в разделе «Коалиции».</span>
+            <span class="hint" id="ln-D-hint" hidden data-i18n-en="For coalition A, distance is set per member in the &quot;Coalitions&quot; tab.">Для коалиции A удалённость задана по каждому участнику в разделе «Коалиции».</span>
           </div>
           <div class="field">
-            <label for="ln-terrain">Местность и подготовка обороны</label>
+            <label for="ln-terrain" data-i18n-en="Terrain and defence preparation">Местность и подготовка обороны</label>
             <select id="ln-terrain">
-              <option value="1" selected>Подготовленная или укреплённая оборона · d = 1,0 (сражения CDB90)</option>
-              <option value="1.3">Поспешная оборона, удары · d = 1,3</option>
-              <option value="1.7">Украина 2024–2025, по потерям техники · d = 1,7</option>
-              <option value="2.5">Прежнее допущение: подготовленная оборона, дроны · d = 2,5</option>
-              <option value="3">Прежнее допущение: горы, укрепрайон · d = 3,0</option>
+              <option value="1" selected data-i18n-en="Prepared or fortified defence · d = 1.0 (CDB90 battles)">Подготовленная или укреплённая оборона · d = 1,0 (сражения CDB90)</option>
+              <option value="1.3" data-i18n-en="Hasty defence, strikes · d = 1.3">Поспешная оборона, удары · d = 1,3</option>
+              <option value="1.7" data-i18n-en="Ukraine 2024–2025, by equipment losses · d = 1.7">Украина 2024–2025, по потерям техники · d = 1,7</option>
+              <option value="2.5" data-i18n-en="Former assumption: prepared defence, drones · d = 2.5">Прежнее допущение: подготовленная оборона, дроны · d = 2,5</option>
+              <option value="3" data-i18n-en="Former assumption: mountains, fortified area · d = 3.0">Прежнее допущение: горы, укрепрайон · d = 3,0</option>
             </select>
           </div>
           <div class="row">
             <div class="field" style="flex:1 1 120px">
-              <label for="ln-bp">Порог слома, % потерь</label>
-              <select id="ln-bp"><option value="campaign" selected>Кампания (месяцы) · 40%</option><option value="battle">Сражение (дни) · 16% (CDB90)</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.6">60%</option></select>
+              <label for="ln-bp" data-i18n-en="Breaking threshold, % losses">Порог слома, % потерь</label>
+              <select id="ln-bp"><option value="campaign" selected data-i18n-en="Campaign (months) · 40%">Кампания (месяцы) · 40%</option><option value="battle" data-i18n-en="Battle (days) · 16% (CDB90)">Сражение (дни) · 16% (CDB90)</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.6">60%</option></select>
             </div>
             <div class="field" style="flex:1 1 120px">
-              <label for="ln-T">Горизонт, сут</label>
+              <label for="ln-T" data-i18n-en="Horizon, days">Горизонт, сут</label>
               <select id="ln-T"><option>90</option><option selected>180</option><option>365</option><option>720</option></select>
             </div>
           </div>
-          <label class="row small" style="gap:8px; align-items:center"><input type="checkbox" id="ln-mob" checked> Мобилизация и восполнение потерь</label>
-          <label class="row small" style="gap:8px; align-items:center" id="ln-allies-row"><input type="checkbox" id="ln-allies"> Учитывать союзников по блоку</label>
-          <p class="hint small muted" id="ln-allies-hint" hidden>Союзников задают в разделе «Коалиции»: надёжность, доля сил, удалённость и срок вступления каждого участника.</p>
+          <label class="row small" style="gap:8px; align-items:center"><input type="checkbox" id="ln-mob" checked> <span data-i18n-en="Mobilisation and loss replacement">Мобилизация и восполнение потерь</span></label>
+          <label class="row small" style="gap:8px; align-items:center" id="ln-allies-row"><input type="checkbox" id="ln-allies"> <span data-i18n-en="Account for bloc allies">Учитывать союзников по блоку</span></label>
+          <p class="hint small muted" id="ln-allies-hint" hidden data-i18n-en="Allies are set in the &quot;Coalitions&quot; tab: reliability, force share, distance and arrival time for each member.">Союзников задают в разделе «Коалиции»: надёжность, доля сил, удалённость и срок вступления каждого участника.</p>
         </div>
       </div>
       <div class="stack">
         <div class="panel">
           <div class="panel-head">
-            <div><h3>Исход</h3></div>
+            <div><h3 data-i18n-en="Outcome">Исход</h3></div>
             <span class="muted small" id="ln-mc-note"></span>
           </div>
           <div class="stack" style="gap:12px">
@@ -551,29 +554,29 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         </div>
         <div class="panel">
           <div class="panel-head">
-            <h3>Боевой потенциал во времени</h3>
+            <h3 data-i18n-en="Combat potential over time">Боевой потенциал во времени</h3>
             <div class="legend" id="ln-legend"></div>
           </div>
           <div class="chart-box" id="ln-chart"></div>
         </div>
         <div class="cols-even">
           <div class="panel">
-            <div class="panel-head"><h3>Инвариант Ланчестера</h3></div>
+            <div class="panel-head"><h3 data-i18n-en="Lanchester invariant">Инвариант Ланчестера</h3></div>
             <dl class="kv" id="ln-inv"></dl>
           </div>
           <div class="panel">
-            <div class="panel-head"><h3>Чувствительность к закону</h3></div>
+            <div class="panel-head"><h3 data-i18n-en="Sensitivity to the law">Чувствительность к закону</h3></div>
             <dl class="kv" id="ln-sens"></dl>
           </div>
         </div>
         <div class="panel">
-          <div class="panel-head"><h3>Уравнения</h3></div>
+          <div class="panel-head"><h3 data-i18n-en="Equations">Уравнения</h3></div>
           <div class="formula" id="ln-formula"></div>
         </div>
       </div>
     </div>
     <div class="panel stack" style="gap:12px">
-      <div class="panel-head"><div><h3>Залпы и ПВО · модель Хьюза</h3><span class="muted small">Ракеты и дроны против перехватчиков. Сценарный калькулятор: параметры задаёте вы, модель не калибруется (заявленные вероятности перехвата и цены — класс D).</span></div></div>
+      <div class="panel-head"><div><h3 data-i18n-en="Salvoes & air defence · Hughes model">Залпы и ПВО · модель Хьюза</h3><span class="muted small" data-i18n-en="Missiles and drones vs. interceptors. Scenario calculator: you set the parameters, the model is not calibrated (claimed intercept probabilities and prices are class D).">Ракеты и дроны против перехватчиков. Сценарный калькулятор: параметры задаёте вы, модель не калибруется (заявленные вероятности перехвата и цены — класс D).</span></div></div>
       <div class="cols-even">
         <div class="inputs" id="sv-inputs"></div>
         <div class="stack" style="gap:10px">
@@ -590,49 +593,49 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <section id="tab-method" class="stack" hidden>
     <div class="cols">
       <div class="panel stack" style="gap:14px">
-        <h2>Настройки методики</h2>
-        <div class="field"><label for="m-preset">Набор весов</label><select id="m-preset"></select></div>
+        <h2 data-i18n-en="Methodology settings">Настройки методики</h2>
+        <div class="field"><label for="m-preset" data-i18n-en="Weight set">Набор весов</label><select id="m-preset"></select></div>
         <div class="field">
-          <label for="m-rho">Взаимозаменяемость столпов <span class="sym">ρ</span></label>
+          <label for="m-rho"><span data-i18n-en="Pillar substitutability">Взаимозаменяемость столпов</span> <span class="sym">ρ</span></label>
           <div class="range-line"><input type="range" id="m-rho" data-bind="rho" min="-1" max="1" step="0.05"><output data-out="rho"></output></div>
-          <span class="hint">1 — сумма (слабость компенсируется силой), 0 — геометрическое среднее, меньше 0 — «слабое звено» решает.</span>
+          <span class="hint" data-i18n-en="1 — sum (weakness offset by strength), 0 — geometric mean, below 0 — the &quot;weakest link&quot; decides.">1 — сумма (слабость компенсируется силой), 0 — геометрическое среднее, меньше 0 — «слабое звено» решает.</span>
         </div>
         <div class="field">
-          <label for="m-alpha">Показатель Ланчестера <span class="sym">α</span> для боевых столпов</label>
+          <label for="m-alpha"><span data-i18n-en="Lanchester exponent">Показатель Ланчестера</span> <span class="sym">α</span> <span data-i18n-en="for combat pillars">для боевых столпов</span></label>
           <div class="range-line"><input type="range" id="m-alpha" data-bind="alpha" min="0.5" max="2" step="0.05"><output data-out="alpha"></output></div>
-          <span class="hint">Во сколько раз численность весомее качества в логарифмах: ln F = ln Q + α·ln N.</span>
-          <span class="hint" id="m-alpha-real" hidden>Для 8 реальных государств не действует: баллы столпов выставлены экспертно, а не собраны из показателей N и Q.</span>
+          <span class="hint" data-i18n-en="How much more numbers count than quality in logs: ln F = ln Q + α·ln N.">Во сколько раз численность весомее качества в логарифмах: ln F = ln Q + α·ln N.</span>
+          <span class="hint" id="m-alpha-real" hidden data-i18n-en="Not applied for the 8 real countries: pillar scores are expert-assigned, not built from N and Q indicators.">Для 8 реальных государств не действует: баллы столпов выставлены экспертно, а не собраны из показателей N и Q.</span>
         </div>
         <div class="field">
-          <span class="lbl">Ядерное сдерживание</span>
+          <span class="lbl" data-i18n-en="Nuclear deterrence">Ядерное сдерживание</span>
           <div class="seg" id="m-nuclear">
-            <button data-v="axis">Отдельная ось</button><button data-v="pillar">Как столп</button><button data-v="mult">Множитель</button>
+            <button data-v="axis" data-i18n-en="Separate axis">Отдельная ось</button><button data-v="pillar" data-i18n-en="As a pillar">Как столп</button><button data-v="mult" data-i18n-en="Multiplier">Множитель</button>
           </div>
         </div>
         <div class="field">
-          <span class="lbl">Нормировка</span>
+          <span class="lbl" data-i18n-en="Normalisation">Нормировка</span>
           <div class="seg" id="m-norm">
-            <button data-v="global">Глобальная шкала</button><button data-v="minmax">Мин–макс по выборке</button>
+            <button data-v="global" data-i18n-en="Global scale">Глобальная шкала</button><button data-v="minmax" data-i18n-en="Min–max in sample">Мин–макс по выборке</button>
           </div>
-          <span class="hint" id="m-norm-real" hidden>Для 8 реальных государств баллы уже стоят на глобальной шкале 0–100.</span>
+          <span class="hint" id="m-norm-real" hidden data-i18n-en="For the 8 real countries, scores are already on the global 0–100 scale.">Для 8 реальных государств баллы уже стоят на глобальной шкале 0–100.</span>
         </div>
         <div class="field">
-          <label for="m-D">Удалённость театра D, тыс. км</label>
+          <label for="m-D" data-i18n-en="Theatre distance D, thousand km">Удалённость театра D, тыс. км</label>
           <div class="range-line"><input type="range" id="m-D" data-bind="D" min="0" max="12" step="0.5"><output data-out="D"></output></div>
         </div>
         <div class="field">
-          <span class="lbl">Веса столпов</span>
+          <span class="lbl" data-i18n-en="Pillar weights">Веса столпов</span>
           <div class="stack" style="gap:6px" id="m-weights"></div>
         </div>
-        <button class="btn" id="m-reset">Сбросить к «Сбалансированному»</button>
+        <button class="btn" id="m-reset" data-i18n-en="Reset to &quot;Balanced&quot;">Сбросить к «Сбалансированному»</button>
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="panel-head"><h3>Рейтинг при текущих настройках</h3><span class="muted small">стрелка — сдвиг места относительно базовых настроек</span></div>
-          <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th>Государство</th><th class="num">ИВМ</th><th class="num">Сдвиг</th><th class="num">Без СЯС</th><th class="num"><span class="sym">λ</span>, тыс. км</th></tr></thead><tbody id="m-table"></tbody></table></div>
+          <div class="panel-head"><h3 data-i18n-en="Rating with current settings">Рейтинг при текущих настройках</h3><span class="muted small" data-i18n-en="arrow — rank shift vs. baseline settings">стрелка — сдвиг места относительно базовых настроек</span></div>
+          <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country">Государство</th><th class="num">ИВМ</th><th class="num" data-i18n-en="Shift">Сдвиг</th><th class="num" data-i18n-en="Excl. nuclear">Без СЯС</th><th class="num"><span class="sym">λ</span>, <span data-i18n-en="thousand km">тыс. км</span></th></tr></thead><tbody id="m-table"></tbody></table></div>
         </div>
         <div class="panel">
-          <div class="panel-head"><h3>Формулы с текущими параметрами</h3></div>
+          <div class="panel-head"><h3 data-i18n-en="Formulas with current parameters">Формулы с текущими параметрами</h3></div>
           <div class="formula" id="m-formula"></div>
         </div>
       </div>
@@ -643,16 +646,16 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <section id="tab-monitor" class="stack" hidden>
     <div class="panel">
       <div class="panel-head">
-        <div><h2>Монитор очагов · 2026</h2><p class="muted small" id="mon-summary"></p></div>
+        <div><h2 data-i18n-en="Flashpoint monitor · 2026">Монитор очагов · 2026</h2><p class="muted small" id="mon-summary"></p></div>
         <div class="row">
-          <label class="small"><input type="checkbox" id="mon-new"> только пары без конфликта в 2025 г.</label>
+          <label class="small"><input type="checkbox" id="mon-new"> <span data-i18n-en="only pairs without a conflict in 2025">только пары без конфликта в 2025 г.</span></label>
           <div class="field" style="min-width:160px">
-            <label for="mon-n">Показать пар</label>
-            <select id="mon-n"><option value="20">20</option><option value="40" selected>40</option><option value="100">100</option><option value="780">все 780</option></select>
+            <label for="mon-n" data-i18n-en="Show pairs">Показать пар</label>
+            <select id="mon-n"><option value="20">20</option><option value="40" selected>40</option><option value="100">100</option><option value="780" data-i18n-en="all 780">все 780</option></select>
           </div>
         </div>
       </div>
-      <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th>Пара государств</th><th style="min-width:180px">Вероятность конфликта в 2026 г.</th><th>2025 г.</th><th class="num">Лет конфликта за 10</th><th>Соседство</th><th>Союз</th><th class="num">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
+      <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country pair">Пара государств</th><th style="min-width:180px" data-i18n-en="Conflict probability in 2026">Вероятность конфликта в 2026 г.</th><th data-i18n-en="2025">2025 г.</th><th class="num" data-i18n-en="Years of conflict per 10">Лет конфликта за 10</th><th data-i18n-en="Neighbours">Соседство</th><th data-i18n-en="Alliance">Союз</th><th class="num" data-i18n-en="Democracy (min)">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
       <p class="small muted" id="mon-note"></p>
     </div>
   </section>
@@ -662,48 +665,48 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     <div class="panel">
       <div class="panel-head">
         <div>
-          <h2>Чем ИВМ отличается от аналогов</h2>
-          <p class="muted small">Главный конкурент — TENET Intelligence, Military Capability Index (MCI, США): 150+ стран, проприетарное ядро, заявлен квадратичный закон Ланчестера, проверки на войнах не опубликовано. Разбор — docs/Конкуренты_и_новизна.md.</p>
+          <h2 data-i18n-en="How the MPI differs from comparable systems">Чем ИВМ отличается от аналогов</h2>
+          <p class="muted small" data-i18n-en="Main competitor — TENET Intelligence, Military Capability Index (MCI, USA): 150+ countries, proprietary core, claims a quadratic Lanchester law, no published war testing. Full analysis — docs/Конкуренты_и_новизна.md.">Главный конкурент — TENET Intelligence, Military Capability Index (MCI, США): 150+ стран, проприетарное ядро, заявлен квадратичный закон Ланчестера, проверки на войнах не опубликовано. Разбор — docs/Конкуренты_и_новизна.md.</p>
         </div>
       </div>
       <div class="tbl-wrap">
         <table>
-          <thead><tr><th>Критерий</th><th>ИВМ «Ланчестер–Осипов»</th><th>TENET MCI</th><th>Global Firepower</th><th>IISS Military Balance</th></tr></thead>
+          <thead><tr><th data-i18n-en="Criterion">Критерий</th><th>ИВМ «Ланчестер–Осипов»</th><th>TENET MCI</th><th>Global Firepower</th><th>IISS Military Balance</th></tr></thead>
           <tbody>
-            <tr><td>Методика</td><td class="num" style="text-align:left">код и формулы открыты</td><td>проприетарная</td><td>закрытая формула</td><td>закрытая</td></tr>
-            <tr><td>Закон боя</td><td style="text-align:left">α измерен на 404 сражениях (0,65–0,98) — квадратичный закон отвергнут</td><td>декларирует N²</td><td>нет явной модели боя</td><td>нет модели боя</td></tr>
-            <tr><td>Проверка на истории</td><td style="text-align:left">10 войн 2018–2025, протокол до расчёта, промахи опубликованы</td><td>не опубликована</td><td>нет</td><td>нет</td></tr>
-            <tr><td>Неопределённость</td><td style="text-align:left">интервалы, Монте-Карло, индексы Соболя, σ модели</td><td>не видно</td><td>точечные числа</td><td>точечные числа</td></tr>
-            <tr><td>Монитор очагов</td><td style="text-align:left">AUC 0,96 вне выборки, 780 пар</td><td>нет (MERIDIAN — влияние, без проверки)</td><td>нет</td><td>нет</td></tr>
-            <tr><td>Модель боя и коалиции</td><td style="text-align:left">Ланчестер–Хельмболд, залпы Хьюза, коалиции (ρ, s, τ, D)</td><td>не опубликована</td><td>нет</td><td>нет</td></tr>
-            <tr><td>Охват стран</td><td>40 (пилот) / 8 эксперты</td><td>150+</td><td>145+</td><td>170+</td></tr>
-            <tr><td>Показатели</td><td>253 (≈215 в индексе пилота)</td><td>200+</td><td>60+</td><td>нет единого индекса</td></tr>
-            <tr><td>Экспертная оценка</td><td style="text-align:left">панель Дельфи (готова к запуску), пока — временная оценка ИИ класса D</td><td>штат бывших военных и разведчиков</td><td>неизвестно</td><td>штат аналитиков (эталон данных)</td></tr>
-            <tr><td>Данные</td><td style="text-align:left">открытые источники (SIPRI, UCDP, ВБ и др.)</td><td>вероятно платные OSINT</td><td>смешанные, без ссылок на каждую цифру</td><td>платные, закрытые</td></tr>
-            <tr><td>Стоимость доступа</td><td>бесплатно</td><td>платный (B2B)</td><td>бесплатно (реклама)</td><td>платное издание</td></tr>
-            <tr><td>Честность прогноза</td><td style="text-align:left">признано: баланс сил по индексу предсказывает войны не лучше равновероятного — опубликовано как ограничение</td><td>маркетинг без проверок</td><td>не заявляет прогноз</td><td>не заявляет прогноз</td></tr>
+            <tr><td data-i18n-en="Methodology">Методика</td><td class="num" style="text-align:left" data-i18n-en="code and formulas are open">код и формулы открыты</td><td data-i18n-en="proprietary">проприетарная</td><td data-i18n-en="closed formula">закрытая формула</td><td data-i18n-en="closed">закрытая</td></tr>
+            <tr><td data-i18n-en="Combat law">Закон боя</td><td style="text-align:left" data-i18n-en="α measured on 404 battles (0.65–0.98) — quadratic law rejected">α измерен на 404 сражениях (0,65–0,98) — квадратичный закон отвергнут</td><td data-i18n-en="claims N²">декларирует N²</td><td data-i18n-en="no explicit battle model">нет явной модели боя</td><td data-i18n-en="no battle model">нет модели боя</td></tr>
+            <tr><td data-i18n-en="Historical testing">Проверка на истории</td><td style="text-align:left" data-i18n-en="10 wars 2018–2025, protocol fixed before the run, misses published">10 войн 2018–2025, протокол до расчёта, промахи опубликованы</td><td data-i18n-en="not published">не опубликована</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
+            <tr><td data-i18n-en="Uncertainty">Неопределённость</td><td style="text-align:left" data-i18n-en="intervals, Monte Carlo, Sobol indices, model σ">интервалы, Монте-Карло, индексы Соболя, σ модели</td><td data-i18n-en="not visible">не видно</td><td data-i18n-en="point figures">точечные числа</td><td data-i18n-en="point figures">точечные числа</td></tr>
+            <tr><td data-i18n-en="Flashpoint monitor">Монитор очагов</td><td style="text-align:left" data-i18n-en="AUC 0.96 out-of-sample, 780 pairs">AUC 0,96 вне выборки, 780 пар</td><td data-i18n-en="none (MERIDIAN — influence, untested)">нет (MERIDIAN — влияние, без проверки)</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
+            <tr><td data-i18n-en="Battle model & coalitions">Модель боя и коалиции</td><td style="text-align:left" data-i18n-en="Lanchester–Helmbold, Hughes salvoes, coalitions (ρ, s, τ, D)">Ланчестер–Хельмболд, залпы Хьюза, коалиции (ρ, s, τ, D)</td><td data-i18n-en="not published">не опубликована</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
+            <tr><td data-i18n-en="Country coverage">Охват стран</td><td data-i18n-en="40 (pilot) / 8 experts">40 (пилот) / 8 эксперты</td><td>150+</td><td>145+</td><td>170+</td></tr>
+            <tr><td data-i18n-en="Indicators">Показатели</td><td data-i18n-en="253 (≈215 in the pilot index)">253 (≈215 в индексе пилота)</td><td>200+</td><td>60+</td><td data-i18n-en="no single index">нет единого индекса</td></tr>
+            <tr><td data-i18n-en="Expert assessment">Экспертная оценка</td><td style="text-align:left" data-i18n-en="Delphi panel (ready to launch), currently a temporary class-D AI estimate">панель Дельфи (готова к запуску), пока — временная оценка ИИ класса D</td><td data-i18n-en="staff of former military & intelligence officers">штат бывших военных и разведчиков</td><td data-i18n-en="unknown">неизвестно</td><td data-i18n-en="analyst staff (data benchmark)">штат аналитиков (эталон данных)</td></tr>
+            <tr><td data-i18n-en="Data">Данные</td><td style="text-align:left" data-i18n-en="open sources (SIPRI, UCDP, World Bank, etc.)">открытые источники (SIPRI, UCDP, ВБ и др.)</td><td data-i18n-en="likely paid OSINT">вероятно платные OSINT</td><td data-i18n-en="mixed, no per-figure sourcing">смешанные, без ссылок на каждую цифру</td><td data-i18n-en="paid, closed">платные, закрытые</td></tr>
+            <tr><td data-i18n-en="Access cost">Стоимость доступа</td><td data-i18n-en="free">бесплатно</td><td data-i18n-en="paid (B2B)">платный (B2B)</td><td data-i18n-en="free (ad-supported)">бесплатно (реклама)</td><td data-i18n-en="paid publication">платное издание</td></tr>
+            <tr><td data-i18n-en="Forecast honesty">Честность прогноза</td><td style="text-align:left" data-i18n-en="acknowledged: index-based balance of power predicts wars no better than a coin flip — published as a limitation">признано: баланс сил по индексу предсказывает войны не лучше равновероятного — опубликовано как ограничение</td><td data-i18n-en="marketing without testing">маркетинг без проверок</td><td data-i18n-en="makes no forecast claim">не заявляет прогноз</td><td data-i18n-en="makes no forecast claim">не заявляет прогноз</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="small muted" style="margin-top:10px">Где сильнее рынок: охват стран (150+ у TENET и IISS против 40 в пилоте ИВМ), доступ к закрытым разведданным, устоявшийся продукт и клиентская база. Где сильнее ИВМ: проверяемость, прозрачность методики, измеренные (не декларированные) параметры закона боя, честно опубликованные ограничения.</p>
+      <p class="small muted" style="margin-top:10px" data-i18n-en="Where the market is ahead: country coverage (150+ for TENET and IISS vs. 40 in the MPI pilot), access to closed intelligence data, an established product and client base. Where the MPI is ahead: testability, methodology transparency, measured (not claimed) combat-law parameters, honestly published limitations.">Где сильнее рынок: охват стран (150+ у TENET и IISS против 40 в пилоте ИВМ), доступ к закрытым разведданным, устоявшийся продукт и клиентская база. Где сильнее ИВМ: проверяемость, прозрачность методики, измеренные (не декларированные) параметры закона боя, честно опубликованные ограничения.</p>
     </div>
     <div class="cols-even">
       <div class="panel">
-        <div class="panel-head"><h3>TENET MCI: что заявлено</h3></div>
+        <div class="panel-head"><h3 data-i18n-en="TENET MCI: what is claimed">TENET MCI: что заявлено</h3></div>
         <ul class="list">
-          <li>«На основе законов Ланчестера», формула — Effectiveness = N² × Quality (квадратичный закон)</li>
-          <li>Четыре блока: структура сил, технологическая оснащённость, операционная эффективность, устойчивость снабжения</li>
-          <li>Консультативный совет из бывших военных и разведчиков США (доверие через имена, не через проверку)</li>
-          <li>Страница «Forecast Record» обещает публиковать промахи — доступ закрыт «для квалифицированных партнёров»</li>
+          <li data-i18n-en="&quot;Based on Lanchester's laws&quot;, formula — Effectiveness = N² × Quality (quadratic law)">«На основе законов Ланчестера», формула — Effectiveness = N² × Quality (квадратичный закон)</li>
+          <li data-i18n-en="Four blocks: force structure, technological equipping, operational effectiveness, sustainment resilience">Четыре блока: структура сил, технологическая оснащённость, операционная эффективность, устойчивость снабжения</li>
+          <li data-i18n-en="Advisory board of former US military and intelligence officers (trust through names, not through testing)">Консультативный совет из бывших военных и разведчиков США (доверие через имена, не через проверку)</li>
+          <li data-i18n-en="&quot;Forecast Record&quot; page promises to publish misses — access is closed &quot;to qualified partners&quot;">Страница «Forecast Record» обещает публиковать промахи — доступ закрыт «для квалифицированных партнёров»</li>
         </ul>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>Что измерения CDB90 показывают о квадратичном законе</h3></div>
+        <div class="panel-head"><h3 data-i18n-en="What CDB90 measurements show about the quadratic law">Что измерения CDB90 показывают о квадратичном законе</h3></div>
         <ul class="list">
-          <li>404 сражения 1900–1973 гг.: показатель α = 0,65 [0,46; 0,84] — близко к линейному закону, не к квадратичному (α = 2)</li>
-          <li>С поправкой на качественное превосходство нападающего: α = 0,98 [0,80; 1,18] — линейный закон, не квадратичный</li>
-          <li>Соотношение численности почти не улучшает прогноз исхода сражения (R² = 0,04) — решают качество, руководство и мораль</li>
-          <li>Полный разбор и измерение разведки (i) и воли (m*) — <code>docs/word/08_Модели_боя_и_новизна.docx</code></li>
+          <li data-i18n-en="404 battles 1900–1973: exponent α = 0.65 [0.46; 0.84] — close to a linear law, not quadratic (α = 2)">404 сражения 1900–1973 гг.: показатель α = 0,65 [0,46; 0,84] — близко к линейному закону, не к квадратичному (α = 2)</li>
+          <li data-i18n-en="Adjusted for the attacker's qualitative edge: α = 0.98 [0.80; 1.18] — a linear, not quadratic, law">С поправкой на качественное превосходство нападающего: α = 0,98 [0,80; 1,18] — линейный закон, не квадратичный</li>
+          <li data-i18n-en="Numerical ratio barely improves the forecast of a battle's outcome (R² = 0.04) — quality, leadership and morale decide">Соотношение численности почти не улучшает прогноз исхода сражения (R² = 0,04) — решают качество, руководство и мораль</li>
+          <li><span data-i18n-en="Full analysis and measurement of intelligence (i) and will (m*) —">Полный разбор и измерение разведки (i) и воли (m*) —</span> <code>docs/word/08_Модели_боя_и_новизна.docx</code></li>
         </ul>
       </div>
     </div>
@@ -712,22 +715,22 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <section id="tab-catalog" class="stack" hidden>
     <div class="panel">
       <div class="panel-head">
-        <div><h2>Каталог показателей</h2><p class="muted small" id="cat-summary"></p></div>
+        <div><h2 data-i18n-en="Indicator catalogue">Каталог показателей</h2><p class="muted small" id="cat-summary"></p></div>
         <div class="row">
-          <div class="field" style="min-width:220px"><label for="cat-q">Поиск</label><input type="search" id="cat-q" placeholder="танки, ВВП, спутники…"></div>
-          <div class="field" style="min-width:190px"><label for="cat-pillar">Столп</label><select id="cat-pillar"></select></div>
-          <div class="field" style="min-width:160px"><label for="cat-role">Роль в модели</label><select id="cat-role"></select></div>
+          <div class="field" style="min-width:220px"><label for="cat-q" data-i18n-en="Search">Поиск</label><input type="search" id="cat-q" placeholder="танки, ВВП, спутники…"></div>
+          <div class="field" style="min-width:190px"><label for="cat-pillar" data-i18n-en="Pillar">Столп</label><select id="cat-pillar"></select></div>
+          <div class="field" style="min-width:160px"><label for="cat-role" data-i18n-en="Role in model">Роль в модели</label><select id="cat-role"></select></div>
         </div>
       </div>
       <div class="row" id="cat-roles" style="gap:6px 14px; margin-bottom:12px"></div>
       <div class="tbl-wrap" style="max-height:70vh; overflow:auto">
-        <table><thead><tr><th>ID</th><th>Показатель</th><th>Столп · подгруппа</th><th>Ед.</th><th>Напр.</th><th>Преобр.</th><th>Роль</th><th class="num">Вес</th><th>Источники</th></tr></thead><tbody id="cat-table"></tbody></table>
+        <table><thead><tr><th>ID</th><th data-i18n-en="Indicator">Показатель</th><th data-i18n-en="Pillar · subgroup">Столп · подгруппа</th><th data-i18n-en="Unit">Ед.</th><th data-i18n-en="Dir.">Напр.</th><th data-i18n-en="Transf.">Преобр.</th><th data-i18n-en="Role">Роль</th><th class="num" data-i18n-en="Weight">Вес</th><th data-i18n-en="Sources">Источники</th></tr></thead><tbody id="cat-table"></tbody></table>
       </div>
       <p class="small muted" style="margin-top:10px" id="cat-sources"></p>
     </div>
   </section>
 </main>
-<footer>Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
+<footer data-i18n-en="Interface prototype for the military power assessment program. Full methodology, architecture and work plan — in docs/Анализ_и_план.md. Indicator catalogue — data/indicators.csv, scores for 8 countries — data/countries_2026.json (snapshot — October 2026).">Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
 <div class="tip" id="tip" hidden></div>
 
 <script src="indicators.js"></script>
@@ -739,20 +742,24 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 
 /* ---------- Справочники ---------- */
 const IND = window.INDICATORS || [];
+let LANG = (function () { try { return localStorage.getItem("ivm-lang") === "en" ? "en" : "ru"; } catch (e) { return "ru"; } })();
+const L = (ru, en) => (LANG === "en" ? en : ru);
 const PILLARS = [
-  { code: "GRD", name: "Сухопутные войска", short: "СВ" },
-  { code: "AIR", name: "ВВС и ПВО", short: "ВВС" },
-  { code: "NAV", name: "Военно-морские силы", short: "ВМС" },
-  { code: "STR", name: "Стратегические силы", short: "СЯС" },
-  { code: "C4I", name: "Космос, кибер, управление", short: "C4ISR" },
-  { code: "PER", name: "Личный состав", short: "Л/с" },
-  { code: "ECO", name: "Экономика обороны", short: "Экон." },
-  { code: "IND", name: "ОПК и технологии", short: "ОПК" },
-  { code: "LOG", name: "Логистика и мобилизация", short: "Тыл" },
-  { code: "GEO", name: "География и демография", short: "Гео" },
-  { code: "ALL", name: "Союзы и присутствие", short: "Союзы" },
-  { code: "GOV", name: "Управление и опыт", short: "Упр." }
+  { code: "GRD", name: "Сухопутные войска", name_en: "Ground forces", short: "СВ", short_en: "GRD" },
+  { code: "AIR", name: "ВВС и ПВО", name_en: "Air force & air defence", short: "ВВС", short_en: "AIR" },
+  { code: "NAV", name: "Военно-морские силы", name_en: "Navy", short: "ВМС", short_en: "NAV" },
+  { code: "STR", name: "Стратегические силы", name_en: "Strategic forces", short: "СЯС", short_en: "STR" },
+  { code: "C4I", name: "Космос, кибер, управление", name_en: "Space, cyber, C4I", short: "C4ISR", short_en: "C4I" },
+  { code: "PER", name: "Личный состав", name_en: "Personnel", short: "Л/с", short_en: "PER" },
+  { code: "ECO", name: "Экономика обороны", name_en: "Defence economy", short: "Экон.", short_en: "ECO" },
+  { code: "IND", name: "ОПК и технологии", name_en: "Defence industry & tech", short: "ОПК", short_en: "IND" },
+  { code: "LOG", name: "Логистика и мобилизация", name_en: "Logistics & mobilisation", short: "Тыл", short_en: "LOG" },
+  { code: "GEO", name: "География и демография", name_en: "Geography & demography", short: "Гео", short_en: "GEO" },
+  { code: "ALL", name: "Союзы и присутствие", name_en: "Alliances & presence", short: "Союзы", short_en: "ALL" },
+  { code: "GOV", name: "Управление и опыт", name_en: "Governance & experience", short: "Упр.", short_en: "GOV" }
 ];
+const pName = (p) => (LANG === "en" ? p.name_en : p.name);
+const pShort = (p) => (LANG === "en" ? p.short_en : p.short);
 const PI = Object.fromEntries(PILLARS.map((p, i) => [p.code, i]));
 const STR_IDX = PI.STR;
 const COMBAT = new Set(["GRD", "AIR", "NAV"]);
@@ -765,6 +772,17 @@ const ROLES = {
   G: ["Сдерживание", "ядерный порог: не суммируется с обычными силами"],
   C: ["Контекст", "география, институты: условия, меняющие исход"]
 };
+const ROLES_EN = {
+  N: ["Numbers", "number of combat units: N in Lanchester's law"],
+  Q: ["Quality", "unit lethality and survivability: effectiveness coefficient"],
+  M: ["Multiplier", "C4ISR, EW, allies: amplify the effectiveness of the whole force"],
+  S: ["Sustainment", "economy, defence industry, reserves: attrition replacement rate in a long war"],
+  P: ["Projection", "tankers, airlift, bases, navy: radius λ over which power is not lost"],
+  G: ["Deterrence", "nuclear threshold: not summed with conventional forces"],
+  C: ["Context", "geography, institutions: conditions that shape the outcome"]
+};
+const rName = (k) => (LANG === "en" ? ROLES_EN[k] : ROLES[k])[0];
+const rDesc = (k) => (LANG === "en" ? ROLES_EN[k] : ROLES[k])[1];
 const TRANSFORMS = { log: "логарифм", lin: "линейно", pct: "доля", score: "эксп. балл", cat: "категория" };
 const SOURCES = {
   IISS: "IISS, The Military Balance", "SIPRI-M": "SIPRI Military Expenditure Database", "SIPRI-AT": "SIPRI Arms Transfers Database",
@@ -779,13 +797,16 @@ const SOURCES = {
   Э: "экспертная оценка (панель, AHP/Дельфи)", ГИС: "ГИС-расчёт", "расчёт": "производный расчёт", "опросы": "социологические опросы"
 };
 const PRESETS = {
-  balanced: { name: "Сбалансированный", w: { GRD: 12, AIR: 12, NAV: 9, STR: 8, C4I: 8, PER: 8, ECO: 9, IND: 9, LOG: 7, GEO: 6, ALL: 6, GOV: 6 } },
-  conventional: { name: "Конвенциональный, близко к GFP", w: { GRD: 18, AIR: 16, NAV: 12, STR: 0, C4I: 4, PER: 12, ECO: 12, IND: 5, LOG: 9, GEO: 8, ALL: 2, GOV: 2 } },
-  attrition: { name: "Затяжная война на истощение", w: { GRD: 10, AIR: 8, NAV: 5, STR: 6, C4I: 6, PER: 10, ECO: 14, IND: 16, LOG: 12, GEO: 6, ALL: 4, GOV: 3 } },
-  expedition: { name: "Экспедиционные операции", w: { GRD: 8, AIR: 14, NAV: 16, STR: 6, C4I: 12, PER: 6, ECO: 8, IND: 6, LOG: 8, GEO: 3, ALL: 10, GOV: 3 } },
-  europe_land: { name: "Сухопутная война в Европе", w: { GRD: 24, AIR: 16, NAV: 3, STR: 0, C4I: 8, PER: 12, ECO: 6, IND: 10, LOG: 9, GEO: 6, ALL: 3, GOV: 3 } }
+  balanced: { name: "Сбалансированный", name_en: "Balanced", w: { GRD: 12, AIR: 12, NAV: 9, STR: 8, C4I: 8, PER: 8, ECO: 9, IND: 9, LOG: 7, GEO: 6, ALL: 6, GOV: 6 } },
+  conventional: { name: "Конвенциональный, близко к GFP", name_en: "Conventional, close to GFP", w: { GRD: 18, AIR: 16, NAV: 12, STR: 0, C4I: 4, PER: 12, ECO: 12, IND: 5, LOG: 9, GEO: 8, ALL: 2, GOV: 2 } },
+  attrition: { name: "Затяжная война на истощение", name_en: "Protracted war of attrition", w: { GRD: 10, AIR: 8, NAV: 5, STR: 6, C4I: 6, PER: 10, ECO: 14, IND: 16, LOG: 12, GEO: 6, ALL: 4, GOV: 3 } },
+  expedition: { name: "Экспедиционные операции", name_en: "Expeditionary operations", w: { GRD: 8, AIR: 14, NAV: 16, STR: 6, C4I: 12, PER: 6, ECO: 8, IND: 6, LOG: 8, GEO: 3, ALL: 10, GOV: 3 } },
+  europe_land: { name: "Сухопутная война в Европе", name_en: "Land war in Europe", w: { GRD: 24, AIR: 16, NAV: 3, STR: 0, C4I: 8, PER: 12, ECO: 6, IND: 10, LOG: 9, GEO: 6, ALL: 3, GOV: 3 } }
 };
+const presetName = (p) => (LANG === "en" ? p.name_en : p.name);
 const NUC = ["Нет ЯО", "Пороговый", "ЯО, ограниченный", "ЯО, 2 компонента", "Ядерная триада"];
+const NUC_EN = ["No nuclear", "Threshold", "Nuclear, limited", "Nuclear, 2-leg", "Nuclear triad"];
+const nucName = (k) => (LANG === "en" ? NUC_EN : NUC)[k];
 const ALL_IDX = PI.ALL;
 const KAPPA = 2.6 * Math.LN10; // у.е. мощи M = exp(κ·ИВМ): тот же размах шкалы, что N₀ = 10^(1+2,6·N̄)
 const RAMP = 7; // сут: после задержки τ силы союзника наращиваются линейно за неделю
@@ -1102,7 +1123,7 @@ function recompute(withMC) {
   if (!$("tab-coalition").hidden) renderCoalResults();
 }
 function settingsLine() {
-  const p = PRESETS[state.preset] ? PRESETS[state.preset].name : "Пользовательский";
+  const p = PRESETS[state.preset] ? presetName(PRESETS[state.preset]) : L("Пользовательский", "Custom");
   const nuc = { axis: "ЯО — отдельная ось", pillar: "ЯО — столп", mult: "ЯО — множитель" }[state.nuclear];
   return `Веса: ${p} · ρ = ${fmt(state.rho, 2)} · α = ${fmt(state.alpha, 2)} · ${nuc} · D = ${fmt(state.D, 1)} тыс. км`;
 }
@@ -1136,11 +1157,11 @@ function renderRating() {
     const m = mc && isIndex ? mc[ci] : null;
     const whisk = m ? `<span class="whisker" style="left:${(m.p5 * 100).toFixed(1)}%;width:${Math.max(.5, (m.p95 - m.p5) * 100).toFixed(1)}%"></span>` : "";
     const rr = m ? (m.r5 === m.r95 ? `${m.r5}` : `${m.r5}–${m.r95}`) : "—";
-    const strip = d.P.map((p, pi) => `<i class="${heat(p)}" data-tip="<b>${esc(PILLARS[pi].name)}</b><br>${fmt(p * 100, 1)} из 100"></i>`).join("");
+    const strip = d.P.map((p, pi) => `<i class="${heat(p)}" data-tip="<b>${esc(pName(PILLARS[pi]))}</b><br>${fmt(p * 100, 1)} ${L("из 100", "of 100")}"></i>`).join("");
     const tipBar = m ? `data-tip="<b>${esc(c.name)}</b><br>ИВМ ${fmt(v, 1)}<br>90% интервал: ${fmt(m.p5 * 100, 1)}–${fmt(m.p95 * 100, 1)}<br>Место с вероятностью 90%: ${rr}"` : "";
     return `<div class="rank-row" data-ci="${ci}" tabindex="0" role="button" aria-label="Открыть профиль: ${esc(c.name)}">
       <span class="rank-n">${pos + 1}</span>
-      <span class="rank-name"><b>${esc(c.name)}</b><span>${esc(c.bloc)} · ${esc(c.nucLabel || NUC[c.k])}</span></span>
+      <span class="rank-name"><b>${esc(c.name)}</b><span>${esc(c.bloc)} · ${esc(c.nucLabel || nucName(c.k))}</span></span>
       <span class="track" ${tipBar}><span class="bar" style="width:${clamp(v, 0, 100).toFixed(1)}%"></span>${whisk}</span>
       <span class="val">${fmt(v, 1)}</span>
       <span class="rr">${isIndex ? rr : "—"}</span>
@@ -1166,7 +1187,7 @@ function radarSVG(series) {
   PILLARS.forEach((p, j) => {
     const [x, y] = pt(j, 1); s += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
     const [lx, ly] = pt(j, 1.15), c = Math.cos(ang(j));
-    s += `<text x="${lx}" y="${ly + 4}" font-size="12" text-anchor="${Math.abs(c) < .2 ? "middle" : c > 0 ? "start" : "end"}">${esc(p.short)}</text>`;
+    s += `<text x="${lx}" y="${ly + 4}" font-size="12" text-anchor="${Math.abs(c) < .2 ? "middle" : c > 0 ? "start" : "end"}">${esc(pShort(p))}</text>`;
   });
   [50, 100].forEach((v) => { s += `<text x="${cx + 4}" y="${cy - R * v / 100 + 12}" class="ax-label">${v}</text>`; });
   series.forEach((se) => {
@@ -1185,7 +1206,7 @@ function renderProfile() {
   const ci = ui.profile, c = COUNTRIES[ci], d = det[ci], m = mc ? mc[ci] : null;
   const rank = ranksOf(det.map((x) => x.Ieff))[ci];
   $("pf-title").textContent = c.name;
-  $("pf-chips").innerHTML = `<span class="chip">${esc(c.bloc)}</span><span class="chip chip-strong">${esc(c.nucLabel || NUC[c.k])}</span>`;
+  $("pf-chips").innerHTML = `<span class="chip">${esc(c.bloc)}</span><span class="chip chip-strong">${esc(c.nucLabel || nucName(c.k))}</span>`;
   $("pf-tiles").innerHTML = [
     ["ИВМ", fmt(d.Ieff * 100, 1), m ? `90%: ${fmt(m.p5 * 100, 1)}–${fmt(m.p95 * 100, 1)}` : "считается…"],
     ["Место", `${rank} из ${nC}`, m ? (m.r5 === m.r95 ? "устойчиво в 90% прогонов" : `в 90% прогонов: ${m.r5}–${m.r95}`) : ""],
@@ -1197,22 +1218,22 @@ function renderProfile() {
   ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
   const med = medianPillars();
   $("pf-radar").innerHTML = radarSVG([
-    { vals: med, fill: "none", stroke: "var(--muted)", dash: true, label: "Медиана" },
+    { vals: med, fill: "none", stroke: "var(--muted)", dash: true, label: L("Медиана", "Median") },
     { vals: d.P, fill: "var(--band-b)", stroke: "var(--side-b)", label: c.name }
   ]);
-  $("pf-radar-legend").innerHTML = `<span><span class="sw" style="background:var(--side-b)"></span>${esc(c.name)}</span><span><span class="sw" style="background:var(--muted)"></span>Медиана выборки</span>`;
-  $("pf-bars").innerHTML = PILLARS.map((p, pi) => `<div class="hbar" data-tip="<b>${esc(p.name)}</b><br>${esc(c.name)}: ${fmt(d.P[pi] * 100, 1)}<br>Медиана: ${fmt(med[pi] * 100, 1)}">
-      <span>${esc(p.name)}</span>
+  $("pf-radar-legend").innerHTML = `<span><span class="sw" style="background:var(--side-b)"></span>${esc(c.name)}</span><span><span class="sw" style="background:var(--muted)"></span>${L("Медиана выборки", "Sample median")}</span>`;
+  $("pf-bars").innerHTML = PILLARS.map((p, pi) => `<div class="hbar" data-tip="<b>${esc(pName(p))}</b><br>${esc(c.name)}: ${fmt(d.P[pi] * 100, 1)}<br>${L("Медиана", "Median")}: ${fmt(med[pi] * 100, 1)}">
+      <span>${esc(pName(p))}</span>
       <span class="t"><span class="f" style="width:${(d.P[pi] * 100).toFixed(1)}%"></span><span style="position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted);left:${(med[pi] * 100).toFixed(1)}%"></span></span>
       <span class="v">${fmt(d.P[pi] * 100, 0)}</span></div>`).join("");
   const X = d.X, diffs = [];
   if (isReal()) {
-    PILLARS.forEach((p, pi) => diffs.push({ label: p.name, diff: d.P[pi] - med[pi] }));
+    PILLARS.forEach((p, pi) => diffs.push({ label: pName(p), diff: d.P[pi] - med[pi] }));
   } else {
     IND.forEach((ind, ii) => {
       if (IMP[ci * nI + ii] || !inIndex(ii) || Number.isNaN(X[ci * nI + ii])) return;
       const md = median(COUNTRIES.map((_, cj) => X[cj * nI + ii]));
-      diffs.push({ label: ind.name, tag: PILLARS[PI[ind.pillar]].short, diff: X[ci * nI + ii] - md });
+      diffs.push({ label: ind.name, tag: pShort(PILLARS[PI[ind.pillar]]), diff: X[ci * nI + ii] - md });
     });
   }
   diffs.sort((a, b) => b.diff - a.diff);
@@ -1223,14 +1244,14 @@ function renderProfile() {
   $("pf-lanch-note").textContent = isReal()
     ? "Индекс превращается в параметры уравнений Ланчестера: N₀ = 10^(1 + 2,6·ИВМ без СЯС и союзов); эффективность e = 1, потому что качество уже входит в индекс; резерв и восполнение — из экономики, ОПК, тыла, личного состава и географии; λ — радиус проекции."
     : "Индекс превращается в параметры уравнений Ланчестера: показатели роли N дают численность, Q и M дают эффективность, S даёт резерв и темп восполнения, P даёт радиус проекции.";
-  const L = lanchInputs(ci);
+  const li2 = lanchInputs(ci);
   $("pf-lanch").innerHTML = [
-    ["Начальный боевой потенциал N₀", `${fmt(L.X0)} ЕБП`],
-    ["Эффективность e (качество × множители)", fmt(L.e, 2)],
-    ["Мобилизационный резерв", `${fmt(L.R)} ЕБП`],
-    ["Темп восполнения", `${fmt(L.r, 1)} ЕБП/сут`],
-    ["Задержка мобилизации", `${L.delay} сут`],
-    ["Радиус проекции λ", `${fmt(L.lambda, 1)} тыс. км`]
+    ["Начальный боевой потенциал N₀", `${fmt(li2.X0)} ЕБП`],
+    ["Эффективность e (качество × множители)", fmt(li2.e, 2)],
+    ["Мобилизационный резерв", `${fmt(li2.R)} ЕБП`],
+    ["Темп восполнения", `${fmt(li2.r, 1)} ЕБП/сут`],
+    ["Задержка мобилизации", `${li2.delay} сут`],
+    ["Радиус проекции λ", `${fmt(li2.lambda, 1)} тыс. км`]
   ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
   $("pf-pillar").hidden = isReal(); $("pf-tbl-note").hidden = !isReal();
   if (isReal()) {
@@ -1263,7 +1284,7 @@ function renderProfile() {
     else data = '<span class="muted small">наблюдение</span>';
     const has = !Number.isNaN(v) && inIndex(ii);
     return `<tr><td class="num">${ind.id}</td><td>${esc(ind.name)}<div class="muted small">${sub}</div></td>
-      <td><span class="role" data-tip="<b>${ROLES[ind.role][0]}</b><br>${esc(ROLES[ind.role][1])}">${ind.role}</span></td>
+      <td><span class="role" data-tip="<b>${rName(ind.role)}</b><br>${esc(rDesc(ind.role))}">${ind.role}</span></td>
       <td class="num">${has ? `<span class="mini"><i style="width:${(v * 100).toFixed(0)}%"></i></span>${fmt(v * 100, 0)}` : "—"}</td>
       <td class="num">${has ? fmt(SIG[k] * 100, 0) : "—"}</td>
       <td>${data}</td></tr>`;
@@ -1291,17 +1312,17 @@ function renderCompare() {
   $("cmp-div").innerHTML = PILLARS.map((p, pi) => {
     const diff = dA.P[pi] - dB.P[pi], w = Math.min(50, Math.abs(diff) * 100);
     const style = diff >= 0 ? `right:50%;width:${w}%;background:var(--side-a);border-radius:3px 0 0 3px` : `left:50%;width:${w}%;background:var(--side-b);border-radius:0 3px 3px 0`;
-    return `<div class="div-bar" data-tip="<b>${esc(p.name)}</b><br>A: ${fmt(dA.P[pi] * 100, 1)} · B: ${fmt(dB.P[pi] * 100, 1)}"><span>${esc(p.name)}</span><span class="t"><span class="f" style="${style}"></span></span><span class="num" style="text-align:right">${diff >= 0 ? "A +" : "B +"}${fmt(Math.abs(diff) * 100, 0)}</span></div>`;
+    return `<div class="div-bar" data-tip="<b>${esc(pName(p))}</b><br>A: ${fmt(dA.P[pi] * 100, 1)} · B: ${fmt(dB.P[pi] * 100, 1)}"><span>${esc(pName(p))}</span><span class="t"><span class="f" style="${style}"></span></span><span class="num" style="text-align:right">${diff >= 0 ? "A +" : "B +"}${fmt(Math.abs(diff) * 100, 0)}</span></div>`;
   }).join("");
   const X = dA.X, real = isReal();
   const gaps = real
-    ? PILLARS.map((p, pi) => ({ id: p.code, name: p.name, tag: p.short, va: dA.P[pi], vb: dB.P[pi] }))
-    : IND.map((ind, ii) => ({ id: ind.id, name: ind.name, tag: PILLARS[PI[ind.pillar]].short, va: X[a * nI + ii], vb: X[b * nI + ii], ii }))
+    ? PILLARS.map((p, pi) => ({ id: p.code, name: pName(p), tag: pShort(p), va: dA.P[pi], vb: dB.P[pi] }))
+    : IND.map((ind, ii) => ({ id: ind.id, name: ind.name, tag: pShort(PILLARS[PI[ind.pillar]]), va: X[a * nI + ii], vb: X[b * nI + ii], ii }))
       .filter((g) => inIndex(g.ii) && !Number.isNaN(g.va) && !Number.isNaN(g.vb));
   gaps.forEach((g) => { g.d = g.va - g.vb; });
   gaps.sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
-  $("cmp-tbl-title").textContent = real ? "Разрывы по столпам" : "Наибольшие разрывы по показателям";
-  $("cmp-thead").innerHTML = `<tr><th>${real ? "Код" : "ID"}</th><th>${real ? "Столп" : "Показатель"}</th>${real ? "" : "<th>Столп</th>"}<th class="num">A</th><th class="num">B</th><th class="num">A − B</th></tr>`;
+  $("cmp-tbl-title").textContent = real ? L("Разрывы по столпам", "Gaps by pillar") : L("Наибольшие разрывы по показателям", "Largest gaps by indicator");
+  $("cmp-thead").innerHTML = `<tr><th>${real ? L("Код", "Code") : "ID"}</th><th>${real ? L("Столп", "Pillar") : L("Показатель", "Indicator")}</th>${real ? "" : `<th>${L("Столп", "Pillar")}</th>`}<th class="num">A</th><th class="num">B</th><th class="num">A − B</th></tr>`;
   $("cmp-table").innerHTML = gaps.slice(0, 15).map((g) => `<tr><td class="num">${g.id}</td><td>${esc(g.name)}</td>${real ? "" : `<td>${esc(g.tag)}</td>`}<td class="num">${fmt(g.va * 100, 0)}</td><td class="num">${fmt(g.vb * 100, 0)}</td><td class="num ${g.d >= 0 ? "delta-up" : "delta-down"}">${g.d >= 0 ? "+" : "−"}${fmt(Math.abs(g.d) * 100, 0)}</td></tr>`).join("");
 }
 $("cmp-to-lanch").addEventListener("click", () => { ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; setLanchSides(); openTab("lanchester"); });
@@ -1529,25 +1550,26 @@ function pt(key, rho, s, D, tau, cls = "", types = "T") {
 const CO_PRESETS = {
   real: {
     baltic: {
-      name: "Россия и Белоруссия против европейских членов НАТО и США · Прибалтика", alpha: 1, d: 1, T: 60,
+      name: "Россия и Белоруссия против европейских членов НАТО и США · Прибалтика",
+      name_en: "Russia & Belarus vs. European NATO members & the US · Baltic", alpha: 1, d: 1, T: 60,
       note: "Документ 3, пример 5.3: ρ, s и D как в документе. Задержки τ — допущение сценария: силы Балтии и Северной Европы на театре сразу, Польша через 3 сут, Германия через 7, Великобритания через 14, Франция через 21, США через 30.",
       A: [pt("RUS", 1, .4, .3, 0), pt("BLR", .7, .5, .2, 0, "A")],
       B: [pt("NBF", .95, .6, .3, 0, "A"), pt("POL", .95, .6, .3, 3, "A"), pt("DEU", .85, .3, 1, 7, "A"), pt("GBR", .85, .25, 1.8, 14, "A"), pt("FRA", .8, .25, 1.8, 21, "A"), pt("USA", .7, .15, 7, 30, "A")]
     },
     ukraine: {
-      name: "Россия против Украины · театр — Украина", alpha: 1, d: 1.7, T: 180,
+      name: "Россия против Украины · театр — Украина", name_en: "Russia vs. Ukraine · theatre — Ukraine", alpha: 1, d: 1.7, T: 180,
       note: "Документ 3, пример 5.2: d = 1,7 — отношение потерь техники России и Украины в 2024–2025 гг. по Oryx (с 13.10.2026; прежнее допущение — α 1,3, d 2,5). Союзники Украины поставляют вооружения, но не войска. Поставки Германии, Великобритании и Франции (s = 0,05) — допущение сценария: в F не входят, в модели боя увеличивают резерв и восполнение.",
       A: [pt("RUS", 1, .6, .5, 0), pt("PRK", .6, .1, .5, 0, "B"), pt("BLR", .3, .2, .3, 0, "A")],
       B: [pt("UKR", 1, 1, 0, 0), pt("DEU", .9, .05, 1.5, 0, "D", "S"), pt("GBR", .9, .05, 2, 0, "D", "S"), pt("FRA", .9, .05, 2, 0, "D", "S")]
     },
     ukraine_cf: {
-      name: "Украина после прекращения огня: силы «коалиции желающих»", alpha: 1, d: 1.7, T: 180,
+      name: "Украина после прекращения огня: силы «коалиции желающих»", name_en: "Ukraine after the ceasefire: \"coalition of the willing\" forces", alpha: 1, d: 1.7, T: 180,
       note: "Документ 3, пример 5.2: многонациональные силы после прекращения огня (Парижская декларация, 6 января 2026 г.). Главный эффект гарантий — ядерная ось: нападение на зону, где стоят войска Великобритании и Франции, затрагивает ядерные державы.",
       A: [pt("RUS", 1, .6, .5, 0), pt("PRK", .6, .1, .5, 0, "B"), pt("BLR", .3, .2, .3, 0, "A")],
       B: [pt("UKR", 1, 1, 0, 0), pt("GBR", .6, .1, 2, 0, "D"), pt("FRA", .6, .1, 2, 0, "D"), pt("DEU", .6, .05, 1.5, 0, "D")]
     },
     iran: {
-      name: "Израиль и США против Ирана · театр — Иран", alpha: 1, d: 1.3, T: 60,
+      name: "Израиль и США против Ирана · театр — Иран", name_en: "Israel & the US vs. Iran · theatre — Iran", alpha: 1, d: 1.3, T: 60,
       note: "Документ 3, пример 5.1: воздушно-ракетная кампания, коэффициент обороны мал. Россия связана с Ираном партнёрством без военных обязательств (ρ = 0,05).",
       A: [pt("ISR", 1, .7, 1.6, 0), pt("USA", .9, .2, 1, 0, "B")],
       B: [pt("IRN", 1, 1, 0, 0), pt("AXR", .5, 1, 0, 0, "E"), pt("RUS", .05, .02, 2, 30, "C")]
@@ -1555,13 +1577,14 @@ const CO_PRESETS = {
   },
   demo: {
     bloc: {
-      name: "Восточный союз против Северного пакта", alpha: ALPHA0, d: D_PD, T: 60,
+      name: "Восточный союз против Северного пакта", name_en: "Eastern Union vs. Northern Pact", alpha: ALPHA0, d: D_PD, T: 60,
       note: "Вымышленные государства. Удалённости и задержки условные: показывают, как вступление союзников меняет баланс во времени.",
       A: [pt("BOR", 1, .6, .5, 0), pt("KAL", .8, .5, .5, 7, "A"), pt("VEL", .6, .3, 1.5, 14, "A")],
       B: [pt("NOR", 1, 1, 0, 0), pt("EST", .85, .4, .8, 7, "A"), pt("DAL", .85, .3, 1.5, 14, "A"), pt("MIR", .8, .25, 2, 21, "A"), pt("ARD", .75, .2, 6, 30, "A")]
     }
   }
 };
+const coalPresetName = (p) => (LANG === "en" && p.name_en ? p.name_en : p.name);
 const coal = { preset: "", alpha: ALPHA0, d: D_PD, T: 60, t: 0, sides: { A: [], B: [] } };
 // α, d и горизонт сценариев — из ядра (coalition.PRESETS), чтобы прототип не расходился с расчётом
 if (IP.presets) for (const [k, v] of Object.entries(IP.presets)) if (CO_PRESETS.real[k]) Object.assign(CO_PRESETS.real[k], { alpha: v.alpha, d: v.d, T: v.T });
@@ -1977,7 +2000,7 @@ function renderMethod() {
 7. Автономная мощь (для коалиций): та же свёртка без СЯС и без столпа «Союзы»`;
 }
 function buildWeights() {
-  $("m-weights").innerHTML = PILLARS.map((p) => `<div class="wrow" id="w-row-${p.code}"><label for="w-${p.code}">${esc(p.name)}</label><input type="range" id="w-${p.code}" min="0" max="30" step="1"><output id="w-out-${p.code}"></output></div>`).join("");
+  $("m-weights").innerHTML = PILLARS.map((p) => `<div class="wrow" id="w-row-${p.code}"><label for="w-${p.code}">${esc(pName(p))}</label><input type="range" id="w-${p.code}" min="0" max="30" step="1"><output id="w-out-${p.code}"></output></div>`).join("");
   PILLARS.forEach((p) => $("w-" + p.code).addEventListener("input", (e) => { state.weights[p.code] = Number(e.target.value); state.preset = "custom"; recompute(false); }));
 }
 
@@ -1986,9 +2009,10 @@ function renderCatalog() {
   const q = ui.catQ.trim().toLowerCase();
   const rows = IND.filter((d) => (!ui.catPillar || d.pillar === ui.catPillar) && (!ui.catRole || d.role === ui.catRole) &&
     (!q || (d.name + " " + d.subpillar + " " + d.id + " " + d.sources.join(" ")).toLowerCase().includes(q)));
-  $("cat-summary").textContent = `Показано ${rows.length} из ${nI}. Канонический файл — data/indicators.csv, сборка — tools/build_catalog.mjs.`;
-  $("cat-table").innerHTML = rows.map((d) => `<tr><td class="num">${d.id}</td><td>${esc(d.name)}</td><td>${esc(PILLARS[PI[d.pillar]].name)}<div class="muted small">${esc(d.subpillar)}</div></td><td>${esc(d.unit)}</td><td class="num">${d.dir === "+" ? "↑" : "↓"}</td><td>${TRANSFORMS[d.transform]}</td><td><span class="role" data-tip="<b>${ROLES[d.role][0]}</b><br>${esc(ROLES[d.role][1])}">${d.role}</span></td><td class="num">${d.weight}</td><td class="small">${d.sources.map((s) => `<span data-tip="${esc(SOURCES[s] || s)}">${esc(s)}</span>`).join(", ")}</td></tr>`).join("") ||
-    `<tr><td colspan="9" class="muted">Ничего не найдено. Измените запрос или сбросьте фильтры.</td></tr>`;
+  $("cat-summary").textContent = L(`Показано ${rows.length} из ${nI}. Канонический файл — data/indicators.csv, сборка — tools/build_catalog.mjs.`,
+    `Showing ${rows.length} of ${nI}. Source of truth — data/indicators.csv, build — tools/build_catalog.mjs.`);
+  $("cat-table").innerHTML = rows.map((d) => `<tr><td class="num">${d.id}</td><td>${esc(d.name)}</td><td>${esc(pName(PILLARS[PI[d.pillar]]))}<div class="muted small">${esc(d.subpillar)}</div></td><td>${esc(d.unit)}</td><td class="num">${d.dir === "+" ? "↑" : "↓"}</td><td>${TRANSFORMS[d.transform]}</td><td><span class="role" data-tip="<b>${rName(d.role)}</b><br>${esc(rDesc(d.role))}">${d.role}</span></td><td class="num">${d.weight}</td><td class="small">${d.sources.map((s) => `<span data-tip="${esc(SOURCES[s] || s)}">${esc(s)}</span>`).join(", ")}</td></tr>`).join("") ||
+    `<tr><td colspan="9" class="muted">${L("Ничего не найдено. Измените запрос или сбросьте фильтры.", "Nothing found. Change the query or reset the filters.")}</td></tr>`;
 }
 
 /* ---------- Инициализация ---------- */
@@ -1997,6 +2021,11 @@ const BANNER = {
   real: ["Реальные данные · октябрь 2026", "8 государств оценены экспертно по 12 столпам (балл ± σ) по открытым данным SIPRI, IISS и официальных бюджетов; 253 показателя для них ещё не собраны. Перекрывающиеся интервалы означают, что места статистически неразличимы."],
   demo: ["Демо-режим", "14 вымышленных государств, значения показателей синтетические. Режим показывает работу всех 253 показателей и расчётную схему, а не реальный баланс сил."],
   pilot: ["Пилот · срез 2025", "40 государств по открытым данным (ВБ, МВФ, SIPRI, UCDP, Factbook, Википедия, Global Firepower). В индекс входят показатели, по которым есть данные у половины стран. 67 показателей без объективного измерителя (подготовка, исправность, командование, запасы) до экспертной панели заполнены оценкой ИИ — класс D, источник «ai», самый низкий приоритет; крупные армии по-прежнему оцениваются выше, чем у экспертов."]
+};
+const BANNER_EN = {
+  real: ["Real data · October 2026", "8 countries assessed by experts across 12 pillars (score ± σ) using open SIPRI, IISS and official budget data; 253 indicators are not yet collected for them. Overlapping intervals mean ranks are statistically indistinguishable."],
+  demo: ["Demo mode", "14 fictional countries, indicator values are synthetic. This mode shows all 253 indicators and the calculation scheme at work, not a real balance of power."],
+  pilot: ["Pilot · 2025 snapshot", "40 countries from open data (World Bank, IMF, SIPRI, UCDP, Factbook, Wikipedia, Global Firepower). The index includes indicators with data for at least half the countries. 67 indicators without an objective measure (training, readiness, command, stockpiles) are filled with an AI estimate until the expert panel — class D, source \"ai\", lowest priority; large armies are still scored higher than experts would."]
 };
 function useDataset(kind) {
   if (!["real", "demo", "pilot"].includes(kind)) kind = "real";
@@ -2010,14 +2039,15 @@ function useDataset(kind) {
   ui.profile = 0;
   if (kind !== "demo") { ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5; } else { ui.cmpA = 0; ui.cmpB = 1; ln.D = 3; }
   ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; ln.A = null; mc = null;
-  $("banner-tag").textContent = BANNER[kind][0]; $("banner-text").textContent = BANNER[kind][1];
+  const bn = (LANG === "en" ? BANNER_EN : BANNER)[kind];
+  $("banner-tag").textContent = bn[0]; $("banner-text").textContent = bn[1];
   document.querySelectorAll("#ds-switch button").forEach((b) => {
     b.setAttribute("aria-pressed", String(b.dataset.v === kind));
     if (b.dataset.v === "real") b.disabled = !REAL.length;
     if (b.dataset.v === "pilot") b.disabled = !PD;
   });
   fillCountrySelect($("pf-country"), ui.profile); fillCountrySelect($("cmp-a"), ui.cmpA); fillCountrySelect($("cmp-b"), ui.cmpB);
-  $("co-preset").innerHTML = Object.entries(coalPresets()).map(([k, p]) => `<option value="${k}">${esc(p.name)}</option>`).join("") + `<option value="custom">Своя коалиция</option>`;
+  $("co-preset").innerHTML = Object.entries(coalPresets()).map(([k, p]) => `<option value="${k}">${esc(coalPresetName(p))}</option>`).join("") + `<option value="custom">${L("Своя коалиция", "Custom coalition")}</option>`;
   det = compute(V, state);
   baseRanks = ranksOf(compute(V, DEFAULTS).map((x) => x.Ieff));
   applyCoalPreset("");
@@ -2072,12 +2102,31 @@ function initCoalition() {
     });
   });
 }
+/* ---------- Переключатель языка ---------- */
+function applyStaticLang() {
+  document.documentElement.lang = LANG === "en" ? "en" : "ru";
+  document.querySelectorAll("[data-i18n-en]").forEach((el) => {
+    if (!el.dataset.i18nRu) el.dataset.i18nRu = el.textContent;
+    el.textContent = LANG === "en" ? el.dataset.i18nEn : el.dataset.i18nRu;
+  });
+  document.querySelectorAll("#lang-switch button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === LANG)));
+}
+function setLang(v) {
+  if (v !== "ru" && v !== "en") v = "ru";
+  LANG = v;
+  try { localStorage.setItem("ivm-lang", LANG); } catch (e) { /* хранилище недоступно */ }
+  applyStaticLang();
+  useDataset(DS ? DS.kind : "real");
+}
+document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
+
 function init() {
+  applyStaticLang();
   $("ind-count").textContent = nI;
-  $("rating-measure").innerHTML = `<option value="index">ИВМ (итог)</option><option value="conv">Без стратегических сил</option><option value="auto">Автономная мощь (без СЯС и союзов)</option>` + PILLARS.map((p) => `<option value="${p.code}">Столп: ${esc(p.name)}</option>`).join("");
+  $("rating-measure").innerHTML = `<option value="index">${L("ИВМ (итог)", "MPI (total)")}</option><option value="conv">${L("Без стратегических сил", "Excl. strategic forces")}</option><option value="auto">${L("Автономная мощь (без СЯС и союзов)", "Autonomous power (excl. nuclear & allies)")}</option>` + PILLARS.map((p) => `<option value="${p.code}">${L("Столп", "Pillar")}: ${esc(pName(p))}</option>`).join("");
   $("rating-measure").addEventListener("change", (e) => { ui.measure = e.target.value; renderRating(); });
   $("pf-country").addEventListener("change", (e) => { ui.profile = Number(e.target.value); renderProfile(); });
-  $("pf-pillar").innerHTML = PILLARS.map((p) => `<option value="${p.code}">${esc(p.name)}</option>`).join("");
+  $("pf-pillar").innerHTML = PILLARS.map((p) => `<option value="${p.code}">${esc(pName(p))}</option>`).join("");
   $("pf-pillar").addEventListener("change", (e) => { ui.pfPillar = e.target.value; renderProfile(); });
   $("cmp-a").addEventListener("change", (e) => { ui.cmpA = Number(e.target.value); renderCompare(); });
   $("cmp-b").addEventListener("change", (e) => { ui.cmpB = Number(e.target.value); renderCompare(); });
@@ -2094,15 +2143,15 @@ function init() {
   $("ln-mob").addEventListener("change", (e) => { ln.mob = e.target.checked; renderLanchester(); });
   $("ln-allies").addEventListener("change", (e) => { ln.allies = e.target.checked; renderLanchester(); });
   initSalvo();
-  $("m-preset").innerHTML = Object.entries(PRESETS).map(([k, p]) => `<option value="${k}">${esc(p.name)}</option>`).join("") + `<option value="custom" disabled>Пользовательский</option>`;
+  $("m-preset").innerHTML = Object.entries(PRESETS).map(([k, p]) => `<option value="${k}">${esc(presetName(p))}</option>`).join("") + `<option value="custom" disabled>${L("Пользовательский", "Custom")}</option>`;
   $("m-preset").addEventListener("change", (e) => { state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
   document.querySelectorAll("#m-nuclear button").forEach((b) => b.addEventListener("click", () => { state.nuclear = b.dataset.v; recompute(false); }));
   document.querySelectorAll("#m-norm button").forEach((b) => b.addEventListener("click", () => { state.norm = b.dataset.v; recompute(false); }));
   $("m-reset").addEventListener("click", () => { Object.assign(state, JSON.parse(JSON.stringify(DEFAULTS))); recompute(false); });
-  $("cat-pillar").innerHTML = `<option value="">Все столпы</option>` + PILLARS.map((p) => `<option value="${p.code}">${esc(p.name)} · ${IND.filter((d) => d.pillar === p.code).length}</option>`).join("");
-  $("cat-role").innerHTML = `<option value="">Все роли</option>` + Object.entries(ROLES).map(([k, r]) => `<option value="${k}">${k} · ${r[0]}</option>`).join("");
-  $("cat-roles").innerHTML = Object.entries(ROLES).map(([k, r]) => `<span class="small"><span class="role">${k}</span> ${r[0]} · ${IND.filter((d) => d.role === k).length}</span>`).join("");
-  $("cat-sources").textContent = "Источники: " + Object.entries(SOURCES).map(([k, v]) => `${k} — ${v}`).join("; ") + ".";
+  $("cat-pillar").innerHTML = `<option value="">${L("Все столпы", "All pillars")}</option>` + PILLARS.map((p) => `<option value="${p.code}">${esc(pName(p))} · ${IND.filter((d) => d.pillar === p.code).length}</option>`).join("");
+  $("cat-role").innerHTML = `<option value="">${L("Все роли", "All roles")}</option>` + Object.entries(ROLES).map(([k, r]) => `<option value="${k}">${k} · ${esc(rName(k))}</option>`).join("");
+  $("cat-roles").innerHTML = Object.entries(ROLES).map(([k, r]) => `<span class="small"><span class="role">${k}</span> ${esc(rName(k))} · ${IND.filter((d) => d.role === k).length}</span>`).join("");
+  $("cat-sources").textContent = L("Источники: ", "Sources: ") + Object.entries(SOURCES).map(([k, v]) => `${k} — ${v}`).join("; ") + ".";
   $("cat-pillar").addEventListener("change", (e) => { ui.catPillar = e.target.value; renderCatalog(); });
   $("cat-role").addEventListener("change", (e) => { ui.catRole = e.target.value; renderCatalog(); });
   $("cat-q").addEventListener("input", (e) => { ui.catQ = e.target.value; renderCatalog(); });
