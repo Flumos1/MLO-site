@@ -1,0 +1,2024 @@
+<title>ИВМ Ланчестер–Осипов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: штабной планшет — шапка с вкладками; рабочее поле на «миллиметровке»; слева пульт настроек, справа результат.
+   Цвета сторон по традиции оперативных карт: свои/сторона A — красным, противник/сторона B — синим. */
+:root{
+  --bg:#e8ebe5; --paper:#f8f9f6; --paper-2:#f0f2ed; --ink:#151915; --ink-2:#4a524b; --muted:#737b75;
+  --line:#d0d5cc; --grid:#dfe3db; --axis:#bfc5bb;
+  --accent:#9f2f27; --accent-soft:#f2e2df; --on-accent:#ffffff;
+  --side-a:#e34948; --side-b:#2a78d6; --band-a:rgba(227,73,72,.16); --band-b:rgba(42,120,214,.16);
+  --neutral-bar:#b9beb5;
+  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b; --good-ink:#006300; --crit-ink:#a32525;
+  --seq0:#cde2fb; --seq1:#9ec5f4; --seq2:#6da7ec; --seq3:#3987e5; --seq4:#256abf; --seq5:#184f95; --seq6:#0d366b;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e110e; --paper:#171a17; --paper-2:#1d211d; --ink:#edf0eb; --ink-2:#b6bdb5; --muted:#868e87;
+    --line:#2c312c; --grid:#1c201c; --axis:#3a403a;
+    --accent:#ec6a5f; --accent-soft:#3b201d; --on-accent:#1a0a08;
+    --side-a:#e66767; --side-b:#3987e5; --band-a:rgba(230,103,103,.2); --band-b:rgba(57,135,229,.2);
+    --neutral-bar:#4a504a;
+    --good-ink:#0ca30c; --crit-ink:#e66767;
+    --seq0:#0d366b; --seq1:#184f95; --seq2:#256abf; --seq3:#3987e5; --seq4:#6da7ec; --seq5:#9ec5f4; --seq6:#cde2fb;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e110e; --paper:#171a17; --paper-2:#1d211d; --ink:#edf0eb; --ink-2:#b6bdb5; --muted:#868e87;
+  --line:#2c312c; --grid:#1c201c; --axis:#3a403a;
+  --accent:#ec6a5f; --accent-soft:#3b201d; --on-accent:#1a0a08;
+  --side-a:#e66767; --side-b:#3987e5; --band-a:rgba(230,103,103,.2); --band-b:rgba(57,135,229,.2);
+  --neutral-bar:#4a504a;
+  --good-ink:#0ca30c; --crit-ink:#e66767;
+  --seq0:#0d366b; --seq1:#184f95; --seq2:#256abf; --seq3:#3987e5; --seq4:#6da7ec; --seq5:#9ec5f4; --seq6:#cde2fb;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  margin:0; color:var(--ink); font:15px/1.5 var(--f-body);
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+h1,h2,h3{font-family:var(--f-display); font-weight:600; text-wrap:balance; margin:0}
+h2{font-size:22px; letter-spacing:.01em}
+h3{font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-2)}
+p{margin:0}
+button,input,select{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.num{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+.sym{text-transform:none; font-style:italic}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* Шапка */
+.top{position:sticky; top:env(safe-area-inset-top,0px); z-index:10; background:var(--paper); border-bottom:1px solid var(--line)}
+.top-inner{max-width:1320px; margin:0 auto; padding:10px 16px 0; display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 28px}
+.brand{display:flex; align-items:baseline; gap:10px; padding-bottom:10px; min-width:0}
+.brand-mark{font:700 20px/1 var(--f-display); letter-spacing:.02em}
+.brand-mark b{color:var(--accent); font-weight:700}
+.brand-sub{font-size:12px; color:var(--muted); white-space:nowrap}
+.tabs{display:flex; gap:0; overflow-x:auto; scrollbar-width:none; max-width:100%}
+.tab{font:600 13px/1 var(--f-display); letter-spacing:.06em; text-transform:uppercase; padding:13px 14px 12px; border:0; background:none; color:var(--ink-2); border-bottom:3px solid transparent; cursor:pointer; white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent)}
+
+.wrap{max-width:1320px; margin:0 auto; padding-inline:16px; padding-block:16px 56px}
+.banner{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; font-size:13px; color:var(--ink-2); background:var(--paper); border:1px dashed var(--axis); border-radius:var(--radius); padding:8px 12px; margin-bottom:16px}
+.banner strong{font-family:var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-size:12px}
+
+.panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:16px; min-width:0}
+.panel-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px; margin-bottom:12px}
+.stack{display:flex; flex-direction:column; gap:16px; min-width:0}
+.cols{display:grid; grid-template-columns:330px minmax(0,1fr); gap:16px; align-items:start}
+.cols-even{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start}
+@media (max-width:900px){ .cols,.cols-even{grid-template-columns:minmax(0,1fr)} }
+
+/* Элементы управления */
+.field{display:flex; flex-direction:column; gap:4px}
+.field label,.lbl{font:600 12px/1.2 var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--ink-2)}
+.field .hint{font-size:12px; color:var(--muted)}
+.row{display:flex; flex-wrap:wrap; gap:10px 16px; align-items:flex-end}
+select,input[type="number"],input[type="search"]{background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:7px 9px; min-width:0}
+input[type="number"]{width:100%; font-family:var(--f-mono)}
+input[type="range"]{width:100%; accent-color:var(--accent)}
+.range-line{display:flex; align-items:center; gap:10px}
+.range-line output{font-family:var(--f-mono); font-size:13px; min-width:52px; text-align:right}
+.btn{border:1px solid var(--line); background:var(--paper-2); border-radius:4px; padding:7px 12px; cursor:pointer; font-weight:500}
+.btn:hover{border-color:var(--axis)}
+.btn-primary{background:var(--accent); color:var(--on-accent); border-color:var(--accent)}
+.btn-primary:hover{filter:brightness(1.06)}
+.seg{display:inline-flex; border:1px solid var(--line); border-radius:4px; overflow:hidden; flex-wrap:wrap}
+.seg button{border:0; background:var(--paper-2); padding:6px 10px; cursor:pointer; font-size:13px}
+.seg button + button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+.chip{display:inline-flex; align-items:center; gap:4px; font:500 12px/1 var(--f-body); padding:4px 7px; border-radius:3px; background:var(--paper-2); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap}
+.chip-strong{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.chip-a{border-color:var(--side-a); color:var(--ink)}
+.chip-b{border-color:var(--side-b); color:var(--ink)}
+.dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex:none}
+
+/* Рейтинг */
+.rank-head,.rank-row{display:grid; grid-template-columns:34px minmax(130px,1.05fr) minmax(150px,2.2fr) 58px 64px 172px; gap:10px; align-items:center}
+.rank-head{font:600 11px/1.2 var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--muted); padding:0 8px 6px; border-bottom:1px solid var(--line)}
+.rank-row{padding:7px 8px; border-bottom:1px solid var(--line); cursor:pointer; border-radius:3px}
+.rank-row:hover{background:var(--paper-2)}
+.rank-n{font:600 15px/1 var(--f-mono); color:var(--ink-2)}
+.rank-name{min-width:0}
+.rank-name b{font-weight:600; display:block}
+.rank-name span{font-size:12px; color:var(--muted)}
+.track{position:relative; height:16px; background:var(--paper-2); border-radius:2px}
+.bar{position:absolute; left:0; top:3px; bottom:3px; background:var(--side-b); border-radius:0 3px 3px 0}
+.whisker{position:absolute; top:7px; height:2px; background:var(--ink); opacity:.75}
+.whisker::before,.whisker::after{content:""; position:absolute; top:-4px; width:2px; height:10px; background:var(--ink)}
+.whisker::before{left:-1px} .whisker::after{right:-1px}
+.val{font:500 15px/1 var(--f-mono); text-align:right}
+.rr{font:400 12px/1 var(--f-mono); color:var(--muted); text-align:right}
+.strip{display:grid; grid-template-columns:repeat(12,1fr); gap:2px}
+.strip i{display:block; height:16px; border-radius:2px}
+.h0{background:var(--seq0)}.h1{background:var(--seq1)}.h2{background:var(--seq2)}.h3{background:var(--seq3)}.h4{background:var(--seq4)}.h5{background:var(--seq5)}.h6{background:var(--seq6)}
+.legend-ramp{display:inline-grid; grid-template-columns:repeat(7,14px); gap:2px; vertical-align:middle}
+.legend-ramp i{height:10px; border-radius:2px}
+.delta-up{color:var(--good-ink)} .delta-down{color:var(--crit-ink)}
+@media (max-width:720px){
+  .rank-head{display:none}
+  .rank-row{grid-template-columns:30px minmax(0,1fr) 58px; grid-template-areas:"n name val" "bar bar bar" "strip strip rr"; row-gap:6px}
+  .rank-row .rank-n{grid-area:n} .rank-row .rank-name{grid-area:name} .rank-row .val{grid-area:val}
+  .rank-row .track{grid-area:bar} .rank-row .strip{grid-area:strip} .rank-row .rr{grid-area:rr}
+}
+
+/* Плитки показателей */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
+.tile{background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:10px 12px; min-width:0}
+.tile .lbl{display:block; margin-bottom:6px}
+.tile .big{font:600 26px/1.05 var(--f-display)}
+.tile .sub{font-size:12px; color:var(--muted); margin-top:4px}
+
+.hbars{display:flex; flex-direction:column; gap:6px}
+.hbar{display:grid; grid-template-columns:minmax(110px,170px) minmax(0,1fr) 46px; gap:10px; align-items:center; font-size:13px}
+.hbar .t{position:relative; height:14px; background:var(--paper-2); border-radius:2px}
+.hbar .f{position:absolute; left:0; top:2px; bottom:2px; border-radius:0 3px 3px 0; background:var(--side-b)}
+.hbar .f.med{background:var(--neutral-bar)}
+.hbar .v{font-family:var(--f-mono); text-align:right}
+.div-bar{display:grid; grid-template-columns:minmax(110px,170px) minmax(0,1fr) 54px; gap:10px; align-items:center; font-size:13px}
+.div-bar .t{position:relative; height:14px}
+.div-bar .t::before{content:""; position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--axis)}
+.div-bar .f{position:absolute; top:2px; bottom:2px}
+
+.chart-box{width:100%; overflow-x:auto}
+.chart-box svg{display:block; width:100%; height:auto; min-width:520px}
+.radar-box svg{display:block; width:100%; max-width:430px; height:auto; margin:0 auto}
+svg text{font-family:var(--f-body); fill:var(--ink-2)}
+.ax-label{font-size:11px; fill:var(--muted)}
+.legend{display:flex; flex-wrap:wrap; gap:6px 16px; font-size:13px; color:var(--ink-2); align-items:center}
+.legend .sw{width:16px; height:3px; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px}
+
+.list{display:flex; flex-direction:column; gap:4px; font-size:13px}
+.list li{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; padding:5px 0; border-bottom:1px solid var(--line); list-style:none}
+.list ul{margin:0; padding:0}
+
+/* Таблицы */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:4px}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th{font:600 11px/1.2 var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--muted); text-align:left; background:var(--paper-2); position:sticky; top:0}
+th,td{padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top}
+td.num,th.num{text-align:right}
+tbody tr:hover{background:var(--paper-2)}
+.role{display:inline-block; min-width:20px; text-align:center; font:600 11px/1 var(--f-mono); padding:4px 5px; border-radius:3px; border:1px solid var(--line); background:var(--paper-2)}
+.mini{display:inline-block; width:64px; height:8px; background:var(--paper-2); border-radius:2px; position:relative; vertical-align:middle; margin-right:6px}
+.mini i{position:absolute; left:0; top:0; bottom:0; background:var(--side-b); border-radius:2px}
+
+/* Ланчестер */
+.side-card{border:1px solid var(--line); border-radius:4px; padding:12px; display:flex; flex-direction:column; gap:10px; background:var(--paper-2)}
+.side-card.a{border-top:3px solid var(--side-a)} .side-card.b{border-top:3px solid var(--side-b)}
+.inputs{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px}
+.prob{display:flex; height:30px; border-radius:3px; overflow:hidden; gap:2px; background:var(--paper)}
+.prob div{display:flex; align-items:center; justify-content:center; font:600 13px/1 var(--f-mono); color:#fff; min-width:0; overflow:hidden; white-space:nowrap}
+.prob .pa{background:var(--side-a)} .prob .pn{background:var(--neutral-bar); color:var(--ink)} .prob .pb{background:var(--side-b)}
+.verdict{font:600 24px/1.15 var(--f-display)}
+.kv{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 12px; font-size:13px}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0; font-family:var(--f-mono); text-align:right}
+.formula{font-family:var(--f-mono); font-size:12.5px; line-height:1.7; background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:10px 12px; overflow-x:auto; white-space:pre}
+
+/* Методика */
+.wrow{display:grid; grid-template-columns:minmax(0,1fr) 110px 44px; gap:8px; align-items:center; font-size:13px}
+.wrow output{font-family:var(--f-mono); text-align:right}
+.wrow.off{opacity:.45}
+
+/* Коалиции */
+.co-cond{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 16px}
+@media (max-width:900px){ .co-cond{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:480px){ .co-cond{grid-template-columns:minmax(0,1fr)} }
+.co-side{border-top:3px solid var(--side-a)} .co-side.b{border-top-color:var(--side-b)}
+.co-sum{font:500 14px/1 var(--f-mono)}
+.plist{display:flex; flex-direction:column; gap:10px}
+.pcard{border:1px solid var(--line); border-radius:4px; background:var(--paper-2); padding:10px 12px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.pcard.off{opacity:.55}
+.pc-top{display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px}
+.pc-name{display:flex; align-items:center; gap:8px; font-weight:600; min-width:0; margin-right:auto}
+.pc-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px 12px}
+.pc-grid .range-line output{min-width:34px}
+@media (max-width:560px){ .pc-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.pc-foot{font-size:12px; color:var(--muted)}
+.pcard select{padding:4px 6px; font-size:12px}
+.pc-del{border:1px solid var(--line); background:var(--paper); border-radius:4px; width:28px; height:28px; cursor:pointer; color:var(--ink-2); font-size:16px; line-height:1}
+.pc-del:hover{border-color:var(--axis); color:var(--ink)}
+.seg.sm button{padding:4px 8px; font-size:12px}
+.co-add{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.co-add select{flex:1 1 180px}
+.co-bar{display:flex; height:22px; border-radius:3px; overflow:hidden; gap:1px; background:var(--paper-2)}
+.co-bar i{display:block; height:100%; min-width:0}
+.co-graph svg{display:block; width:100%; height:auto; min-width:520px}
+
+.tip{position:fixed; z-index:50; pointer-events:none; background:var(--ink); color:var(--paper); font-size:12.5px; line-height:1.4; padding:7px 9px; border-radius:4px; max-width:300px; box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.tip b{font-weight:600}
+footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; color:var(--muted)}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="brand-mark">ИВМ <b>·</b> Ланчестер–Осипов</span>
+      <span class="brand-sub">индекс военной мощи · <span id="ind-count">253</span> показателя · 12 столпов</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Разделы">
+      <button class="tab" role="tab" id="t-rating" data-tab="rating" aria-selected="true">Рейтинг</button>
+      <button class="tab" role="tab" id="t-profile" data-tab="profile" aria-selected="false">Профиль страны</button>
+      <button class="tab" role="tab" id="t-compare" data-tab="compare" aria-selected="false">Сравнение</button>
+      <button class="tab" role="tab" id="t-coalition" data-tab="coalition" aria-selected="false">Коалиции</button>
+      <button class="tab" role="tab" id="t-lanchester" data-tab="lanchester" aria-selected="false">Модель боя</button>
+      <button class="tab" role="tab" id="t-monitor" data-tab="monitor" aria-selected="false">Монитор очагов</button>
+<button class="tab" role="tab" id="t-method" data-tab="method" aria-selected="false">Методика и веса</button>
+      <button class="tab" role="tab" id="t-catalog" data-tab="catalog" aria-selected="false">Показатели</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="banner">
+    <strong id="banner-tag"></strong><span id="banner-text" style="flex:1 1 320px"></span>
+    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных"><button data-v="real">8 государств · эксперты</button><button data-v="pilot">40 государств · пилот</button><button data-v="demo">Демо · 14 вымышленных</button></span>
+  </div>
+
+  <!-- РЕЙТИНГ -->
+  <section id="tab-rating" class="stack">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Рейтинг военной мощи</h2>
+          <p class="muted small" id="rating-settings"></p>
+        </div>
+        <div class="row">
+          <div class="field" style="min-width:200px">
+            <label for="rating-measure">Показать</label>
+            <select id="rating-measure"></select>
+          </div>
+          <div class="field" style="min-width:220px">
+            <label for="rating-D">Удалённость театра, тыс. км</label>
+            <div class="range-line"><input type="range" id="rating-D" data-bind="D" min="0" max="12" step="0.5"><output data-out="D"></output></div>
+          </div>
+        </div>
+      </div>
+      <div class="rank-head"><span>#</span><span>Государство</span><span>ИВМ, 0–100 · усы: 90% интервал</span><span style="text-align:right">ИВМ</span><span style="text-align:right">Место</span><span>12 столпов</span></div>
+      <div id="rank-list"></div>
+      <div class="legend" style="margin-top:12px">
+        <span><span class="sw" style="background:var(--side-b);height:10px"></span>Значение индекса</span>
+        <span><span class="sw" style="background:var(--ink);height:2px"></span>90% интервал (Монте-Карло, <span id="mc-runs">300</span> прогонов)</span>
+        <span>Столп: 0 <span class="legend-ramp"><i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h5"></i><i class="h6"></i></span> 100</span>
+        <span class="muted">Нажмите на строку, чтобы открыть профиль.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОФИЛЬ -->
+  <section id="tab-profile" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <div class="row" style="align-items:center">
+          <h2 id="pf-title"></h2>
+          <span id="pf-chips" class="row" style="gap:6px"></span>
+        </div>
+        <div class="field" style="min-width:200px"><label for="pf-country">Государство</label><select id="pf-country"></select></div>
+      </div>
+      <div class="tiles" id="pf-tiles"></div>
+    </div>
+    <div class="cols-even">
+      <div class="panel">
+        <div class="panel-head"><h3>Профиль по 12 столпам</h3></div>
+        <div class="radar-box" id="pf-radar"></div>
+        <div class="legend" id="pf-radar-legend" style="justify-content:center"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Оценки столпов</h3><span class="muted small">серая метка — медиана выборки</span></div>
+        <div class="hbars" id="pf-bars"></div>
+      </div>
+    </div>
+    <div class="cols-even">
+      <div class="panel">
+        <div class="panel-head"><h3>Сильные стороны</h3><span class="muted small">разница с медианой</span></div>
+        <ul class="list" id="pf-strong"></ul>
+        <div class="panel-head" style="margin-top:16px"><h3>Уязвимости</h3></div>
+        <ul class="list" id="pf-weak"></ul>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Входы для модели боя</h3><button class="btn" id="pf-to-lanch">Смоделировать бой →</button></div>
+        <p class="small muted" style="margin-bottom:10px" id="pf-lanch-note"></p>
+        <dl class="kv" id="pf-lanch"></dl>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h3 id="pf-tbl-title">Показатели столпа</h3>
+        <select id="pf-pillar" aria-label="Столп"></select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="pf-thead"></thead><tbody id="pf-table"></tbody></table></div>
+      <p class="small muted" style="margin-top:10px" id="pf-tbl-note" hidden></p>
+    </div>
+  </section>
+
+  <!-- СРАВНЕНИЕ -->
+  <section id="tab-compare" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Сравнение двух государств</h2>
+        <div class="row">
+          <div class="field" style="min-width:180px"><label for="cmp-a">Сторона A</label><select id="cmp-a"></select></div>
+          <div class="field" style="min-width:180px"><label for="cmp-b">Сторона B</label><select id="cmp-b"></select></div>
+          <button class="btn btn-primary" id="cmp-to-lanch">Смоделировать бой A против B →</button>
+        </div>
+      </div>
+      <div class="tiles" id="cmp-tiles"></div>
+    </div>
+    <div class="cols-even">
+      <div class="panel">
+        <div class="panel-head"><h3>Профили</h3></div>
+        <div class="radar-box" id="cmp-radar"></div>
+        <div class="legend" id="cmp-legend" style="justify-content:center"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Перевес по столпам</h3><span class="muted small">влево — A, вправо — B</span></div>
+        <div class="hbars" id="cmp-div"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3 id="cmp-tbl-title">Наибольшие разрывы по показателям</h3></div>
+      <div class="tbl-wrap"><table><thead id="cmp-thead"></thead><tbody id="cmp-table"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- КОАЛИЦИИ -->
+  <section id="tab-coalition" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <div style="min-width:0; flex:1 1 360px">
+          <h2>Конструктор коалиций</h2>
+          <p class="muted small" id="co-note"></p>
+        </div>
+        <div class="row">
+          <div class="field" style="min-width:min(100%,300px)"><label for="co-preset">Сценарий</label><select id="co-preset"></select></div>
+          <button class="btn" id="co-reset">Вернуть значения сценария</button>
+        </div>
+      </div>
+      <div class="co-cond">
+        <div class="field">
+          <label for="co-alpha">Показатель закона <span class="sym">α</span></label>
+          <div class="range-line"><input type="range" id="co-alpha" min="0.5" max="2" step="0.05"><output id="co-alpha-out"></output></div>
+        </div>
+        <div class="field">
+          <label for="co-d">Коэффициент обороны <span class="sym">d</span></label>
+          <select id="co-d">
+            <option value="1">1,0 · подготовленная или укреплённая оборона (сражения CDB90)</option>
+            <option value="1.3">1,3 · поспешная оборона, удары по ПВО</option>
+            <option value="1.7">1,7 · Украина 2024–2025: отношение потерь техники (Oryx)</option>
+            <option value="2.5">2,5 · прежнее допущение «подготовленная оборона, дроны»</option>
+            <option value="3">3,0 · прежнее допущение «горы, укрепрайон»</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="co-T">Горизонт, сут</label>
+          <select id="co-T"><option>30</option><option>60</option><option>90</option><option>180</option></select>
+        </div>
+        <div class="field">
+          <label for="co-t">Сутки для разбивки вклада</label>
+          <div class="range-line"><input type="range" id="co-t" min="0" max="60" step="1"><output id="co-t-out"></output></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Баланс сил на театре</h3>
+        <button class="btn btn-primary" id="co-to-lanch">Смоделировать бой коалиций →</button>
+      </div>
+      <div class="stack" style="gap:12px">
+        <div class="tiles" id="co-tiles"></div>
+        <p class="small" id="co-verdict"></p>
+      </div>
+    </div>
+
+    <div class="cols-even">
+      <div class="panel co-side">
+        <div class="panel-head"><h3>Сторона A · наступает</h3><span class="co-sum" id="co-sum-A"></span></div>
+        <div class="plist" id="co-list-A"></div>
+        <div class="co-add"><select id="co-add-A" aria-label="Участник для стороны A"></select><button class="btn" id="co-addbtn-A">Добавить в A</button></div>
+      </div>
+      <div class="panel co-side b">
+        <div class="panel-head"><h3>Сторона B · обороняется</h3><span class="co-sum" id="co-sum-B"></span></div>
+        <div class="plist" id="co-list-B"></div>
+        <div class="co-add"><select id="co-add-B" aria-label="Участник для стороны B"></select><button class="btn" id="co-addbtn-B">Добавить в B</button></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Баланс во времени</h3>
+        <div class="legend" id="co-legend"></div>
+      </div>
+      <div class="chart-box" id="co-chart"></div>
+    </div>
+
+    <div class="cols-even">
+      <div class="panel">
+        <div class="panel-head"><h3>Вклад участников</h3><span class="muted small" id="co-bars-day"></span></div>
+        <div class="stack" style="gap:14px" id="co-bars"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Граф союзов</h3><span class="muted small">толщина ребра — надёжность <span class="sym">ρ</span>, буква — класс обязательства</span></div>
+        <div class="co-graph chart-box" id="co-graph"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head"><h3>Формулы с текущими параметрами</h3></div>
+      <div class="formula" id="co-formula"></div>
+    </div>
+  </section>
+
+  <!-- ЛАНЧЕСТЕР -->
+  <section id="tab-lanchester" class="stack" hidden>
+    <div class="cols">
+      <div class="stack">
+        <div class="panel stack" style="gap:12px">
+          <h2>Сценарий</h2>
+          <div class="side-card a">
+            <div class="field"><label for="ln-a">Сторона A · наступает</label><select id="ln-a"></select></div>
+            <div class="inputs" id="ln-a-inputs"></div>
+          </div>
+          <div class="side-card b">
+            <div class="field"><label for="ln-b">Сторона B · обороняется на своей территории</label><select id="ln-b"></select></div>
+            <div class="inputs" id="ln-b-inputs"></div>
+          </div>
+          <button class="btn" id="ln-reset">Вернуть входы из индекса</button>
+        </div>
+        <div class="panel stack" style="gap:12px">
+          <h3>Условия</h3>
+          <div class="field">
+            <label for="ln-alpha">Показатель закона <span class="sym">α</span></label>
+            <div class="range-line"><input type="range" id="ln-alpha" min="0.5" max="2" step="0.05"><output id="ln-alpha-out"></output></div>
+            <span class="hint">1 — линейный закон (огонь по площадям), 2 — квадратичный (прицельный огонь). По 404 сражениям 1900–1973 гг. (CDB90) при равной эффективности сторон α ≈ 1,0 [0,8; 1,2] — это значение по умолчанию.</span>
+          </div>
+          <div class="field">
+            <label for="ln-D">Удалённость театра от A, тыс. км</label>
+            <div class="range-line"><input type="range" id="ln-D" min="0" max="10" step="0.5"><output id="ln-D-out"></output></div>
+            <span class="hint" id="ln-D-hint" hidden>Для коалиции A удалённость задана по каждому участнику в разделе «Коалиции».</span>
+          </div>
+          <div class="field">
+            <label for="ln-terrain">Местность и подготовка обороны</label>
+            <select id="ln-terrain">
+              <option value="1" selected>Подготовленная или укреплённая оборона · d = 1,0 (сражения CDB90)</option>
+              <option value="1.3">Поспешная оборона, удары · d = 1,3</option>
+              <option value="1.7">Украина 2024–2025, по потерям техники · d = 1,7</option>
+              <option value="2.5">Прежнее допущение: подготовленная оборона, дроны · d = 2,5</option>
+              <option value="3">Прежнее допущение: горы, укрепрайон · d = 3,0</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="field" style="flex:1 1 120px">
+              <label for="ln-bp">Порог слома, % потерь</label>
+              <select id="ln-bp"><option value="campaign" selected>Кампания (месяцы) · 40%</option><option value="battle">Сражение (дни) · 16% (CDB90)</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.6">60%</option></select>
+            </div>
+            <div class="field" style="flex:1 1 120px">
+              <label for="ln-T">Горизонт, сут</label>
+              <select id="ln-T"><option>90</option><option selected>180</option><option>365</option><option>720</option></select>
+            </div>
+          </div>
+          <label class="row small" style="gap:8px; align-items:center"><input type="checkbox" id="ln-mob" checked> Мобилизация и восполнение потерь</label>
+          <label class="row small" style="gap:8px; align-items:center" id="ln-allies-row"><input type="checkbox" id="ln-allies"> Учитывать союзников по блоку</label>
+          <p class="hint small muted" id="ln-allies-hint" hidden>Союзников задают в разделе «Коалиции»: надёжность, доля сил, удалённость и срок вступления каждого участника.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3>Исход</h3></div>
+            <span class="muted small" id="ln-mc-note"></span>
+          </div>
+          <div class="stack" style="gap:12px">
+            <p class="verdict" id="ln-verdict"></p>
+            <div class="prob" id="ln-prob" aria-label="Вероятности исходов"></div>
+            <div class="legend" id="ln-prob-legend"></div>
+            <p class="small" id="ln-det"></p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Боевой потенциал во времени</h3>
+            <div class="legend" id="ln-legend"></div>
+          </div>
+          <div class="chart-box" id="ln-chart"></div>
+        </div>
+        <div class="cols-even">
+          <div class="panel">
+            <div class="panel-head"><h3>Инвариант Ланчестера</h3></div>
+            <dl class="kv" id="ln-inv"></dl>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Чувствительность к закону</h3></div>
+            <dl class="kv" id="ln-sens"></dl>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Уравнения</h3></div>
+          <div class="formula" id="ln-formula"></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel stack" style="gap:12px">
+      <div class="panel-head"><div><h3>Залпы и ПВО · модель Хьюза</h3><span class="muted small">Ракеты и дроны против перехватчиков. Сценарный калькулятор: параметры задаёте вы, модель не калибруется (заявленные вероятности перехвата и цены — класс D).</span></div></div>
+      <div class="cols-even">
+        <div class="inputs" id="sv-inputs"></div>
+        <div class="stack" style="gap:10px">
+          <p class="verdict" id="sv-verdict"></p>
+          <dl class="kv" id="sv-kv"></dl>
+          <div class="chart-box" id="sv-chart"></div>
+        </div>
+      </div>
+      <div class="formula" id="sv-formula"></div>
+    </div>
+  </section>
+
+  <!-- МЕТОДИКА -->
+  <section id="tab-method" class="stack" hidden>
+    <div class="cols">
+      <div class="panel stack" style="gap:14px">
+        <h2>Настройки методики</h2>
+        <div class="field"><label for="m-preset">Набор весов</label><select id="m-preset"></select></div>
+        <div class="field">
+          <label for="m-rho">Взаимозаменяемость столпов <span class="sym">ρ</span></label>
+          <div class="range-line"><input type="range" id="m-rho" data-bind="rho" min="-1" max="1" step="0.05"><output data-out="rho"></output></div>
+          <span class="hint">1 — сумма (слабость компенсируется силой), 0 — геометрическое среднее, меньше 0 — «слабое звено» решает.</span>
+        </div>
+        <div class="field">
+          <label for="m-alpha">Показатель Ланчестера <span class="sym">α</span> для боевых столпов</label>
+          <div class="range-line"><input type="range" id="m-alpha" data-bind="alpha" min="0.5" max="2" step="0.05"><output data-out="alpha"></output></div>
+          <span class="hint">Во сколько раз численность весомее качества в логарифмах: ln F = ln Q + α·ln N.</span>
+          <span class="hint" id="m-alpha-real" hidden>Для 8 реальных государств не действует: баллы столпов выставлены экспертно, а не собраны из показателей N и Q.</span>
+        </div>
+        <div class="field">
+          <span class="lbl">Ядерное сдерживание</span>
+          <div class="seg" id="m-nuclear">
+            <button data-v="axis">Отдельная ось</button><button data-v="pillar">Как столп</button><button data-v="mult">Множитель</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Нормировка</span>
+          <div class="seg" id="m-norm">
+            <button data-v="global">Глобальная шкала</button><button data-v="minmax">Мин–макс по выборке</button>
+          </div>
+          <span class="hint" id="m-norm-real" hidden>Для 8 реальных государств баллы уже стоят на глобальной шкале 0–100.</span>
+        </div>
+        <div class="field">
+          <label for="m-D">Удалённость театра D, тыс. км</label>
+          <div class="range-line"><input type="range" id="m-D" data-bind="D" min="0" max="12" step="0.5"><output data-out="D"></output></div>
+        </div>
+        <div class="field">
+          <span class="lbl">Веса столпов</span>
+          <div class="stack" style="gap:6px" id="m-weights"></div>
+        </div>
+        <button class="btn" id="m-reset">Сбросить к «Сбалансированному»</button>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="panel-head"><h3>Рейтинг при текущих настройках</h3><span class="muted small">стрелка — сдвиг места относительно базовых настроек</span></div>
+          <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th>Государство</th><th class="num">ИВМ</th><th class="num">Сдвиг</th><th class="num">Без СЯС</th><th class="num"><span class="sym">λ</span>, тыс. км</th></tr></thead><tbody id="m-table"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Формулы с текущими параметрами</h3></div>
+          <div class="formula" id="m-formula"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАТАЛОГ -->
+  <section id="tab-monitor" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <div><h2>Монитор очагов · 2026</h2><p class="muted small" id="mon-summary"></p></div>
+        <div class="row">
+          <label class="small"><input type="checkbox" id="mon-new"> только пары без конфликта в 2025 г.</label>
+          <div class="field" style="min-width:160px">
+            <label for="mon-n">Показать пар</label>
+            <select id="mon-n"><option value="20">20</option><option value="40" selected>40</option><option value="100">100</option><option value="780">все 780</option></select>
+          </div>
+        </div>
+      </div>
+      <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th>Пара государств</th><th style="min-width:180px">Вероятность конфликта в 2026 г.</th><th>2025 г.</th><th class="num">Лет конфликта за 10</th><th>Соседство</th><th>Союз</th><th class="num">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
+      <p class="small muted" id="mon-note"></p>
+    </div>
+  </section>
+
+  <section id="tab-catalog" class="stack" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <div><h2>Каталог показателей</h2><p class="muted small" id="cat-summary"></p></div>
+        <div class="row">
+          <div class="field" style="min-width:220px"><label for="cat-q">Поиск</label><input type="search" id="cat-q" placeholder="танки, ВВП, спутники…"></div>
+          <div class="field" style="min-width:190px"><label for="cat-pillar">Столп</label><select id="cat-pillar"></select></div>
+          <div class="field" style="min-width:160px"><label for="cat-role">Роль в модели</label><select id="cat-role"></select></div>
+        </div>
+      </div>
+      <div class="row" id="cat-roles" style="gap:6px 14px; margin-bottom:12px"></div>
+      <div class="tbl-wrap" style="max-height:70vh; overflow:auto">
+        <table><thead><tr><th>ID</th><th>Показатель</th><th>Столп · подгруппа</th><th>Ед.</th><th>Напр.</th><th>Преобр.</th><th>Роль</th><th class="num">Вес</th><th>Источники</th></tr></thead><tbody id="cat-table"></tbody></table>
+      </div>
+      <p class="small muted" style="margin-top:10px" id="cat-sources"></p>
+    </div>
+  </section>
+</main>
+<footer>Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
+<div class="tip" id="tip" hidden></div>
+
+<script src="indicators.js"></script>
+<script src="countries.js"></script>
+<script src="pilot.js"></script>
+<script>
+(function () {
+"use strict";
+
+/* ---------- Справочники ---------- */
+const IND = window.INDICATORS || [];
+const PILLARS = [
+  { code: "GRD", name: "Сухопутные войска", short: "СВ" },
+  { code: "AIR", name: "ВВС и ПВО", short: "ВВС" },
+  { code: "NAV", name: "Военно-морские силы", short: "ВМС" },
+  { code: "STR", name: "Стратегические силы", short: "СЯС" },
+  { code: "C4I", name: "Космос, кибер, управление", short: "C4ISR" },
+  { code: "PER", name: "Личный состав", short: "Л/с" },
+  { code: "ECO", name: "Экономика обороны", short: "Экон." },
+  { code: "IND", name: "ОПК и технологии", short: "ОПК" },
+  { code: "LOG", name: "Логистика и мобилизация", short: "Тыл" },
+  { code: "GEO", name: "География и демография", short: "Гео" },
+  { code: "ALL", name: "Союзы и присутствие", short: "Союзы" },
+  { code: "GOV", name: "Управление и опыт", short: "Упр." }
+];
+const PI = Object.fromEntries(PILLARS.map((p, i) => [p.code, i]));
+const STR_IDX = PI.STR;
+const COMBAT = new Set(["GRD", "AIR", "NAV"]);
+const ROLES = {
+  N: ["Численность", "количество боевых единиц: в законе Ланчестера это N"],
+  Q: ["Качество", "поражающая способность и живучесть единицы: коэффициент эффективности"],
+  M: ["Множитель", "C4ISR, РЭБ, союзники: усиливают эффективность всей группировки"],
+  S: ["Устойчивость", "экономика, ОПК, резервы: темп восполнения потерь в затяжной войне"],
+  P: ["Проекция", "заправщики, ВТА, базы, флот: радиус λ, на котором сила не теряется"],
+  G: ["Сдерживание", "ядерный порог: не суммируется с обычными силами"],
+  C: ["Контекст", "география, институты: условия, меняющие исход"]
+};
+const TRANSFORMS = { log: "логарифм", lin: "линейно", pct: "доля", score: "эксп. балл", cat: "категория" };
+const SOURCES = {
+  IISS: "IISS, The Military Balance", "SIPRI-M": "SIPRI Military Expenditure Database", "SIPRI-AT": "SIPRI Arms Transfers Database",
+  "SIPRI-I": "SIPRI Arms Industry Database (Top-100)", "SIPRI-YB": "SIPRI Yearbook, ядерные силы", FAS: "Federation of American Scientists",
+  BAS: "Bulletin of the Atomic Scientists, Nuclear Notebook", IPFM: "International Panel on Fissile Materials", IAEA: "МАГАТЭ",
+  WB: "Всемирный банк (WDI, WGI, HCI)", IMF: "МВФ, World Economic Outlook", UN: "ООН, World Population Prospects", CIA: "CIA World Factbook",
+  ITU: "МСЭ, Global Cybersecurity Index", WIPO: "ВОИС, GII и патенты", UNESCO: "ЮНЕСКО UIS", OECD: "ОЭСР", UNIDO: "ЮНИДО",
+  USGS: "Геологическая служба США", WSA: "World Steel Association", EIA: "EIA", IEA: "МЭА", FAO: "ФАО", WHO: "ВОЗ", UNCTAD: "ЮНКТАД",
+  UCS: "UCS Satellite Database", SWF: "Secure World Foundation", UCDP: "Uppsala Conflict Data Program", COW: "Correlates of War",
+  ATOP: "Alliance Treaty Obligations and Provisions", TI: "Transparency International", "TI-DS": "TI Government Defence Integrity Index",
+  "V-Dem": "V-Dem", NATO: "Отчёты НАТО о расходах", Oryx: "Oryx (подтверждённые потери)", ООН: "ООН", ОТКР: "открытые источники (OSINT)",
+  Э: "экспертная оценка (панель, AHP/Дельфи)", ГИС: "ГИС-расчёт", "расчёт": "производный расчёт", "опросы": "социологические опросы"
+};
+const PRESETS = {
+  balanced: { name: "Сбалансированный", w: { GRD: 12, AIR: 12, NAV: 9, STR: 8, C4I: 8, PER: 8, ECO: 9, IND: 9, LOG: 7, GEO: 6, ALL: 6, GOV: 6 } },
+  conventional: { name: "Конвенциональный, близко к GFP", w: { GRD: 18, AIR: 16, NAV: 12, STR: 0, C4I: 4, PER: 12, ECO: 12, IND: 5, LOG: 9, GEO: 8, ALL: 2, GOV: 2 } },
+  attrition: { name: "Затяжная война на истощение", w: { GRD: 10, AIR: 8, NAV: 5, STR: 6, C4I: 6, PER: 10, ECO: 14, IND: 16, LOG: 12, GEO: 6, ALL: 4, GOV: 3 } },
+  expedition: { name: "Экспедиционные операции", w: { GRD: 8, AIR: 14, NAV: 16, STR: 6, C4I: 12, PER: 6, ECO: 8, IND: 6, LOG: 8, GEO: 3, ALL: 10, GOV: 3 } },
+  europe_land: { name: "Сухопутная война в Европе", w: { GRD: 24, AIR: 16, NAV: 3, STR: 0, C4I: 8, PER: 12, ECO: 6, IND: 10, LOG: 9, GEO: 6, ALL: 3, GOV: 3 } }
+};
+const NUC = ["Нет ЯО", "Пороговый", "ЯО, ограниченный", "ЯО, 2 компонента", "Ядерная триада"];
+const ALL_IDX = PI.ALL;
+const KAPPA = 2.6 * Math.LN10; // у.е. мощи M = exp(κ·ИВМ): тот же размах шкалы, что N₀ = 10^(1+2,6·N̄)
+const RAMP = 7; // сут: после задержки τ силы союзника наращиваются линейно за неделю
+// Ошибка модели (core/model_error.py, 10 войн 2018–2025 гг.): σ = 2,0 — только в вероятности, что перевеса хватает
+const IP = window.IVM_PARAMS || {}; // параметры методики из ядра (core/export_params.py → countries.js); запасные значения — на случай отсутствия
+const MODEL_SIGMA = IP.model_sigma ?? 2.0;
+// Порог слома: кампания (месяцы) 0,4; отдельное сражение (дни) — медиана порога воли по сражениям CDB90 (core/battles_iq.py).
+const BP = Object.assign({ campaign: .4, battle: .16 }, IP.bp || {});
+const bpValue = (v) => BP[v] ?? Number(v);
+const ALPHA0 = IP.alpha ?? 1, D_PD = (IP.d_table && IP.d_table.PD) ?? 1, ALPHA_SPREAD = IP.alpha_mc ? IP.alpha_mc[1] - IP.alpha_mc[0] : .4;
+function erf(x) { const s = Math.sign(x), a = Math.abs(x), t = 1 / (1 + .3275911 * a); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - .284496736) * t + .254829592) * t * Math.exp(-a * a)); }
+const pSufficient = (r, R) => r === Infinity ? 1 : (r === null || !Number.isFinite(r) || r <= 0) ? null : .5 * (1 + erf(Math.log(r / R) / MODEL_SIGMA / Math.SQRT2));
+
+/* Реальные государства: экспертные баллы 12 столпов и σ (data/countries_2026.json, срез — октябрь 2026). */
+const RD = window.REAL_DATA || null;
+const REAL_BLOC = {
+  USA: "НАТО", RUS: "ОДКБ, Союзное государство", FRA: "НАТО, ЕС", GBR: "НАТО", DEU: "НАТО, ЕС",
+  ISR: "основной союзник США вне НАТО", UKR: "вне блоков, помощь союзников", IRN: "«Ось сопротивления»"
+};
+const DQ_NUM = { A: .95, B: .8, C: .6, D: .45 };
+const REAL = RD ? RD.order.map((id) => {
+  const c = RD.countries[id];
+  return { id, name: c.name, bloc: REAL_BLOC[id] || "", k: c.nuc, dq: DQ_NUM[c.dq] || .5, dqL: c.dq, sigma: c.sigma, lam: c.lam, scores: PILLARS.map((p) => c.scores[p.code]) };
+}) : [];
+/* Участники коалиций вне восьмёрки: ориентировочная автономная мощь из документа 3 (только для иллюстрации алгоритма). */
+const EXTRA_REAL = [
+  { id: "POL", name: "Польша", short: "Польша", ivm: 55, lam: 3 },
+  { id: "NBF", name: "Страны Балтии, Финляндия, Швеция", short: "Балтия и Сев. Европа", ivm: 50, lam: 3 },
+  { id: "BLR", name: "Белоруссия", short: "Белоруссия", ivm: 25, lam: 1.5 },
+  { id: "PRK", name: "КНДР (контингент в России)", short: "КНДР", ivm: 40, lam: 2 },
+  { id: "AXR", name: "«Ось сопротивления» (Хезболла, хуситы, ополчения)", short: "«Ось сопротивления»", ivm: 20, lam: 1.5 }
+];
+
+/* Вымышленные государства. s — масштаб, w — богатство, t — технологии, m — милитаризация, k — ядерный класс 0–4,
+   a — союзы, e — боевой опыт, g — качество управления, sea — морское положение, dq — качество данных */
+const COUNTRIES_DEMO = [
+  { id: "ARD", name: "Арделия", bloc: "Северный пакт", s: .80, w: .95, t: .95, m: .60, k: 4, a: .90, e: .70, g: .80, sea: 1.0, dq: .95 },
+  { id: "BOR", name: "Борвания", bloc: "Восточный союз", s: .90, w: .55, t: .70, m: .85, k: 4, a: .40, e: .90, g: .50, sea: .60, dq: .60 },
+  { id: "VEL", name: "Велирия", bloc: "Восточный союз", s: 1.0, w: .70, t: .80, m: .55, k: 3, a: .30, e: .20, g: .70, sea: .90, dq: .55 },
+  { id: "GAR", name: "Гарцония", bloc: "Неприсоединившиеся", s: .95, w: .45, t: .60, m: .50, k: 3, a: .30, e: .50, g: .55, sea: .70, dq: .70 },
+  { id: "DAL", name: "Дальмира", bloc: "Северный пакт", s: .50, w: .85, t: .85, m: .45, k: 2, a: .90, e: .60, g: .80, sea: .90, dq: .90 },
+  { id: "EST", name: "Есталия", bloc: "Северный пакт", s: .55, w: .90, t: .90, m: .30, k: 1, a: .90, e: .10, g: .85, sea: .80, dq: .90 },
+  { id: "ZEL", name: "Зеландра", bloc: "Неприсоединившиеся", s: .20, w: .85, t: .90, m: .90, k: 2, a: .70, e: .95, g: .70, sea: .40, dq: .70 },
+  { id: "KAL", name: "Калдора", bloc: "Восточный союз", s: .60, w: .35, t: .50, m: .80, k: 0, a: .40, e: .70, g: .45, sea: .60, dq: .45 },
+  { id: "LOR", name: "Лорвания", bloc: "Неприсоединившиеся", s: .70, w: .50, t: .55, m: .45, k: 0, a: .50, e: .30, g: .55, sea: .70, dq: .75 },
+  { id: "MIR", name: "Мирандия", bloc: "Северный пакт", s: .35, w: .80, t: .80, m: .40, k: 0, a: .85, e: .20, g: .80, sea: 1.0, dq: .90 },
+  { id: "NOR", name: "Норрания", bloc: "Северный пакт", s: .25, w: .80, t: .75, m: .60, k: 0, a: .90, e: .30, g: .85, sea: .50, dq: .90 },
+  { id: "OSK", name: "Оскалия", bloc: "Неприсоединившиеся", s: .45, w: .20, t: .40, m: 1.0, k: 2, a: .20, e: .40, g: .40, sea: .50, dq: .35 },
+  { id: "PAL", name: "Палатия", bloc: "Неприсоединившиеся", s: .45, w: .70, t: .55, m: .70, k: 0, a: .60, e: .50, g: .50, sea: .60, dq: .60 },
+  { id: "RIV", name: "Ривения", bloc: "Неприсоединившиеся", s: .30, w: .30, t: .30, m: .30, k: 0, a: .30, e: .20, g: .40, sea: .30, dq: .50 }
+];
+const nI = IND.length;
+/* Текущий набор данных. Демо: V — показатели (страна × 253). Реальные: V — баллы столпов (страна × 12), SIG — σ из экспертной оценки. */
+let DS = null, COUNTRIES = [], nC = 0, V = null, SIG = null, IMP = null, COMPLETE = null;
+
+/* ---------- Утилиты ---------- */
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+const fmt = (x, d = 0) => Number(x).toLocaleString("ru-RU", { minimumFractionDigits: d, maximumFractionDigits: d });
+function hashStr(s) { let h = 2166136261; for (const ch of s) { h ^= ch.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function gauss(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function quantile(sorted, q) { const p = (sorted.length - 1) * q, lo = Math.floor(p), hi = Math.ceil(p); return sorted[lo] + (sorted[hi] - sorted[lo]) * (p - lo); }
+function median(arr) { const s = [...arr].sort((a, b) => a - b); return quantile(s, .5); }
+function heat(v) { return "h" + clamp(Math.floor(v * 7), 0, 6); }
+function niceStep(range, count) { const raw = range / count, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
+
+/* ---------- Синтетические данные ---------- */
+function latent(c, ind) {
+  const p = ind.pillar, r = ind.role, id = ind.id;
+  let b;
+  switch (r) {
+    case "N": b = .42 * c.s + .38 * c.m + .2 * c.w; break;
+    case "Q": b = .5 * c.t + .2 * c.w + .15 * c.m + .15 * c.e; break;
+    case "M": b = .55 * c.t + .25 * c.w + .2 * c.a; break;
+    case "S": b = .38 * c.w + .37 * c.s + .25 * c.g; break;
+    case "P": b = .45 * c.w + .3 * c.t + .25 * c.a; break;
+    case "G": b = c.k / 4; break;
+    default: b = .45 * c.s + .3 * c.g + .25 * c.a;
+  }
+  if (p === "NAV" && (r === "N" || r === "P")) b *= .3 + .7 * c.sea;
+  if (id === "N02" && !(c.sea > .8 && c.w > .75)) b *= .35;
+  if (p === "STR" && r !== "G") b *= .35 + .65 * c.k / 4;
+  if (id === "S05") b = c.k > 0 ? .55 + .1 * c.k : .55 * c.t;
+  if (id === "S14") b = c.k >= 2 ? .3 : c.bloc === "Северный пакт" ? .85 : .4 * c.a;
+  if (p === "PER" && r === "N") b = .55 * c.s + .45 * c.m;
+  if (id === "E03" || id === "E08" || id === "P04") b = .85 * c.m + .1;
+  if (id === "P14" || id === "H01" || id === "H02" || id === "H03") b = c.e;
+  else if (p === "GOV") b = r === "Q" ? .6 * c.g + .25 * c.t + .15 * c.e : .75 * c.g + .25 * c.w;
+  if (p === "ALL") b = r === "P" ? .55 * c.a + .45 * c.w : .75 * c.a + .25 * c.t;
+  if (p === "GEO") b = r === "P" ? .7 * c.sea + .3 * c.w : r === "C" ? .75 * c.s + .25 * c.g : .8 * c.s + .2 * c.g;
+  return b;
+}
+const SIG_BASE = { N: .04, S: .04, P: .05, G: .03, Q: .08, M: .09, C: .06 };
+function buildDemo() {
+  const C = COUNTRIES_DEMO, n = C.length;
+  const V = new Float64Array(n * nI), SIG = new Float64Array(n * nI), IMP = new Uint8Array(n * nI);
+  C.forEach((c, ci) => {
+    const rng = mulberry32(hashStr(c.id));
+    IND.forEach((ind, ii) => {
+      const k = ci * nI + ii, expert = ind.sources.includes("Э");
+      V[k] = clamp(latent(c, ind) + (ind.role === "G" ? .03 : .075) * gauss(rng), .02, .99);
+      SIG[k] = SIG_BASE[ind.role] * (1.6 - c.dq) * (expert ? 1.3 : 1);
+      if ((expert || ind.role === "Q" || ind.role === "M") && rng() < (1 - c.dq) * .45) IMP[k] = 1;
+    });
+    PILLARS.forEach((p) => {
+      let s = 0, m = 0;
+      IND.forEach((ind, ii) => { const k = ci * nI + ii; if (ind.pillar === p.code && !IMP[k]) { s += V[k]; m++; } });
+      const mean = m ? s / m : .3;
+      IND.forEach((ind, ii) => { const k = ci * nI + ii; if (ind.pillar === p.code && IMP[k]) { V[k] = mean; SIG[k] *= 2.2; } });
+    });
+  });
+  const COMPLETE = C.map((c, ci) => { let m = 0; for (let ii = 0; ii < nI; ii++) if (!IMP[ci * nI + ii]) m++; return m / nI; });
+  return { kind: "demo", countries: C, V, SIG, IMP, COMPLETE };
+}
+function buildReal() {
+  const n = REAL.length, NP = PILLARS.length, V = new Float64Array(n * NP), SIG = new Float64Array(n * NP);
+  REAL.forEach((c, ci) => c.scores.forEach((s, pi) => { V[ci * NP + pi] = s / 100; SIG[ci * NP + pi] = c.sigma / 100; }));
+  return { kind: "real", countries: REAL, V, SIG, IMP: null, COMPLETE: null };
+}
+/* Пилот на 40 странах: нормированные значения 253 показателей, σ и признак восстановления
+   (core/run.py -> data/pilot/proto_2025.json -> prototype/pilot.js). Показатели с данными менее чем у половины стран не входят в индекс. */
+const PD = window.PILOT_DATA || null;
+function buildPilot() {
+  const C = PD.countries.map((c) => ({ ...c })), n = C.length;
+  const V = new Float64Array(n * nI), SIG = new Float64Array(n * nI), IMP = new Uint8Array(n * nI);
+  C.forEach((c, ci) => {
+    for (let ii = 0; ii < nI; ii++) {
+      const k = ci * nI + ii, v = PD.V[ci][ii];
+      V[k] = v == null ? NaN : v; SIG[k] = PD.S[ci][ii] || 0; IMP[k] = PD.imp[ci][ii];
+    }
+  });
+  return { kind: "pilot", countries: C, V, SIG, IMP, COMPLETE: C.map((c) => c.coverage), INC: Uint8Array.from(PD.include) };
+}
+const isReal = () => DS.kind === "real";
+const isDemo = () => DS.kind === "demo";
+const inIndex = (ii) => !DS.INC || DS.INC[ii] === 1;
+const DQ_LETTER = (dq) => dq >= .85 ? "A" : dq >= .7 ? "B" : dq >= .55 ? "C" : "D";
+const STRUCT_SIGMA = .10; // как в core/lanmil/config.py: σ столпа за долю веса, не покрытую данными
+
+/* ---------- Расчётное ядро индекса ---------- */
+// Группы показателей по столпам и ролям — пересобираются при смене набора данных (в пилоте — только показатели индекса).
+let PG = [], PROJ = [], COVERED = PILLARS.map(() => 1);
+function regroup() {
+  PG = PILLARS.map((p) => {
+    const g = { N: [], QM: [], O: [] };
+    IND.forEach((ind, ii) => { if (ind.pillar !== p.code || !inIndex(ii)) return; g[ind.role === "N" ? "N" : ind.role === "Q" || ind.role === "M" ? "QM" : "O"].push(ii); });
+    return g;
+  });
+  PROJ = IND.map((d, i) => (d.role === "P" && inIndex(i) ? i : -1)).filter((i) => i >= 0);
+  COVERED = PILLARS.map((p) => {
+    let a = 0, t = 0;
+    IND.forEach((ind, ii) => { if (ind.pillar === p.code) { t += ind.weight; if (inIndex(ii)) a += ind.weight; } });
+    return t ? a / t : 1;
+  });
+  LG.N = []; LG.Q = []; LG.S = [];
+  IND.forEach((ind, ii) => {
+    if (!inIndex(ii)) return;
+    if (ind.role === "N" && (COMBAT.has(ind.pillar) || ind.id === "P01")) LG.N.push(ii);
+    if ((ind.role === "Q" || ind.role === "M") && ["GRD", "AIR", "NAV", "C4I", "PER", "GOV"].includes(ind.pillar)) LG.Q.push(ii);
+    if (ind.role === "S" && ["ECO", "IND", "LOG", "PER", "GEO"].includes(ind.pillar)) LG.S.push(ii);
+  });
+}
+
+function ces(P, w, rho, inc0) {
+  const inc = (j) => inc0(j) && !Number.isNaN(P[j]); // столп без показателей в индексе не участвует
+  let sw = 0;
+  for (let j = 0; j < P.length; j++) if (inc(j)) sw += w[j];
+  if (sw <= 0) return 0;
+  let s = 0;
+  if (Math.abs(rho) < .05) { for (let j = 0; j < P.length; j++) if (inc(j) && w[j] > 0) s += (w[j] / sw) * Math.log(Math.max(P[j], .02)); return Math.exp(s); }
+  for (let j = 0; j < P.length; j++) if (inc(j) && w[j] > 0) s += (w[j] / sw) * Math.pow(Math.max(P[j], .02), rho);
+  return Math.pow(s, 1 / rho);
+}
+function normalize(Vsrc, o) {
+  if (o.norm !== "minmax") return Vsrc;
+  const X = new Float64Array(Vsrc.length);
+  for (let ii = 0; ii < nI; ii++) {
+    let mn = Infinity, mx = -Infinity;
+    for (let ci = 0; ci < nC; ci++) { const v = Vsrc[ci * nI + ii]; if (v < mn) mn = v; if (v > mx) mx = v; }
+    const sp = mx - mn || 1;
+    for (let ci = 0; ci < nC; ci++) X[ci * nI + ii] = .02 + .97 * (Vsrc[ci * nI + ii] - mn) / sp;
+  }
+  return X;
+}
+function compute(Vsrc, o, wj, pn) {
+  const real = isReal(), NP = PILLARS.length;
+  const X = real ? Vsrc : normalize(Vsrc, o);
+  const wP = PILLARS.map((p, pi) => (o.weights[p.code] || 0) * (wj ? wj[pi] : 1));
+  const notStr = (j) => j !== STR_IDX, autoInc = (j) => j !== STR_IDX && j !== ALL_IDX;
+  const res = [];
+  for (let ci = 0; ci < nC; ci++) {
+    let P, lambda, Pproj;
+    if (real) {
+      // Баллы столпов выставлены экспертно; λ — из оценки проекции силы.
+      P = PILLARS.map((p, pi) => X[ci * NP + pi]);
+      lambda = COUNTRIES[ci].lam; Pproj = (lambda - 2) / 10;
+    } else {
+      const base = ci * nI;
+      P = PG.map((g, pi) => {
+        let sN = 0, wN = 0, sQ = 0, wQ = 0, sO = 0, wO = 0;
+        for (const ii of g.N) { const w = IND[ii].weight; sN += w * X[base + ii]; wN += w; }
+        for (const ii of g.QM) { const w = IND[ii].weight; sQ += w * X[base + ii]; wQ += w; }
+        for (const ii of g.O) { const w = IND[ii].weight; sO += w * X[base + ii]; wO += w; }
+        const al = COMBAT.has(PILLARS[pi].code) ? o.alpha : 1, den = al * wN + wQ + wO;
+        const v = den ? (al * sN + sQ + sO) / den : NaN;
+        return pn && !Number.isNaN(v) ? clamp(v + pn[ci * NP + pi], 0, 1) : v; // pn — структурный шум столпа (Монте-Карло пилота)
+      });
+      let sp = 0, swp = 0;
+      for (const ii of PROJ) { const w = IND[ii].weight; sp += w * X[base + ii]; swp += w; }
+      Pproj = swp ? sp / swp : 0; lambda = 2 + 10 * Pproj;
+    }
+    const conv = ces(P, wP, o.rho, notStr);
+    // Автономная мощь — без СЯС и без столпа «Союзы»: её берут в коалиционных сценариях, чтобы не учесть союзников дважды.
+    const auto = ces(P, wP, o.rho, autoInc);
+    const I = o.nuclear === "pillar" ? ces(P, wP, o.rho, () => true) : o.nuclear === "mult" ? conv * (1 + .3 * P[STR_IDX]) / 1.3 : conv;
+    res.push({ P, conv, auto, I, Ieff: I * Math.exp(-o.D / lambda), lambda, Pproj, X });
+  }
+  return res;
+}
+function ranksOf(vals) {
+  const order = vals.map((v, i) => i).sort((a, b) => vals[b] - vals[a]);
+  const r = new Array(vals.length);
+  order.forEach((ci, pos) => { r[ci] = pos + 1; });
+  return r;
+}
+function runMC(o, runs) {
+  const rng = mulberry32(20261012);
+  const vals = Array.from({ length: nC }, () => []), rks = Array.from({ length: nC }, () => []);
+  const Vp = new Float64Array(V.length), NP = PILLARS.length, pilot = DS.kind === "pilot";
+  const pn = pilot ? new Float64Array(nC * NP) : null;
+  for (let r = 0; r < runs; r++) {
+    for (let k = 0; k < V.length; k++) Vp[k] = clamp(V[k] + SIG[k] * gauss(rng), .01, 1);
+    const wj = PILLARS.map(() => Math.exp(.15 * gauss(rng)));
+    // Реальные государства — как в countries_2026.py: ρ ~ U(ρ ± 0,2). Пилот — как в core/lanmil/mc.py: ещё α ~ U(α ± 0,2)
+    // и структурный шум столпа σ = 0,10 × (доля веса столпа без данных).
+    let oo = o;
+    if (isReal() || pilot) oo = { ...o, rho: o.rho + .4 * (rng() - .5) };
+    if (pilot) {
+      oo.alpha = o.alpha + ALPHA_SPREAD * (rng() - .5);
+      for (let ci = 0; ci < nC; ci++) for (let pi = 0; pi < NP; pi++) pn[ci * NP + pi] = STRUCT_SIGMA * (1 - COVERED[pi]) * gauss(rng);
+    }
+    const out = compute(Vp, oo, wj, pn), v = out.map((x) => x.Ieff), rk = ranksOf(v);
+    for (let ci = 0; ci < nC; ci++) { vals[ci].push(v[ci]); rks[ci].push(rk[ci]); }
+  }
+  return vals.map((arr, ci) => {
+    const s = arr.sort((a, b) => a - b), r = rks[ci].sort((a, b) => a - b);
+    return { p5: quantile(s, .05), p50: quantile(s, .5), p95: quantile(s, .95), r5: Math.round(quantile(r, .05)), r95: Math.round(quantile(r, .95)) };
+  });
+}
+
+/* ---------- Состояние ---------- */
+const DEFAULTS = { preset: "balanced", weights: { ...PRESETS.balanced.w }, rho: .5, alpha: ALPHA0, nuclear: "axis", norm: "global", D: 0 };
+const state = JSON.parse(JSON.stringify(DEFAULTS));
+const MC_RUNS = 300;
+let det = [], mc = null, baseRanks = [];
+const ui = { profile: 0, cmpA: 0, cmpB: 1, lnA: 0, lnB: 1, measure: "index", pfPillar: "GRD", catPillar: "", catRole: "", catQ: "" };
+
+/* ---------- Подсказки ---------- */
+const tip = $("tip");
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.hidden = false;
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + pad, y = ev.clientY + pad;
+  if (x + w > window.innerWidth - 8) x = ev.clientX - w - pad;
+  if (y + h > window.innerHeight - 8) y = ev.clientY - h - pad;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+function hideTip() { tip.hidden = true; }
+document.addEventListener("mousemove", (ev) => {
+  const t = ev.target.closest && ev.target.closest("[data-tip]");
+  if (t) showTip(t.getAttribute("data-tip"), ev); else if (!ev.target.closest("[data-hover-chart]")) hideTip();
+});
+
+/* ---------- Вкладки ---------- */
+const TABS = ["rating", "profile", "compare", "coalition", "lanchester", "monitor", "method", "catalog"];
+/* ---------- Монитор очагов (core/monitor.py → data/pilot/monitor_2026.json → window.MONITOR_DATA) ---------- */
+function renderMonitor() {
+  const M = window.MONITOR_DATA;
+  if (!M) { $("mon-summary").textContent = "Нет данных монитора: запустите core/monitor.py и tools/build_catalog.mjs."; return; }
+  const onlyNew = $("mon-new").checked, n = Number($("mon-n").value);
+  const rows = M.pairs_2026.filter((r) => !onlyNew || !r.lag).slice(0, n);
+  const ev = M.evaluation.incidence;
+  $("mon-summary").textContent = `Вероятность вооружённого конфликта в паре из 40 государств в 2026 г. по данным 2025 г. · модель проверена вперёд по времени на ${ev.M1.n.toLocaleString("ru-RU")} прогнозах 2019–2025 гг. (AUC ${fmt(ev[M.use_ivm ? "M2" : "M1"].auc, 2)})`;
+  $("mon-table").innerHTML = rows.map((r, i) => `<tr><td class="num">${i + 1}</td><td>${esc(r.names)}</td>` +
+    `<td><span class="track" style="display:inline-block;position:relative;width:110px;height:12px;vertical-align:middle;background:var(--line)"><span class="bar" style="width:${(r.p * 100).toFixed(1)}%;background:var(--side-a)"></span></span> ${fmt(r.p * 100, r.p < .1 ? 1 : 0)}%</td>` +
+    `<td>${r.lag ? "конфликт" : "—"}</td><td class="num">${r.hist_years}</td><td>${r.contig ? "граница" : `${fmt(r.dist_km / 1000, 1)} тыс. км`}</td>` +
+    `<td>${r.ally ? "да" : ""}</td><td class="num">${fmt(r.demo, 2)}</td></tr>`).join("");
+  $("mon-note").innerHTML = `Модель — логистическая регрессия по соседству, расстоянию между столицами, годам конфликта пары за 10 лет, конфликту в прошлом году, совместной демократии (V-Dem) и союзному договору; исход — конфликт по UCDP/PRIO. ` +
+    `Показатели индекса военной мощи (близость сил, сила сильнейшего) в монитор ${M.use_ivm ? "входят" : "не входят"}: вне выборки они ${M.use_ivm ? "улучшили" : "не улучшили"} прогноз (${fmt(ev.M2.logscore, 1)} против ${fmt(ev.M1.logscore, 1)}). ` +
+    `Монитор видит в основном продолжение и историю конфликтов; новые очаги (начала конфликтов) он предсказывает хуже — AUC ${fmt(M.evaluation.onset.M1.auc, 2)} по ${M.evaluation.onset.M1.positives} началам. События после 2025 г. (перемирия, соглашения) в данных нет. Документ 6, раздел 7.10.`;
+}
+function openTab(name) {
+  if (!TABS.includes(name)) name = "rating";
+  TABS.forEach((t) => { $("tab-" + t).hidden = t !== name; $("t-" + t).setAttribute("aria-selected", String(t === name)); });
+  if (location.hash.slice(1) !== name) history.replaceState(null, "", "#" + name);
+  if (name === "lanchester") renderLanchester();
+  if (name === "coalition") renderCoalition();
+  if (name === "monitor") renderMonitor();
+  window.scrollTo({ top: 0 });
+}
+document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => openTab(b.dataset.tab)));
+$("mon-new").addEventListener("change", renderMonitor);
+$("mon-n").addEventListener("change", renderMonitor);
+
+/* ---------- Пересчёт ---------- */
+let mcTimer = null;
+function recompute(withMC) {
+  det = compute(V, state);
+  if (withMC) { mc = runMC(state, MC_RUNS); } else { clearTimeout(mcTimer); mcTimer = setTimeout(() => { mc = runMC(state, MC_RUNS); renderRating(); renderProfile(); }, 250); }
+  syncControls(); renderRating(); renderProfile(); renderCompare(); renderMethod();
+  if (!$("tab-lanchester").hidden) renderLanchester();
+  if (!$("tab-coalition").hidden) renderCoalResults();
+}
+function settingsLine() {
+  const p = PRESETS[state.preset] ? PRESETS[state.preset].name : "Пользовательский";
+  const nuc = { axis: "ЯО — отдельная ось", pillar: "ЯО — столп", mult: "ЯО — множитель" }[state.nuclear];
+  return `Веса: ${p} · ρ = ${fmt(state.rho, 2)} · α = ${fmt(state.alpha, 2)} · ${nuc} · D = ${fmt(state.D, 1)} тыс. км`;
+}
+function syncControls() {
+  document.querySelectorAll("[data-bind]").forEach((el) => { const k = el.dataset.bind; if (String(el.value) !== String(state[k])) el.value = state[k]; });
+  document.querySelectorAll("[data-out]").forEach((el) => { const k = el.dataset.out; el.textContent = fmt(state[k], k === "D" ? 1 : 2); });
+  document.querySelectorAll("#m-nuclear button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === state.nuclear)));
+  document.querySelectorAll("#m-norm button").forEach((b) => { b.setAttribute("aria-pressed", String(b.dataset.v === state.norm)); b.disabled = isReal(); });
+  $("m-alpha").disabled = isReal(); $("m-alpha-real").hidden = !isReal(); $("m-norm-real").hidden = !isReal();
+  $("m-preset").value = PRESETS[state.preset] ? state.preset : "custom";
+}
+document.querySelectorAll("[data-bind]").forEach((el) => {
+  el.addEventListener("input", () => { state[el.dataset.bind] = Number(el.value); recompute(false); });
+});
+
+/* ---------- Рейтинг ---------- */
+function measureValue(ci) {
+  if (ui.measure === "index") return det[ci].Ieff;
+  if (ui.measure === "conv") return det[ci].conv;
+  if (ui.measure === "auto") return det[ci].auto;
+  return det[ci].P[PI[ui.measure]];
+}
+function renderRating() {
+  $("rating-settings").textContent = settingsLine();
+  $("mc-runs").textContent = MC_RUNS;
+  const vals = COUNTRIES.map((c, ci) => measureValue(ci));
+  const order = vals.map((v, i) => i).sort((a, b) => vals[b] - vals[a]);
+  const isIndex = ui.measure === "index";
+  $("rank-list").innerHTML = order.map((ci, pos) => {
+    const c = COUNTRIES[ci], d = det[ci], v = vals[ci] * 100;
+    const m = mc && isIndex ? mc[ci] : null;
+    const whisk = m ? `<span class="whisker" style="left:${(m.p5 * 100).toFixed(1)}%;width:${Math.max(.5, (m.p95 - m.p5) * 100).toFixed(1)}%"></span>` : "";
+    const rr = m ? (m.r5 === m.r95 ? `${m.r5}` : `${m.r5}–${m.r95}`) : "—";
+    const strip = d.P.map((p, pi) => `<i class="${heat(p)}" data-tip="<b>${esc(PILLARS[pi].name)}</b><br>${fmt(p * 100, 1)} из 100"></i>`).join("");
+    const tipBar = m ? `data-tip="<b>${esc(c.name)}</b><br>ИВМ ${fmt(v, 1)}<br>90% интервал: ${fmt(m.p5 * 100, 1)}–${fmt(m.p95 * 100, 1)}<br>Место с вероятностью 90%: ${rr}"` : "";
+    return `<div class="rank-row" data-ci="${ci}" tabindex="0" role="button" aria-label="Открыть профиль: ${esc(c.name)}">
+      <span class="rank-n">${pos + 1}</span>
+      <span class="rank-name"><b>${esc(c.name)}</b><span>${esc(c.bloc)} · ${esc(c.nucLabel || NUC[c.k])}</span></span>
+      <span class="track" ${tipBar}><span class="bar" style="width:${clamp(v, 0, 100).toFixed(1)}%"></span>${whisk}</span>
+      <span class="val">${fmt(v, 1)}</span>
+      <span class="rr">${isIndex ? rr : "—"}</span>
+      <span class="strip">${strip}</span>
+    </div>`;
+  }).join("");
+  $("rank-list").querySelectorAll(".rank-row").forEach((row) => {
+    const go = () => { ui.profile = Number(row.dataset.ci); $("pf-country").value = ui.profile; renderProfile(); openTab("profile"); };
+    row.addEventListener("click", go);
+    row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+}
+
+/* ---------- Радар ---------- */
+function radarSVG(series) {
+  const W = 430, H = 400, cx = 215, cy = 200, R = 140, n = PILLARS.length;
+  const ang = (j) => -Math.PI / 2 + (j * 2 * Math.PI) / n;
+  const pt = (j, v) => [cx + Math.cos(ang(j)) * R * v, cy + Math.sin(ang(j)) * R * v];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Радарная диаграмма по 12 столпам">`;
+  [.25, .5, .75, 1].forEach((r) => {
+    s += `<polygon points="${PILLARS.map((p, j) => pt(j, r).join(",")).join(" ")}" fill="none" stroke="var(--line)" stroke-width="1"/>`;
+  });
+  PILLARS.forEach((p, j) => {
+    const [x, y] = pt(j, 1); s += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+    const [lx, ly] = pt(j, 1.15), c = Math.cos(ang(j));
+    s += `<text x="${lx}" y="${ly + 4}" font-size="12" text-anchor="${Math.abs(c) < .2 ? "middle" : c > 0 ? "start" : "end"}">${esc(p.short)}</text>`;
+  });
+  [50, 100].forEach((v) => { s += `<text x="${cx + 4}" y="${cy - R * v / 100 + 12}" class="ax-label">${v}</text>`; });
+  series.forEach((se) => {
+    const pts = se.vals.map((v, j) => pt(j, clamp(v, 0, 1)));
+    s += `<polygon points="${pts.map((p) => p.join(",")).join(" ")}" fill="${se.fill}" stroke="${se.stroke}" stroke-width="2" ${se.dash ? 'stroke-dasharray="5 4"' : ""}/>`;
+    if (!se.dash) pts.forEach((p, j) => {
+      s += `<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="${se.stroke}" stroke="var(--paper)" stroke-width="2" data-tip="<b>${esc(se.label)}</b><br>${esc(PILLARS[j].name)}: ${fmt(se.vals[j] * 100, 1)}"/>`;
+    });
+  });
+  return s + "</svg>";
+}
+function medianPillars() { return PILLARS.map((p, pi) => median(det.map((d) => d.P[pi]))); }
+
+/* ---------- Профиль ---------- */
+function renderProfile() {
+  const ci = ui.profile, c = COUNTRIES[ci], d = det[ci], m = mc ? mc[ci] : null;
+  const rank = ranksOf(det.map((x) => x.Ieff))[ci];
+  $("pf-title").textContent = c.name;
+  $("pf-chips").innerHTML = `<span class="chip">${esc(c.bloc)}</span><span class="chip chip-strong">${esc(c.nucLabel || NUC[c.k])}</span>`;
+  $("pf-tiles").innerHTML = [
+    ["ИВМ", fmt(d.Ieff * 100, 1), m ? `90%: ${fmt(m.p5 * 100, 1)}–${fmt(m.p95 * 100, 1)}` : "считается…"],
+    ["Место", `${rank} из ${nC}`, m ? (m.r5 === m.r95 ? "устойчиво в 90% прогонов" : `в 90% прогонов: ${m.r5}–${m.r95}`) : ""],
+    ["Без стратегических сил", fmt(d.conv * 100, 1), "конвенциональный потенциал"],
+    ["Радиус проекции <span class=\"sym\">λ</span>", `${fmt(d.lambda, 1)} тыс. км`, `на 5 тыс. км сохраняется ${fmt(Math.exp(-5 / d.lambda) * 100, 0)}%`],
+    isReal() ? ["Данные", `класс ${c.dqL}`, `экспертные баллы столпов, σ = ${c.sigma}`]
+      : isDemo() ? ["Данные", `класс ${DQ_LETTER(c.dq)}`, `заполнено ${fmt(COMPLETE[ci] * 100, 0)}% показателей`]
+      : ["Данные", `класс ${DQ_LETTER(c.dq)}`, `наблюдения по ${fmt(COMPLETE[ci] * 100, 0)}% показателей индекса`]
+  ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
+  const med = medianPillars();
+  $("pf-radar").innerHTML = radarSVG([
+    { vals: med, fill: "none", stroke: "var(--muted)", dash: true, label: "Медиана" },
+    { vals: d.P, fill: "var(--band-b)", stroke: "var(--side-b)", label: c.name }
+  ]);
+  $("pf-radar-legend").innerHTML = `<span><span class="sw" style="background:var(--side-b)"></span>${esc(c.name)}</span><span><span class="sw" style="background:var(--muted)"></span>Медиана выборки</span>`;
+  $("pf-bars").innerHTML = PILLARS.map((p, pi) => `<div class="hbar" data-tip="<b>${esc(p.name)}</b><br>${esc(c.name)}: ${fmt(d.P[pi] * 100, 1)}<br>Медиана: ${fmt(med[pi] * 100, 1)}">
+      <span>${esc(p.name)}</span>
+      <span class="t"><span class="f" style="width:${(d.P[pi] * 100).toFixed(1)}%"></span><span style="position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted);left:${(med[pi] * 100).toFixed(1)}%"></span></span>
+      <span class="v">${fmt(d.P[pi] * 100, 0)}</span></div>`).join("");
+  const X = d.X, diffs = [];
+  if (isReal()) {
+    PILLARS.forEach((p, pi) => diffs.push({ label: p.name, diff: d.P[pi] - med[pi] }));
+  } else {
+    IND.forEach((ind, ii) => {
+      if (IMP[ci * nI + ii] || !inIndex(ii) || Number.isNaN(X[ci * nI + ii])) return;
+      const md = median(COUNTRIES.map((_, cj) => X[cj * nI + ii]));
+      diffs.push({ label: ind.name, tag: PILLARS[PI[ind.pillar]].short, diff: X[ci * nI + ii] - md });
+    });
+  }
+  diffs.sort((a, b) => b.diff - a.diff);
+  const nTop = isReal() ? 4 : 6;
+  const li = (x) => `<li><span>${esc(x.label)}${x.tag ? ` <span class="muted">· ${esc(x.tag)}</span>` : ""}</span><span class="num ${x.diff >= 0 ? "delta-up" : "delta-down"}">${x.diff >= 0 ? "+" : "−"}${fmt(Math.abs(x.diff) * 100, 0)}</span></li>`;
+  $("pf-strong").innerHTML = diffs.slice(0, nTop).map(li).join("");
+  $("pf-weak").innerHTML = diffs.slice(-nTop).reverse().map(li).join("");
+  $("pf-lanch-note").textContent = isReal()
+    ? "Индекс превращается в параметры уравнений Ланчестера: N₀ = 10^(1 + 2,6·ИВМ без СЯС и союзов); эффективность e = 1, потому что качество уже входит в индекс; резерв и восполнение — из экономики, ОПК, тыла, личного состава и географии; λ — радиус проекции."
+    : "Индекс превращается в параметры уравнений Ланчестера: показатели роли N дают численность, Q и M дают эффективность, S даёт резерв и темп восполнения, P даёт радиус проекции.";
+  const L = lanchInputs(ci);
+  $("pf-lanch").innerHTML = [
+    ["Начальный боевой потенциал N₀", `${fmt(L.X0)} ЕБП`],
+    ["Эффективность e (качество × множители)", fmt(L.e, 2)],
+    ["Мобилизационный резерв", `${fmt(L.R)} ЕБП`],
+    ["Темп восполнения", `${fmt(L.r, 1)} ЕБП/сут`],
+    ["Задержка мобилизации", `${L.delay} сут`],
+    ["Радиус проекции λ", `${fmt(L.lambda, 1)} тыс. км`]
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("pf-pillar").hidden = isReal(); $("pf-tbl-note").hidden = !isReal();
+  if (isReal()) {
+    $("pf-tbl-title").textContent = "Экспертные оценки столпов";
+    $("pf-thead").innerHTML = `<tr><th>Код</th><th>Столп</th><th class="num">Балл</th><th class="num">±σ</th><th class="num">Медиана 8</th><th class="num">Разница</th></tr>`;
+    $("pf-table").innerHTML = PILLARS.map((pl, pi) => {
+      const v = d.P[pi], df = v - med[pi];
+      return `<tr><td class="num">${pl.code}</td><td>${esc(pl.name)}</td><td class="num"><span class="mini"><i style="width:${(v * 100).toFixed(0)}%"></i></span>${fmt(v * 100, 0)}</td><td class="num">${c.sigma}</td><td class="num">${fmt(med[pi] * 100, 0)}</td><td class="num ${df >= 0 ? "delta-up" : "delta-down"}">${df >= 0 ? "+" : "−"}${fmt(Math.abs(df) * 100, 0)}</td></tr>`;
+    }).join("");
+    $("pf-tbl-note").textContent = "Для реальных государств 253 показателя ещё не собраны: баллы столпов выставлены экспертно по открытым данным (SIPRI 2026, IISS Military Balance 2026, официальные бюджеты, отчётность о войнах 2025–2026 гг.). Сбор показателей запланирован в пилоте на 40 странах.";
+    return;
+  }
+  $("pf-tbl-title").textContent = "Показатели столпа";
+  $("pf-thead").innerHTML = `<tr><th>ID</th><th>Показатель</th><th>Роль</th><th class="num">Оценка</th><th class="num">±σ</th><th>Данные</th></tr>`;
+  const p = ui.pfPillar, pilot = DS.kind === "pilot";
+  if (pilot) {
+    $("pf-tbl-note").hidden = false;
+    $("pf-tbl-note").textContent = `Пилот: в индекс входят ${PD.include.filter(Boolean).length} из ${nI} показателей — те, по которым есть данные хотя бы у половины стран. ` +
+      "Пропуски в них восстановлены по средней той же страны в столпе с повышенной σ. Значение, год, источник и класс достоверности — в столбцах таблицы (источник «ai» — оценка ИИ до экспертной панели, класс D); полный список ссылок — data/pilot/slice_2025.csv.";
+  }
+  const REL = { A: "официальная статистика", B: "исследовательская база", C: "OSINT или пересчёт", D: "экспертная оценка" };
+  $("pf-table").innerHTML = IND.map((ind, ii) => ({ ind, ii })).filter((x) => x.ind.pillar === p).map(({ ind, ii }) => {
+    const k = ci * nI + ii, v = X[k], raw = pilot ? PD.raw[ci][ii] : null;
+    const [yr, rel, src] = pilot ? (PD.meta[ci][ii] || "||").split("|") : ["", "", ""];
+    const sub = pilot && raw != null ? `${fmt(raw, Math.abs(raw) < 10 ? 2 : 0)} ${esc(ind.unit)} · ${yr}` : `${esc(ind.unit)} · ${esc(ind.sources.join(", "))}`;
+    let data;
+    if (!inIndex(ii)) data = `<span class="chip" data-tip="Данных меньше чем у половины стран — показатель не входит в индекс">не в индексе${raw != null ? "" : ", нет данных"}</span>`;
+    else if (IMP[k]) data = '<span class="chip" data-tip="Значения нет в источниках; подставлено среднее по столпу, неопределённость увеличена">восстановлено</span>';
+    else if (pilot) data = `<span class="small" data-tip="Класс ${esc(rel)}: ${esc(REL[rel] || "")}">${esc(src)} · ${esc(rel)}</span>`;
+    else data = '<span class="muted small">наблюдение</span>';
+    const has = !Number.isNaN(v) && inIndex(ii);
+    return `<tr><td class="num">${ind.id}</td><td>${esc(ind.name)}<div class="muted small">${sub}</div></td>
+      <td><span class="role" data-tip="<b>${ROLES[ind.role][0]}</b><br>${esc(ROLES[ind.role][1])}">${ind.role}</span></td>
+      <td class="num">${has ? `<span class="mini"><i style="width:${(v * 100).toFixed(0)}%"></i></span>${fmt(v * 100, 0)}` : "—"}</td>
+      <td class="num">${has ? fmt(SIG[k] * 100, 0) : "—"}</td>
+      <td>${data}</td></tr>`;
+  }).join("");
+}
+$("pf-to-lanch").addEventListener("click", () => {
+  ui.lnB = ui.profile; if (ui.lnA === ui.lnB) ui.lnA = ui.profile === 0 ? 1 : 0;
+  ln.coal = { A: null, B: null };
+  setLanchSides(); openTab("lanchester");
+});
+
+/* ---------- Сравнение ---------- */
+function renderCompare() {
+  const a = ui.cmpA, b = ui.cmpB, A = COUNTRIES[a], B = COUNTRIES[b], dA = det[a], dB = det[b];
+  const rk = ranksOf(det.map((x) => x.Ieff));
+  $("cmp-tiles").innerHTML = [
+    [A.name, dA, rk[a], "chip-a"], [B.name, dB, rk[b], "chip-b"]
+  ].map(([n, d, r, cls]) => `<div class="tile"><span class="lbl"><span class="chip ${cls}">${esc(n)}</span></span><div class="big num">${fmt(d.Ieff * 100, 1)}</div><div class="sub">место ${r} · без СЯС ${fmt(d.conv * 100, 1)} · λ ${fmt(d.lambda, 1)} тыс. км</div></div>`).join("") +
+    `<div class="tile"><span class="lbl">Соотношение ИВМ</span><div class="big num">${fmt(dA.Ieff / dB.Ieff, 2)} : 1</div><div class="sub">перевес: ${esc(dA.Ieff >= dB.Ieff ? A.name : B.name)}</div></div>`;
+  $("cmp-radar").innerHTML = radarSVG([
+    { vals: dA.P, fill: "var(--band-a)", stroke: "var(--side-a)", label: A.name },
+    { vals: dB.P, fill: "var(--band-b)", stroke: "var(--side-b)", label: B.name }
+  ]);
+  $("cmp-legend").innerHTML = `<span><span class="sw" style="background:var(--side-a)"></span>A · ${esc(A.name)}</span><span><span class="sw" style="background:var(--side-b)"></span>B · ${esc(B.name)}</span>`;
+  $("cmp-div").innerHTML = PILLARS.map((p, pi) => {
+    const diff = dA.P[pi] - dB.P[pi], w = Math.min(50, Math.abs(diff) * 100);
+    const style = diff >= 0 ? `right:50%;width:${w}%;background:var(--side-a);border-radius:3px 0 0 3px` : `left:50%;width:${w}%;background:var(--side-b);border-radius:0 3px 3px 0`;
+    return `<div class="div-bar" data-tip="<b>${esc(p.name)}</b><br>A: ${fmt(dA.P[pi] * 100, 1)} · B: ${fmt(dB.P[pi] * 100, 1)}"><span>${esc(p.name)}</span><span class="t"><span class="f" style="${style}"></span></span><span class="num" style="text-align:right">${diff >= 0 ? "A +" : "B +"}${fmt(Math.abs(diff) * 100, 0)}</span></div>`;
+  }).join("");
+  const X = dA.X, real = isReal();
+  const gaps = real
+    ? PILLARS.map((p, pi) => ({ id: p.code, name: p.name, tag: p.short, va: dA.P[pi], vb: dB.P[pi] }))
+    : IND.map((ind, ii) => ({ id: ind.id, name: ind.name, tag: PILLARS[PI[ind.pillar]].short, va: X[a * nI + ii], vb: X[b * nI + ii], ii }))
+      .filter((g) => inIndex(g.ii) && !Number.isNaN(g.va) && !Number.isNaN(g.vb));
+  gaps.forEach((g) => { g.d = g.va - g.vb; });
+  gaps.sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
+  $("cmp-tbl-title").textContent = real ? "Разрывы по столпам" : "Наибольшие разрывы по показателям";
+  $("cmp-thead").innerHTML = `<tr><th>${real ? "Код" : "ID"}</th><th>${real ? "Столп" : "Показатель"}</th>${real ? "" : "<th>Столп</th>"}<th class="num">A</th><th class="num">B</th><th class="num">A − B</th></tr>`;
+  $("cmp-table").innerHTML = gaps.slice(0, 15).map((g) => `<tr><td class="num">${g.id}</td><td>${esc(g.name)}</td>${real ? "" : `<td>${esc(g.tag)}</td>`}<td class="num">${fmt(g.va * 100, 0)}</td><td class="num">${fmt(g.vb * 100, 0)}</td><td class="num ${g.d >= 0 ? "delta-up" : "delta-down"}">${g.d >= 0 ? "+" : "−"}${fmt(Math.abs(g.d) * 100, 0)}</td></tr>`).join("");
+}
+$("cmp-to-lanch").addEventListener("click", () => { ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; setLanchSides(); openTab("lanchester"); });
+
+/* ---------- Модель боя (Ланчестер) ---------- */
+const LG = { N: [], Q: [], S: [] }; // заполняется в regroup()
+function wmeanRaw(ci, idxs) { let s = 0, w = 0; for (const ii of idxs) { s += IND[ii].weight * V[ci * nI + ii]; w += IND[ii].weight; } return w ? s / w : .3; }
+// Устойчивость реального государства (0…1): экономика, ОПК, тыл, личный состав, география.
+function realSus(P) { return (P[PI.ECO] + P[PI.IND] + P[PI.LOG] + P[PI.PER] + P[PI.GEO]) / 5; }
+function sideFrom(X0, e, s, lambda, unc) {
+  const R = Math.round(X0 * (.2 + 1.6 * s));
+  return { X0, e: +e.toFixed(2), R, r: +(R / (60 + 240 * (1 - s))).toFixed(1), delay: Math.round(7 + 60 * (1 - s)), lambda: +lambda.toFixed(1), unc };
+}
+function lanchInputs(ci) {
+  if (isReal()) {
+    // Показателей N и Q нет: N₀ = 10·exp(κ·ИВМ_авт), качество уже входит в индекс, поэтому e = 1.
+    const d = det[ci];
+    return sideFrom(Math.round(10 * Math.exp(KAPPA * d.auto)), 1, realSus(d.P), d.lambda, 1.6 - COUNTRIES[ci].dq);
+  }
+  const n = wmeanRaw(ci, LG.N), q = wmeanRaw(ci, LG.Q), s = wmeanRaw(ci, LG.S);
+  return sideFrom(Math.round(Math.pow(10, 1 + 2.6 * n)), .5 + 1.5 * q, s, det[ci].lambda, 1.6 - COUNTRIES[ci].dq);
+}
+const LN_FIELDS = [["X0", "N₀, ЕБП", 1], ["e", "Эффективность <span class=\"sym\">e</span>", .05], ["R", "Резерв, ЕБП", 1], ["r", "Восполнение, ЕБП/сут", .1], ["delay", "Задержка, сут", 1], ["lambda", "<span class=\"sym\">λ</span>, тыс. км", .1]];
+// coal.A / coal.B — входы, собранные в конструкторе коалиций (тогда сторона — коалиция, а не одно государство).
+const ln = { A: null, B: null, coal: { A: null, B: null }, alpha: ALPHA0, D: 3, terrain: D_PD, bp: BP.campaign, T: 180, mob: true, allies: false };
+function sideInputsHTML(side) {
+  const coalSide = !!ln.coal[side];
+  return LN_FIELDS.map(([k, label, step]) => {
+    const off = coalSide && k === "lambda";
+    return `<div class="field"><label for="ln-${side}-${k}">${label}</label><input type="number" id="ln-${side}-${k}" data-side="${side}" data-k="${k}" step="${step}" min="0" value="${ln[side][k]}"${off ? ' disabled title="Удалённость учтена по каждому участнику коалиции"' : ""}></div>`;
+  }).join("");
+}
+function lnName(side) { return ln.coal[side] ? ln.coal[side].name : COUNTRIES[side === "A" ? ui.lnA : ui.lnB].name; }
+function fillLanchSelect(el, side) {
+  const cur = side === "A" ? ui.lnA : ui.lnB, c = ln.coal[side];
+  el.innerHTML = (c ? `<option value="coal">Коалиция: ${esc(c.name)}</option>` : "") + COUNTRIES.map((x, i) => `<option value="${i}">${esc(x.name)}</option>`).join("");
+  el.value = c ? "coal" : String(cur);
+}
+function setLanchSides() {
+  ln.A = ln.coal.A ? { ...ln.coal.A } : lanchInputs(ui.lnA);
+  ln.B = ln.coal.B ? { ...ln.coal.B } : lanchInputs(ui.lnB);
+  fillLanchSelect($("ln-a"), "A"); fillLanchSelect($("ln-b"), "B");
+  $("ln-a-inputs").innerHTML = sideInputsHTML("A"); $("ln-b-inputs").innerHTML = sideInputsHTML("B");
+  document.querySelectorAll("#ln-a-inputs input,#ln-b-inputs input").forEach((el) => el.addEventListener("input", () => {
+    const v = Number(el.value); if (Number.isFinite(v) && v >= 0) { ln[el.dataset.side][el.dataset.k] = v; renderLanchester(); }
+  }));
+}
+function allyForce(ci, opp, share) {
+  const c = COUNTRIES[ci]; if (!isDemo() || c.bloc === "Неприсоединившиеся") return 0;
+  let s = 0;
+  COUNTRIES.forEach((o, oj) => { if (oj !== ci && oj !== opp && o.bloc === c.bloc) s += lanchInputs(oj).X0 * share * o.a; });
+  return s;
+}
+// Функция вступления g(t − τ): τ = 0 — силы на театре с первого дня, иначе 0 до τ и линейный рост до 1 за RAMP сут.
+const gIn = (t, tau) => tau <= 0 ? 1 : clamp((t - tau) / RAMP, 0, 1);
+function reinfDay(S, day) {
+  if (!S.reinf) return 0;
+  let s = 0;
+  for (const q of S.reinf) s += q.amt * (gIn(day, q.tau) - gIn(day - 1, q.tau));
+  return s;
+}
+function simulate(A, B, o, rng) {
+  const dt = .25, steps = 4, k = .012, p1 = 1 - o.alpha / 2, p2 = o.alpha / 2;
+  let fx = 1, fy = 1, ex = 1, ey = 1, rxm = 1, rym = 1;
+  if (rng) {
+    fx = Math.exp(.12 * A.unc * gauss(rng)); fy = Math.exp(.12 * B.unc * gauss(rng));
+    ex = Math.exp(.18 * A.unc * gauss(rng)); ey = Math.exp(.18 * B.unc * gauss(rng));
+    rxm = Math.exp(.25 * gauss(rng)); rym = Math.exp(.25 * gauss(rng));
+  }
+  // У коалиции затухание e^(−D/λ) уже учтено по каждому участнику.
+  const proj = A.coal ? 1 : Math.exp(-o.D / Math.max(A.lambda, .1));
+  let x = A.X0 * fx * proj + (o.allies && !A.coal ? o.allyA : 0), y = B.X0 * fy + (o.allies && !B.coal ? o.allyB : 0);
+  const x0 = x, y0 = y;
+  const a = k * B.e * ey, b = (k * A.e * ex) / o.terrain;
+  let poolX = o.mob ? A.R * proj : 0, poolY = o.mob ? B.R : 0;
+  const rx = A.r * rxm * proj, ry = B.r * rym;
+  const xs = [x], ys = [y];
+  let end = null, winner = null;
+  for (let day = 1; day <= o.T; day++) {
+    const n1 = rng ? clamp(1 + .25 * gauss(rng), .2, 2) : 1, n2 = rng ? clamp(1 + .25 * gauss(rng), .2, 2) : 1;
+    // Подкрепления союзников, вступающих с задержкой τ (из конструктора коалиций).
+    const ax = reinfDay(A, day) * fx / steps, ay = reinfDay(B, day) * fy / steps;
+    for (let s = 0; s < steps; s++) {
+      const lx = a * Math.pow(x, p1) * Math.pow(y, p2) * n1, ly = b * Math.pow(y, p1) * Math.pow(x, p2) * n2;
+      let ix = ax, iy = ay;
+      if (day > A.delay && poolX > 0) { const v = Math.min(rx * dt, poolX); poolX -= v; ix += v; }
+      if (day > B.delay && poolY > 0) { const v = Math.min(ry * dt, poolY); poolY -= v; iy += v; }
+      x = Math.max(0, x - lx * dt + ix); y = Math.max(0, y - ly * dt + iy);
+    }
+    xs.push(x); ys.push(y);
+    const bx = x < x0 * (1 - o.bp), by = y < y0 * (1 - o.bp);
+    if (bx || by) { end = day; winner = bx && by ? (x / x0 >= y / y0 ? "A" : "B") : by ? "A" : "B"; break; }
+  }
+  return { xs, ys, x0, y0, end, winner, a, b };
+}
+function lnOptions(alpha) {
+  return { alpha: alpha ?? ln.alpha, D: ln.D, terrain: ln.terrain, bp: ln.bp, T: ln.T, mob: ln.mob, allies: ln.allies, allyA: allyForce(ui.lnA, ui.lnB, .3), allyB: allyForce(ui.lnB, ui.lnA, .4) };
+}
+function outcomeText(r) {
+  if (!r.winner) return `затяжные бои, ни одна сторона не сломлена за ${ln.T} сут`;
+  return r.winner === "A" ? `оборона B сломлена на ${r.end}-е сутки` : `наступление A сорвано на ${r.end}-е сутки`;
+}
+function renderLanchester() {
+  if (!ln.A) setLanchSides();
+  const An = lnName("A"), Bn = lnName("B");
+  $("ln-alpha").value = ln.alpha; $("ln-alpha-out").textContent = fmt(ln.alpha, 2);
+  $("ln-D").value = ln.D; $("ln-D-out").textContent = fmt(ln.D, 1);
+  $("ln-D").disabled = !!ln.coal.A; $("ln-D-hint").hidden = !ln.coal.A;
+  $("ln-terrain").value = String(ln.terrain);
+  const anyCoal = !!(ln.coal.A || ln.coal.B);
+  $("ln-allies-row").hidden = !isDemo() || anyCoal; $("ln-allies-hint").hidden = !(!isDemo() || anyCoal);
+  if (!isDemo() || anyCoal) ln.allies = false;
+  $("ln-allies").checked = ln.allies;
+  const o = lnOptions();
+  const dres = simulate(ln.A, ln.B, o, null);
+  const RUNS = 400, rng = mulberry32(777), runs = [];
+  for (let i = 0; i < RUNS; i++) runs.push(simulate(ln.A, ln.B, o, rng));
+  const nA = runs.filter((r) => r.winner === "A").length, nB = runs.filter((r) => r.winner === "B").length;
+  const pA = nA / RUNS, pB = nB / RUNS, pN = (RUNS - nA - nB) / RUNS;
+  const ends = runs.filter((r) => r.end).map((r) => r.end).sort((a, b) => a - b);
+  const endP90 = ends.length ? quantile(ends, .9) : ln.T;
+  const Tshow = Math.min(ln.T, Math.max(30, Math.ceil(Math.max(dres.end || ln.T, endP90) * 1.25 / 10) * 10));
+  const band = { xlo: [], xhi: [], ylo: [], yhi: [] };
+  for (let d = 0; d <= Tshow; d++) {
+    const xv = runs.map((r) => r.xs[Math.min(d, r.xs.length - 1)]).sort((a, b) => a - b);
+    const yv = runs.map((r) => r.ys[Math.min(d, r.ys.length - 1)]).sort((a, b) => a - b);
+    band.xlo.push(quantile(xv, .1)); band.xhi.push(quantile(xv, .9)); band.ylo.push(quantile(yv, .1)); band.yhi.push(quantile(yv, .9));
+  }
+  const best = pA >= pB && pA >= pN ? "A" : pB >= pN ? "B" : "N";
+  $("ln-verdict").innerHTML = (best === "A" ? `A ломает оборону B с вероятностью ${fmt(pA * 100, 0)}%` :
+    best === "B" ? `B удерживает оборону с вероятностью ${fmt(pB * 100, 0)}%` : `Вероятнее всего затяжные бои: ${fmt(pN * 100, 0)}%`) +
+    `<span class="muted small" style="display:block;font-family:var(--f-body);font-weight:400;margin-top:4px">A — ${esc(An)}, B — ${esc(Bn)}. Исходы условны: модель считает соотношение сил верным, ошибка модели (σ = ${fmt(MODEL_SIGMA, 1)}) в них не входит.</span>`;
+  const seg = (cls, p, lbl) => p > 0 ? `<div class="${cls}" style="flex:${p}" data-tip="${lbl}: ${fmt(p * 100, 1)}%">${p >= .08 ? fmt(p * 100, 0) + "%" : ""}</div>` : "";
+  $("ln-prob").innerHTML = seg("pa", pA, `Успех A (${esc(An)})`) + seg("pn", pN, "Затяжные бои") + seg("pb", pB, `Успех обороны B (${esc(Bn)})`);
+  $("ln-prob-legend").innerHTML = `<span><span class="dot" style="background:var(--side-a)"></span> Успех A · ${fmt(pA * 100, 0)}%</span><span><span class="dot" style="background:var(--neutral-bar)"></span> Затяжные бои · ${fmt(pN * 100, 0)}%</span><span><span class="dot" style="background:var(--side-b)"></span> Успех обороны B · ${fmt(pB * 100, 0)}%</span>`;
+  $("ln-mc-note").textContent = `Монте-Карло: ${RUNS} прогонов`;
+  const lossA = 1 - dres.xs[dres.xs.length - 1] / dres.x0, lossB = 1 - dres.ys[dres.ys.length - 1] / dres.y0;
+  $("ln-det").innerHTML = `Детерминированный расчёт: ${outcomeText(dres)}. Чистое изменение потенциала с учётом восполнения: A ${lossA >= 0 ? "−" : "+"}${fmt(Math.abs(lossA) * 100, 0)}%, B ${lossB >= 0 ? "−" : "+"}${fmt(Math.abs(lossB) * 100, 0)}%.`;
+  $("ln-legend").innerHTML = `<span><span class="sw" style="background:var(--side-a)"></span>A · ${esc(An)}</span><span><span class="sw" style="background:var(--side-b)"></span>B · ${esc(Bn)}</span><span class="muted">полоса — 10–90% прогонов</span>`;
+  drawBattle($("ln-chart"), { dres, band, Tshow, An, Bn });
+  const req = Math.pow(dres.a / dres.b, 1 / ln.alpha), act = dres.x0 / dres.y0, F = (dres.b * Math.pow(dres.x0, ln.alpha)) / (dres.a * Math.pow(dres.y0, ln.alpha));
+  const reinfSum = (S) => (S.reinf || []).reduce((s, q) => s + q.amt, 0), rfA = reinfSum(ln.A), rfB = reinfSum(ln.B);
+  $("ln-inv").innerHTML = [
+    ["Силы на театре в начале A : B", `${fmt(act, 2)} : 1`],
+    ["Нужно A для успеха", `${fmt(req, 2)} : 1`],
+    ["Боевая мощь F_A / F_B", fmt(F, 2)],
+    ln.coal.A ? ["Доля сил A, дошедшая до театра", "по участникам"] : ["Доля сил A, дошедшая до театра", `${fmt(Math.exp(-ln.D / Math.max(ln.A.lambda, .1)) * 100, 0)}%`],
+    ...(rfA || rfB ? [["Подкрепления союзников по графику τ, ЕБП", `A +${fmt(rfA)} · B +${fmt(rfB)}`]] : []),
+    ["Цена двукратного недостатка сил", `e × ${fmt(Math.pow(2, ln.alpha), 2)}`]
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("ln-sens").innerHTML = [1, 1.5, 2].map((al) => {
+    const r = simulate(ln.A, ln.B, lnOptions(al), null);
+    const name = al === 1 ? "линейный" : al === 2 ? "квадратичный" : "промежуточный";
+    return `<dt>α = ${fmt(al, 1)} · ${name}</dt><dd>${r.winner ? (r.winner === "A" ? "успех A" : "успех B") + `, ${r.end} сут` : "затяжные бои"}</dd>`;
+  }).join("");
+  $("ln-formula").textContent =
+`dA/dt = −a · A^(1−α/2) · B^(α/2) + r_A(t)       a = k · e_B = ${fmt(dres.a, 4)}
+dB/dt = −b · B^(1−α/2) · A^(α/2) + r_B(t)       b = k · e_A / d = ${fmt(dres.b, 4)}
+Инвариант (без восполнения):  b·A^α − a·B^α = const,   α = ${fmt(ln.alpha, 2)}
+A побеждает, если A₀/B₀ > (a/b)^(1/α) = ${fmt(req, 2)}
+` + (ln.coal.A
+    ? `A₀ = Σ 10·ρⱼ·sⱼ·Mⱼ·e^(−Dⱼ/λⱼ) по участникам с τ = 0 = ${fmt(dres.x0)} ЕБП;  остальные прибывают по графику τ (+${fmt(rfA)} ЕБП)`
+    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} ЕБП${ln.allies ? " (с союзниками)" : ""}`);
+}
+function drawBattle(host, { dres, band, Tshow, An, Bn }) {
+  const W = 760, H = 330, m = { l: 62, r: 22, t: 16, b: 40 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const xs = dres.xs.slice(0, Tshow + 1), ys = dres.ys.slice(0, Tshow + 1);
+  const maxV = Math.max(...xs, ...ys, ...band.xhi, ...band.yhi, 1);
+  const st = niceStep(maxV, 5), ymax = Math.ceil(maxV / st) * st;
+  const sx = (d) => m.l + (d / Tshow) * iw, sy = (v) => m.t + ih - (v / ymax) * ih;
+  let s = `<svg viewBox="0 0 ${W} ${H}" data-hover-chart role="img" aria-label="Динамика боевого потенциала сторон">`;
+  for (let v = 0; v <= ymax + 1e-9; v += st) {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${sy(v)}" y2="${sy(v)}" stroke="${v === 0 ? "var(--axis)" : "var(--line)"}" stroke-width="1"/>`;
+    s += `<text x="${m.l - 8}" y="${sy(v) + 4}" text-anchor="end" class="ax-label">${fmt(v)}</text>`;
+  }
+  const xst = niceStep(Tshow, 6);
+  for (let d = 0; d <= Tshow; d += xst) s += `<text x="${sx(d)}" y="${H - m.b + 18}" text-anchor="middle" class="ax-label">${d}</text>`;
+  s += `<text x="${m.l + iw / 2}" y="${H - 6}" text-anchor="middle" class="ax-label">сутки</text>`;
+  s += `<text x="14" y="${m.t + ih / 2}" text-anchor="middle" class="ax-label" transform="rotate(-90 14 ${m.t + ih / 2})">ЕБП</text>`;
+  const area = (lo, hi) => hi.map((v, d) => `${sx(d)},${sy(v)}`).join(" ") + " " + lo.map((v, d) => `${sx(d)},${sy(v)}`).reverse().join(" ");
+  s += `<polygon points="${area(band.xlo, band.xhi)}" fill="var(--band-a)"/><polygon points="${area(band.ylo, band.yhi)}" fill="var(--band-b)"/>`;
+  const bpA = dres.x0 * (1 - ln.bp), bpB = dres.y0 * (1 - ln.bp);
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${sy(bpA)}" y2="${sy(bpA)}" stroke="var(--side-a)" stroke-dasharray="4 4" stroke-width="1"/>`;
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${sy(bpB)}" y2="${sy(bpB)}" stroke="var(--side-b)" stroke-dasharray="4 4" stroke-width="1"/>`;
+  s += `<text x="${W - m.r}" y="${sy(bpA) - 5}" text-anchor="end" class="ax-label">порог слома A</text>`;
+  s += `<text x="${W - m.r}" y="${sy(bpB) + (Math.abs(sy(bpA) - sy(bpB)) < 14 ? 14 : -5)}" text-anchor="end" class="ax-label">порог слома B</text>`;
+  const line = (arr) => arr.map((v, d) => `${sx(d)},${sy(v)}`).join(" ");
+  s += `<polyline points="${line(xs)}" fill="none" stroke="var(--side-a)" stroke-width="2" stroke-linejoin="round"/>`;
+  s += `<polyline points="${line(ys)}" fill="none" stroke="var(--side-b)" stroke-width="2" stroke-linejoin="round"/>`;
+  const lx = xs.length - 1;
+  s += `<circle cx="${sx(lx)}" cy="${sy(xs[lx])}" r="4.5" fill="var(--side-a)" stroke="var(--paper)" stroke-width="2"/>`;
+  s += `<circle cx="${sx(lx)}" cy="${sy(ys[lx])}" r="4.5" fill="var(--side-b)" stroke="var(--paper)" stroke-width="2"/>`;
+  if (dres.end) s += `<line x1="${sx(dres.end)}" x2="${sx(dres.end)}" y1="${m.t}" y2="${m.t + ih}" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="2 3"/><text x="${sx(dres.end) + 5}" y="${m.t + 12}" class="ax-label">сутки ${dres.end}: слом ${dres.winner === "A" ? "B" : "A"}</text>`;
+  s += `<line id="ln-cross" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" stroke="var(--ink)" stroke-width="1" opacity="0"/>`;
+  s += `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="ln-hit"/>`;
+  host.innerHTML = s + "</svg>";
+  const svg = host.querySelector("svg"), hit = host.querySelector("#ln-hit"), cross = host.querySelector("#ln-cross");
+  hit.addEventListener("mousemove", (ev) => {
+    const pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+    const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const d = clamp(Math.round(((loc.x - m.l) / iw) * Tshow), 0, Tshow);
+    cross.setAttribute("x1", sx(d)); cross.setAttribute("x2", sx(d)); cross.setAttribute("opacity", ".5");
+    const va = d < xs.length ? fmt(xs[d]) : "—", vb = d < ys.length ? fmt(ys[d]) : "—";
+    showTip(`<b>Сутки ${d}</b><br>A · ${esc(An)}: ${va} ЕБП <span style="opacity:.7">(${fmt(band.xlo[d])}–${fmt(band.xhi[d])})</span><br>B · ${esc(Bn)}: ${vb} ЕБП <span style="opacity:.7">(${fmt(band.ylo[d])}–${fmt(band.yhi[d])})</span>`, ev);
+  });
+  hit.addEventListener("mouseleave", () => { cross.setAttribute("opacity", "0"); hideTip(); });
+}
+
+/* ---------- Коалиции ---------- */
+// Класс обязательства и исходная надёжность ρ (документ 3, раздел 2).
+const CO_CLASSES = {
+  A: ["Коллективная оборона", .8], B: ["Договор о взаимной помощи", .6], C: ["Партнёрство без обязательств", .05],
+  D: ["Коалиция по случаю", .4], E: ["Неформальная ось", .3], F: ["Невоенный союз", 0]
+};
+const CO_TYPES = [
+  ["troops", "Войска", "входят в силы на театре F(t)"],
+  ["supply", "Снабжение", "в F не входит: в модели боя добавляет резерв и темп восполнения"],
+  ["intel", "Разведка", "множитель эффективности стороны × (1 + 0,15·ρ)"]
+];
+// Участник: ρ — надёжность, s — доля сил на театре, D — удалённость, тыс. км, τ — задержка вступления, сут.
+function pt(key, rho, s, D, tau, cls = "", types = "T") {
+  return { key, rho, s, D, tau, cls, troops: types.includes("T"), supply: types.includes("S"), intel: types.includes("I"), on: true };
+}
+const CO_PRESETS = {
+  real: {
+    baltic: {
+      name: "Россия и Белоруссия против европейских членов НАТО и США · Прибалтика", alpha: 1, d: 1, T: 60,
+      note: "Документ 3, пример 5.3: ρ, s и D как в документе. Задержки τ — допущение сценария: силы Балтии и Северной Европы на театре сразу, Польша через 3 сут, Германия через 7, Великобритания через 14, Франция через 21, США через 30.",
+      A: [pt("RUS", 1, .4, .3, 0), pt("BLR", .7, .5, .2, 0, "A")],
+      B: [pt("NBF", .95, .6, .3, 0, "A"), pt("POL", .95, .6, .3, 3, "A"), pt("DEU", .85, .3, 1, 7, "A"), pt("GBR", .85, .25, 1.8, 14, "A"), pt("FRA", .8, .25, 1.8, 21, "A"), pt("USA", .7, .15, 7, 30, "A")]
+    },
+    ukraine: {
+      name: "Россия против Украины · театр — Украина", alpha: 1, d: 1.7, T: 180,
+      note: "Документ 3, пример 5.2: d = 1,7 — отношение потерь техники России и Украины в 2024–2025 гг. по Oryx (с 13.10.2026; прежнее допущение — α 1,3, d 2,5). Союзники Украины поставляют вооружения, но не войска. Поставки Германии, Великобритании и Франции (s = 0,05) — допущение сценария: в F не входят, в модели боя увеличивают резерв и восполнение.",
+      A: [pt("RUS", 1, .6, .5, 0), pt("PRK", .6, .1, .5, 0, "B"), pt("BLR", .3, .2, .3, 0, "A")],
+      B: [pt("UKR", 1, 1, 0, 0), pt("DEU", .9, .05, 1.5, 0, "D", "S"), pt("GBR", .9, .05, 2, 0, "D", "S"), pt("FRA", .9, .05, 2, 0, "D", "S")]
+    },
+    ukraine_cf: {
+      name: "Украина после прекращения огня: силы «коалиции желающих»", alpha: 1, d: 1.7, T: 180,
+      note: "Документ 3, пример 5.2: многонациональные силы после прекращения огня (Парижская декларация, 6 января 2026 г.). Главный эффект гарантий — ядерная ось: нападение на зону, где стоят войска Великобритании и Франции, затрагивает ядерные державы.",
+      A: [pt("RUS", 1, .6, .5, 0), pt("PRK", .6, .1, .5, 0, "B"), pt("BLR", .3, .2, .3, 0, "A")],
+      B: [pt("UKR", 1, 1, 0, 0), pt("GBR", .6, .1, 2, 0, "D"), pt("FRA", .6, .1, 2, 0, "D"), pt("DEU", .6, .05, 1.5, 0, "D")]
+    },
+    iran: {
+      name: "Израиль и США против Ирана · театр — Иран", alpha: 1, d: 1.3, T: 60,
+      note: "Документ 3, пример 5.1: воздушно-ракетная кампания, коэффициент обороны мал. Россия связана с Ираном партнёрством без военных обязательств (ρ = 0,05).",
+      A: [pt("ISR", 1, .7, 1.6, 0), pt("USA", .9, .2, 1, 0, "B")],
+      B: [pt("IRN", 1, 1, 0, 0), pt("AXR", .5, 1, 0, 0, "E"), pt("RUS", .05, .02, 2, 30, "C")]
+    }
+  },
+  demo: {
+    bloc: {
+      name: "Восточный союз против Северного пакта", alpha: ALPHA0, d: D_PD, T: 60,
+      note: "Вымышленные государства. Удалённости и задержки условные: показывают, как вступление союзников меняет баланс во времени.",
+      A: [pt("BOR", 1, .6, .5, 0), pt("KAL", .8, .5, .5, 7, "A"), pt("VEL", .6, .3, 1.5, 14, "A")],
+      B: [pt("NOR", 1, 1, 0, 0), pt("EST", .85, .4, .8, 7, "A"), pt("DAL", .85, .3, 1.5, 14, "A"), pt("MIR", .8, .25, 2, 21, "A"), pt("ARD", .75, .2, 6, 30, "A")]
+    }
+  }
+};
+const coal = { preset: "", alpha: ALPHA0, d: D_PD, T: 60, t: 0, sides: { A: [], B: [] } };
+// α, d и горизонт сценариев — из ядра (coalition.PRESETS), чтобы прототип не расходился с расчётом
+if (IP.presets) for (const [k, v] of Object.entries(IP.presets)) if (CO_PRESETS.real[k]) Object.assign(CO_PRESETS.real[k], { alpha: v.alpha, d: v.d, T: v.T });
+// Залпы и ПВО — повторяет core/lanmil/salvo.py (контрольный пример — IVM_PARAMS.salvo_check)
+function hughesSalvo({ A, B, a, b, y_a, y_b, w_a, w_b }) {
+  return [Math.min(A, Math.max(0, (b * B - y_a * A) / w_a)), Math.min(B, Math.max(0, (a * A - y_b * B) / w_b))];
+}
+function leakShare(kk, p) {
+  const n = Math.floor(kk), f = kk - n;
+  return (1 - f) * Math.pow(1 - p, n) + f * Math.pow(1 - p, n + 1);
+}
+function airDefense({ S, z, days, magazine, k, p, prod_int = 0, c_thr = 0, c_int = 0 }) {
+  let mag = magazine, spentT = 0, spentI = 0;
+  const rows = [];
+  for (let d = 1; d <= days; d++) {
+    let fired = 0, used = 0, leak = 0;
+    for (let i = 0; i < z; i++) {
+      if (S <= 0) break;
+      const kk = Math.min(k, mag / S), u = kk * S;
+      leak += S * leakShare(kk, p); mag -= u; used += u; fired += S;
+    }
+    mag += prod_int; spentT += fired * c_thr; spentI += used * c_int;
+    rows.push({ day: d, fired, used, leak, magazine: mag, cost_ratio: spentT > 0 ? spentI / spentT : null });
+  }
+  return rows;
+}
+const SV_FIELDS = [["S", "Средств поражения в залпе", 10], ["z", "Залпов в сутки", 1], ["days", "Горизонт, сут", 1], ["magazine", "Запас перехватчиков", 50],
+  ["k", "Перехватчиков на цель", .5], ["p", "Вероятность перехвата одним", .05], ["prod_int", "Выпуск перехватчиков, в сутки", 5],
+  ["c_thr", "Цена средства поражения, млн $", .01], ["c_int", "Цена перехватчика, млн $", .1]];
+const sv = Object.assign({ S: 100, z: 1, days: 10, magazine: 1000, k: 2, p: .8, prod_int: 20, c_thr: .05, c_int: 1 }, (IP.salvo_check || {}).input || {}, { days: 30 });
+function renderSalvo() {
+  const rows = airDefense(sv), last = rows[rows.length - 1];
+  const dry = rows.find((r) => r.magazine < sv.S * sv.k * sv.z);
+  const leak0 = rows[0].leak, leakEnd = last.leak, totLeak = rows.reduce((s, r) => s + r.leak, 0), totUsed = rows.reduce((s, r) => s + r.used, 0);
+  $("sv-verdict").textContent = dry && leakEnd > leak0 * 1.5
+    ? `Запас перехватчиков иссякает к ${dry.day}-м суткам: прорыв растёт с ${fmt(leak0, 0)} до ${fmt(leakEnd, 0)} в сутки — оборону решает выпуск перехватчиков, а не их число на складе.`
+    : `За ${sv.days} сут запас перехватчиков не иссякает: прорывается около ${fmt(leak0, 1)} в сутки.`;
+  $("sv-kv").innerHTML = `<dt>Прорвалось за ${sv.days} сут</dt><dd>${fmt(totLeak, 0)}</dd><dt>Потрачено перехватчиков</dt><dd>${fmt(totUsed, 0)}</dd>
+    <dt>Запас в конце</dt><dd>${fmt(last.magazine, 0)}</dd><dt>Стоимостной обмен (оборона : нападение)</dt><dd>${last.cost_ratio == null ? "—" : fmt(last.cost_ratio, 1) + " : 1"}</dd>`;
+  const W = 520, H = 200, m = { l: 46, r: 46, t: 12, b: 30 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const lmax = Math.max(...rows.map((r) => r.leak), 1), mmax = Math.max(sv.magazine, ...rows.map((r) => r.magazine), 1);
+  const sx = (d) => m.l + ((d - 1) / Math.max(rows.length - 1, 1)) * iw, syL = (v) => m.t + ih - (v / lmax) * ih, syM = (v) => m.t + ih - (v / mmax) * ih;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Прорыв и запас перехватчиков по суткам">`;
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}" stroke="var(--axis)"/>`;
+  s += `<polyline fill="none" stroke="var(--side-b)" stroke-width="2" points="${rows.map((r) => `${sx(r.day)},${syM(r.magazine)}`).join(" ")}"/>`;
+  s += `<polyline fill="none" stroke="var(--side-a)" stroke-width="2" points="${rows.map((r) => `${sx(r.day)},${syL(r.leak)}`).join(" ")}"/>`;
+  s += `<text x="${m.l - 6}" y="${m.t + 10}" text-anchor="end" class="ax-label">${fmt(lmax, 0)}</text><text x="${W - m.r + 6}" y="${m.t + 10}" class="ax-label">${fmt(mmax, 0)}</text>`;
+  s += `<text x="${m.l}" y="${H - 8}" class="ax-label">сутки 1</text><text x="${W - m.r}" y="${H - 8}" text-anchor="end" class="ax-label">${rows.length}</text>`;
+  s += `</svg><p class="small muted" style="margin:4px 0 0"><span style="color:var(--side-a)">━</span> прорыв в сутки (левая шкала) &nbsp; <span style="color:var(--side-b)">━</span> запас перехватчиков (правая шкала)</p>`;
+  $("sv-chart").innerHTML = s;
+  $("sv-formula").textContent = `Насыщение ПВО: на цель k = min(${fmt(sv.k, 1)}; запас / S) перехватчиков (целые; дробная часть — доля целей с лишним), цель проходит с вероятностью (1 − p)^n = ${fmt(leakShare(sv.k, sv.p), 3)}
+Прорыв за залп = S · (1 − p)^k;  запас(t+1) = запас(t) − k·S·z + выпуск
+Модель залпов Хьюза (флот):  ΔB = (a·A − y_B·B) / w_B,   ΔA = (b·B − y_A·A) / w_A
+a, b — попаданий на корабль за залп; y — сбитых ракет на корабль; w — попаданий для вывода корабля из строя`;
+}
+function initSalvo() {
+  $("sv-inputs").innerHTML = SV_FIELDS.map(([k, lbl, st]) => `<div class="field"><label for="sv-${k}">${lbl}</label><input type="number" id="sv-${k}" step="${st}" min="0" value="${sv[k]}"></div>`).join("");
+  for (const [k] of SV_FIELDS) $("sv-" + k).addEventListener("input", (e) => { const v = Number(e.target.value); if (Number.isFinite(v) && v >= 0) { sv[k] = k === "p" ? Math.min(v, 1) : k === "days" || k === "z" ? Math.max(1, Math.round(v)) : v; renderSalvo(); } });
+  renderSalvo();
+}
+// Самопроверка: соотношения сценариев на экспертных данных должны совпасть с контрольными значениями ядра
+function selfCheck() {
+  if (!IP.checks || !window.REAL_DATA) return "нет контрольных значений";
+  const sc = IP.salvo_check;
+  const salvoBad = !sc ? [] : [
+    ...airDefense(sc.input).map((r, i) => Math.abs(r.leak - sc.leak[i]) > 1e-3 || Math.abs(r.magazine - sc.magazine[i]) > 1e-3 ? `ПВО, сутки ${i + 1}` : null).filter(Boolean),
+    ...hughesSalvo(sc.hughes_input).map((v, i) => (Math.abs(v - sc.hughes[i]) > 1e-3 ? "залпы Хьюза" : null)).filter(Boolean)];
+  const mem = (k) => { const c = window.REAL_DATA.countries[k]; if (c) return { ivm: c.auto / 100, lam: c.lam }; const x = EXTRA_REAL.find((e) => e.id === k); return x ? { ivm: x.ivm / 100, lam: x.lam } : null; };
+  const bad = [...salvoBad];
+  for (const [k, chk] of Object.entries(IP.checks)) {
+    const pr = CO_PRESETS.real[k]; if (!pr) { bad.push(k + ": нет сценария"); continue; }
+    const F = (side) => pr[side].reduce((s, p) => { const m = mem(p.key); return s + (m && p.troops && p.tau <= 0 ? p.rho * p.s * Math.exp(KAPPA * m.ivm) * Math.exp(-p.D / Math.max(m.lam, .1)) : 0); }, 0);
+    const e = (side) => Math.min(1.6, pr[side].reduce((s, p) => (p.intel ? s * (1 + .15 * p.rho) : s), 1));
+    const r = F("A") / F("B"), R = Math.pow(e("B") * pr.d / e("A"), 1 / pr.alpha);
+    if (Math.abs(r - chk.ratio) > .01 || Math.abs(R - chk.required) > .01) bad.push(`${k}: ${r.toFixed(2)} / ${R.toFixed(2)} вместо ${chk.ratio} / ${chk.required}`);
+  }
+  if (bad.length) console.warn("Самопроверка прототипа: расхождение с ядром — " + bad.join("; "));
+  return bad.length ? "РАСХОЖДЕНИЕ: " + bad.join("; ") : "сценарии совпадают";
+}
+const SELFCHECK = selfCheck();
+window.IVM_SELFCHECK = SELFCHECK; window.IVM_RECHECK = selfCheck;
+const coalPresets = () => CO_PRESETS[DS.kind === "demo" ? "demo" : "real"];
+function plural(n, one, few, many) { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; }
+function applyCoalPreset(key) {
+  const all = coalPresets();
+  if (key !== "custom" && !all[key]) key = Object.keys(all)[0];
+  coal.preset = key; coal.t = 0;
+  if (key === "custom") {
+    coal.alpha = ALPHA0; coal.d = D_PD; coal.T = 60;
+    coal.sides = { A: [pt(COUNTRIES[ui.cmpA].id, 1, 1, 0, 0)], B: [pt(COUNTRIES[ui.cmpB].id, 1, 1, 0, 0)] };
+    return;
+  }
+  const p = all[key];
+  coal.alpha = p.alpha; coal.d = p.d; coal.T = p.T;
+  coal.sides = { A: p.A.map((x) => ({ ...x })), B: p.B.map((x) => ({ ...x })) };
+}
+// Участник коалиции: автономная мощь ivm (0…1), радиус проекции λ, устойчивость sus, ядерный класс k.
+function member(key) {
+  const ci = COUNTRIES.findIndex((c) => c.id === key);
+  if (ci >= 0) {
+    const c = COUNTRIES[ci], d = det[ci];
+    return { key, name: c.name, short: c.name, ivm: d.auto, lam: d.lambda, sus: isReal() ? realSus(d.P) : wmeanRaw(ci, LG.S), dq: c.dq, k: c.k, approx: false };
+  }
+  const x = !isDemo() ? EXTRA_REAL.find((e) => e.id === key) : null;
+  return x ? { key, name: x.name, short: x.short, ivm: x.ivm / 100, lam: x.lam, sus: .45, dq: .5, k: key === "PRK" ? 2 : 0, approx: true } : null;
+}
+function coalPool() {
+  const own = new Set(COUNTRIES.map((c) => c.id)); // в пилоте Польша, Белоруссия и КНДР — уже настоящие страны набора
+  return [...COUNTRIES.map((c) => member(c.id)), ...(!isDemo() ? EXTRA_REAL.filter((x) => !own.has(x.id)).map((x) => member(x.id)) : [])];
+}
+const unitsOf = (m) => Math.exp(KAPPA * m.ivm); // у.е. мощи M = exp(κ·ИВМ)
+function coalAt(side, t) {
+  let F = 0;
+  const parts = coal.sides[side].map((p, i) => {
+    const m = member(p.key);
+    const v = m && p.on && p.troops ? p.rho * p.s * unitsOf(m) * Math.exp(-p.D / Math.max(m.lam, .1)) * gIn(t, p.tau) : 0;
+    F += v;
+    return { p, m, v, i };
+  });
+  return { F, parts };
+}
+function coalE(side) { let e = 1; for (const p of coal.sides[side]) if (p.on && p.intel) e *= 1 + .15 * p.rho; return Math.min(1.6, e); }
+const coalReq = () => Math.pow(coalE("B") * coal.d / coalE("A"), 1 / coal.alpha);
+// Входы модели боя для стороны-коалиции: N₀ — силы с τ = 0, остальные — подкрепления по графику τ; 1 у.е. = 10 ЕБП.
+function coalLanch(side) {
+  const list = coal.sides[side].filter((p) => p.on && member(p.key));
+  const lead = list.length ? member(list[0].key) : null;
+  let X0 = 0, R = 0, r = 0;
+  const reinf = [];
+  for (const p of list) {
+    const m = member(p.key), full = 10 * p.rho * p.s * unitsOf(m), fade = Math.exp(-p.D / Math.max(m.lam, .1));
+    const res = full * (.2 + 1.6 * m.sus), rate = res / (60 + 240 * (1 - m.sus));
+    if (p.troops) {
+      if (p.tau <= 0) X0 += full * fade; else reinf.push({ amt: full * fade, tau: p.tau });
+      R += res * fade; r += rate * fade;
+    }
+    if (p.supply) { R += res; r += rate; }
+  }
+  const n = list.length - 1;
+  const name = lead ? lead.name + (n > 0 ? ` + ${n} ${plural(n, "союзник", "союзника", "союзников")}` : "") : "нет участников";
+  const sLead = lead ? lead.sus : .5;
+  return { X0: Math.round(X0), e: +coalE(side).toFixed(2), R: Math.round(R), r: +r.toFixed(1), delay: Math.round(7 + 60 * (1 - sLead)), lambda: lead ? +lead.lam.toFixed(1) : 1, unc: 1.6 - (lead ? lead.dq : .5), reinf, coal: true, name };
+}
+function pcardHTML(side, p, i) {
+  const m = member(p.key); if (!m) return "";
+  const id = `co-${side}-${i}`;
+  const cls = i === 0
+    ? `<span class="chip" data-tip="Первый участник стороны — её основа: собственные силы на театре">основа стороны</span>`
+    : `<select id="${id}-cls" data-f="cls" aria-label="Класс обязательства" data-tip="Класс обязательства задаёт исходную надёжность ρ">${Object.entries(CO_CLASSES).map(([k, c]) => `<option value="${k}"${p.cls === k ? " selected" : ""}>${k} · ${c[0]}</option>`).join("")}</select>`;
+  const types = CO_TYPES.map(([k, l, h]) => `<button type="button" data-type="${k}" aria-pressed="${p[k]}" data-tip="<b>${l}</b><br>${esc(h)}">${l}</button>`).join("");
+  return `<div class="pcard${p.on ? "" : " off"}" data-i="${i}">
+    <div class="pc-top">
+      <label class="pc-name"><input type="checkbox" id="${id}-on" data-f="on"${p.on ? " checked" : ""} data-tip="Снимите флажок, чтобы посмотреть баланс без этого участника"><span>${esc(m.name)}</span>${m.approx ? '<span class="chip" data-tip="Ориентировочная автономная мощь из документа 3; полный расчёт — в пилоте на 40 странах">ориент.</span>' : ""}</label>
+      ${cls}
+      <span class="seg sm" role="group" aria-label="Вклад участника">${types}</span>
+      <button type="button" class="pc-del" data-del aria-label="Убрать участника: ${esc(m.name)}">×</button>
+    </div>
+    <div class="pc-grid">
+      <div class="field"><label for="${id}-rho">Надёжность <span class="sym">ρ</span></label><div class="range-line"><input type="range" id="${id}-rho" data-f="rho" min="0" max="1" step="0.05" value="${p.rho}"><output id="${id}-rho-out">${fmt(p.rho, 2)}</output></div></div>
+      <div class="field"><label for="${id}-s">Доля сил <span class="sym">s</span></label><div class="range-line"><input type="range" id="${id}-s" data-f="s" min="0" max="1" step="0.01" value="${p.s}"><output id="${id}-s-out">${fmt(p.s, 2)}</output></div></div>
+      <div class="field"><label for="${id}-D"><span class="sym">D</span>, тыс. км</label><input type="number" id="${id}-D" data-f="D" min="0" max="20" step="0.1" value="${p.D}"></div>
+      <div class="field"><label for="${id}-tau"><span class="sym">τ</span>, сут</label><input type="number" id="${id}-tau" data-f="tau" min="0" max="365" step="1" value="${p.tau}"></div>
+    </div>
+    <div class="pc-foot" id="${id}-foot"></div>
+  </div>`;
+}
+function renderCoalition() {
+  const used = new Set([...coal.sides.A, ...coal.sides.B].map((p) => p.key)), pool = coalPool();
+  ["A", "B"].forEach((side) => {
+    $("co-list-" + side).innerHTML = coal.sides[side].map((p, i) => pcardHTML(side, p, i)).join("") || `<p class="muted small">Добавьте участника из списка ниже.</p>`;
+    const opts = pool.filter((m) => !used.has(m.key));
+    $("co-add-" + side).innerHTML = opts.map((m) => `<option value="${m.key}">${esc(m.name)}${m.approx ? " · ориент." : ""}</option>`).join("") || `<option value="">Все участники уже добавлены</option>`;
+    $("co-addbtn-" + side).disabled = !opts.length;
+  });
+  $("co-preset").value = coal.preset;
+  renderCoalResults();
+}
+function renderCoalResults() {
+  const T = coal.T, t = Math.min(coal.t, T);
+  const preset = coalPresets()[coal.preset];
+  $("co-note").textContent = preset ? preset.note : "Своя коалиция: добавьте участников на стороны A и B и задайте для каждого надёжность, долю сил, удалённость и срок вступления.";
+  $("co-alpha").value = coal.alpha; $("co-alpha-out").textContent = fmt(coal.alpha, 2);
+  $("co-d").value = String(coal.d); $("co-T").value = String(T);
+  $("co-t").max = T; $("co-t").value = t; $("co-t-out").textContent = `${t} сут`;
+  const eA = coalE("A"), eB = coalE("B"), R = coalReq();
+  const S = [];
+  for (let d = 0; d <= T; d++) {
+    const a = coalAt("A", d).F, b = coalAt("B", d).F;
+    S.push({ d, a, b, r: b > 0 ? a / b : a > 0 ? Infinity : null });
+  }
+  const win = [];
+  let st = null;
+  S.forEach((x) => {
+    const ok = x.r !== null && x.r >= R;
+    if (ok && st === null) st = x.d;
+    if (!ok && st !== null) { win.push([st, x.d - 1]); st = null; }
+  });
+  if (st !== null) win.push([st, T]);
+  const winText = !win.length ? "нет" : win.length === 1 && win[0][0] === 0 && win[0][1] === T ? "весь горизонт"
+    : "сутки " + win.map(([a, b]) => (a === b ? `${a}` : `${a}–${b}`)).join(", ");
+  const atA = coalAt("A", t), atB = coalAt("B", t), ratio = S[t].r;
+  const allyPct = (at) => at.F > 0 ? fmt((1 - (at.parts[0] ? at.parts[0].v : 0) / at.F) * 100, 0) + "%" : "—";
+  const ratioTxt = (r) => r === null ? "—" : Number.isFinite(r) ? `${fmt(r, 2)} : 1` : "без противника";
+  const pS = pSufficient(ratio, R);
+  $("co-tiles").innerHTML = [
+    [`<span class="chip chip-a">A</span> силы на театре`, `${fmt(atA.F, 1)} у.е.`, `сутки ${t} · доля союзников ${allyPct(atA)}`],
+    [`<span class="chip chip-b">B</span> силы на театре`, `${fmt(atB.F, 1)} у.е.`, `сутки ${t} · доля союзников ${allyPct(atB)}`],
+    ["Соотношение A : B", ratioTxt(ratio), `на сутки ${t}`],
+    ["Нужно A для прорыва", `${fmt(R, 2)} : 1`, `d = ${fmt(coal.d, 1)} · α = ${fmt(coal.alpha, 2)} · e_A/e_B = ${fmt(eA / eB, 2)}`],
+    ["Окно перевеса A", winText, `когда A : B не ниже ${fmt(R, 2)} : 1`],
+    ["Вероятность, что перевеса хватает", pS === null ? "—" : `${fmt(pS * 100, 0)}%`, `с ошибкой модели σ = ${fmt(MODEL_SIGMA, 1)} (10 войн 2018–2025 гг.)`]
+  ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
+  let v;
+  if (ratio === null) v = `На сутки ${t} у сторон нет сил на театре.`;
+  else if (ratio >= R) v = `На сутки ${t} перевеса A (${ratioTxt(ratio)}) хватает для прорыва обороны: нужно ${fmt(R, 2)} : 1.`;
+  else if (ratio >= 1) v = `На сутки ${t} у A перевес ${ratioTxt(ratio)}, но для прорыва нужно ${fmt(R, 2)} : 1. Модель ожидает позиционные бои и войну на истощение.`;
+  else v = `На сутки ${t} перевес у обороняющейся стороны B: ${fmt(1 / ratio, 2)} : 1. По модели наступление A не достигнет цели без дополнительных сил.`;
+  if (win.length && !(win[0][0] === 0 && win[0][1] === T)) {
+    v += win[0][0] === 0 ? ` Окно перевеса A закрывается после ${win[0][1]}-х суток, когда подходят силы B.` : ` Перевес, достаточный для прорыва, A набирает к ${win[0][0]}-м суткам.`;
+  }
+  if (pS !== null) v += ` С учётом ошибки модели вероятность, что перевеса хватает, — ${fmt(pS * 100, 0)}%: на 10 проверочных войнах 2018–2025 гг. соотношение сил по индексу не показало прогностической силы (документ 6, раздел 7.8).`;
+  const nucOf = (side) => coal.sides[side].filter((p) => p.on && p.troops && p.rho > 0).map((p) => member(p.key)).filter((m) => m && m.k >= 2).map((m) => m.short);
+  const nA = nucOf("A"), nB = nucOf("B");
+  if (nA.length || nB.length) v += `<span class="muted" style="display:block;margin-top:6px">Ядерные государства с войсками на театре: A — ${nA.length ? esc(nA.join(", ")) : "нет"}; B — ${nB.length ? esc(nB.join(", ")) : "нет"}. По методике ядерная ось ограничивает цели сценария и не добавляет у.е.</span>`;
+  $("co-verdict").innerHTML = v;
+  ["A", "B"].forEach((side) => {
+    const at = side === "A" ? atA : atB;
+    $("co-sum-" + side).textContent = `${fmt(at.F, 1)} у.е. · e = ${fmt(coalE(side), 2)}`;
+    at.parts.forEach(({ p, m, v: val, i }) => {
+      const f = $(`co-${side}-${i}-foot`); if (!f || !m) return;
+      const role = !p.on ? "не участвует" : !p.troops ? (p.supply || p.intel ? [p.supply && "снабжение", p.intel && "разведка"].filter(Boolean).join(" и ") + " без войск" : "вклад не выбран")
+        : gIn(t, p.tau) <= 0 ? `войска прибывают после ${p.tau}-х суток` : `на сутки ${t}: ${fmt(val, 1)} у.е.`;
+      f.textContent = `ИВМ без союзов ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} тыс. км · ${role}`;
+    });
+  });
+  $("co-legend").innerHTML = `<span><span class="sw" style="background:var(--side-a)"></span>A · ${esc(coalName("A"))}</span><span><span class="sw" style="background:var(--side-b)"></span>B · ${esc(coalName("B"))}</span><span><span class="sw" style="background:var(--band-a);height:10px"></span>перевес A достаточен для прорыва</span>`;
+  drawCoalChart($("co-chart"), S, R, t, T);
+  renderCoalBars(atA, atB, t);
+  drawCoalGraph($("co-graph"), atA, atB);
+  $("co-formula").textContent =
+`F(t) = Σ ρⱼ · sⱼ · Mⱼ · e^(−Dⱼ/λⱼ) · g(t − τⱼ)          по участникам с вкладом «войска»
+Mⱼ = exp(κ · ИВМⱼ / 100),  κ = 2,6·ln 10 ≈ ${fmt(KAPPA, 2)};  ИВМⱼ — автономная мощь, без СЯС и столпа «Союзы»
+g(t − τ) = 0 до τ, затем линейно до 1 за ${RAMP} сут;  τ = 0 — силы на театре с первого дня
+e = Π (1 + 0,15·ρⱼ) по участникам с вкладом «разведка», не выше 1,6:   e_A = ${fmt(eA, 2)},  e_B = ${fmt(eB, 2)}
+Нужно A для прорыва:  R = (e_B · d / e_A)^(1/α) = (${fmt(eB, 2)} · ${fmt(coal.d, 1)} / ${fmt(eA, 2)})^(1/${fmt(coal.alpha, 2)}) = ${fmt(R, 2)}
+Сутки ${t}:  F_A = ${fmt(atA.F, 1)} у.е.,  F_B = ${fmt(atB.F, 1)} у.е.,  A : B = ${ratioTxt(ratio)}
+Снабжение в F не входит: в модели боя оно добавляет стороне резерв R и темп восполнения r.
+P(перевеса хватает) = Φ(ln(A:B ÷ R) / σ),  σ = ${fmt(MODEL_SIGMA, 1)} — ошибка модели по 10 войнам 2018–2025 гг.
+Сверка с ядром (core/export_params.py): ${SELFCHECK}.`;
+}
+function coalName(side) {
+  const on = coal.sides[side].filter((p) => p.on && member(p.key));
+  if (!on.length) return "нет участников";
+  const n = on.length - 1;
+  return member(on[0].key).name + (n > 0 ? ` + ${n} ${plural(n, "союзник", "союзника", "союзников")}` : "");
+}
+function renderCoalBars(atA, atB, t) {
+  $("co-bars-day").textContent = `сутки ${t}, у.е. мощи`;
+  const maxF = Math.max(atA.F, atB.F, 1e-9);
+  $("co-bars").innerHTML = [["A", atA], ["B", atB]].map(([side, at]) => {
+    const col = side === "A" ? "var(--side-a)" : "var(--side-b)";
+    const segs = at.parts.filter((x) => x.v > 0);
+    const bar = segs.map((x, j) => `<i style="flex:${x.v};background:${col};opacity:${Math.max(.3, 1 - j * .16).toFixed(2)}" data-tip="<b>${esc(x.m.name)}</b><br>${fmt(x.v, 1)} у.е. · ${fmt(x.v / at.F * 100, 0)}%"></i>`).join("");
+    const rows = at.parts.filter((x) => x.m).map((x) => {
+      const val = x.v > 0 ? `${fmt(x.v, 1)} · ${fmt(x.v / at.F * 100, 0)}%` : !x.p.on ? "не участвует" : !x.p.troops ? "без войск" : "ещё не прибыл";
+      return `<li><span>${esc(x.m.name)}</span><span class="num${x.v > 0 ? "" : " muted"}">${val}</span></li>`;
+    }).join("");
+    return `<div class="stack" style="gap:6px">
+      <div class="row" style="justify-content:space-between;align-items:baseline"><span class="chip ${side === "A" ? "chip-a" : "chip-b"}">${side} · ${esc(coalName(side))}</span><span class="num">${fmt(at.F, 1)} у.е.</span></div>
+      <div class="co-bar" style="width:${Math.max(2, at.F / maxF * 100).toFixed(1)}%">${bar}</div>
+      <ul class="list" style="margin:0;padding:0">${rows}</ul>
+    </div>`;
+  }).join("");
+}
+function drawCoalChart(host, S, R, tSel, T) {
+  const W = 760, H = 410, m = { l: 62, r: 22 }, iw = W - m.l - m.r;
+  const top = { y: 26, h: 160 }, bot = { y: 236, h: 130 };
+  const sx = (d) => m.l + (d / T) * iw;
+  const maxF = Math.max(1e-6, ...S.map((x) => Math.max(x.a, x.b)));
+  const st = niceStep(maxF, 4), fmax = Math.ceil(maxF / st) * st;
+  const syF = (v) => top.y + top.h - (v / fmax) * top.h;
+  const fin = S.map((x) => x.r).filter((v) => v !== null && Number.isFinite(v) && v > 0);
+  const lo = Math.max(Math.min(1, R, ...fin) / 1.3, .05), hi = Math.min(Math.max(1, R, ...fin) * 1.3, 50);
+  const L0 = Math.log(lo), L1 = Math.log(hi);
+  const syR = (v) => bot.y + bot.h - ((Math.log(clamp(v, lo, hi)) - L0) / (L1 - L0)) * bot.h;
+  let s = `<svg viewBox="0 0 ${W} ${H}" data-hover-chart role="img" aria-label="Силы сторон на театре и их соотношение по суткам">`;
+  s += `<text x="${m.l}" y="${top.y - 10}" class="ax-label">Силы на театре, у.е. мощи</text>`;
+  for (let v = 0; v <= fmax + 1e-9; v += st) {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${syF(v)}" y2="${syF(v)}" stroke="${v === 0 ? "var(--axis)" : "var(--line)"}" stroke-width="1"/>`;
+    s += `<text x="${m.l - 8}" y="${syF(v) + 4}" text-anchor="end" class="ax-label">${fmt(v, st < 1 ? 1 : 0)}</text>`;
+  }
+  const poly = (key) => S.map((x) => `${sx(x.d)},${syF(x[key])}`).join(" ");
+  s += `<polyline points="${poly("a")}" fill="none" stroke="var(--side-a)" stroke-width="2" stroke-linejoin="round"/>`;
+  s += `<polyline points="${poly("b")}" fill="none" stroke="var(--side-b)" stroke-width="2" stroke-linejoin="round"/>`;
+  s += `<text x="${m.l}" y="${bot.y - 10}" class="ax-label">Соотношение A : B, логарифмическая шкала</text>`;
+  let ws = null;
+  S.forEach((x, j) => {
+    const ok = x.r !== null && x.r >= R;
+    if (ok && ws === null) ws = x.d;
+    if ((!ok || j === S.length - 1) && ws !== null) {
+      const end = ok ? x.d : x.d - 1;
+      s += `<rect x="${sx(ws)}" y="${bot.y}" width="${Math.max(2, sx(end) - sx(ws))}" height="${bot.h}" fill="var(--band-a)"/>`;
+      ws = null;
+    }
+  });
+  [.05, .1, .2, .5, 1, 2, 5, 10, 20, 50].filter((v) => v >= lo && v <= hi).forEach((v) => {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${syR(v)}" y2="${syR(v)}" stroke="${v === 1 ? "var(--axis)" : "var(--line)"}" stroke-width="1"/>`;
+    s += `<text x="${m.l - 8}" y="${syR(v) + 4}" text-anchor="end" class="ax-label">${fmt(v, v < 1 ? (v < .1 ? 2 : 1) : 0)} : 1</text>`;
+  });
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${syR(R)}" y2="${syR(R)}" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  s += `<text x="${W - m.r}" y="${syR(R) - 6}" text-anchor="end" class="ax-label">нужно для прорыва ${fmt(R, 2)} : 1</text>`;
+  const rpts = S.filter((x) => x.r !== null).map((x) => `${sx(x.d)},${syR(Number.isFinite(x.r) ? x.r : hi)}`).join(" ");
+  if (rpts) s += `<polyline points="${rpts}" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>`;
+  const xst = niceStep(T, 6);
+  for (let d = 0; d <= T; d += xst) s += `<text x="${sx(d)}" y="${bot.y + bot.h + 18}" text-anchor="middle" class="ax-label">${d}</text>`;
+  s += `<text x="${m.l + iw / 2}" y="${H - 6}" text-anchor="middle" class="ax-label">сутки от начала операции</text>`;
+  s += `<line x1="${sx(tSel)}" x2="${sx(tSel)}" y1="${top.y}" y2="${bot.y + bot.h}" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="2 3"/>`;
+  s += `<line id="co-cross" x1="0" x2="0" y1="${top.y}" y2="${bot.y + bot.h}" stroke="var(--ink)" stroke-width="1" opacity="0"/>`;
+  s += `<rect x="${m.l}" y="${top.y}" width="${iw}" height="${bot.y + bot.h - top.y}" fill="transparent" id="co-hit" style="cursor:pointer"/>`;
+  host.innerHTML = s + "</svg>";
+  const svg = host.querySelector("svg"), hit = host.querySelector("#co-hit"), cross = host.querySelector("#co-cross");
+  const dayAt = (ev) => {
+    const p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY;
+    const loc = p.matrixTransform(svg.getScreenCTM().inverse());
+    return clamp(Math.round(((loc.x - m.l) / iw) * T), 0, T);
+  };
+  hit.addEventListener("mousemove", (ev) => {
+    const d = dayAt(ev), x = S[d];
+    cross.setAttribute("x1", sx(d)); cross.setAttribute("x2", sx(d)); cross.setAttribute("opacity", ".5");
+    const r = x.r === null ? "—" : Number.isFinite(x.r) ? `${fmt(x.r, 2)} : 1` : "без противника";
+    showTip(`<b>Сутки ${d}</b><br>A: ${fmt(x.a, 1)} у.е. · B: ${fmt(x.b, 1)} у.е.<br>A : B = ${r} (нужно ${fmt(R, 2)} : 1)<br><span style="opacity:.7">Нажмите, чтобы разложить вклад на эти сутки</span>`, ev);
+  });
+  hit.addEventListener("mouseleave", () => { cross.setAttribute("opacity", "0"); hideTip(); });
+  hit.addEventListener("click", (ev) => { coal.t = dayAt(ev); renderCoalResults(); });
+}
+function drawCoalGraph(host, atA, atB) {
+  const W = 700, H = 300, cy = 150, Rr = 100;
+  const all = [...atA.parts, ...atB.parts].filter((x) => x.m);
+  if (!all.length) { host.innerHTML = `<p class="muted small">Добавьте участников, чтобы построить граф.</p>`; return; }
+  const vmax = Math.max(1e-9, ...all.map((x) => x.v));
+  const rad = (x) => 9 + 15 * Math.sqrt(x.v / vmax);
+  let edges = "", nodes = "";
+  const cluster = (at, cx, side) => {
+    const col = side === "A" ? "var(--side-a)" : "var(--side-b)", band = side === "A" ? "var(--band-a)" : "var(--band-b)";
+    const parts = at.parts.filter((x) => x.m);
+    if (!parts.length) return 0;
+    const lead = parts[0], allies = parts.slice(1), n = allies.length;
+    const span = Math.min(160, 40 * Math.max(n - 1, 0)), base = side === "A" ? 180 : 0;
+    allies.forEach((x, j) => {
+      const ang = (base + (n === 1 ? 0 : -span / 2 + (span * j) / (n - 1))) * Math.PI / 180;
+      const px = cx + Rr * Math.cos(ang), py = cy + Rr * Math.sin(ang), r = rad(x);
+      const dash = !x.p.on ? ' stroke-dasharray="5 4"' : !x.p.troops ? ' stroke-dasharray="2 3"' : "";
+      edges += `<line x1="${cx}" y1="${cy}" x2="${px}" y2="${py}" stroke="${col}" stroke-width="${(1 + 5 * x.p.rho).toFixed(1)}" opacity="${x.p.on ? .75 : .3}"${dash}/>`;
+      if (x.p.cls) {
+        const mx = (cx + px) / 2, my = (cy + py) / 2;
+        edges += `<rect x="${mx - 8}" y="${my - 8}" width="16" height="16" rx="3" fill="var(--paper)" stroke="${col}"/><text x="${mx}" y="${my + 4}" text-anchor="middle" font-size="11" font-weight="600">${x.p.cls}</text>`;
+      }
+      const tipTxt = `<b>${esc(x.m.name)}</b><br>Класс ${x.p.cls || "—"}${x.p.cls ? " · " + esc(CO_CLASSES[x.p.cls][0]) : ""}<br>ρ = ${fmt(x.p.rho, 2)} · s = ${fmt(x.p.s, 2)} · τ = ${x.p.tau} сут<br>Вклад: ${fmt(x.v, 1)} у.е.`;
+      nodes += `<g opacity="${x.p.on ? 1 : .4}"><circle cx="${px}" cy="${py}" r="${r}" fill="${x.v > 0 ? band : "var(--paper)"}" stroke="${col}" stroke-width="2" data-tip="${tipTxt}"/>`;
+      nodes += `<text x="${side === "A" ? px - r - 6 : px + r + 6}" y="${py + 4}" text-anchor="${side === "A" ? "end" : "start"}" font-size="12">${esc(x.m.short)}</text></g>`;
+    });
+    const r = rad(lead);
+    nodes += `<g opacity="${lead.p.on ? 1 : .4}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="${col}" stroke="var(--paper)" stroke-width="2" data-tip="<b>${esc(lead.m.name)}</b><br>основа стороны ${side}<br>Вклад: ${fmt(lead.v, 1)} у.е."/>`;
+    nodes += `<text x="${cx}" y="${cy + r + 16}" text-anchor="middle" font-size="12" font-weight="600">${esc(lead.m.short)}</text></g>`;
+    return r;
+  };
+  const cA = 250, cB = 450;
+  const rA = cluster(atA, cA, "A"), rB = cluster(atB, cB, "B");
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Граф союзов: участники сторон и надёжность обязательств">`;
+  s += `<defs><marker id="co-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-2)"/></marker></defs>`;
+  if (rA && rB) {
+    s += `<line x1="${cA + rA + 6}" y1="${cy}" x2="${cB - rB - 6}" y2="${cy}" stroke="var(--ink-2)" stroke-width="1.5" marker-end="url(#co-arrow)"/>`;
+    s += `<text x="${(cA + cB) / 2}" y="${cy - 8}" text-anchor="middle" class="ax-label">наступление</text>`;
+  }
+  host.innerHTML = s + edges + nodes + "</svg>";
+}
+
+/* ---------- Методика ---------- */
+function renderMethod() {
+  $("m-weights").innerHTML || buildWeights();
+  const tot = PILLARS.reduce((s, p) => s + (state.nuclear !== "pillar" && p.code === "STR" ? 0 : state.weights[p.code]), 0) || 1;
+  PILLARS.forEach((p) => {
+    const off = state.nuclear !== "pillar" && p.code === "STR";
+    const row = $("w-row-" + p.code);
+    row.classList.toggle("off", off);
+    $("w-" + p.code).value = state.weights[p.code];
+    $("w-out-" + p.code).textContent = off ? "вне" : fmt((state.weights[p.code] / tot) * 100, 0) + "%";
+  });
+  const vals = det.map((d) => d.Ieff), rk = ranksOf(vals);
+  const order = vals.map((v, i) => i).sort((a, b) => vals[b] - vals[a]);
+  $("m-table").innerHTML = order.map((ci) => {
+    const sh = baseRanks[ci] - rk[ci];
+    const shTxt = sh > 0 ? `<span class="delta-up">▲ ${sh}</span>` : sh < 0 ? `<span class="delta-down">▼ ${-sh}</span>` : '<span class="muted">—</span>';
+    return `<tr><td class="num">${rk[ci]}</td><td>${esc(COUNTRIES[ci].name)}</td><td class="num">${fmt(det[ci].Ieff * 100, 1)}</td><td class="num">${shTxt}</td><td class="num">${fmt(det[ci].conv * 100, 1)}</td><td class="num">${fmt(det[ci].lambda, 1)}</td></tr>`;
+  }).join("");
+  const nuc = { axis: "ИВМ = Свёртка(столпы без СЯС);  ядерный класс показывается отдельно",
+    pillar: "ИВМ = Свёртка(все 12 столпов, включая СЯС)",
+    mult: "ИВМ = Свёртка(без СЯС) · (1 + 0,3·P_СЯС) / 1,3" }[state.nuclear];
+  const real = isReal();
+  $("m-formula").textContent = (DS.kind === "pilot"
+    ? `0. Пилот:        в индексе ${PD.include.filter(Boolean).length} из ${nI} показателей (данные хотя бы у половины стран); пропуски — средняя страны в столпе, σ ≥ 0,10
+                  границы шкал рассчитаны в core/lanmil (лог — 3 порядка ниже лидера выборки)
+` : "") + (real
+    ? `1. Баллы столпов:  экспертные оценки P = 0…100 на глобальной шкале с погрешностью σ (5–14 баллов по классу данных)
+2. Показатели N, Q, M для 8 государств ещё не собраны, поэтому α и нормировка не применяются`
+    : `1. Нормировка:   x̃ = ${state.norm === "minmax" ? "0,02 + 0,97·(x − min)/(max − min) по выборке" : "значение на глобальной шкале 0…1 (лог для счётных величин)"}
+2. Боевой столп:  P = (α·Σw·x̃[N] + Σw·x̃[Q,M] + Σw·x̃[прочие]) / (α·Σw[N] + Σw[Q,M] + Σw[прочие]),  α = ${fmt(state.alpha, 2)}
+                  (логарифм закона Ланчестера: ln F = ln Q + α·ln N)`) + `
+3. Свёртка:       (Σ ω·P^ρ)^(1/ρ),  ρ = ${fmt(state.rho, 2)}${Math.abs(state.rho) < .05 ? "  → геометрическое среднее" : ""}
+4. ${nuc}
+5. Проекция:      ИВМ(D) = ИВМ · e^(−D/λ),  λ = ${real ? "экспертная оценка" : "2 + 10·P̄[проекция]"} тыс. км,  D = ${fmt(state.D, 1)}
+6. Неопределённость: ${MC_RUNS} прогонов, ${real ? "P ~ N(P, σ²), ρ ~ U(ρ ± 0,2)" : "x ~ N(x̃, σ²)"}, ω ~ ω·LogN(0; 0,15²) → интервалы 5–95%
+7. Автономная мощь (для коалиций): та же свёртка без СЯС и без столпа «Союзы»`;
+}
+function buildWeights() {
+  $("m-weights").innerHTML = PILLARS.map((p) => `<div class="wrow" id="w-row-${p.code}"><label for="w-${p.code}">${esc(p.name)}</label><input type="range" id="w-${p.code}" min="0" max="30" step="1"><output id="w-out-${p.code}"></output></div>`).join("");
+  PILLARS.forEach((p) => $("w-" + p.code).addEventListener("input", (e) => { state.weights[p.code] = Number(e.target.value); state.preset = "custom"; recompute(false); }));
+}
+
+/* ---------- Каталог ---------- */
+function renderCatalog() {
+  const q = ui.catQ.trim().toLowerCase();
+  const rows = IND.filter((d) => (!ui.catPillar || d.pillar === ui.catPillar) && (!ui.catRole || d.role === ui.catRole) &&
+    (!q || (d.name + " " + d.subpillar + " " + d.id + " " + d.sources.join(" ")).toLowerCase().includes(q)));
+  $("cat-summary").textContent = `Показано ${rows.length} из ${nI}. Канонический файл — data/indicators.csv, сборка — tools/build_catalog.mjs.`;
+  $("cat-table").innerHTML = rows.map((d) => `<tr><td class="num">${d.id}</td><td>${esc(d.name)}</td><td>${esc(PILLARS[PI[d.pillar]].name)}<div class="muted small">${esc(d.subpillar)}</div></td><td>${esc(d.unit)}</td><td class="num">${d.dir === "+" ? "↑" : "↓"}</td><td>${TRANSFORMS[d.transform]}</td><td><span class="role" data-tip="<b>${ROLES[d.role][0]}</b><br>${esc(ROLES[d.role][1])}">${d.role}</span></td><td class="num">${d.weight}</td><td class="small">${d.sources.map((s) => `<span data-tip="${esc(SOURCES[s] || s)}">${esc(s)}</span>`).join(", ")}</td></tr>`).join("") ||
+    `<tr><td colspan="9" class="muted">Ничего не найдено. Измените запрос или сбросьте фильтры.</td></tr>`;
+}
+
+/* ---------- Инициализация ---------- */
+function fillCountrySelect(el, val) { el.innerHTML = COUNTRIES.map((c, i) => `<option value="${i}">${esc(c.name)}</option>`).join(""); el.value = val; }
+const BANNER = {
+  real: ["Реальные данные · октябрь 2026", "8 государств оценены экспертно по 12 столпам (балл ± σ) по открытым данным SIPRI, IISS и официальных бюджетов; 253 показателя для них ещё не собраны. Перекрывающиеся интервалы означают, что места статистически неразличимы."],
+  demo: ["Демо-режим", "14 вымышленных государств, значения показателей синтетические. Режим показывает работу всех 253 показателей и расчётную схему, а не реальный баланс сил."],
+  pilot: ["Пилот · срез 2025", "40 государств по открытым данным (ВБ, МВФ, SIPRI, UCDP, Factbook, Википедия, Global Firepower). В индекс входят показатели, по которым есть данные у половины стран. 67 показателей без объективного измерителя (подготовка, исправность, командование, запасы) до экспертной панели заполнены оценкой ИИ — класс D, источник «ai», самый низкий приоритет; крупные армии по-прежнему оцениваются выше, чем у экспертов."]
+};
+function useDataset(kind) {
+  if (!["real", "demo", "pilot"].includes(kind)) kind = "real";
+  if (kind === "pilot" && !PD) kind = "real";
+  if (kind === "real" && !REAL.length) kind = "demo";
+  DS = kind === "real" ? buildReal() : kind === "pilot" ? buildPilot() : buildDemo();
+  COUNTRIES = DS.countries; nC = COUNTRIES.length; V = DS.V; SIG = DS.SIG; IMP = DS.IMP; COMPLETE = DS.COMPLETE;
+  regroup();
+  try { localStorage.setItem("ivm-dataset", kind); } catch (e) { /* хранилище недоступно — выбор не запоминается */ }
+  const at = (id, fb) => { const i = COUNTRIES.findIndex((c) => c.id === id); return i >= 0 ? i : fb; };
+  ui.profile = 0;
+  if (kind !== "demo") { ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5; } else { ui.cmpA = 0; ui.cmpB = 1; ln.D = 3; }
+  ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; ln.A = null; mc = null;
+  $("banner-tag").textContent = BANNER[kind][0]; $("banner-text").textContent = BANNER[kind][1];
+  document.querySelectorAll("#ds-switch button").forEach((b) => {
+    b.setAttribute("aria-pressed", String(b.dataset.v === kind));
+    if (b.dataset.v === "real") b.disabled = !REAL.length;
+    if (b.dataset.v === "pilot") b.disabled = !PD;
+  });
+  fillCountrySelect($("pf-country"), ui.profile); fillCountrySelect($("cmp-a"), ui.cmpA); fillCountrySelect($("cmp-b"), ui.cmpB);
+  $("co-preset").innerHTML = Object.entries(coalPresets()).map(([k, p]) => `<option value="${k}">${esc(p.name)}</option>`).join("") + `<option value="custom">Своя коалиция</option>`;
+  det = compute(V, state);
+  baseRanks = ranksOf(compute(V, DEFAULTS).map((x) => x.Ieff));
+  applyCoalPreset("");
+  recompute(true);
+  setLanchSides();
+  if (!$("tab-lanchester").hidden) renderLanchester();
+  if (!$("tab-coalition").hidden) renderCoalition();
+}
+function initCoalition() {
+  $("co-preset").addEventListener("change", (e) => { applyCoalPreset(e.target.value); renderCoalition(); });
+  $("co-reset").addEventListener("click", () => { applyCoalPreset(coal.preset); renderCoalition(); });
+  $("co-alpha").addEventListener("input", (e) => { coal.alpha = Number(e.target.value); renderCoalResults(); });
+  $("co-d").addEventListener("change", (e) => { coal.d = Number(e.target.value); renderCoalResults(); });
+  $("co-T").addEventListener("change", (e) => { coal.T = Number(e.target.value); coal.t = Math.min(coal.t, coal.T); renderCoalResults(); });
+  $("co-t").addEventListener("input", (e) => { coal.t = Number(e.target.value); renderCoalResults(); });
+  $("co-to-lanch").addEventListener("click", () => {
+    ln.coal = { A: coalLanch("A"), B: coalLanch("B") };
+    ln.alpha = coal.alpha; ln.terrain = coal.d; ln.T = coal.T <= 90 ? 90 : 180; $("ln-T").value = String(ln.T);
+    setLanchSides(); openTab("lanchester");
+  });
+  ["A", "B"].forEach((side) => {
+    const host = $("co-list-" + side);
+    const partOf = (el) => { const card = el.closest(".pcard"); return card ? { card, i: Number(card.dataset.i), p: coal.sides[side][Number(card.dataset.i)] } : null; };
+    host.addEventListener("input", (e) => {
+      const el = e.target, x = partOf(el), f = el.dataset.f;
+      if (!x || !["rho", "s", "D", "tau"].includes(f)) return;
+      const v = Number(el.value);
+      if (el.value === "" || !Number.isFinite(v) || v < 0) return;
+      x.p[f] = v;
+      const out = $(el.id + "-out"); if (out) out.textContent = fmt(v, 2);
+      renderCoalResults();
+    });
+    host.addEventListener("change", (e) => {
+      const el = e.target, x = partOf(el); if (!x) return;
+      if (el.dataset.f === "on") { x.p.on = el.checked; x.card.classList.toggle("off", !x.p.on); renderCoalResults(); }
+      if (el.dataset.f === "cls") {
+        x.p.cls = el.value; x.p.rho = CO_CLASSES[el.value][1];
+        const id = `co-${side}-${x.i}-rho`; $(id).value = x.p.rho; $(id + "-out").textContent = fmt(x.p.rho, 2);
+        renderCoalResults();
+      }
+    });
+    host.addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      const x = partOf(b); if (!x) return;
+      if (b.dataset.type) { x.p[b.dataset.type] = !x.p[b.dataset.type]; b.setAttribute("aria-pressed", String(x.p[b.dataset.type])); renderCoalResults(); }
+      if (b.hasAttribute("data-del")) { coal.sides[side].splice(x.i, 1); hideTip(); renderCoalition(); }
+    });
+    $("co-addbtn-" + side).addEventListener("click", () => {
+      const key = $("co-add-" + side).value; if (!key) return;
+      coal.sides[side].push(coal.sides[side].length ? pt(key, CO_CLASSES.D[1], .2, 1, 7, "D") : pt(key, 1, 1, 0, 0));
+      renderCoalition();
+    });
+  });
+}
+function init() {
+  $("ind-count").textContent = nI;
+  $("rating-measure").innerHTML = `<option value="index">ИВМ (итог)</option><option value="conv">Без стратегических сил</option><option value="auto">Автономная мощь (без СЯС и союзов)</option>` + PILLARS.map((p) => `<option value="${p.code}">Столп: ${esc(p.name)}</option>`).join("");
+  $("rating-measure").addEventListener("change", (e) => { ui.measure = e.target.value; renderRating(); });
+  $("pf-country").addEventListener("change", (e) => { ui.profile = Number(e.target.value); renderProfile(); });
+  $("pf-pillar").innerHTML = PILLARS.map((p) => `<option value="${p.code}">${esc(p.name)}</option>`).join("");
+  $("pf-pillar").addEventListener("change", (e) => { ui.pfPillar = e.target.value; renderProfile(); });
+  $("cmp-a").addEventListener("change", (e) => { ui.cmpA = Number(e.target.value); renderCompare(); });
+  $("cmp-b").addEventListener("change", (e) => { ui.cmpB = Number(e.target.value); renderCompare(); });
+  $("ln-a").addEventListener("change", (e) => { if (e.target.value === "coal") return; ui.lnA = Number(e.target.value); ln.coal.A = null; setLanchSides(); renderLanchester(); });
+  $("ln-b").addEventListener("change", (e) => { if (e.target.value === "coal") return; ui.lnB = Number(e.target.value); ln.coal.B = null; setLanchSides(); renderLanchester(); });
+  document.querySelectorAll("#ds-switch button").forEach((b) => b.addEventListener("click", () => { if (DS.kind !== b.dataset.v) useDataset(b.dataset.v); }));
+  initCoalition();
+  $("ln-reset").addEventListener("click", () => { setLanchSides(); renderLanchester(); });
+  $("ln-alpha").addEventListener("input", (e) => { ln.alpha = Number(e.target.value); renderLanchester(); });
+  $("ln-D").addEventListener("input", (e) => { ln.D = Number(e.target.value); renderLanchester(); });
+  $("ln-terrain").addEventListener("change", (e) => { ln.terrain = Number(e.target.value); renderLanchester(); });
+  $("ln-bp").addEventListener("change", (e) => { ln.bp = bpValue(e.target.value); renderLanchester(); });
+  $("ln-T").addEventListener("change", (e) => { ln.T = Number(e.target.value); renderLanchester(); });
+  $("ln-mob").addEventListener("change", (e) => { ln.mob = e.target.checked; renderLanchester(); });
+  $("ln-allies").addEventListener("change", (e) => { ln.allies = e.target.checked; renderLanchester(); });
+  initSalvo();
+  $("m-preset").innerHTML = Object.entries(PRESETS).map(([k, p]) => `<option value="${k}">${esc(p.name)}</option>`).join("") + `<option value="custom" disabled>Пользовательский</option>`;
+  $("m-preset").addEventListener("change", (e) => { state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
+  document.querySelectorAll("#m-nuclear button").forEach((b) => b.addEventListener("click", () => { state.nuclear = b.dataset.v; recompute(false); }));
+  document.querySelectorAll("#m-norm button").forEach((b) => b.addEventListener("click", () => { state.norm = b.dataset.v; recompute(false); }));
+  $("m-reset").addEventListener("click", () => { Object.assign(state, JSON.parse(JSON.stringify(DEFAULTS))); recompute(false); });
+  $("cat-pillar").innerHTML = `<option value="">Все столпы</option>` + PILLARS.map((p) => `<option value="${p.code}">${esc(p.name)} · ${IND.filter((d) => d.pillar === p.code).length}</option>`).join("");
+  $("cat-role").innerHTML = `<option value="">Все роли</option>` + Object.entries(ROLES).map(([k, r]) => `<option value="${k}">${k} · ${r[0]}</option>`).join("");
+  $("cat-roles").innerHTML = Object.entries(ROLES).map(([k, r]) => `<span class="small"><span class="role">${k}</span> ${r[0]} · ${IND.filter((d) => d.role === k).length}</span>`).join("");
+  $("cat-sources").textContent = "Источники: " + Object.entries(SOURCES).map(([k, v]) => `${k} — ${v}`).join("; ") + ".";
+  $("cat-pillar").addEventListener("change", (e) => { ui.catPillar = e.target.value; renderCatalog(); });
+  $("cat-role").addEventListener("change", (e) => { ui.catRole = e.target.value; renderCatalog(); });
+  $("cat-q").addEventListener("input", (e) => { ui.catQ = e.target.value; renderCatalog(); });
+  let saved = "real";
+  try { saved = localStorage.getItem("ivm-dataset") || "real"; } catch (e) { /* хранилище недоступно — открываем реальные данные */ }
+  useDataset(saved);
+  renderCatalog();
+  openTab(location.hash.slice(1) || "rating");
+}
+init();
+})();
+</script>
