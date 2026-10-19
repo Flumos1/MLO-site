@@ -1,5 +1,5 @@
 // Сгенерировано tools/build_catalog.mjs из data/countries_2026.json — не редактировать вручную.
-window.REAL_DATA = {"pillars":["GRD","AIR","NAV","STR","C4I","PER","ECO","IND","LOG","GEO","ALL","GOV"],"pnames":["Сухопутные войска","ВВС и ПВО","ВМС","Стратегические силы","Космос, кибер, управление","Личный состав","Экономика обороны","ОПК и технологии","Логистика и мобилизация","География и демография","Союзы и присутствие","Управление и опыт"],"pshort":["СВ","ВВС","ВМС","СЯС","C4ISR","Л/с","Экон.","ОПК","Тыл","Гео","Союзы","Упр."],"weights":{"GRD":12,"AIR":12,"NAV":9,"STR":8,"C4I":8,"PER":8,"ECO":9,"IND":9,"LOG":7,"GEO":6,"ALL":6,"GOV":6},"order":["USA","FRA","ISR","RUS","GBR","DEU","UKR","IRN"],"countries":{"USA":{"name":"США","dq":"A","sigma":5,"lam":12,"nuc":4,"nuc_label":"ядерная триада","scores":{"GRD":85,"AIR":98,"NAV":97,"STR":95,"C4I":98,"PER":85,"ECO":98,"IND":85,"LOG":95,"GEO":85,"ALL":88,"GOV":75},"conv":90.43249280949833,"pillar":90.79375256476021,"mult":89.38904096938872,"arith":90.57608695652173,"weak":90.1395051865838,"auto":90.60343915671872,"d2":76.5494524995422,"d8":46.429589925188225,"p5":87.49570604834668,"p50":89.91364409920035,"p95":92.26369092198766,"r5":1,"r95":1,"presets":{"conventional":91.2433524974805,"attrition":90.47584388556501,"expedition":92.4824958840585,"europe_land":89.83099388615095},"rank":1},"RUS":{"name":"Россия","dq":"C","sigma":10,"lam":5,"nuc":4,"nuc_label":"ядерная триада","scores":{"GRD":80,"AIR":60,"NAV":55,"STR":97,"C4I":60,"PER":70,"ECO":50,"IND":70,"LOG":70,"GEO":90,"ALL":40,"GOV":55},"conv":63.44467433424311,"pillar":65.86795990004116,"mult":63.005441973467576,"arith":64.07608695652173,"weak":62.16272415309994,"auto":65.28124931443912,"d2":42.528237020445985,"d8":12.809258833388565,"p5":57.70988829676762,"p50":62.989950346621086,"p95":68.30528462030034,"r5":2,"r95":6,"presets":{"conventional":65.71877980335587,"attrition":64.74441930491511,"expedition":60.2215098625602,"europe_land":67.69152527486813},"rank":4},"FRA":{"name":"Франция","dq":"A","sigma":6,"lam":7,"nuc":3,"nuc_label":"ЯО, 2 компонента","scores":{"GRD":50,"AIR":65,"NAV":70,"STR":75,"C4I":70,"PER":65,"ECO":70,"IND":80,"LOG":65,"GEO":60,"ALL":90,"GOV":65},"conv":66.87224783799601,"pillar":67.50531864541327,"mult":63.01423353965009,"arith":67.22826086956522,"weak":66.15573978534427,"auto":65.3866254904143,"d2":50.25297578715689,"d8":21.325998338530635,"p5":63.40832944483493,"p50":66.75605053404409,"p95":70.01628476599284,"r5":2,"r95":4,"presets":{"conventional":64.26184155428024,"attrition":67.7051787831161,"expedition":68.76079318871584,"europe_land":63.809287906457456},"rank":2},"GBR":{"name":"Великобритания","dq":"A","sigma":6,"lam":7,"nuc":3,"nuc_label":"ЯО, 2 компонента","scores":{"GRD":35,"AIR":60,"NAV":70,"STR":65,"C4I":80,"PER":55,"ECO":70,"IND":65,"LOG":60,"GEO":65,"ALL":92,"GOV":60},"conv":62.03420748250838,"pillar":62.26892248237796,"mult":57.02375226276732,"arith":62.90217391304348,"weak":60.10794774085885,"auto":60.16321268004983,"d2":46.61729831702605,"d8":19.783115544567636,"p5":58.413710567078375,"p50":61.96420028490774,"p95":65.27363918178978,"r5":3,"r95":6,"presets":{"conventional":58.552046416567755,"attrition":61.94818237275261,"expedition":65.72752256961638,"europe_land":56.624429254896626},"rank":5},"DEU":{"name":"Германия","dq":"A","sigma":6,"lam":4,"nuc":0,"nuc_label":"нет ЯО","scores":{"GRD":45,"AIR":50,"NAV":40,"STR":15,"C4I":60,"PER":50,"ECO":80,"IND":75,"LOG":70,"GEO":50,"ALL":92,"GOV":65},"conv":58.91653766659185,"pillar":54.33890442683178,"mult":47.359832201221906,"arith":59.858695652173914,"weak":57.11425648947576,"auto":56.88236448485775,"d2":35.73468645890217,"d8":7.9734863124287685,"p5":55.34913580010166,"p50":58.817517838554195,"p95":62.2270229614708,"r5":4,"r95":6,"presets":{"conventional":55.26798678255704,"attrition":62.24584582575825,"expedition":58.83160605741418,"europe_land":56.38266854855464},"rank":6},"ISR":{"name":"Израиль","dq":"B","sigma":8,"lam":4,"nuc":2,"nuc_label":"ЯО, ограниченный","scores":{"GRD":70,"AIR":85,"NAV":45,"STR":60,"C4I":90,"PER":75,"ECO":45,"IND":75,"LOG":50,"GEO":25,"ALL":75,"GOV":75},"conv":64.40427347507396,"pillar":64.04619179096679,"mult":58.45926361583636,"arith":65.92391304347827,"weak":60.77689293048771,"auto":63.695133946483374,"d2":39.06316647914947,"d8":8.716170592397397,"p5":59.562276655743375,"p50":64.0775668857153,"p95":68.46333487040694,"r5":2,"r95":5,"presets":{"conventional":61.24012296147546,"attrition":62.383181188949955,"expedition":65.18332755552507,"europe_land":67.35588969886466},"rank":3},"UKR":{"name":"Украина","dq":"C","sigma":12,"lam":2.5,"nuc":0,"nuc_label":"нет ЯО","scores":{"GRD":65,"AIR":35,"NAV":25,"STR":15,"C4I":70,"PER":65,"ECO":25,"IND":50,"LOG":45,"GEO":45,"ALL":55,"GOV":65},"conv":47.323618955114156,"pillar":44.07257404094226,"mult":38.04090908314946,"arith":48.75,"weak":44.256867537073,"auto":46.809578449464084,"d2":21.263872683379557,"d8":1.9290150088428408,"p5":39.22305272788239,"p50":46.48218370787287,"p95":53.03691567350188,"r5":7,"r95":7,"presets":{"conventional":44.935990982328896,"attrition":46.57477569264313,"expedition":45.012870282977275,"europe_land":51.065382229634764},"rank":7},"IRN":{"name":"Иран","dq":"D","sigma":14,"lam":3,"nuc":1,"nuc_label":"пороговый","scores":{"GRD":45,"AIR":15,"NAV":30,"STR":30,"C4I":25,"PER":45,"ECO":15,"IND":45,"LOG":30,"GEO":70,"ALL":20,"GOV":35},"conv":31.461743028033283,"pillar":31.343524067690332,"mult":26.37946146196637,"arith":33.15217391304348,"weak":28.151915553754424,"auto":32.35787522001256,"d2":16.152997465196584,"d8":2.186070487072667,"p5":22.367808954042285,"p50":30.039650889892936,"p95":38.127571342781415,"r5":8,"r95":8,"presets":{"conventional":32.031258022246156,"attrition":32.471834665867185,"expedition":28.11171454691372,"europe_land":33.74145692773984},"rank":8}},"ratios":{"a1_d1.5":1.5,"a1_d2.5":2.5,"a1_d3":3,"a1.5_d1.5":1.3103706971044482,"a1.5_d2.5":1.8420157493201932,"a1.5_d3":2.080083823051904,"a2_d1.5":1.224744871391589,"a2_d2.5":1.5811388300841898,"a2_d3":1.7320508075688772}};
+window.REAL_DATA = {"pillars":["GRD","AIR","NAV","STR","C4I","PER","ECO","IND","LOG","GEO","ALL","GOV"],"pnames":["Сухопутные войска","ВВС и ПВО","ВМС","Стратегические силы","Космос, кибер, управление","Личный состав","Экономика обороны","ОПК и технологии","Логистика и мобилизация","География и демография","Союзы и присутствие","Управление и опыт"],"pshort":["СВ","ВВС","ВМС","СЯС","C4ISR","Л/с","Экон.","ОПК","Тыл","Гео","Союзы","Упр."],"weights":{"GRD":12,"AIR":12,"NAV":9,"STR":8,"C4I":8,"PER":8,"ECO":9,"IND":9,"LOG":7,"GEO":6,"ALL":6,"GOV":6},"order":["USA","FRA","ISR","RUS","GBR","DEU","UKR","IRN"],"countries":{"USA":{"name":"США","dq":"A","sigma":5,"lam":12,"nuc":4,"nuc_label":"ядерная триада","scores":{"GRD":85,"AIR":98,"NAV":97,"STR":95,"C4I":98,"PER":85,"ECO":98,"IND":85,"LOG":95,"GEO":85,"ALL":88,"GOV":75},"conv":90.43249280949833,"pillar":90.79375256476021,"mult":89.38904096938872,"arith":90.57608695652173,"weak":90.1395051865838,"auto":90.60343915671872,"d2":76.5494524995422,"d8":46.429589925188225,"p5":87.49570604834668,"p50":89.91364409920035,"p95":92.26369092198766,"r5":1,"r95":1,"presets":{"conventional":91.2433524974805,"attrition":90.47584388556501,"expedition":92.4824958840585,"europe_land":89.83099388615095},"rank":1,"name_en":"United States","nuc_label_en":"nuclear triad"},"RUS":{"name":"Россия","dq":"C","sigma":10,"lam":5,"nuc":4,"nuc_label":"ядерная триада","scores":{"GRD":80,"AIR":60,"NAV":55,"STR":97,"C4I":60,"PER":70,"ECO":50,"IND":70,"LOG":70,"GEO":90,"ALL":40,"GOV":55},"conv":63.44467433424311,"pillar":65.86795990004116,"mult":63.005441973467576,"arith":64.07608695652173,"weak":62.16272415309994,"auto":65.28124931443912,"d2":42.528237020445985,"d8":12.809258833388565,"p5":57.70988829676762,"p50":62.989950346621086,"p95":68.30528462030034,"r5":2,"r95":6,"presets":{"conventional":65.71877980335587,"attrition":64.74441930491511,"expedition":60.2215098625602,"europe_land":67.69152527486813},"rank":4,"name_en":"Russia","nuc_label_en":"nuclear triad"},"FRA":{"name":"Франция","dq":"A","sigma":6,"lam":7,"nuc":3,"nuc_label":"ЯО, 2 компонента","scores":{"GRD":50,"AIR":65,"NAV":70,"STR":75,"C4I":70,"PER":65,"ECO":70,"IND":80,"LOG":65,"GEO":60,"ALL":90,"GOV":65},"conv":66.87224783799601,"pillar":67.50531864541327,"mult":63.01423353965009,"arith":67.22826086956522,"weak":66.15573978534427,"auto":65.3866254904143,"d2":50.25297578715689,"d8":21.325998338530635,"p5":63.40832944483493,"p50":66.75605053404409,"p95":70.01628476599284,"r5":2,"r95":4,"presets":{"conventional":64.26184155428024,"attrition":67.7051787831161,"expedition":68.76079318871584,"europe_land":63.809287906457456},"rank":2,"name_en":"France","nuc_label_en":"Nuclear, 2-leg"},"GBR":{"name":"Великобритания","dq":"A","sigma":6,"lam":7,"nuc":3,"nuc_label":"ЯО, 2 компонента","scores":{"GRD":35,"AIR":60,"NAV":70,"STR":65,"C4I":80,"PER":55,"ECO":70,"IND":65,"LOG":60,"GEO":65,"ALL":92,"GOV":60},"conv":62.03420748250838,"pillar":62.26892248237796,"mult":57.02375226276732,"arith":62.90217391304348,"weak":60.10794774085885,"auto":60.16321268004983,"d2":46.61729831702605,"d8":19.783115544567636,"p5":58.413710567078375,"p50":61.96420028490774,"p95":65.27363918178978,"r5":3,"r95":6,"presets":{"conventional":58.552046416567755,"attrition":61.94818237275261,"expedition":65.72752256961638,"europe_land":56.624429254896626},"rank":5,"name_en":"United Kingdom","nuc_label_en":"Nuclear, 2-leg"},"DEU":{"name":"Германия","dq":"A","sigma":6,"lam":4,"nuc":0,"nuc_label":"нет ЯО","scores":{"GRD":45,"AIR":50,"NAV":40,"STR":15,"C4I":60,"PER":50,"ECO":80,"IND":75,"LOG":70,"GEO":50,"ALL":92,"GOV":65},"conv":58.91653766659185,"pillar":54.33890442683178,"mult":47.359832201221906,"arith":59.858695652173914,"weak":57.11425648947576,"auto":56.88236448485775,"d2":35.73468645890217,"d8":7.9734863124287685,"p5":55.34913580010166,"p50":58.817517838554195,"p95":62.2270229614708,"r5":4,"r95":6,"presets":{"conventional":55.26798678255704,"attrition":62.24584582575825,"expedition":58.83160605741418,"europe_land":56.38266854855464},"rank":6,"name_en":"Germany","nuc_label_en":"No nuclear"},"ISR":{"name":"Израиль","dq":"B","sigma":8,"lam":4,"nuc":2,"nuc_label":"ЯО, ограниченный","scores":{"GRD":70,"AIR":85,"NAV":45,"STR":60,"C4I":90,"PER":75,"ECO":45,"IND":75,"LOG":50,"GEO":25,"ALL":75,"GOV":75},"conv":64.40427347507396,"pillar":64.04619179096679,"mult":58.45926361583636,"arith":65.92391304347827,"weak":60.77689293048771,"auto":63.695133946483374,"d2":39.06316647914947,"d8":8.716170592397397,"p5":59.562276655743375,"p50":64.0775668857153,"p95":68.46333487040694,"r5":2,"r95":5,"presets":{"conventional":61.24012296147546,"attrition":62.383181188949955,"expedition":65.18332755552507,"europe_land":67.35588969886466},"rank":3,"name_en":"Israel","nuc_label_en":"Nuclear, limited"},"UKR":{"name":"Украина","dq":"C","sigma":12,"lam":2.5,"nuc":0,"nuc_label":"нет ЯО","scores":{"GRD":65,"AIR":35,"NAV":25,"STR":15,"C4I":70,"PER":65,"ECO":25,"IND":50,"LOG":45,"GEO":45,"ALL":55,"GOV":65},"conv":47.323618955114156,"pillar":44.07257404094226,"mult":38.04090908314946,"arith":48.75,"weak":44.256867537073,"auto":46.809578449464084,"d2":21.263872683379557,"d8":1.9290150088428408,"p5":39.22305272788239,"p50":46.48218370787287,"p95":53.03691567350188,"r5":7,"r95":7,"presets":{"conventional":44.935990982328896,"attrition":46.57477569264313,"expedition":45.012870282977275,"europe_land":51.065382229634764},"rank":7,"name_en":"Ukraine","nuc_label_en":"No nuclear"},"IRN":{"name":"Иран","dq":"D","sigma":14,"lam":3,"nuc":1,"nuc_label":"пороговый","scores":{"GRD":45,"AIR":15,"NAV":30,"STR":30,"C4I":25,"PER":45,"ECO":15,"IND":45,"LOG":30,"GEO":70,"ALL":20,"GOV":35},"conv":31.461743028033283,"pillar":31.343524067690332,"mult":26.37946146196637,"arith":33.15217391304348,"weak":28.151915553754424,"auto":32.35787522001256,"d2":16.152997465196584,"d8":2.186070487072667,"p5":22.367808954042285,"p50":30.039650889892936,"p95":38.127571342781415,"r5":8,"r95":8,"presets":{"conventional":32.031258022246156,"attrition":32.471834665867185,"expedition":28.11171454691372,"europe_land":33.74145692773984},"rank":8,"name_en":"Iran","nuc_label_en":"Threshold"}},"ratios":{"a1_d1.5":1.5,"a1_d2.5":2.5,"a1_d3":3,"a1.5_d1.5":1.3103706971044482,"a1.5_d2.5":1.8420157493201932,"a1.5_d3":2.080083823051904,"a2_d1.5":1.224744871391589,"a2_d2.5":1.5811388300841898,"a2_d3":1.7320508075688772}};
 window.IVM_PARAMS = {
  "alpha": 1.0,
  "alpha_mc": [
@@ -207,7 +207,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.15,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Ukraine"
   },
   {
    "pair": "IND-PAK",
@@ -220,7 +221,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -1.34,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Pakistan"
   },
   {
    "pair": "COD-RWA",
@@ -233,7 +235,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.19,
-   "top": 0.214
+   "top": 0.214,
+   "names_en": "DR Congo — Rwanda"
   },
   {
    "pair": "IRN-ISR",
@@ -246,7 +249,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.06,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Israel"
   },
   {
    "pair": "AFG-PAK",
@@ -259,7 +263,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.71,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Afghanistan — Pakistan"
   },
   {
    "pair": "IRN-USA",
@@ -272,7 +277,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.95,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Iran — United States"
   },
   {
    "pair": "KHM-THA",
@@ -285,7 +291,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.05,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Cambodia — Thailand"
   },
   {
    "pair": "PRK-UKR",
@@ -298,7 +305,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.16,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Ukraine"
   },
   {
    "pair": "ARM-AZE",
@@ -311,7 +319,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.61,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Armenia — Azerbaijan"
   },
   {
    "pair": "ERI-ETH",
@@ -324,7 +333,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.51,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Eritrea — Ethiopia"
   },
   {
    "pair": "CHN-IND",
@@ -337,7 +347,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.91,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — India"
   },
   {
    "pair": "KOR-PRK",
@@ -350,7 +361,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.07,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — North Korea"
   },
   {
    "pair": "CHN-TWN",
@@ -363,7 +375,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.35,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Taiwan"
   },
   {
    "pair": "AFG-IRN",
@@ -376,7 +389,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.01,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Afghanistan — Iran"
   },
   {
    "pair": "CHN-VNM",
@@ -389,7 +403,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.5,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Vietnam"
   },
   {
    "pair": "BLR-UKR",
@@ -402,7 +417,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.66,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Belarus — Ukraine"
   },
   {
    "pair": "BLR-POL",
@@ -415,7 +431,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.74,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Belarus — Poland"
   },
   {
    "pair": "AZE-IRN",
@@ -428,7 +445,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.05,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Azerbaijan — Iran"
   },
   {
    "pair": "CHN-PAK",
@@ -441,7 +459,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.25,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Pakistan"
   },
   {
    "pair": "AFG-CHN",
@@ -454,7 +473,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.96,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Afghanistan — China"
   },
   {
    "pair": "EGY-ISR",
@@ -467,7 +487,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.38,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Egypt — Israel"
   },
   {
    "pair": "ARM-IRN",
@@ -480,7 +501,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.66,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Armenia — Iran"
   },
   {
    "pair": "FIN-RUS",
@@ -493,7 +515,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.68,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Finland — Russia"
   },
   {
    "pair": "CHN-RUS",
@@ -506,7 +529,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.38,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Russia"
   },
   {
    "pair": "KHM-VNM",
@@ -519,7 +543,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.18,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Cambodia — Vietnam"
   },
   {
    "pair": "POL-RUS",
@@ -532,7 +557,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.07,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Poland — Russia"
   },
   {
    "pair": "IRN-TUR",
@@ -545,7 +571,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.09,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Türkiye"
   },
   {
    "pair": "IRN-PAK",
@@ -558,7 +585,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.31,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Pakistan"
   },
   {
    "pair": "AZE-RUS",
@@ -571,7 +599,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.62,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Azerbaijan — Russia"
   },
   {
    "pair": "BRA-VEN",
@@ -584,7 +613,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.87,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Venezuela"
   },
   {
    "pair": "ARM-TUR",
@@ -597,7 +627,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -1.57,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Armenia — Türkiye"
   },
   {
    "pair": "JPN-RUS",
@@ -610,7 +641,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.16,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Japan — Russia"
   },
   {
    "pair": "POL-UKR",
@@ -623,7 +655,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.08,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Ukraine"
   },
   {
    "pair": "IRN-SAU",
@@ -636,7 +669,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.48,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Saudi Arabia"
   },
   {
    "pair": "ERI-SAU",
@@ -649,7 +683,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.4,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Eritrea — Saudi Arabia"
   },
   {
    "pair": "ISR-SAU",
@@ -662,7 +697,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.42,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Saudi Arabia"
   },
   {
    "pair": "ARM-SAU",
@@ -675,7 +711,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.18,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Armenia — Saudi Arabia"
   },
   {
    "pair": "AZE-SAU",
@@ -688,7 +725,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.57,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Azerbaijan — Saudi Arabia"
   },
   {
    "pair": "ETH-SAU",
@@ -701,7 +739,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.89,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Ethiopia — Saudi Arabia"
   },
   {
    "pair": "SAU-TUR",
@@ -714,7 +753,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.39,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Saudi Arabia — Türkiye"
   },
   {
    "pair": "AFG-SAU",
@@ -727,7 +767,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.54,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Afghanistan — Saudi Arabia"
   },
   {
    "pair": "GRC-SAU",
@@ -740,7 +781,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.38,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Greece — Saudi Arabia"
   },
   {
    "pair": "CHN-KOR",
@@ -753,7 +795,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.3,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Republic of Korea"
   },
   {
    "pair": "IND-SAU",
@@ -766,7 +809,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.51,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Saudi Arabia"
   },
   {
    "pair": "SAU-UKR",
@@ -779,7 +823,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.11,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Ukraine"
   },
   {
    "pair": "SAU-SRB",
@@ -792,7 +837,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.74,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Serbia"
   },
   {
    "pair": "AFG-IND",
@@ -805,7 +851,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -3.05,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Afghanistan — India"
   },
   {
    "pair": "RWA-SAU",
@@ -818,7 +865,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.27,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Rwanda — Saudi Arabia"
   },
   {
    "pair": "RUS-SAU",
@@ -831,7 +879,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -2.04,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Saudi Arabia"
   },
   {
    "pair": "BLR-SAU",
@@ -844,7 +893,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.77,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Belarus — Saudi Arabia"
   },
   {
    "pair": "ITA-SAU",
@@ -857,7 +907,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.63,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Saudi Arabia"
   },
   {
    "pair": "POL-SAU",
@@ -870,7 +921,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.03,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Poland — Saudi Arabia"
   },
   {
    "pair": "CHN-PRK",
@@ -883,7 +935,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.07,
    "parity": -2.37,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — North Korea"
   },
   {
    "pair": "JPN-PRK",
@@ -896,7 +949,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.83,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — North Korea"
   },
   {
    "pair": "DEU-SAU",
@@ -909,7 +963,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.61,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Saudi Arabia"
   },
   {
    "pair": "EGY-ERI",
@@ -922,7 +977,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.44,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Eritrea"
   },
   {
    "pair": "FIN-SAU",
@@ -935,7 +991,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.63,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Finland — Saudi Arabia"
   },
   {
    "pair": "ERI-ISR",
@@ -948,7 +1005,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.82,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Eritrea — Israel"
   },
   {
    "pair": "SAU-SWE",
@@ -961,7 +1019,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.45,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Sweden"
   },
   {
    "pair": "COD-SAU",
@@ -974,7 +1033,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.08,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "DR Congo — Saudi Arabia"
   },
   {
    "pair": "FRA-SAU",
@@ -987,7 +1047,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.71,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Saudi Arabia"
   },
   {
    "pair": "PRK-TWN",
@@ -1000,7 +1061,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.02,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "North Korea — Taiwan"
   },
   {
    "pair": "ERI-RWA",
@@ -1013,7 +1075,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.13,
-   "top": 0.182
+   "top": 0.182,
+   "names_en": "Eritrea — Rwanda"
   },
   {
    "pair": "GBR-SAU",
@@ -1026,7 +1089,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.34,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Saudi Arabia"
   },
   {
    "pair": "CHN-JPN",
@@ -1039,7 +1103,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.54,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Japan"
   },
   {
    "pair": "AFG-AZE",
@@ -1052,7 +1117,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.96,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Afghanistan — Azerbaijan"
   },
   {
    "pair": "ERI-IRN",
@@ -1065,7 +1131,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.88,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Eritrea — Iran"
   },
   {
    "pair": "SAU-THA",
@@ -1078,7 +1145,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.21,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Thailand"
   },
   {
    "pair": "SAU-VNM",
@@ -1091,7 +1159,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.08,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Vietnam"
   },
   {
    "pair": "ERI-TUR",
@@ -1104,7 +1173,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.79,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Eritrea — Türkiye"
   },
   {
    "pair": "AFG-ARM",
@@ -1117,7 +1187,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.36,
-   "top": 0.197
+   "top": 0.197,
+   "names_en": "Afghanistan — Armenia"
   },
   {
    "pair": "ARM-ERI",
@@ -1130,7 +1201,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.22,
-   "top": 0.197
+   "top": 0.197,
+   "names_en": "Armenia — Eritrea"
   },
   {
    "pair": "KHM-SAU",
@@ -1143,7 +1215,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.26,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Cambodia — Saudi Arabia"
   },
   {
    "pair": "ERI-GRC",
@@ -1156,7 +1229,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.02,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Eritrea — Greece"
   },
   {
    "pair": "AZE-ERI",
@@ -1169,7 +1243,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.83,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Eritrea"
   },
   {
    "pair": "CHN-SAU",
@@ -1182,7 +1257,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -2.42,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Saudi Arabia"
   },
   {
    "pair": "CHN-PHL",
@@ -1195,7 +1271,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.1,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Philippines"
   },
   {
    "pair": "COD-ERI",
@@ -1208,7 +1285,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.32,
-   "top": 0.214
+   "top": 0.214,
+   "names_en": "DR Congo — Eritrea"
   },
   {
    "pair": "IDN-SAU",
@@ -1221,7 +1299,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.06,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Saudi Arabia"
   },
   {
    "pair": "PHL-PRK",
@@ -1234,7 +1313,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.73,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Philippines — North Korea"
   },
   {
    "pair": "PRK-VNM",
@@ -1247,7 +1327,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.13,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Vietnam"
   },
   {
    "pair": "PRK-SAU",
@@ -1260,7 +1341,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.05,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Saudi Arabia"
   },
   {
    "pair": "SAU-TWN",
@@ -1273,7 +1355,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.08,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Saudi Arabia — Taiwan"
   },
   {
    "pair": "CHN-THA",
@@ -1286,7 +1369,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.63,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Thailand"
   },
   {
    "pair": "KOR-SAU",
@@ -1299,7 +1383,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -1.12,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Saudi Arabia"
   },
   {
    "pair": "CHN-KHM",
@@ -1312,7 +1397,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.69,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Cambodia"
   },
   {
    "pair": "PHL-SAU",
@@ -1325,7 +1411,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.68,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Philippines — Saudi Arabia"
   },
   {
    "pair": "AFG-ERI",
@@ -1338,7 +1425,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.14,
-   "top": 0.16
+   "top": 0.16,
+   "names_en": "Afghanistan — Eritrea"
   },
   {
    "pair": "ERI-SRB",
@@ -1351,7 +1439,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.66,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Eritrea — Serbia"
   },
   {
    "pair": "AFG-ISR",
@@ -1364,7 +1453,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.96,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Afghanistan — Israel"
   },
   {
    "pair": "ERI-ITA",
@@ -1377,7 +1467,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.03,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Eritrea — Italy"
   },
   {
    "pair": "AFG-TUR",
@@ -1390,7 +1481,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.93,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Afghanistan — Türkiye"
   },
   {
    "pair": "ERI-UKR",
@@ -1403,7 +1495,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.29,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Eritrea — Ukraine"
   },
   {
    "pair": "ERI-PAK",
@@ -1416,7 +1509,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.57,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Eritrea — Pakistan"
   },
   {
    "pair": "AFG-RUS",
@@ -1429,7 +1523,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -3.58,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Afghanistan — Russia"
   },
   {
    "pair": "BLR-FIN",
@@ -1442,7 +1537,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.14,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Belarus — Finland"
   },
   {
    "pair": "JPN-SAU",
@@ -1455,7 +1551,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.88,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Saudi Arabia"
   },
   {
    "pair": "ERI-IND",
@@ -1468,7 +1565,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.91,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Eritrea — India"
   },
   {
    "pair": "AFG-UKR",
@@ -1481,7 +1579,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.43,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Afghanistan — Ukraine"
   },
   {
    "pair": "AFG-EGY",
@@ -1494,7 +1593,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.58,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Afghanistan — Egypt"
   },
   {
    "pair": "ERI-POL",
@@ -1507,7 +1607,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.37,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Eritrea — Poland"
   },
   {
    "pair": "BLR-ERI",
@@ -1520,7 +1621,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.63,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — Eritrea"
   },
   {
    "pair": "ERI-RUS",
@@ -1533,7 +1635,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.44,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Eritrea — Russia"
   },
   {
    "pair": "BLR-SWE",
@@ -1546,7 +1649,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.32,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Belarus — Sweden"
   },
   {
    "pair": "KHM-PRK",
@@ -1559,7 +1663,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.32,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Cambodia — North Korea"
   },
   {
    "pair": "PRK-THA",
@@ -1572,7 +1677,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.26,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Thailand"
   },
   {
    "pair": "AFG-BLR",
@@ -1585,7 +1691,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.77,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Afghanistan — Belarus"
   },
   {
    "pair": "AFG-VNM",
@@ -1598,7 +1705,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.46,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Afghanistan — Vietnam"
   },
   {
    "pair": "DEU-ERI",
@@ -1611,7 +1719,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.0,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Eritrea"
   },
   {
    "pair": "AFG-THA",
@@ -1624,7 +1733,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.33,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Afghanistan — Thailand"
   },
   {
    "pair": "BLR-DEU",
@@ -1637,7 +1747,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.38,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Belarus — Germany"
   },
   {
    "pair": "AFG-GRC",
@@ -1650,7 +1761,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.15,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Afghanistan — Greece"
   },
   {
    "pair": "ERI-FRA",
@@ -1663,7 +1775,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.11,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Eritrea — France"
   },
   {
    "pair": "AFG-ETH",
@@ -1676,7 +1789,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.64,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Afghanistan — Ethiopia"
   },
   {
    "pair": "ERI-FIN",
@@ -1689,7 +1803,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.77,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Eritrea — Finland"
   },
   {
    "pair": "AFG-FIN",
@@ -1702,7 +1817,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.9,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Afghanistan — Finland"
   },
   {
    "pair": "AFG-SRB",
@@ -1715,7 +1831,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.8,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Afghanistan — Serbia"
   },
   {
    "pair": "AFG-POL",
@@ -1728,7 +1845,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.51,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Afghanistan — Poland"
   },
   {
    "pair": "ERI-SWE",
@@ -1741,7 +1859,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.95,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Eritrea — Sweden"
   },
   {
    "pair": "ERI-GBR",
@@ -1754,7 +1873,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.74,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Eritrea — United Kingdom"
   },
   {
    "pair": "AFG-KHM",
@@ -1767,7 +1887,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.27,
-   "top": 0.183
+   "top": 0.183,
+   "names_en": "Afghanistan — Cambodia"
   },
   {
    "pair": "SAU-USA",
@@ -1780,7 +1901,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -2.43,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Saudi Arabia — United States"
   },
   {
    "pair": "BLR-SRB",
@@ -1793,7 +1915,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.03,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Belarus — Serbia"
   },
   {
    "pair": "BRA-SAU",
@@ -1806,7 +1929,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.03,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Brazil — Saudi Arabia"
   },
   {
    "pair": "AFG-SWE",
@@ -1819,7 +1943,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.09,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Afghanistan — Sweden"
   },
   {
    "pair": "CHN-IDN",
@@ -1832,7 +1957,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.36,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Indonesia"
   },
   {
    "pair": "IND-PRK",
@@ -1845,7 +1971,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.46,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — North Korea"
   },
   {
    "pair": "AFG-DEU",
@@ -1858,7 +1985,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.14,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Afghanistan — Germany"
   },
   {
    "pair": "PAK-PRK",
@@ -1871,7 +1999,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.12,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — North Korea"
   },
   {
    "pair": "BLR-RUS",
@@ -1884,7 +2013,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.16,
    "parity": -2.81,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Belarus — Russia"
   },
   {
    "pair": "SAU-VEN",
@@ -1897,7 +2027,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.91,
-   "top": 0.394
+   "top": 0.394,
+   "names_en": "Saudi Arabia — Venezuela"
   },
   {
    "pair": "AZE-CHN",
@@ -1910,7 +2041,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.0,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Azerbaijan — China"
   },
   {
    "pair": "AFG-ITA",
@@ -1923,7 +2055,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.16,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Afghanistan — Italy"
   },
   {
    "pair": "THA-VNM",
@@ -1936,7 +2069,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.13,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Thailand — Vietnam"
   },
   {
    "pair": "AFG-PRK",
@@ -1949,7 +2083,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.59,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Afghanistan — North Korea"
   },
   {
    "pair": "CHN-IRN",
@@ -1962,7 +2097,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.95,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Iran"
   },
   {
    "pair": "AFG-TWN",
@@ -1975,7 +2111,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.61,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Afghanistan — Taiwan"
   },
   {
    "pair": "AFG-KOR",
@@ -1988,7 +2125,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.66,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Afghanistan — Republic of Korea"
   },
   {
    "pair": "AUS-SAU",
@@ -2001,7 +2139,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.01,
    "parity": -0.08,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Saudi Arabia"
   },
   {
    "pair": "ARM-CHN",
@@ -2014,7 +2153,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.6,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Armenia — China"
   },
   {
    "pair": "ERI-THA",
@@ -2027,7 +2167,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.19,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Eritrea — Thailand"
   },
   {
    "pair": "RUS-SWE",
@@ -2040,7 +2181,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.49,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Sweden"
   },
   {
    "pair": "IDN-PRK",
@@ -2053,7 +2195,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.01,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — North Korea"
   },
   {
    "pair": "AFG-FRA",
@@ -2066,7 +2209,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.24,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Afghanistan — France"
   },
   {
    "pair": "AFG-PHL",
@@ -2079,7 +2223,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.86,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Afghanistan — Philippines"
   },
   {
    "pair": "CHN-FIN",
@@ -2092,7 +2237,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.06,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Finland"
   },
   {
    "pair": "BLR-TUR",
@@ -2105,7 +2251,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.16,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Belarus — Türkiye"
   },
   {
    "pair": "AFG-GBR",
@@ -2118,7 +2265,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.87,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Afghanistan — United Kingdom"
   },
   {
    "pair": "AFG-RWA",
@@ -2131,7 +2279,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.26,
-   "top": 0.182
+   "top": 0.182,
+   "names_en": "Afghanistan — Rwanda"
   },
   {
    "pair": "CHN-UKR",
@@ -2144,7 +2293,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.53,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Ukraine"
   },
   {
    "pair": "BLR-CHN",
@@ -2157,7 +2307,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.19,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Belarus — China"
   },
   {
    "pair": "ERI-VNM",
@@ -2170,7 +2321,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.32,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Eritrea — Vietnam"
   },
   {
    "pair": "ERI-KHM",
@@ -2183,7 +2335,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.14,
-   "top": 0.183
+   "top": 0.183,
+   "names_en": "Eritrea — Cambodia"
   },
   {
    "pair": "AFG-IDN",
@@ -2196,7 +2349,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.6,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Afghanistan — Indonesia"
   },
   {
    "pair": "CHN-SWE",
@@ -2209,7 +2363,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.87,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Sweden"
   },
   {
    "pair": "BLR-ITA",
@@ -2222,7 +2377,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.4,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Belarus — Italy"
   },
   {
    "pair": "CHN-TUR",
@@ -2235,7 +2391,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.03,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Türkiye"
   },
   {
    "pair": "BLR-GRC",
@@ -2248,7 +2405,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.39,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Belarus — Greece"
   },
   {
    "pair": "CHN-POL",
@@ -2261,7 +2419,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.45,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Poland"
   },
   {
    "pair": "AFG-JPN",
@@ -2274,7 +2433,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.42,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Afghanistan — Japan"
   },
   {
    "pair": "BLR-FRA",
@@ -2287,7 +2447,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.48,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Belarus — France"
   },
   {
    "pair": "EGY-TUR",
@@ -2300,7 +2461,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.35,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Egypt — Türkiye"
   },
   {
    "pair": "EGY-GRC",
@@ -2313,7 +2475,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.43,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Greece"
   },
   {
    "pair": "CHN-ISR",
@@ -2326,7 +2489,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.0,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Israel"
   },
   {
    "pair": "BLR-GBR",
@@ -2339,7 +2503,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.11,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Belarus — United Kingdom"
   },
   {
    "pair": "AZE-PRK",
@@ -2352,7 +2517,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.63,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Azerbaijan — North Korea"
   },
   {
    "pair": "IRN-PRK",
@@ -2365,7 +2531,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.42,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — North Korea"
   },
   {
    "pair": "ERI-IDN",
@@ -2378,7 +2545,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.46,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Eritrea — Indonesia"
   },
   {
    "pair": "CHN-ERI",
@@ -2391,7 +2559,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.82,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Eritrea"
   },
   {
    "pair": "CHN-DEU",
@@ -2404,7 +2573,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.82,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Germany"
   },
   {
    "pair": "DEU-RUS",
@@ -2417,7 +2587,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.44,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Germany — Russia"
   },
   {
    "pair": "CHN-SRB",
@@ -2430,7 +2601,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.16,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Serbia"
   },
   {
    "pair": "CHN-EGY",
@@ -2443,7 +2615,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.38,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Egypt"
   },
   {
    "pair": "CHN-GRC",
@@ -2456,7 +2629,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.81,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Greece"
   },
   {
    "pair": "ARM-PRK",
@@ -2469,7 +2643,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.23,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Armenia — North Korea"
   },
   {
    "pair": "RUS-SRB",
@@ -2482,7 +2657,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.78,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Serbia"
   },
   {
    "pair": "AZE-ISR",
@@ -2495,7 +2671,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.0,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Azerbaijan — Israel"
   },
   {
    "pair": "TWN-VNM",
@@ -2508,7 +2685,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.16,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Taiwan — Vietnam"
   },
   {
    "pair": "FIN-PRK",
@@ -2521,7 +2699,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.69,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Finland — North Korea"
   },
   {
    "pair": "AFG-COD",
@@ -2534,7 +2713,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.46,
-   "top": 0.214
+   "top": 0.214,
+   "names_en": "Afghanistan — DR Congo"
   },
   {
    "pair": "RUS-TUR",
@@ -2547,7 +2727,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.65,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Türkiye"
   },
   {
    "pair": "ERI-TWN",
@@ -2560,7 +2741,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.47,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Eritrea — Taiwan"
   },
   {
    "pair": "EGY-IRN",
@@ -2573,7 +2755,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.43,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Egypt — Iran"
   },
   {
    "pair": "PHL-VNM",
@@ -2586,7 +2769,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.6,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Philippines — Vietnam"
   },
   {
    "pair": "BLR-PRK",
@@ -2599,7 +2783,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.82,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Belarus — North Korea"
   },
   {
    "pair": "ERI-PRK",
@@ -2612,7 +2797,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.45,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Eritrea — North Korea"
   },
   {
    "pair": "CHN-ITA",
@@ -2625,7 +2811,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.8,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Italy"
   },
   {
    "pair": "CHN-GBR",
@@ -2638,7 +2825,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.09,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — United Kingdom"
   },
   {
    "pair": "AZE-BLR",
@@ -2651,7 +2839,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.2,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Belarus"
   },
   {
    "pair": "ERI-PHL",
@@ -2664,7 +2853,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.72,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Eritrea — Philippines"
   },
   {
    "pair": "CHN-FRA",
@@ -2677,7 +2867,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.72,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — France"
   },
   {
    "pair": "ERI-KOR",
@@ -2690,7 +2881,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.52,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Eritrea — Republic of Korea"
   },
   {
    "pair": "PRK-SWE",
@@ -2703,7 +2895,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.5,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Sweden"
   },
   {
    "pair": "CHN-ETH",
@@ -2716,7 +2909,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.32,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Ethiopia"
   },
   {
    "pair": "AZE-UKR",
@@ -2729,7 +2923,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.46,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Azerbaijan — Ukraine"
   },
   {
    "pair": "POL-PRK",
@@ -2742,7 +2937,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.08,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Poland — North Korea"
   },
   {
    "pair": "PRK-TUR",
@@ -2755,7 +2951,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.34,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "North Korea — Türkiye"
   },
   {
    "pair": "BLR-ISR",
@@ -2768,7 +2965,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.19,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Belarus — Israel"
   },
   {
    "pair": "AUS-CHN",
@@ -2781,7 +2979,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.34,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Australia — China"
   },
   {
    "pair": "ISR-PRK",
@@ -2794,7 +2993,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.37,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — North Korea"
   },
   {
    "pair": "DEU-PRK",
@@ -2807,7 +3007,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.55,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — North Korea"
   },
   {
    "pair": "ARM-EGY",
@@ -2820,7 +3021,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.23,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Armenia — Egypt"
   },
   {
    "pair": "AZE-EGY",
@@ -2833,7 +3035,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.62,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Azerbaijan — Egypt"
   },
   {
    "pair": "IRN-UKR",
@@ -2846,7 +3049,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.59,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Ukraine"
   },
   {
    "pair": "PRK-SRB",
@@ -2859,7 +3063,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.79,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Serbia"
   },
   {
    "pair": "ERI-JPN",
@@ -2872,7 +3077,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.28,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Eritrea — Japan"
   },
   {
    "pair": "BLR-EGY",
@@ -2885,7 +3091,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.82,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Belarus — Egypt"
   },
   {
    "pair": "GRC-RUS",
@@ -2898,7 +3105,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.43,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Greece — Russia"
   },
   {
    "pair": "EGY-PRK",
@@ -2911,7 +3119,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.01,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Egypt — North Korea"
   },
   {
    "pair": "BRA-ERI",
@@ -2924,7 +3133,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.37,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Eritrea"
   },
   {
    "pair": "GRC-PRK",
@@ -2937,7 +3147,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.44,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Greece — North Korea"
   },
   {
    "pair": "IRN-RUS",
@@ -2950,7 +3161,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.57,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Iran — Russia"
   },
   {
    "pair": "GRC-IRN",
@@ -2963,7 +3175,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.86,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Greece — Iran"
   },
   {
    "pair": "KHM-PHL",
@@ -2976,7 +3189,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.59,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Cambodia — Philippines"
   },
   {
    "pair": "BLR-IRN",
@@ -2989,7 +3203,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.25,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Belarus — Iran"
   },
   {
    "pair": "AZE-PAK",
@@ -3002,7 +3217,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.74,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Azerbaijan — Pakistan"
   },
   {
    "pair": "IND-IRN",
@@ -3015,7 +3231,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.03,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Iran"
   },
   {
    "pair": "AUS-PRK",
@@ -3028,7 +3245,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.03,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — North Korea"
   },
   {
    "pair": "CHN-RWA",
@@ -3041,7 +3259,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.7,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Rwanda"
   },
   {
    "pair": "GBR-PRK",
@@ -3054,7 +3273,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.28,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — North Korea"
   },
   {
    "pair": "ITA-RUS",
@@ -3067,7 +3287,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.42,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Italy — Russia"
   },
   {
    "pair": "AZE-GRC",
@@ -3080,7 +3301,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.19,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Azerbaijan — Greece"
   },
   {
    "pair": "FRA-PRK",
@@ -3093,7 +3315,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.65,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — North Korea"
   },
   {
    "pair": "ITA-PRK",
@@ -3106,7 +3329,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.57,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — North Korea"
   },
   {
    "pair": "EGY-SRB",
@@ -3119,7 +3343,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.78,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Serbia"
   },
   {
    "pair": "AZE-TUR",
@@ -3132,7 +3357,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.17,
    "parity": -0.96,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Azerbaijan — Türkiye"
   },
   {
    "pair": "FRA-RUS",
@@ -3145,7 +3371,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.34,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "France — Russia"
   },
   {
    "pair": "GBR-RUS",
@@ -3158,7 +3385,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.71,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "United Kingdom — Russia"
   },
   {
    "pair": "PRK-RUS",
@@ -3171,7 +3399,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.08,
    "parity": -1.99,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "North Korea — Russia"
   },
   {
    "pair": "IDN-KHM",
@@ -3184,7 +3413,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.33,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Cambodia"
   },
   {
    "pair": "ERI-USA",
@@ -3197,7 +3427,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.83,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Eritrea — United States"
   },
   {
    "pair": "ETH-PRK",
@@ -3210,7 +3441,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.94,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Ethiopia — North Korea"
   },
   {
    "pair": "AZE-SRB",
@@ -3223,7 +3455,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.16,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Serbia"
   },
   {
    "pair": "IRN-SRB",
@@ -3236,7 +3469,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.21,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Serbia"
   },
   {
    "pair": "ERI-VEN",
@@ -3249,7 +3483,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.49,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "Eritrea — Venezuela"
   },
   {
    "pair": "ETH-RWA",
@@ -3262,7 +3497,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.38,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Ethiopia — Rwanda"
   },
   {
    "pair": "ISR-RUS",
@@ -3275,7 +3511,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.62,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Israel — Russia"
   },
   {
    "pair": "AZE-POL",
@@ -3288,7 +3525,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.55,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Azerbaijan — Poland"
   },
   {
    "pair": "EGY-ITA",
@@ -3301,7 +3539,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.58,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Egypt — Italy"
   },
   {
    "pair": "CHN-USA",
@@ -3314,7 +3553,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -0.0,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "China — United States"
   },
   {
    "pair": "IRN-POL",
@@ -3327,7 +3567,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.5,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Poland"
   },
   {
    "pair": "CHN-COD",
@@ -3340,7 +3581,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.5,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — DR Congo"
   },
   {
    "pair": "KOR-VNM",
@@ -3353,7 +3595,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.2,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Vietnam"
   },
   {
    "pair": "EGY-UKR",
@@ -3366,7 +3609,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.15,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Ukraine"
   },
   {
    "pair": "KHM-TWN",
@@ -3379,7 +3623,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.34,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Cambodia — Taiwan"
   },
   {
    "pair": "EGY-RUS",
@@ -3392,7 +3637,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.0,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Egypt — Russia"
   },
   {
    "pair": "AZE-FIN",
@@ -3405,7 +3651,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.06,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Finland"
   },
   {
    "pair": "AZE-IND",
@@ -3418,7 +3665,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.08,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Azerbaijan — India"
   },
   {
    "pair": "ETH-IRN",
@@ -3431,7 +3679,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.37,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Ethiopia — Iran"
   },
   {
    "pair": "AUS-ERI",
@@ -3444,7 +3693,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -1.48,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Eritrea"
   },
   {
    "pair": "PRK-RWA",
@@ -3457,7 +3707,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.33,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Rwanda"
   },
   {
    "pair": "FIN-IRN",
@@ -3470,7 +3721,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.11,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Finland — Iran"
   },
   {
    "pair": "EGY-ETH",
@@ -3483,7 +3735,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.94,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Ethiopia"
   },
   {
    "pair": "IND-VNM",
@@ -3496,7 +3749,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.59,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Vietnam"
   },
   {
    "pair": "IDN-VNM",
@@ -3509,7 +3763,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.14,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Vietnam"
   },
   {
    "pair": "AFG-USA",
@@ -3522,7 +3777,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -3.96,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Afghanistan — United States"
   },
   {
    "pair": "IRN-ITA",
@@ -3535,7 +3791,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.15,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Iran — Italy"
   },
   {
    "pair": "AZE-SWE",
@@ -3548,7 +3805,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.13,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Azerbaijan — Sweden"
   },
   {
    "pair": "AZE-DEU",
@@ -3561,7 +3819,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.18,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Azerbaijan — Germany"
   },
   {
    "pair": "PRK-USA",
@@ -3574,7 +3833,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -2.38,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "North Korea — United States"
   },
   {
    "pair": "AFG-AUS",
@@ -3587,7 +3847,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.62,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Afghanistan — Australia"
   },
   {
    "pair": "DEU-IRN",
@@ -3600,7 +3861,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.13,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Iran"
   },
   {
    "pair": "EGY-POL",
@@ -3613,7 +3875,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.07,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Poland"
   },
   {
    "pair": "AZE-ITA",
@@ -3626,7 +3889,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.2,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Azerbaijan — Italy"
   },
   {
    "pair": "IRN-SWE",
@@ -3639,7 +3903,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.92,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Sweden"
   },
   {
    "pair": "BLR-PAK",
@@ -3652,7 +3917,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.94,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Belarus — Pakistan"
   },
   {
    "pair": "COD-PRK",
@@ -3665,7 +3931,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.13,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "DR Congo — North Korea"
   },
   {
    "pair": "DEU-EGY",
@@ -3678,7 +3945,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.56,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Egypt"
   },
   {
    "pair": "PAK-VNM",
@@ -3691,7 +3959,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.25,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Vietnam"
   },
   {
    "pair": "PAK-RUS",
@@ -3704,7 +3973,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.87,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Pakistan — Russia"
   },
   {
    "pair": "CHN-VEN",
@@ -3717,7 +3987,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -3.33,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "China — Venezuela"
   },
   {
    "pair": "JPN-VNM",
@@ -3730,7 +4001,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.96,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Vietnam"
   },
   {
    "pair": "AZE-ETH",
@@ -3743,7 +4015,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.32,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Ethiopia"
   },
   {
    "pair": "AFG-VEN",
@@ -3756,7 +4029,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.63,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "Afghanistan — Venezuela"
   },
   {
    "pair": "FRA-IRN",
@@ -3769,7 +4043,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.23,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Iran"
   },
   {
    "pair": "AFG-BRA",
@@ -3782,7 +4057,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -1.51,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Afghanistan — Brazil"
   },
   {
    "pair": "EGY-FRA",
@@ -3795,7 +4071,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.66,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Egypt — France"
   },
   {
    "pair": "AZE-FRA",
@@ -3808,7 +4085,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.28,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Azerbaijan — France"
   },
   {
    "pair": "GBR-IRN",
@@ -3821,7 +4099,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.14,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "United Kingdom — Iran"
   },
   {
    "pair": "AZE-GBR",
@@ -3834,7 +4113,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.91,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Azerbaijan — United Kingdom"
   },
   {
    "pair": "BLR-IND",
@@ -3847,7 +4127,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -2.28,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Belarus — India"
   },
   {
    "pair": "EGY-FIN",
@@ -3860,7 +4141,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.68,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Finland"
   },
   {
    "pair": "EGY-SWE",
@@ -3873,7 +4155,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.49,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Sweden"
   },
   {
    "pair": "IND-KHM",
@@ -3886,7 +4169,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -2.78,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Cambodia"
   },
   {
    "pair": "EGY-GBR",
@@ -3899,7 +4183,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.29,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Egypt — United Kingdom"
   },
   {
    "pair": "IND-RUS",
@@ -3912,7 +4197,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.53,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "India — Russia"
   },
   {
    "pair": "BLR-ETH",
@@ -3925,7 +4211,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.12,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — Ethiopia"
   },
   {
    "pair": "PRK-VEN",
@@ -3938,7 +4225,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.96,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "North Korea — Venezuela"
   },
   {
    "pair": "EGY-RWA",
@@ -3951,7 +4239,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.32,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Rwanda"
   },
   {
    "pair": "IRN-RWA",
@@ -3964,7 +4253,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.75,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Rwanda"
   },
   {
    "pair": "KHM-KOR",
@@ -3977,7 +4267,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -2.39,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Cambodia — Republic of Korea"
   },
   {
    "pair": "BRA-CHN",
@@ -3990,7 +4281,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.07,
    "parity": -2.45,
-   "top": 0.799
+   "top": 0.799,
+   "names_en": "Brazil — China"
   },
   {
    "pair": "USA-VEN",
@@ -4003,7 +4295,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -3.33,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "United States — Venezuela"
   },
   {
    "pair": "EGY-PAK",
@@ -4016,7 +4309,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.12,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Egypt — Pakistan"
   },
   {
    "pair": "KHM-PAK",
@@ -4029,7 +4323,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.43,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Cambodia — Pakistan"
   },
   {
    "pair": "IRN-THA",
@@ -4042,7 +4337,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.69,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Thailand"
   },
   {
    "pair": "COD-EGY",
@@ -4055,7 +4351,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.12,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "DR Congo — Egypt"
   },
   {
    "pair": "IRN-VNM",
@@ -4068,7 +4365,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.56,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Vietnam"
   },
   {
    "pair": "ETH-RUS",
@@ -4081,7 +4379,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.94,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Ethiopia — Russia"
   },
   {
    "pair": "BLR-RWA",
@@ -4094,7 +4393,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.5,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — Rwanda"
   },
   {
    "pair": "AZE-RWA",
@@ -4107,7 +4407,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.7,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Rwanda"
   },
   {
    "pair": "JPN-KHM",
@@ -4120,7 +4421,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -2.14,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Cambodia"
   },
   {
    "pair": "EGY-IND",
@@ -4133,7 +4435,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.47,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Egypt — India"
   },
   {
    "pair": "BRA-PRK",
@@ -4146,7 +4449,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.08,
    "parity": -0.08,
-   "top": 0.403
+   "top": 0.403,
+   "names_en": "Brazil — North Korea"
   },
   {
    "pair": "COD-IRN",
@@ -4159,7 +4463,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.56,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "DR Congo — Iran"
   },
   {
    "pair": "IRN-KHM",
@@ -4172,7 +4477,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.74,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Cambodia"
   },
   {
    "pair": "BLR-COD",
@@ -4185,7 +4491,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.31,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — DR Congo"
   },
   {
    "pair": "AZE-VNM",
@@ -4198,7 +4505,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.49,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Azerbaijan — Vietnam"
   },
   {
    "pair": "ISR-RWA",
@@ -4211,7 +4519,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.69,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Rwanda"
   },
   {
    "pair": "AZE-THA",
@@ -4224,7 +4533,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.36,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Azerbaijan — Thailand"
   },
   {
    "pair": "IRN-KOR",
@@ -4237,7 +4547,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.65,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Iran — Republic of Korea"
   },
   {
    "pair": "IRN-TWN",
@@ -4250,7 +4561,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.4,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Taiwan"
   },
   {
    "pair": "BLR-KOR",
@@ -4263,7 +4575,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.89,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Belarus — Republic of Korea"
   },
   {
    "pair": "ARM-VNM",
@@ -4276,7 +4589,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.1,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Armenia — Vietnam"
   },
   {
    "pair": "AZE-COD",
@@ -4289,7 +4603,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.51,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — DR Congo"
   },
   {
    "pair": "BLR-VNM",
@@ -4302,7 +4617,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.69,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Belarus — Vietnam"
   },
   {
    "pair": "BLR-USA",
@@ -4315,7 +4631,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -3.2,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Belarus — United States"
   },
   {
    "pair": "RUS-RWA",
@@ -4328,7 +4645,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -3.32,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Rwanda"
   },
   {
    "pair": "AZE-KHM",
@@ -4341,7 +4659,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.69,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Cambodia"
   },
   {
    "pair": "BLR-THA",
@@ -4354,7 +4673,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.56,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Belarus — Thailand"
   },
   {
    "pair": "ISR-TUR",
@@ -4367,7 +4687,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.03,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Türkiye"
   },
   {
    "pair": "KOR-RUS",
@@ -4380,7 +4701,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.92,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Republic of Korea — Russia"
   },
   {
    "pair": "AZE-KOR",
@@ -4393,7 +4715,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.7,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Azerbaijan — Republic of Korea"
   },
   {
    "pair": "RUS-VNM",
@@ -4406,7 +4729,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.13,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Vietnam"
   },
   {
    "pair": "IRN-PHL",
@@ -4419,7 +4743,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.16,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Philippines"
   },
   {
    "pair": "GRC-RWA",
@@ -4432,7 +4757,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.89,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Rwanda"
   },
   {
    "pair": "IDN-IRN",
@@ -4445,7 +4771,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.41,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Indonesia — Iran"
   },
   {
    "pair": "BLR-TWN",
@@ -4458,7 +4785,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.85,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Belarus — Taiwan"
   },
   {
    "pair": "COD-RUS",
@@ -4471,7 +4799,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -3.12,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "DR Congo — Russia"
   },
   {
    "pair": "BLR-JPN",
@@ -4484,7 +4813,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -1.65,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Belarus — Japan"
   },
   {
    "pair": "AZE-TWN",
@@ -4497,7 +4827,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.65,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Azerbaijan — Taiwan"
   },
   {
    "pair": "BLR-KHM",
@@ -4510,7 +4841,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.49,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — Cambodia"
   },
   {
    "pair": "RUS-THA",
@@ -4523,7 +4855,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.26,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Thailand"
   },
   {
    "pair": "RWA-TUR",
@@ -4536,7 +4869,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.66,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Rwanda — Türkiye"
   },
   {
    "pair": "IRN-JPN",
@@ -4549,7 +4883,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.4,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Iran — Japan"
   },
   {
    "pair": "ISR-VNM",
@@ -4562,7 +4897,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.5,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Vietnam"
   },
   {
    "pair": "TUR-VNM",
@@ -4575,7 +4911,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.47,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Türkiye — Vietnam"
   },
   {
    "pair": "RUS-TWN",
@@ -4588,7 +4925,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.97,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Taiwan"
   },
   {
    "pair": "UKR-VNM",
@@ -4601,7 +4939,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.03,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Ukraine — Vietnam"
   },
   {
    "pair": "ARM-RWA",
@@ -4614,7 +4953,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.09,
-   "top": 0.197
+   "top": 0.197,
+   "names_en": "Armenia — Rwanda"
   },
   {
    "pair": "SRB-TUR",
@@ -4627,7 +4967,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -1.13,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Serbia — Türkiye"
   },
   {
    "pair": "ETH-VNM",
@@ -4640,7 +4981,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.81,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Ethiopia — Vietnam"
   },
   {
    "pair": "KHM-RUS",
@@ -4653,7 +4995,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -3.31,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Cambodia — Russia"
   },
   {
    "pair": "TUR-UKR",
@@ -4666,7 +5009,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.5,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Türkiye — Ukraine"
   },
   {
    "pair": "EGY-VNM",
@@ -4679,7 +5023,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.13,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Vietnam"
   },
   {
    "pair": "AZE-PHL",
@@ -4692,7 +5037,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.11,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Philippines"
   },
   {
    "pair": "FIN-VNM",
@@ -4705,7 +5051,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.55,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Finland — Vietnam"
   },
   {
    "pair": "BLR-PHL",
@@ -4718,7 +5065,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.09,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Belarus — Philippines"
   },
   {
    "pair": "RUS-USA",
@@ -4731,7 +5079,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.38,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Russia — United States"
   },
   {
    "pair": "ITA-RWA",
@@ -4744,7 +5093,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.9,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Rwanda"
   },
   {
    "pair": "AZE-JPN",
@@ -4757,7 +5107,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.45,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Azerbaijan — Japan"
   },
   {
    "pair": "AUS-VNM",
@@ -4770,7 +5121,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.16,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Vietnam"
   },
   {
    "pair": "RWA-SRB",
@@ -4783,7 +5135,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.54,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Rwanda — Serbia"
   },
   {
    "pair": "POL-VNM",
@@ -4796,7 +5149,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.06,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Vietnam"
   },
   {
    "pair": "ARM-KHM",
@@ -4809,7 +5163,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.08,
-   "top": 0.197
+   "top": 0.197,
+   "names_en": "Armenia — Cambodia"
   },
   {
    "pair": "AZE-IDN",
@@ -4822,7 +5177,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.64,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Azerbaijan — Indonesia"
   },
   {
    "pair": "BLR-VEN",
@@ -4835,7 +5191,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.14,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Belarus — Venezuela"
   },
   {
    "pair": "SWE-VNM",
@@ -4848,7 +5205,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.37,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Sweden — Vietnam"
   },
   {
    "pair": "GRC-VNM",
@@ -4861,7 +5219,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.3,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Greece — Vietnam"
   },
   {
    "pair": "SRB-VNM",
@@ -4874,7 +5233,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.65,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Serbia — Vietnam"
   },
   {
    "pair": "PHL-RUS",
@@ -4887,7 +5247,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.72,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Philippines — Russia"
   },
   {
    "pair": "ITA-SRB",
@@ -4900,7 +5261,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.36,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Serbia"
   },
   {
    "pair": "AUS-KHM",
@@ -4913,7 +5275,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.34,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Cambodia"
   },
   {
    "pair": "BLR-IDN",
@@ -4926,7 +5289,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.83,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Belarus — Indonesia"
   },
   {
    "pair": "DEU-VNM",
@@ -4939,7 +5303,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.69,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Vietnam"
   },
   {
    "pair": "GRC-TUR",
@@ -4952,7 +5317,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.77,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Greece — Türkiye"
   },
   {
    "pair": "ETH-KHM",
@@ -4965,7 +5331,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.37,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Ethiopia — Cambodia"
   },
   {
    "pair": "RWA-UKR",
@@ -4978,7 +5345,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.16,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Rwanda — Ukraine"
   },
   {
    "pair": "EGY-THA",
@@ -4991,7 +5359,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.26,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Thailand"
   },
   {
    "pair": "GRC-SRB",
@@ -5004,7 +5373,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.35,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Serbia"
   },
   {
    "pair": "RWA-VNM",
@@ -5017,7 +5387,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.19,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Rwanda — Vietnam"
   },
   {
    "pair": "POL-SRB",
@@ -5030,7 +5401,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.71,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Serbia"
   },
   {
    "pair": "ISR-KHM",
@@ -5043,7 +5415,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.69,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Cambodia"
   },
   {
    "pair": "ITA-VNM",
@@ -5056,7 +5429,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.71,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Vietnam"
   },
   {
    "pair": "PAK-RWA",
@@ -5069,7 +5443,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.44,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Rwanda"
   },
   {
    "pair": "IND-RWA",
@@ -5082,7 +5457,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -2.78,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Rwanda"
   },
   {
    "pair": "BLR-BRA",
@@ -5095,7 +5471,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.74,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Belarus — Brazil"
   },
   {
    "pair": "POL-RWA",
@@ -5108,7 +5485,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.25,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Rwanda"
   },
   {
    "pair": "KHM-TUR",
@@ -5121,7 +5499,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.66,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Cambodia — Türkiye"
   },
   {
    "pair": "IDN-RUS",
@@ -5134,7 +5513,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.98,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Indonesia — Russia"
   },
   {
    "pair": "FRA-RWA",
@@ -5147,7 +5527,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.98,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Rwanda"
   },
   {
    "pair": "DEU-RWA",
@@ -5160,7 +5541,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.88,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Rwanda"
   },
   {
    "pair": "EGY-KHM",
@@ -5173,7 +5555,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.31,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Cambodia"
   },
   {
    "pair": "ETH-ISR",
@@ -5186,7 +5569,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.31,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Ethiopia — Israel"
   },
   {
    "pair": "FRA-VNM",
@@ -5199,7 +5583,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.79,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Vietnam"
   },
   {
    "pair": "GBR-VNM",
@@ -5212,7 +5597,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.42,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Vietnam"
   },
   {
    "pair": "KHM-UKR",
@@ -5225,7 +5611,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.16,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Cambodia — Ukraine"
   },
   {
    "pair": "SRB-UKR",
@@ -5238,7 +5625,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.63,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Serbia — Ukraine"
   },
   {
    "pair": "GBR-RWA",
@@ -5251,7 +5639,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.61,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Rwanda"
   },
   {
    "pair": "DEU-SRB",
@@ -5264,7 +5653,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.34,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Serbia"
   },
   {
    "pair": "RUS-VEN",
@@ -5277,7 +5667,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.95,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Russia — Venezuela"
   },
   {
    "pair": "FIN-KHM",
@@ -5290,7 +5681,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.63,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Finland — Cambodia"
   },
   {
    "pair": "AZE-USA",
@@ -5303,7 +5695,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -3.0,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Azerbaijan — United States"
   },
   {
    "pair": "KHM-RWA",
@@ -5316,7 +5709,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.01,
-   "top": 0.183
+   "top": 0.183,
+   "names_en": "Cambodia — Rwanda"
   },
   {
    "pair": "GRC-KHM",
@@ -5329,7 +5723,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.88,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Cambodia"
   },
   {
    "pair": "EGY-KOR",
@@ -5342,7 +5737,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.08,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Egypt — Republic of Korea"
   },
   {
    "pair": "RWA-SWE",
@@ -5355,7 +5751,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.83,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Rwanda — Sweden"
   },
   {
    "pair": "FIN-RWA",
@@ -5368,7 +5765,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.64,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Finland — Rwanda"
   },
   {
    "pair": "KHM-POL",
@@ -5381,7 +5779,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.24,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Cambodia — Poland"
   },
   {
    "pair": "KHM-SRB",
@@ -5394,7 +5793,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.53,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Cambodia — Serbia"
   },
   {
    "pair": "EGY-TWN",
@@ -5407,7 +5807,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.03,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Egypt — Taiwan"
   },
   {
    "pair": "GBR-VEN",
@@ -5420,7 +5821,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.24,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Venezuela"
   },
   {
    "pair": "KHM-SWE",
@@ -5433,7 +5835,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.82,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Cambodia — Sweden"
   },
   {
    "pair": "COD-VNM",
@@ -5446,7 +5849,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.0,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "DR Congo — Vietnam"
   },
   {
    "pair": "FRA-VEN",
@@ -5459,7 +5863,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.61,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Venezuela"
   },
   {
    "pair": "COD-ETH",
@@ -5472,7 +5877,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.19,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "DR Congo — Ethiopia"
   },
   {
    "pair": "EGY-IDN",
@@ -5485,7 +5891,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.02,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Egypt — Indonesia"
   },
   {
    "pair": "DEU-KHM",
@@ -5498,7 +5905,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.87,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Cambodia"
   },
   {
    "pair": "EGY-PHL",
@@ -5511,7 +5919,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.72,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Philippines"
   },
   {
    "pair": "IRN-VEN",
@@ -5524,7 +5933,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.38,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Iran — Venezuela"
   },
   {
    "pair": "BRA-IRN",
@@ -5537,7 +5947,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.51,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Brazil — Iran"
   },
   {
    "pair": "BRA-RUS",
@@ -5550,7 +5961,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.08,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Brazil — Russia"
   },
   {
    "pair": "EGY-USA",
@@ -5563,7 +5975,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -2.38,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Egypt — United States"
   },
   {
    "pair": "ITA-KHM",
@@ -5576,7 +5989,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.89,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Cambodia"
   },
   {
    "pair": "EGY-JPN",
@@ -5589,7 +6003,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.84,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Egypt — Japan"
   },
   {
    "pair": "ITA-VEN",
@@ -5602,7 +6017,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.53,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Venezuela"
   },
   {
    "pair": "DEU-VEN",
@@ -5615,7 +6031,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.51,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Venezuela"
   },
   {
    "pair": "RWA-THA",
@@ -5628,7 +6045,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.06,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Rwanda — Thailand"
   },
   {
    "pair": "BRA-EGY",
@@ -5641,7 +6059,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.08,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Brazil — Egypt"
   },
   {
    "pair": "AZE-VEN",
@@ -5654,7 +6073,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.33,
-   "top": 0.298
+   "top": 0.298,
+   "names_en": "Azerbaijan — Venezuela"
   },
   {
    "pair": "FRA-KHM",
@@ -5667,7 +6087,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.97,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Cambodia"
   },
   {
    "pair": "GBR-KHM",
@@ -5680,7 +6101,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.6,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Cambodia"
   },
   {
    "pair": "AUS-IRN",
@@ -5693,7 +6115,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.4,
-   "top": 0.474
+   "top": 0.474,
+   "names_en": "Australia — Iran"
   },
   {
    "pair": "COD-KHM",
@@ -5706,7 +6129,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.18,
-   "top": 0.214
+   "top": 0.214,
+   "names_en": "DR Congo — Cambodia"
   },
   {
    "pair": "SWE-VEN",
@@ -5719,7 +6143,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.46,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Sweden — Venezuela"
   },
   {
    "pair": "ETH-TUR",
@@ -5732,7 +6157,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.28,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Ethiopia — Türkiye"
   },
   {
    "pair": "EGY-VEN",
@@ -5745,7 +6171,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.95,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Venezuela"
   },
   {
    "pair": "ARM-ETH",
@@ -5758,7 +6185,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.29,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Armenia — Ethiopia"
   },
   {
    "pair": "AZE-BRA",
@@ -5771,7 +6199,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.54,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Azerbaijan — Brazil"
   },
   {
    "pair": "FRA-SRB",
@@ -5784,7 +6213,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.44,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Serbia"
   },
   {
    "pair": "ETH-GRC",
@@ -5797,7 +6227,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.51,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Ethiopia — Greece"
   },
   {
    "pair": "POL-VEN",
@@ -5810,7 +6241,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.88,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Venezuela"
   },
   {
    "pair": "SRB-VEN",
@@ -5823,7 +6255,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.17,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Serbia — Venezuela"
   },
   {
    "pair": "FIN-VEN",
@@ -5836,7 +6269,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.27,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Finland — Venezuela"
   },
   {
    "pair": "IDN-RWA",
@@ -5849,7 +6283,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.34,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Rwanda"
   },
   {
    "pair": "COD-VEN",
@@ -5862,7 +6297,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.17,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "DR Congo — Venezuela"
   },
   {
    "pair": "BRA-RWA",
@@ -5875,7 +6311,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.24,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Rwanda"
   },
   {
    "pair": "GRC-VEN",
@@ -5888,7 +6325,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.52,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Venezuela"
   },
   {
    "pair": "AUS-BLR",
@@ -5901,7 +6339,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.16,
    "parity": -0.85,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Belarus"
   },
   {
    "pair": "SRB-SWE",
@@ -5914,7 +6353,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.29,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Serbia — Sweden"
   },
   {
    "pair": "UKR-VEN",
@@ -5927,7 +6367,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.8,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Ukraine — Venezuela"
   },
   {
    "pair": "GBR-SRB",
@@ -5940,7 +6381,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.07,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Serbia"
   },
   {
    "pair": "AUS-AZE",
@@ -5953,7 +6395,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.65,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Azerbaijan"
   },
   {
    "pair": "USA-VNM",
@@ -5966,7 +6409,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -2.51,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "United States — Vietnam"
   },
   {
    "pair": "FIN-SRB",
@@ -5979,7 +6423,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.1,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Finland — Serbia"
   },
   {
    "pair": "TUR-VEN",
@@ -5992,7 +6437,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.3,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Türkiye — Venezuela"
   },
   {
    "pair": "ISR-VEN",
@@ -6005,7 +6451,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.33,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Venezuela"
   },
   {
    "pair": "AUS-RUS",
@@ -6018,7 +6465,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -1.96,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Australia — Russia"
   },
   {
    "pair": "ETH-SRB",
@@ -6031,7 +6479,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.16,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Ethiopia — Serbia"
   },
   {
    "pair": "RWA-VEN",
@@ -6044,7 +6493,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.37,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "Rwanda — Venezuela"
   },
   {
    "pair": "ISR-SRB",
@@ -6057,7 +6507,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.16,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Serbia"
   },
   {
    "pair": "PHL-RWA",
@@ -6070,7 +6521,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.59,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Philippines — Rwanda"
   },
   {
    "pair": "ETH-PAK",
@@ -6083,7 +6535,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.06,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Ethiopia — Pakistan"
   },
   {
    "pair": "ETH-ITA",
@@ -6096,7 +6549,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.52,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Ethiopia — Italy"
   },
   {
    "pair": "RWA-TWN",
@@ -6109,7 +6563,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.35,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Rwanda — Taiwan"
   },
   {
    "pair": "ARM-VEN",
@@ -6122,7 +6577,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.28,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "Armenia — Venezuela"
   },
   {
    "pair": "ETH-IND",
@@ -6135,7 +6591,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -2.4,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Ethiopia — India"
   },
   {
    "pair": "ARM-SRB",
@@ -6148,7 +6605,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.45,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "Armenia — Serbia"
   },
   {
    "pair": "ETH-UKR",
@@ -6161,7 +6619,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.78,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Ethiopia — Ukraine"
   },
   {
    "pair": "KOR-RWA",
@@ -6174,7 +6633,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -2.4,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Rwanda"
   },
   {
    "pair": "ETH-VEN",
@@ -6187,7 +6647,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.01,
-   "top": 0.245
+   "top": 0.245,
+   "names_en": "Ethiopia — Venezuela"
   },
   {
    "pair": "ETH-POL",
@@ -6200,7 +6661,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.87,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Ethiopia — Poland"
   },
   {
    "pair": "VEN-VNM",
@@ -6213,7 +6675,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.82,
-   "top": 0.381
+   "top": 0.381,
+   "names_en": "Venezuela — Vietnam"
   },
   {
    "pair": "RWA-USA",
@@ -6226,7 +6689,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -3.7,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Rwanda — United States"
   },
   {
    "pair": "AUS-EGY",
@@ -6239,7 +6703,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.04,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Egypt"
   },
   {
    "pair": "KHM-USA",
@@ -6252,7 +6717,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -3.69,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Cambodia — United States"
   },
   {
    "pair": "PAK-TUR",
@@ -6265,7 +6731,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.22,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Pakistan — Türkiye"
   },
   {
    "pair": "JPN-RWA",
@@ -6278,7 +6745,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -2.15,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Rwanda"
   },
   {
    "pair": "DEU-ETH",
@@ -6291,7 +6759,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.5,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Ethiopia"
   },
   {
    "pair": "BRA-VNM",
@@ -6304,7 +6773,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.17,
    "parity": -0.05,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Vietnam"
   },
   {
    "pair": "AUS-RWA",
@@ -6317,7 +6787,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.35,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Rwanda"
   },
   {
    "pair": "ARM-PAK",
@@ -6330,7 +6801,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -1.35,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Armenia — Pakistan"
   },
   {
    "pair": "ETH-FRA",
@@ -6343,7 +6815,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.6,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Ethiopia — France"
   },
   {
    "pair": "PAK-VEN",
@@ -6356,7 +6829,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.08,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Venezuela"
   },
   {
    "pair": "ETH-FIN",
@@ -6369,7 +6843,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.26,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Ethiopia — Finland"
   },
   {
    "pair": "ETH-SWE",
@@ -6382,7 +6857,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.45,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Ethiopia — Sweden"
   },
   {
    "pair": "ETH-GBR",
@@ -6395,7 +6871,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.23,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Ethiopia — United Kingdom"
   },
   {
    "pair": "JPN-VEN",
@@ -6408,7 +6885,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -1.79,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Venezuela"
   },
   {
    "pair": "IND-VEN",
@@ -6421,7 +6899,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -2.42,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Venezuela"
   },
   {
    "pair": "IND-TUR",
@@ -6434,7 +6913,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -1.12,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Türkiye"
   },
   {
    "pair": "KOR-VEN",
@@ -6447,7 +6927,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -2.03,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Venezuela"
   },
   {
    "pair": "BRA-KHM",
@@ -6460,7 +6941,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -1.23,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Cambodia"
   },
   {
    "pair": "KHM-VEN",
@@ -6473,7 +6955,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.19,
    "parity": -0.36,
-   "top": 0.243
+   "top": 0.243,
+   "names_en": "Cambodia — Venezuela"
   },
   {
    "pair": "AUS-VEN",
@@ -6486,7 +6969,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.99,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Venezuela"
   },
   {
    "pair": "ETH-THA",
@@ -6499,7 +6983,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.68,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Ethiopia — Thailand"
   },
   {
    "pair": "TWN-VEN",
@@ -6512,7 +6997,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.98,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Taiwan — Venezuela"
   },
   {
    "pair": "ISR-PAK",
@@ -6525,7 +7011,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.25,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Pakistan"
   },
   {
    "pair": "PAK-THA",
@@ -6538,7 +7025,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.38,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Thailand"
   },
   {
    "pair": "THA-VEN",
@@ -6551,7 +7039,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.69,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Thailand — Venezuela"
   },
   {
    "pair": "PHL-VEN",
@@ -6564,7 +7053,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.23,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Philippines — Venezuela"
   },
   {
    "pair": "COD-TUR",
@@ -6577,7 +7067,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -1.47,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "DR Congo — Türkiye"
   },
   {
    "pair": "ETH-IDN",
@@ -6590,7 +7081,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.95,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Ethiopia — Indonesia"
   },
   {
    "pair": "PAK-UKR",
@@ -6603,7 +7095,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.28,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Ukraine"
   },
   {
    "pair": "IDN-VEN",
@@ -6616,7 +7109,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.2,
    "parity": -0.97,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Venezuela"
   },
   {
    "pair": "FIN-UKR",
@@ -6629,7 +7123,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.52,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Finland — Ukraine"
   },
   {
    "pair": "DEU-UKR",
@@ -6642,7 +7137,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.71,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Ukraine"
   },
   {
    "pair": "GRC-PAK",
@@ -6655,7 +7151,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.55,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Greece — Pakistan"
   },
   {
    "pair": "ETH-TWN",
@@ -6668,7 +7165,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.97,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Ethiopia — Taiwan"
   },
   {
    "pair": "ETH-PHL",
@@ -6681,7 +7179,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.21,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Ethiopia — Philippines"
   },
   {
    "pair": "FIN-PAK",
@@ -6694,7 +7193,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.8,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Finland — Pakistan"
   },
   {
    "pair": "SWE-UKR",
@@ -6707,7 +7207,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.34,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Sweden — Ukraine"
   },
   {
    "pair": "PAK-POL",
@@ -6720,7 +7221,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.2,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Poland"
   },
   {
    "pair": "PAK-SRB",
@@ -6733,7 +7235,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.91,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Serbia"
   },
   {
    "pair": "ETH-KOR",
@@ -6746,7 +7249,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -2.01,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Ethiopia — Republic of Korea"
   },
   {
    "pair": "PAK-TWN",
@@ -6759,7 +7263,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.09,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Taiwan"
   },
   {
    "pair": "KOR-PAK",
@@ -6772,7 +7277,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.95,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Pakistan"
   },
   {
    "pair": "PAK-SWE",
@@ -6785,7 +7291,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.62,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Sweden"
   },
   {
    "pair": "BRA-ETH",
@@ -6798,7 +7305,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.86,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Ethiopia"
   },
   {
    "pair": "THA-TUR",
@@ -6811,7 +7319,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.6,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Thailand — Türkiye"
   },
   {
    "pair": "GRC-UKR",
@@ -6824,7 +7333,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.27,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Greece — Ukraine"
   },
   {
    "pair": "DEU-PAK",
@@ -6837,7 +7347,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.44,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Pakistan"
   },
   {
    "pair": "PAK-PHL",
@@ -6850,7 +7361,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.85,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Philippines"
   },
   {
    "pair": "ITA-PAK",
@@ -6863,7 +7375,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.46,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Pakistan"
   },
   {
    "pair": "ETH-JPN",
@@ -6876,7 +7389,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -1.77,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Ethiopia — Japan"
   },
   {
    "pair": "ARM-UKR",
@@ -6889,7 +7403,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.07,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Armenia — Ukraine"
   },
   {
    "pair": "IND-SRB",
@@ -6902,7 +7417,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -2.25,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Serbia"
   },
   {
    "pair": "KOR-TUR",
@@ -6915,7 +7431,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.73,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Türkiye"
   },
   {
    "pair": "COD-ISR",
@@ -6928,7 +7445,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.5,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "DR Congo — Israel"
   },
   {
    "pair": "ITA-UKR",
@@ -6941,7 +7459,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.74,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Ukraine"
   },
   {
    "pair": "COD-SRB",
@@ -6954,7 +7473,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.34,
-   "top": 0.271
+   "top": 0.271,
+   "names_en": "DR Congo — Serbia"
   },
   {
    "pair": "IDN-PAK",
@@ -6967,7 +7487,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.11,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Indonesia — Pakistan"
   },
   {
    "pair": "TUR-TWN",
@@ -6980,7 +7501,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.32,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Türkiye — Taiwan"
   },
   {
    "pair": "COD-GRC",
@@ -6993,7 +7515,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.7,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "DR Congo — Greece"
   },
   {
    "pair": "FRA-PAK",
@@ -7006,7 +7529,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.54,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Pakistan"
   },
   {
    "pair": "ETH-USA",
@@ -7019,7 +7543,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -3.32,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Ethiopia — United States"
   },
   {
    "pair": "JPN-PAK",
@@ -7032,7 +7557,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.71,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Pakistan"
   },
   {
    "pair": "GBR-PAK",
@@ -7045,7 +7571,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.17,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Pakistan"
   },
   {
    "pair": "EGY-SAU",
@@ -7058,7 +7585,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.01,
    "parity": -0.05,
-   "top": 0.402
+   "top": 0.402,
+   "names_en": "Egypt — Saudi Arabia"
   },
   {
    "pair": "COD-ITA",
@@ -7071,7 +7599,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.71,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "DR Congo — Italy"
   },
   {
    "pair": "JPN-TUR",
@@ -7084,7 +7613,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.49,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Türkiye"
   },
   {
    "pair": "PHL-TUR",
@@ -7097,7 +7627,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -1.07,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Philippines — Türkiye"
   },
   {
    "pair": "FRA-UKR",
@@ -7110,7 +7641,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.82,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Ukraine"
   },
   {
    "pair": "AUS-ETH",
@@ -7123,7 +7655,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.26,
    "parity": -0.97,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Ethiopia"
   },
   {
    "pair": "IDN-TUR",
@@ -7136,7 +7669,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.33,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Indonesia — Türkiye"
   },
   {
    "pair": "ISR-UKR",
@@ -7149,7 +7683,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.53,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Ukraine"
   },
   {
    "pair": "GBR-UKR",
@@ -7162,7 +7697,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.45,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Ukraine"
   },
   {
    "pair": "ARM-COD",
@@ -7175,7 +7711,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.1,
-   "top": 0.214
+   "top": 0.214,
+   "names_en": "Armenia — DR Congo"
   },
   {
    "pair": "IDN-THA",
@@ -7188,7 +7725,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.27,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Thailand"
   },
   {
    "pair": "COD-FRA",
@@ -7201,7 +7739,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.79,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "DR Congo — France"
   },
   {
    "pair": "COD-PAK",
@@ -7214,7 +7753,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -1.25,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "DR Congo — Pakistan"
   },
   {
    "pair": "BRA-TUR",
@@ -7227,7 +7767,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.42,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Brazil — Türkiye"
   },
   {
    "pair": "COD-UKR",
@@ -7240,7 +7781,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.97,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "DR Congo — Ukraine"
   },
   {
    "pair": "COD-POL",
@@ -7253,7 +7795,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.05,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "DR Congo — Poland"
   },
   {
    "pair": "COD-DEU",
@@ -7266,7 +7809,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.68,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "DR Congo — Germany"
   },
   {
    "pair": "THA-TWN",
@@ -7279,7 +7823,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.29,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Thailand — Taiwan"
   },
   {
    "pair": "COD-GBR",
@@ -7292,7 +7837,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.42,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "DR Congo — United Kingdom"
   },
   {
    "pair": "SRB-USA",
@@ -7305,7 +7851,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -3.16,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Serbia — United States"
   },
   {
    "pair": "PHL-TWN",
@@ -7318,7 +7865,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.75,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Philippines — Taiwan"
   },
   {
    "pair": "SRB-THA",
@@ -7331,7 +7879,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.52,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Serbia — Thailand"
   },
   {
    "pair": "BRA-COD",
@@ -7344,7 +7893,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.05,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — DR Congo"
   },
   {
    "pair": "KOR-SRB",
@@ -7357,7 +7907,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.86,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Serbia"
   },
   {
    "pair": "COD-SWE",
@@ -7370,7 +7921,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.63,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "DR Congo — Sweden"
   },
   {
    "pair": "IND-THA",
@@ -7383,7 +7935,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.72,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Thailand"
   },
   {
    "pair": "COD-FIN",
@@ -7396,7 +7949,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.45,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "DR Congo — Finland"
   },
   {
    "pair": "PAK-SAU",
@@ -7409,7 +7963,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.01,
    "parity": -0.17,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Pakistan — Saudi Arabia"
   },
   {
    "pair": "COD-IND",
@@ -7422,7 +7977,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -2.59,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "DR Congo — India"
   },
   {
    "pair": "SRB-TWN",
@@ -7435,7 +7991,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.81,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Serbia — Taiwan"
   },
   {
    "pair": "JPN-SRB",
@@ -7448,7 +8005,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -1.62,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Serbia"
   },
   {
    "pair": "BRA-SRB",
@@ -7461,7 +8019,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.7,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Serbia"
   },
   {
    "pair": "PHL-SRB",
@@ -7474,7 +8033,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.06,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Philippines — Serbia"
   },
   {
    "pair": "IDN-SRB",
@@ -7487,7 +8047,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.8,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Serbia"
   },
   {
    "pair": "AUS-TUR",
@@ -7500,7 +8061,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.29,
    "parity": -0.31,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Australia — Türkiye"
   },
   {
    "pair": "ARM-IND",
@@ -7513,7 +8075,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -2.69,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Armenia — India"
   },
   {
    "pair": "KOR-THA",
@@ -7526,7 +8089,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.33,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Thailand"
   },
   {
    "pair": "AUS-PAK",
@@ -7539,7 +8103,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.09,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Australia — Pakistan"
   },
   {
    "pair": "PAK-USA",
@@ -7552,7 +8117,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -2.26,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Pakistan — United States"
   },
   {
    "pair": "COD-THA",
@@ -7565,7 +8131,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.87,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "DR Congo — Thailand"
   },
   {
    "pair": "COD-IDN",
@@ -7578,7 +8145,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.14,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "DR Congo — Indonesia"
   },
   {
    "pair": "COD-USA",
@@ -7591,7 +8159,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -3.51,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "DR Congo — United States"
   },
   {
    "pair": "IND-UKR",
@@ -7604,7 +8173,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.62,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Ukraine"
   },
   {
    "pair": "IND-ISR",
@@ -7617,7 +8187,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.09,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Israel"
   },
   {
    "pair": "JPN-THA",
@@ -7630,7 +8201,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.09,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Thailand"
   },
   {
    "pair": "IND-TWN",
@@ -7643,7 +8215,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.44,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Taiwan"
   },
   {
    "pair": "BRA-PAK",
@@ -7656,7 +8229,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.31,
    "parity": -0.2,
-   "top": 0.423
+   "top": 0.423,
+   "names_en": "Brazil — Pakistan"
   },
   {
    "pair": "COD-PHL",
@@ -7669,7 +8243,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -0.4,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "DR Congo — Philippines"
   },
   {
    "pair": "COD-TWN",
@@ -7682,7 +8257,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.15,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "DR Congo — Taiwan"
   },
   {
    "pair": "KOR-PHL",
@@ -7695,7 +8271,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -1.8,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Philippines"
   },
   {
    "pair": "IND-KOR",
@@ -7708,7 +8285,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.39,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Republic of Korea"
   },
   {
    "pair": "COD-KOR",
@@ -7721,7 +8299,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -2.2,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "DR Congo — Republic of Korea"
   },
   {
    "pair": "IND-PHL",
@@ -7734,7 +8313,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -2.19,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Philippines"
   },
   {
    "pair": "IDN-PHL",
@@ -7747,7 +8327,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.74,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Philippines"
   },
   {
    "pair": "IDN-IND",
@@ -7760,7 +8341,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.45,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Indonesia — India"
   },
   {
    "pair": "GRC-IND",
@@ -7773,7 +8355,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.89,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Greece — India"
   },
   {
    "pair": "JPN-PHL",
@@ -7786,7 +8369,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -1.56,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Philippines"
   },
   {
    "pair": "COD-JPN",
@@ -7799,7 +8383,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.96,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "DR Congo — Japan"
   },
   {
    "pair": "AUS-SRB",
@@ -7812,7 +8397,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.32,
    "parity": -0.82,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Serbia"
   },
   {
    "pair": "FIN-IND",
@@ -7825,7 +8411,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -2.14,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Finland — India"
   },
   {
    "pair": "AUS-COD",
@@ -7838,7 +8425,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.33,
    "parity": -1.16,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — DR Congo"
   },
   {
    "pair": "IND-POL",
@@ -7851,7 +8439,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.54,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Poland"
   },
   {
    "pair": "ARM-THA",
@@ -7864,7 +8453,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.97,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Armenia — Thailand"
   },
   {
    "pair": "IND-SWE",
@@ -7877,7 +8467,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.96,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Sweden"
   },
   {
    "pair": "DEU-IND",
@@ -7890,7 +8481,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.91,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Germany — India"
   },
   {
    "pair": "IND-JPN",
@@ -7903,7 +8495,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.63,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Japan"
   },
   {
    "pair": "IND-ITA",
@@ -7916,7 +8509,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.88,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "India — Italy"
   },
   {
    "pair": "ISR-THA",
@@ -7929,7 +8523,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.63,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Thailand"
   },
   {
    "pair": "KOR-UKR",
@@ -7942,7 +8537,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -1.23,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Ukraine"
   },
   {
    "pair": "THA-UKR",
@@ -7955,7 +8551,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.1,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Thailand — Ukraine"
   },
   {
    "pair": "FRA-IND",
@@ -7968,7 +8565,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.81,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "France — India"
   },
   {
    "pair": "GBR-IND",
@@ -7981,7 +8579,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.18,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "United Kingdom — India"
   },
   {
    "pair": "UKR-USA",
@@ -7994,7 +8593,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -2.54,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Ukraine — United States"
   },
   {
    "pair": "FIN-THA",
@@ -8007,7 +8607,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.42,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Finland — Thailand"
   },
   {
    "pair": "GRC-THA",
@@ -8020,7 +8621,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.17,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Greece — Thailand"
   },
   {
    "pair": "TWN-UKR",
@@ -8033,7 +8635,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.18,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Taiwan — Ukraine"
   },
   {
    "pair": "POL-THA",
@@ -8046,7 +8649,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.19,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Thailand"
   },
   {
    "pair": "JPN-UKR",
@@ -8059,7 +8663,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.99,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Ukraine"
   },
   {
    "pair": "SWE-THA",
@@ -8072,7 +8677,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.24,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Sweden — Thailand"
   },
   {
    "pair": "DEU-THA",
@@ -8085,7 +8691,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.82,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Thailand"
   },
   {
    "pair": "PHL-UKR",
@@ -8098,7 +8705,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.57,
-   "top": 0.376
+   "top": 0.376,
+   "names_en": "Philippines — Ukraine"
   },
   {
    "pair": "ITA-THA",
@@ -8111,7 +8719,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.84,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Thailand"
   },
   {
    "pair": "IDN-UKR",
@@ -8124,7 +8733,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.17,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Ukraine"
   },
   {
    "pair": "BRA-UKR",
@@ -8137,7 +8747,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.08,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Ukraine"
   },
   {
    "pair": "AUS-IND",
@@ -8150,7 +8761,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.43,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Australia — India"
   },
   {
    "pair": "IND-USA",
@@ -8163,7 +8775,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -0.92,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "India — United States"
   },
   {
    "pair": "IDN-TWN",
@@ -8176,7 +8789,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.01,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Indonesia — Taiwan"
   },
   {
    "pair": "ARM-PHL",
@@ -8189,7 +8803,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.5,
-   "top": 0.281
+   "top": 0.281,
+   "names_en": "Armenia — Philippines"
   },
   {
    "pair": "AUS-UKR",
@@ -8202,7 +8817,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.19,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Ukraine"
   },
   {
    "pair": "ISR-PHL",
@@ -8215,7 +8831,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -1.1,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Philippines"
   },
   {
    "pair": "BRA-IND",
@@ -8228,7 +8845,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.4,
    "parity": -1.54,
-   "top": 0.647
+   "top": 0.647,
+   "names_en": "Brazil — India"
   },
   {
    "pair": "FIN-PHL",
@@ -8241,7 +8859,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.05,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Finland — Philippines"
   },
   {
    "pair": "BRA-THA",
@@ -8254,7 +8873,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.39,
    "parity": -0.18,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Thailand"
   },
   {
    "pair": "PHL-SWE",
@@ -8267,7 +8887,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.23,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Philippines — Sweden"
   },
   {
    "pair": "PHL-POL",
@@ -8280,7 +8901,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.65,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Philippines — Poland"
   },
   {
    "pair": "GRC-PHL",
@@ -8293,7 +8915,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.3,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Philippines"
   },
   {
    "pair": "ARM-BLR",
@@ -8306,7 +8929,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.16,
    "parity": -0.41,
-   "top": 0.266
+   "top": 0.266,
+   "names_en": "Armenia — Belarus"
   },
   {
    "pair": "DEU-PHL",
@@ -8319,7 +8943,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -1.28,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Philippines"
   },
   {
    "pair": "BRA-FRA",
@@ -8332,7 +8957,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.74,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Brazil — France"
   },
   {
    "pair": "IDN-KOR",
@@ -8345,7 +8971,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -1.06,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Indonesia — Republic of Korea"
   },
   {
    "pair": "AUS-IDN",
@@ -8358,7 +8985,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.02,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Indonesia"
   },
   {
    "pair": "ITA-PHL",
@@ -8371,7 +8999,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -1.31,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Philippines"
   },
   {
    "pair": "ARM-RUS",
@@ -8384,7 +9013,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.17,
    "parity": -3.23,
-   "top": 0.736
+   "top": 0.736,
+   "names_en": "Armenia — Russia"
   },
   {
    "pair": "IDN-JPN",
@@ -8397,7 +9027,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.82,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Indonesia — Japan"
   },
   {
    "pair": "ARM-IDN",
@@ -8410,7 +9041,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -1.24,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Armenia — Indonesia"
   },
   {
    "pair": "IDN-ISR",
@@ -8423,7 +9055,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.36,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Indonesia — Israel"
   },
   {
    "pair": "GRC-IDN",
@@ -8436,7 +9069,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.45,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Greece — Indonesia"
   },
   {
    "pair": "FIN-IDN",
@@ -8449,7 +9083,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.69,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Finland — Indonesia"
   },
   {
    "pair": "BRA-PHL",
@@ -8462,7 +9097,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.43,
    "parity": -0.65,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Philippines"
   },
   {
    "pair": "IDN-POL",
@@ -8475,7 +9111,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.09,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Poland"
   },
   {
    "pair": "IDN-SWE",
@@ -8488,7 +9125,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.51,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Indonesia — Sweden"
   },
   {
    "pair": "DEU-IDN",
@@ -8501,7 +9139,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.54,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Indonesia"
   },
   {
    "pair": "ARM-ISR",
@@ -8514,7 +9153,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.6,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Armenia — Israel"
   },
   {
    "pair": "IDN-ITA",
@@ -8527,7 +9167,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.57,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Indonesia — Italy"
   },
   {
    "pair": "FRA-IDN",
@@ -8540,7 +9181,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.64,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Indonesia"
   },
   {
    "pair": "GBR-IDN",
@@ -8553,7 +9195,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.27,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Indonesia"
   },
   {
    "pair": "ARM-GRC",
@@ -8566,7 +9209,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -0.8,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Armenia — Greece"
   },
   {
    "pair": "ARM-POL",
@@ -8579,7 +9223,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.15,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Armenia — Poland"
   },
   {
    "pair": "BRA-IDN",
@@ -8592,7 +9237,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -0.09,
-   "top": 0.405
+   "top": 0.405,
+   "names_en": "Brazil — Indonesia"
   },
   {
    "pair": "IDN-USA",
@@ -8605,7 +9251,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.48,
    "parity": -2.37,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Indonesia — United States"
   },
   {
    "pair": "ARM-FIN",
@@ -8618,7 +9265,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -0.55,
-   "top": 0.289
+   "top": 0.289,
+   "names_en": "Armenia — Finland"
   },
   {
    "pair": "ARM-ITA",
@@ -8631,7 +9279,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.81,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Armenia — Italy"
   },
   {
    "pair": "ARM-DEU",
@@ -8644,7 +9293,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.79,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Armenia — Germany"
   },
   {
    "pair": "ARM-SWE",
@@ -8657,7 +9307,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -0.73,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Armenia — Sweden"
   },
   {
    "pair": "ARM-FRA",
@@ -8670,7 +9321,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.89,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Armenia — France"
   },
   {
    "pair": "POL-TUR",
@@ -8683,7 +9335,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.42,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Poland — Türkiye"
   },
   {
    "pair": "ARM-GBR",
@@ -8696,7 +9349,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.52,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Armenia — United Kingdom"
   },
   {
    "pair": "ITA-TUR",
@@ -8709,7 +9363,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.24,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Türkiye"
   },
   {
    "pair": "DEU-TUR",
@@ -8722,7 +9377,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.21,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Türkiye"
   },
   {
    "pair": "FIN-TUR",
@@ -8735,7 +9391,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -1.02,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Finland — Türkiye"
   },
   {
    "pair": "SWE-TUR",
@@ -8748,7 +9405,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.84,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "Sweden — Türkiye"
   },
   {
    "pair": "FRA-TUR",
@@ -8761,7 +9419,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.31,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Türkiye"
   },
   {
    "pair": "GBR-TUR",
@@ -8774,7 +9433,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -0.06,
-   "top": 0.46
+   "top": 0.46,
+   "names_en": "United Kingdom — Türkiye"
   },
   {
    "pair": "GRC-ISR",
@@ -8787,7 +9447,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.81,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Greece — Israel"
   },
   {
    "pair": "DEU-POL",
@@ -8800,7 +9461,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.63,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Poland"
   },
   {
    "pair": "JPN-KOR",
@@ -8813,7 +9475,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.24,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Japan — Republic of Korea"
   },
   {
    "pair": "ARM-KOR",
@@ -8826,7 +9489,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -2.3,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Armenia — Republic of Korea"
   },
   {
    "pair": "ARM-TWN",
@@ -8839,7 +9503,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.26,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Armenia — Taiwan"
   },
   {
    "pair": "KOR-TWN",
@@ -8852,7 +9517,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.05,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Taiwan"
   },
   {
    "pair": "ARM-JPN",
@@ -8865,7 +9531,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -2.06,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Armenia — Japan"
   },
   {
    "pair": "ISR-ITA",
@@ -8878,7 +9545,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.21,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Israel — Italy"
   },
   {
    "pair": "ARM-USA",
@@ -8891,7 +9559,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -3.61,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Armenia — United States"
   },
   {
    "pair": "ISR-POL",
@@ -8904,7 +9573,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.45,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Poland"
   },
   {
    "pair": "DEU-ISR",
@@ -8917,7 +9587,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.18,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Israel"
   },
   {
    "pair": "ARM-BRA",
@@ -8930,7 +9601,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.15,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Armenia — Brazil"
   },
   {
    "pair": "FIN-ISR",
@@ -8943,7 +9615,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -1.05,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Finland — Israel"
   },
   {
    "pair": "ISR-SWE",
@@ -8956,7 +9629,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.87,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Sweden"
   },
   {
    "pair": "FRA-ISR",
@@ -8969,7 +9643,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.28,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Israel"
   },
   {
    "pair": "GBR-ISR",
@@ -8982,7 +9657,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.09,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "United Kingdom — Israel"
   },
   {
    "pair": "ARM-AUS",
@@ -8995,7 +9671,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.62,
    "parity": -1.26,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Armenia — Australia"
   },
   {
    "pair": "TUR-USA",
@@ -9008,7 +9685,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.29,
    "parity": -2.04,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Türkiye — United States"
   },
   {
    "pair": "PHL-THA",
@@ -9021,7 +9699,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.39,
    "parity": -0.47,
-   "top": 0.359
+   "top": 0.359,
+   "names_en": "Philippines — Thailand"
   },
   {
    "pair": "FRA-ITA",
@@ -9034,7 +9713,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -0.08,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Italy"
   },
   {
    "pair": "JPN-TWN",
@@ -9047,7 +9727,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.81,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Taiwan"
   },
   {
    "pair": "FIN-SWE",
@@ -9060,7 +9741,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.85,
    "parity": -0.19,
-   "top": 0.32
+   "top": 0.32,
+   "names_en": "Finland — Sweden"
   },
   {
    "pair": "ISR-KOR",
@@ -9073,7 +9755,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.7,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Israel — Republic of Korea"
   },
   {
    "pair": "ISR-TWN",
@@ -9086,7 +9769,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.35,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Israel — Taiwan"
   },
   {
    "pair": "FIN-KOR",
@@ -9099,7 +9783,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.75,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Finland — Republic of Korea"
   },
   {
    "pair": "KOR-SWE",
@@ -9112,7 +9797,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.57,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Sweden"
   },
   {
    "pair": "ISR-JPN",
@@ -9125,7 +9811,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.46,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Israel — Japan"
   },
   {
    "pair": "KOR-POL",
@@ -9138,7 +9825,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.15,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Republic of Korea — Poland"
   },
   {
    "pair": "ISR-USA",
@@ -9151,7 +9839,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -2.01,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Israel — United States"
   },
   {
    "pair": "DEU-KOR",
@@ -9164,7 +9853,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.52,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Germany — Republic of Korea"
   },
   {
    "pair": "DEU-FRA",
@@ -9177,7 +9867,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -0.1,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Germany — France"
   },
   {
    "pair": "AUS-KOR",
@@ -9190,7 +9881,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.04,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Australia — Republic of Korea"
   },
   {
    "pair": "POL-TWN",
@@ -9203,7 +9895,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.1,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Poland — Taiwan"
   },
   {
    "pair": "GRC-KOR",
@@ -9216,7 +9909,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.51,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Greece — Republic of Korea"
   },
   {
    "pair": "BRA-ISR",
@@ -9229,7 +9923,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.45,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Brazil — Israel"
   },
   {
    "pair": "JPN-POL",
@@ -9242,7 +9937,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.91,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Poland"
   },
   {
    "pair": "GBR-KOR",
@@ -9255,7 +9951,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.79,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "United Kingdom — Republic of Korea"
   },
   {
    "pair": "FRA-KOR",
@@ -9268,7 +9965,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.42,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "France — Republic of Korea"
   },
   {
    "pair": "ITA-KOR",
@@ -9281,7 +9979,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.49,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Italy — Republic of Korea"
   },
   {
    "pair": "BRA-POL",
@@ -9294,7 +9993,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.01,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Brazil — Poland"
   },
   {
    "pair": "AUS-ISR",
@@ -9307,7 +10007,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.71,
    "parity": -0.34,
-   "top": 0.465
+   "top": 0.465,
+   "names_en": "Australia — Israel"
   },
   {
    "pair": "GRC-TWN",
@@ -9320,7 +10021,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.75,
    "parity": -0.46,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Greece — Taiwan"
   },
   {
    "pair": "GRC-JPN",
@@ -9333,7 +10035,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.75,
    "parity": -1.26,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Greece — Japan"
   },
   {
    "pair": "BRA-GRC",
@@ -9346,7 +10049,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.75,
    "parity": -0.35,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Greece"
   },
   {
    "pair": "AUS-THA",
@@ -9359,7 +10063,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.39,
    "parity": -0.29,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Thailand"
   },
   {
    "pair": "AUS-POL",
@@ -9372,7 +10077,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -0.11,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Poland"
   },
   {
    "pair": "FRA-THA",
@@ -9385,7 +10091,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.39,
    "parity": -0.92,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Thailand"
   },
   {
    "pair": "GBR-THA",
@@ -9398,7 +10105,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.39,
    "parity": -0.55,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Thailand"
   },
   {
    "pair": "BRA-KOR",
@@ -9411,7 +10119,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.73,
    "parity": -1.15,
-   "top": 0.582
+   "top": 0.582,
+   "names_en": "Brazil — Republic of Korea"
   },
   {
    "pair": "AUS-TWN",
@@ -9424,7 +10133,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.01,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Taiwan"
   },
   {
    "pair": "AUS-PHL",
@@ -9437,7 +10147,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.43,
    "parity": -0.76,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Philippines"
   },
   {
    "pair": "FIN-TWN",
@@ -9450,7 +10161,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.71,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Finland — Taiwan"
   },
   {
    "pair": "AUS-GRC",
@@ -9463,7 +10175,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.75,
    "parity": -0.46,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Greece"
   },
   {
    "pair": "SWE-TWN",
@@ -9476,7 +10189,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.52,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Sweden — Taiwan"
   },
   {
    "pair": "BRA-GBR",
@@ -9489,7 +10203,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.37,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Brazil — United Kingdom"
   },
   {
    "pair": "DEU-TWN",
@@ -9502,7 +10217,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.53,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Taiwan"
   },
   {
    "pair": "BRA-ITA",
@@ -9515,7 +10231,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.66,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Brazil — Italy"
   },
   {
    "pair": "ITA-TWN",
@@ -9528,7 +10245,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.55,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Taiwan"
   },
   {
    "pair": "BRA-DEU",
@@ -9541,7 +10259,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.64,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Brazil — Germany"
   },
   {
    "pair": "THA-USA",
@@ -9554,7 +10273,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.39,
    "parity": -2.64,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Thailand — United States"
   },
   {
    "pair": "GBR-TWN",
@@ -9567,7 +10287,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.26,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Taiwan"
   },
   {
    "pair": "FRA-TWN",
@@ -9580,7 +10301,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.63,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Taiwan"
   },
   {
    "pair": "FIN-JPN",
@@ -9593,7 +10315,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -1.51,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Finland — Japan"
   },
   {
    "pair": "ITA-JPN",
@@ -9606,7 +10329,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.25,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Italy — Japan"
   },
   {
    "pair": "AUS-JPN",
@@ -9619,7 +10343,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -0.8,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Australia — Japan"
   },
   {
    "pair": "BRA-SWE",
@@ -9632,7 +10357,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.42,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Sweden"
   },
   {
    "pair": "JPN-SWE",
@@ -9645,7 +10371,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -1.33,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Japan — Sweden"
   },
   {
    "pair": "BRA-FIN",
@@ -9658,7 +10385,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.6,
-   "top": 0.389
+   "top": 0.389,
+   "names_en": "Brazil — Finland"
   },
   {
    "pair": "DEU-JPN",
@@ -9671,7 +10399,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -0.28,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Germany — Japan"
   },
   {
    "pair": "GBR-JPN",
@@ -9684,7 +10413,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -0.54,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "United Kingdom — Japan"
   },
   {
    "pair": "FRA-JPN",
@@ -9697,7 +10427,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.82,
    "parity": -0.17,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "France — Japan"
   },
   {
    "pair": "TWN-USA",
@@ -9710,7 +10441,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -2.35,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Taiwan — United States"
   },
   {
    "pair": "GBR-PHL",
@@ -9723,7 +10455,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.43,
    "parity": -1.02,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Philippines"
   },
   {
    "pair": "FRA-PHL",
@@ -9736,7 +10469,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.43,
    "parity": -1.39,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Philippines"
   },
   {
    "pair": "AUS-BRA",
@@ -9749,7 +10483,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.11,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Brazil"
   },
   {
    "pair": "AUS-ITA",
@@ -9762,7 +10497,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.55,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Australia — Italy"
   },
   {
    "pair": "PHL-USA",
@@ -9775,7 +10511,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.43,
    "parity": -3.11,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Philippines — United States"
   },
   {
    "pair": "BRA-JPN",
@@ -9788,7 +10525,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.91,
-   "top": 0.541
+   "top": 0.541,
+   "names_en": "Brazil — Japan"
   },
   {
    "pair": "BRA-TWN",
@@ -9801,7 +10539,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.8,
    "parity": -0.11,
-   "top": 0.407
+   "top": 0.407,
+   "names_en": "Brazil — Taiwan"
   },
   {
    "pair": "AUS-DEU",
@@ -9814,7 +10553,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.84,
    "parity": -0.52,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Australia — Germany"
   },
   {
    "pair": "AUS-FIN",
@@ -9827,7 +10567,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.85,
    "parity": -0.71,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Finland"
   },
   {
    "pair": "AUS-SWE",
@@ -9840,7 +10581,8 @@ window.MONITOR_DATA = {
    "ally": 0.0,
    "demo": 0.86,
    "parity": -0.53,
-   "top": 0.408
+   "top": 0.408,
+   "names_en": "Australia — Sweden"
   },
   {
    "pair": "POL-SWE",
@@ -9853,7 +10595,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.42,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Poland — Sweden"
   },
   {
    "pair": "FIN-POL",
@@ -9866,7 +10609,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.61,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Finland — Poland"
   },
   {
    "pair": "ITA-POL",
@@ -9879,7 +10623,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.65,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Poland"
   },
   {
    "pair": "FRA-POL",
@@ -9892,7 +10637,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.73,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Poland"
   },
   {
    "pair": "GBR-POL",
@@ -9905,7 +10651,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.36,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Poland"
   },
   {
    "pair": "GRC-POL",
@@ -9918,7 +10665,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -0.36,
-   "top": 0.39
+   "top": 0.39,
+   "names_en": "Greece — Poland"
   },
   {
    "pair": "GRC-ITA",
@@ -9931,7 +10679,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -1.01,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Greece — Italy"
   },
   {
    "pair": "DEU-GRC",
@@ -9944,7 +10693,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -0.99,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Greece"
   },
   {
    "pair": "FRA-GRC",
@@ -9957,7 +10707,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -1.09,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Greece"
   },
   {
    "pair": "GBR-GRC",
@@ -9970,7 +10721,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -0.72,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Greece"
   },
   {
    "pair": "GRC-SWE",
@@ -9983,7 +10735,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -0.06,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Greece — Sweden"
   },
   {
    "pair": "FIN-GRC",
@@ -9996,7 +10749,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -0.25,
-   "top": 0.33
+   "top": 0.33,
+   "names_en": "Finland — Greece"
   },
   {
    "pair": "FRA-GBR",
@@ -10009,7 +10763,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -0.37,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — United Kingdom"
   },
   {
    "pair": "DEU-ITA",
@@ -10022,7 +10777,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -0.02,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Germany — Italy"
   },
   {
    "pair": "GBR-ITA",
@@ -10035,7 +10791,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -0.29,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "United Kingdom — Italy"
   },
   {
    "pair": "DEU-GBR",
@@ -10048,7 +10805,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -0.27,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — United Kingdom"
   },
   {
    "pair": "DEU-SWE",
@@ -10061,7 +10819,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -1.05,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Sweden"
   },
   {
    "pair": "ITA-SWE",
@@ -10074,7 +10833,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -1.07,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Italy — Sweden"
   },
   {
    "pair": "FIN-ITA",
@@ -10087,7 +10847,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -1.26,
-   "top": 0.499
+   "top": 0.499,
+   "names_en": "Finland — Italy"
   },
   {
    "pair": "DEU-FIN",
@@ -10100,7 +10861,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -1.24,
-   "top": 0.495
+   "top": 0.495,
+   "names_en": "Germany — Finland"
   },
   {
    "pair": "POL-USA",
@@ -10113,7 +10875,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -2.45,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Poland — United States"
   },
   {
    "pair": "GBR-SWE",
@@ -10126,7 +10889,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -0.78,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "United Kingdom — Sweden"
   },
   {
    "pair": "FIN-GBR",
@@ -10139,7 +10903,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -0.97,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Finland — United Kingdom"
   },
   {
    "pair": "FIN-FRA",
@@ -10152,7 +10917,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.85,
    "parity": -1.34,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Finland — France"
   },
   {
    "pair": "GRC-USA",
@@ -10165,7 +10931,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.75,
    "parity": -2.81,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Greece — United States"
   },
   {
    "pair": "KOR-USA",
@@ -10178,7 +10945,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.73,
    "parity": -1.31,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Republic of Korea — United States"
   },
   {
    "pair": "FRA-SWE",
@@ -10191,7 +10959,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.87,
    "parity": -1.15,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "France — Sweden"
   },
   {
    "pair": "BRA-USA",
@@ -10204,7 +10973,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -2.46,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Brazil — United States"
   },
   {
    "pair": "ITA-USA",
@@ -10217,7 +10987,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.8,
    "parity": -1.8,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Italy — United States"
   },
   {
    "pair": "GBR-USA",
@@ -10230,7 +11001,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -2.09,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "United Kingdom — United States"
   },
   {
    "pair": "FRA-USA",
@@ -10243,7 +11015,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -1.72,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "France — United States"
   },
   {
    "pair": "DEU-USA",
@@ -10256,7 +11029,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -1.82,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Germany — United States"
   },
   {
    "pair": "SWE-USA",
@@ -10269,7 +11043,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -2.87,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Sweden — United States"
   },
   {
    "pair": "FIN-USA",
@@ -10282,7 +11057,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -3.06,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Finland — United States"
   },
   {
    "pair": "JPN-USA",
@@ -10295,7 +11071,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.82,
    "parity": -1.55,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Japan — United States"
   },
   {
    "pair": "AUS-GBR",
@@ -10308,7 +11085,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.83,
    "parity": -0.26,
-   "top": 0.45
+   "top": 0.45,
+   "names_en": "Australia — United Kingdom"
   },
   {
    "pair": "AUS-USA",
@@ -10321,7 +11099,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.84,
    "parity": -2.35,
-   "top": 0.8
+   "top": 0.8,
+   "names_en": "Australia — United States"
   },
   {
    "pair": "AUS-FRA",
@@ -10334,7 +11113,8 @@ window.MONITOR_DATA = {
    "ally": 1.0,
    "demo": 0.86,
    "parity": -0.63,
-   "top": 0.512
+   "top": 0.512,
+   "names_en": "Australia — France"
   }
  ]
 };
