@@ -588,6 +588,28 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       </div>
       <div class="formula" id="sv-formula"></div>
     </div>
+    <div class="panel stack" style="gap:12px">
+      <div class="panel-head"><div><h3 data-i18n-en="Layered air defence · target speed">Эшелонированная ПВО · скорость цели</h3><span class="muted small" data-i18n-en="Two layers in sequence (1 — outer). An interceptor's effectiveness falls with target speed above its reference speed: p = p₀·(v_ref / v)^g. Defaults are class D (open claims), not calibrated; the exponent g and the speeds are yours to set.">Два эшелона подряд (1 — внешний). Эффективность перехватчика падает со скоростью цели выше его опорной: p = p₀·(v_ref / v)^g. Значения по умолчанию — класс D (открытые заявления), не калибровка; показатель g и скорости задаёте вы.</span></div></div>
+      <div class="row" style="gap:8px; align-items:flex-end">
+        <div class="field" style="min-width:240px"><label for="ld-preset" data-i18n-en="Scenario">Сценарий</label>
+          <select id="ld-preset"><option value="slow" data-i18n-en="Piston-engine Shahed-type · 180 km/h">Поршневой «Шахед» · 180 км/ч</option><option value="fast" data-i18n-en="Jet-type · 500 km/h">Реактивная цель · 500 км/ч</option><option value="custom" data-i18n-en="Custom (speed set below)">Своя (скорость ниже)</option></select></div>
+      </div>
+      <div class="cols-even">
+        <div class="stack" style="gap:10px">
+          <div class="inputs" id="ld-target"></div>
+          <h3 data-i18n-en="Layer 1 · outer (e.g. SAM missiles)">Эшелон 1 · внешний (например, ракеты ЗРК)</h3>
+          <div class="inputs" id="ld-l0"></div>
+          <h3 data-i18n-en="Layer 2 · inner (e.g. interceptor drones, mobile fire groups)">Эшелон 2 · внутренний (например, дроны-перехватчики, огневые группы)</h3>
+          <div class="inputs" id="ld-l1"></div>
+        </div>
+        <div class="stack" style="gap:10px">
+          <p class="verdict" id="ld-verdict"></p>
+          <dl class="kv" id="ld-kv"></dl>
+          <div class="chart-box" id="ld-chart"></div>
+        </div>
+      </div>
+      <div class="formula" id="ld-formula"></div>
+    </div>
   </section>
 
   <!-- МЕТОДИКА -->
@@ -1730,6 +1752,71 @@ Leakage per salvo = S · (1 − p)^k;  stock(t+1) = stock(t) − k·S·z + outpu
 Hughes salvo model (naval):  ΔB = (a·A − y_B·B) / w_B,   ΔA = (b·B − y_A·A) / w_A
 a, b — hits per ship per salvo; y — missiles intercepted per ship; w — hits needed to put a ship out of action`);
 }
+// Эшелонированная ПВО — повторяет core/lanmil/salvo.py (layered_defense; контрольный пример — IVM_PARAMS.layered_check)
+function pEff(p0, v, vRef, g) { return v <= vRef ? p0 : p0 * Math.pow(vRef / v, g); }
+function layeredDefense({ S, z, days, v, layers, g = .5, c_thr = 0 }) {
+  const mags = layers.map((l) => l.magazine);
+  let spentI = 0, spentT = 0;
+  const rows = [];
+  for (let d = 1; d <= days; d++) {
+    let fired = 0, leak = 0;
+    const used = layers.map(() => 0);
+    for (let i = 0; i < z; i++) {
+      let alive = S; fired += S;
+      layers.forEach((l, j) => {
+        if (alive <= 1e-12) return;
+        const kk = Math.min(l.k, mags[j] / alive), n = kk * alive;
+        mags[j] -= n; used[j] += n; alive *= leakShare(kk, pEff(l.p0, v, l.v_ref, g));
+      });
+      leak += alive;
+    }
+    layers.forEach((l, j) => { mags[j] += l.prod || 0; });
+    spentT += fired * c_thr; spentI += used.reduce((s, u, j) => s + u * (layers[j].cost || 0), 0);
+    rows.push({ day: d, fired, leak, used, magazine: mags.slice(), cost_ratio: spentT > 0 ? spentI / spentT : null });
+  }
+  return rows;
+}
+const LD_DEF = { S: 100, z: 1, days: 30, v: 180, g: .5, c_thr: .03, layers: [{ magazine: 300, k: 1, p0: .85, v_ref: 600, prod: 5, cost: 1 }, { magazine: 600, k: 1.5, p0: .7, v_ref: 250, prod: 300, cost: .005 }] };
+const ld = JSON.parse(JSON.stringify((IP.layered_check || {}).input || LD_DEF));
+const LD_TARGET = [["S", "Целей в залпе", "Targets per salvo", 10], ["z", "Залпов в сутки", "Salvos per day", 1], ["days", "Горизонт, сут", "Horizon, days", 1],
+  ["v", "Скорость цели, км/ч", "Target speed, km/h", 10], ["g", "Показатель падения p, g", "Exponent of p decline, g", .1], ["c_thr", "Цена цели, млн $", "Target cost, $m", .005]];
+const LD_LAYER = [["magazine", "Запас", "Stock", 50], ["k", "Перехватчиков на цель", "Interceptors per target", .5], ["p0", "p₀ (до опорной скорости)", "p₀ (up to reference speed)", .05],
+  ["v_ref", "Опорная скорость, км/ч", "Reference speed, km/h", 10], ["prod", "Выпуск в сутки", "Output per day", 5], ["cost", "Цена, млн $", "Cost, $m", .005]];
+function renderLayered() {
+  const rows = layeredDefense(ld), last = rows[rows.length - 1], first = rows[0];
+  const tot = rows.reduce((s, r) => s + r.leak, 0), used = ld.layers.map((_, j) => rows.reduce((s, r) => s + r.used[j], 0));
+  const p = ld.layers.map((l) => pEff(l.p0, ld.v, l.v_ref, ld.g));
+  $("ld-verdict").textContent = L(`Цель ${fmt(ld.v, 0)} км/ч: эффективная p эшелонов ${p.map((x) => fmt(x, 2)).join(" и ")}; в первые сутки прорывается ${fmt(first.leak, 1)} из ${fmt(ld.S * ld.z, 0)}, к ${ld.days}-м суткам — ${fmt(last.leak, 1)}${last.leak > first.leak * 1.5 ? " (запас эшелона иссякает)" : ""}.`,
+    `Target at ${fmt(ld.v, 0)} km/h: effective p of the layers ${p.map((x) => fmt(x, 2)).join(" and ")}; on day 1 ${fmt(first.leak, 1)} of ${fmt(ld.S * ld.z, 0)} get through, by day ${ld.days} — ${fmt(last.leak, 1)}${last.leak > first.leak * 1.5 ? " (a layer's stock runs out)" : ""}.`);
+  $("ld-kv").innerHTML = `<dt>${L(`Прорвалось за ${ld.days} сут`, `Leaked over ${ld.days} days`)}</dt><dd>${fmt(tot, 0)}</dd>` +
+    ld.layers.map((l, j) => `<dt>${L(`Эшелон ${j + 1}: потрачено / запас в конце`, `Layer ${j + 1}: expended / stock at the end`)}</dt><dd>${fmt(used[j], 0)} / ${fmt(last.magazine[j], 0)}</dd>`).join("") +
+    `<dt>${L("Стоимостной обмен (оборона : нападение)", "Cost exchange (defence : offence)")}</dt><dd>${last.cost_ratio == null ? "—" : fmt(last.cost_ratio, 1) + " : 1"}</dd>`;
+  const W = 520, H = 200, m = { l: 46, r: 14, t: 12, b: 30 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const lmax = Math.max(...rows.map((r) => r.leak), 1);
+  const sx = (d) => m.l + ((d - 1) / Math.max(rows.length - 1, 1)) * iw, sy = (v) => m.t + ih - (v / lmax) * ih;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${L("Прорыв по суткам", "Leakage by day")}"><line x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}" stroke="var(--axis)"/>`;
+  s += `<polyline fill="none" stroke="var(--side-a)" stroke-width="2" points="${rows.map((r) => `${sx(r.day)},${sy(r.leak)}`).join(" ")}"/>`;
+  s += `<text x="${m.l - 6}" y="${m.t + 10}" text-anchor="end" class="ax-label">${fmt(lmax, 0)}</text><text x="${m.l}" y="${H - 8}" class="ax-label">${L("сутки 1", "day 1")}</text><text x="${W - m.r}" y="${H - 8}" text-anchor="end" class="ax-label">${rows.length}</text></svg>`;
+  $("ld-chart").innerHTML = s;
+  $("ld-formula").textContent = L(`p_eff = p₀ при v ≤ v_ref, иначе p₀·(v_ref / v)^g;  цель проходит эшелон с вероятностью (1 − p_eff)^n (n — целые перехватчики на цель)
+Эшелон j тратит запас только на цели, дошедшие до него:  запас_j(t+1) = запас_j(t) − k_j·(число дошедших) + выпуск_j
+Здесь g = ${fmt(ld.g, 2)}: при 500 км/ч эшелон 2 (v_ref ${fmt(ld.layers[1].v_ref, 0)}) даёт p = ${fmt(pEff(ld.layers[1].p0, 500, ld.layers[1].v_ref, ld.g), 2)} вместо ${fmt(ld.layers[1].p0, 2)}`,
+    `p_eff = p₀ for v ≤ v_ref, otherwise p₀·(v_ref / v)^g;  a target passes a layer with probability (1 − p_eff)^n (n — whole interceptors per target)
+Layer j spends stock only on targets that reached it:  stock_j(t+1) = stock_j(t) − k_j·(number reaching it) + output_j
+With g = ${fmt(ld.g, 2)}: at 500 km/h layer 2 (v_ref ${fmt(ld.layers[1].v_ref, 0)}) gives p = ${fmt(pEff(ld.layers[1].p0, 500, ld.layers[1].v_ref, ld.g), 2)} instead of ${fmt(ld.layers[1].p0, 2)}`);
+}
+function initLayered() {
+  const lab = (a, b) => (LANG === "en" ? b : a);
+  const inp = (id, key, lbl, st, val) => `<div class="field"><label for="${id}">${lbl}</label><input type="number" id="${id}" step="${st}" min="0" value="${val}" data-k="${key}"></div>`;
+  $("ld-target").innerHTML = LD_TARGET.map(([k, ru, en, st]) => inp("ld-t-" + k, k, lab(ru, en), st, ld[k])).join("");
+  [0, 1].forEach((j) => { $("ld-l" + j).innerHTML = LD_LAYER.map(([k, ru, en, st]) => inp(`ld-${j}-${k}`, k, lab(ru, en), st, ld.layers[j][k])).join(""); });
+  const wire = (el, set) => el.addEventListener("input", (e) => { const v = Number(e.target.value); if (Number.isFinite(v) && v >= 0) { set(v); $("ld-preset").value = ld.v === 180 ? "slow" : ld.v === 500 ? "fast" : "custom"; renderLayered(); } });
+  for (const [k] of LD_TARGET) wire($("ld-t-" + k), (v) => { ld[k] = k === "days" || k === "z" ? Math.max(1, Math.round(v)) : v; });
+  [0, 1].forEach((j) => { for (const [k] of LD_LAYER) wire($(`ld-${j}-${k}`), (v) => { ld.layers[j][k] = k === "p0" ? Math.min(v, 1) : v; }); });
+  $("ld-preset").onchange = (e) => { if (e.target.value !== "custom") { ld.v = e.target.value === "fast" ? 500 : 180; $("ld-t-v").value = ld.v; } renderLayered(); };
+  $("ld-preset").value = ld.v === 180 ? "slow" : ld.v === 500 ? "fast" : "custom";
+  renderLayered();
+}
 function initSalvo() {
   $("sv-inputs").innerHTML = (LANG === "en" ? SV_FIELDS_EN : SV_FIELDS).map(([k, lbl, st]) => `<div class="field"><label for="sv-${k}">${lbl}</label><input type="number" id="sv-${k}" step="${st}" min="0" value="${sv[k]}"></div>`).join("");
   for (const [k] of SV_FIELDS) $("sv-" + k).addEventListener("input", (e) => { const v = Number(e.target.value); if (Number.isFinite(v) && v >= 0) { sv[k] = k === "p" ? Math.min(v, 1) : k === "days" || k === "z" ? Math.max(1, Math.round(v)) : v; renderSalvo(); } });
@@ -1741,7 +1828,11 @@ function selfCheck() {
   const sc = IP.salvo_check;
   const salvoBad = !sc ? [] : [
     ...airDefense(sc.input).map((r, i) => Math.abs(r.leak - sc.leak[i]) > 1e-3 || Math.abs(r.magazine - sc.magazine[i]) > 1e-3 ? `ПВО, сутки ${i + 1}` : null).filter(Boolean),
-    ...hughesSalvo(sc.hughes_input).map((v, i) => (Math.abs(v - sc.hughes[i]) > 1e-3 ? "залпы Хьюза" : null)).filter(Boolean)];
+    ...hughesSalvo(sc.hughes_input).map((v, i) => (Math.abs(v - sc.hughes[i]) > 1e-3 ? "залпы Хьюза" : null)).filter(Boolean),
+    ...(IP.layered_check ? ["slow", "fast"].flatMap((key) => {
+      const lc = IP.layered_check, rows = layeredDefense({ ...JSON.parse(JSON.stringify(lc.input)), v: lc[key].v });
+      return rows.map((r, i) => (Math.abs(r.leak - lc[key].leak[i]) > 1e-3 ? `эшелонированная ПВО (${key}), сутки ${i + 1}` : null)).filter(Boolean);
+    }) : [])];
   const mem = (k) => { const c = window.REAL_DATA.countries[k]; if (c) return { ivm: c.auto / 100, lam: c.lam }; const x = EXTRA_REAL.find((e) => e.id === k); return x ? { ivm: x.ivm / 100, lam: x.lam } : null; };
   const bad = [...salvoBad];
   for (const [k, chk] of Object.entries(IP.checks)) {
@@ -2254,7 +2345,7 @@ function applyDynamicLang() {
   $("cat-sources").textContent = L("Источники: ", "Sources: ") + Object.keys(SOURCES).map((k) => `${srcKey(k)} — ${srcName(k)}`).join("; ") + ".";
   // Подписи весов и поля залпов строятся один раз; при смене языка их нужно пересобрать.
   if ($("m-weights").childElementCount) $("m-weights").innerHTML = "";
-  if ($("sv-inputs").childElementCount) initSalvo();
+  if ($("sv-inputs").childElementCount) { initSalvo(); initLayered(); }
 }
 function setLang(v) {
   if (v !== "ru" && v !== "en") v = "ru";
@@ -2290,6 +2381,7 @@ function init() {
   $("ln-mob").addEventListener("change", (e) => { ln.mob = e.target.checked; renderLanchester(); });
   $("ln-allies").addEventListener("change", (e) => { ln.allies = e.target.checked; renderLanchester(); });
   initSalvo();
+  initLayered();
   $("m-preset").addEventListener("change", (e) => { state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
   document.querySelectorAll("#m-nuclear button").forEach((b) => b.addEventListener("click", () => { state.nuclear = b.dataset.v; recompute(false); }));
   document.querySelectorAll("#m-norm button").forEach((b) => b.addEventListener("click", () => { state.norm = b.dataset.v; recompute(false); }));
