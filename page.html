@@ -380,6 +380,15 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <span class="muted" data-i18n-en="Click a row to open the profile.">Нажмите на строку, чтобы открыть профиль.</span>
       </div>
     </div>
+    <div class="panel" id="pj-panel">
+      <div class="panel-head">
+        <div style="min-width:0; flex:1 1 420px"><h3 data-i18n-en="Resource base forecast to 2035">Прогноз ресурсной базы на 2035 г.</h3>
+          <p class="muted small" data-i18n-en="Not a forecast of the MPI: military spending and accumulated “military capital” (spending with 7% annual depreciation) for the 40 pilot countries, SIPRI constant prices and IMF growth. Quality, alliances and the nuclear axis are not projected (core/projection.py).">Не прогноз ИВМ: военные расходы и накопленный «военный капитал» (расходы с выбытием 7% в год) для 40 стран пилота, постоянные цены SIPRI и рост ВВП по МВФ. Качество, союзы и ядерная ось не прогнозируются (core/projection.py).</p></div>
+        <span class="seg sm" id="pj-sc" role="group" aria-label="Сценарий" data-i18n-en-aria="Scenario"><button data-v="trend" aria-pressed="true" data-i18n-en="Trend 2021–2025">Тренд 2021–2025</button><button data-v="nato" aria-pressed="false" data-i18n-en="NATO 3.5% of GDP">НАТО 3,5% ВВП</button><button data-v="gdp" aria-pressed="false" data-i18n-en="Constant share of GDP">Доля ВВП</button></span>
+      </div>
+      <div class="tbl-wrap" style="max-height:420px; overflow:auto"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country">Государство</th><th class="num" data-i18n-en="Spending 2025, $bn">Расходы 2025, млрд $</th><th class="num" data-i18n-en="Spending 2035, $bn">Расходы 2035, млрд $</th><th class="num" data-i18n-en="Capital share 2025">Доля капитала 2025</th><th class="num" data-i18n-en="Capital share 2035">Доля капитала 2035</th><th class="num" data-i18n-en="Rank 2025 → 2035">Место 2025 → 2035</th></tr></thead><tbody id="pj-table"></tbody></table></div>
+      <p class="small muted" style="margin-top:8px" id="pj-note"></p>
+    </div>
   </section>
 
   <!-- ПРОФИЛЬ -->
@@ -1336,6 +1345,7 @@ function openTab(name) {
   if (name === "coalition") renderCoalition();
   if (name === "monitor") { renderMonitor(); renderWarnings(); }
   if (name === "competitors") renderCompetitors();
+  if (name === "rating") renderProjection();
   window.scrollTo({ top: 0 });
 }
 document.querySelectorAll(".tab, #t-docs").forEach((b) => b.addEventListener("click", () => openTab(b.dataset.tab)));
@@ -2576,6 +2586,22 @@ function renderWargame() {
   $("wg-table").innerHTML = Object.entries(sc.factors).map(([k, f]) => `<tr><td>${esc(nm(k))}</td><td class="small">${f.levels.map((l) => `${fmt(l.value, 2)} → <b>${oc(l.outcome)}</b>`).join("; ")}</td>` +
     `<td class="small">${Object.entries(f.share_A).map(([v, s]) => `${fmt(Number(v), 2)}: ${fmt(s * 100, 0)}%`).join(" · ")}</td></tr>`).join("");
 }
+/* ---------- Прогноз ресурсной базы (core/projection.py -> data/pilot/projection_2035.json -> window.PROJECTION) ---------- */
+let pjSc = "trend";
+function renderProjection() {
+  const PJ = window.PROJECTION, panel = $("pj-panel");
+  if (!panel) return;
+  panel.hidden = !PJ;
+  if (!PJ) return;
+  document.querySelectorAll("#pj-sc button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === pjSc)));
+  const nm = (r) => { const c = PD && PD.countries.find((x) => x.id === r.iso3); return c ? cName(c) : r.name; };
+  const rows = [...PJ.rows].sort((a, b) => a[pjSc].rank_2035 - b[pjSc].rank_2035);
+  $("pj-table").innerHTML = rows.map((r) => { const s = r[pjSc], dr = s.rank_2025 - s.rank_2035;
+    return `<tr><td class="num">${s.rank_2035}</td><td>${esc(nm(r))}</td><td class="num">${fmt(r.spend_2025, 1)}</td><td class="num">${fmt(s.spend_2035, 1)}</td>` +
+      `<td class="num">${fmt(s.share_K_2025, 1)}%</td><td class="num"><b>${fmt(s.share_K_2035, 1)}%</b></td><td class="num">${s.rank_2025} → ${s.rank_2035}${dr ? ` <span style="color:${dr > 0 ? "var(--good-ink)" : "var(--crit-ink)"}">${dr > 0 ? "▲" : "▼"}${Math.abs(dr)}</span>` : ""}</td></tr>`; }).join("");
+  $("pj-note").textContent = L(`Нет рядов SIPRI за 2021–2025 гг.: ${PJ.skipped.join(", ")}. Доли капитала — среди стран с данными.`, `No SIPRI series for 2021–2025: ${PJ.skipped.join(", ")}. Capital shares are among countries with data.`);
+}
+document.querySelectorAll("#pj-sc button").forEach((b) => b.addEventListener("click", () => { pjSc = b.dataset.v; renderProjection(); }));
 /* ---------- Конкуренты (data/competitors.json -> window.COMPETITORS) ---------- */
 const CMP = window.COMPETITORS || null;
 const cmpUI = { preset: "research", w: null, filter: "all" };
@@ -2682,6 +2708,7 @@ function setLang(v) {
   if (!$("tab-monitor").hidden) { renderMonitor(); renderWarnings(); }
   if ($("cmp2-sliders")) $("cmp2-sliders").innerHTML = "";
   if (!$("tab-competitors").hidden) renderCompetitors();
+  if (!$("tab-rating").hidden) renderProjection();
 }
 document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
 /* ---------- Переключатель темы: авто (как в системе) / светлая / тёмная ---------- */
