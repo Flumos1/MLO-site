@@ -14,9 +14,9 @@
    Цвета сторон по традиции оперативных карт: свои/сторона A — красным, противник/сторона B — синим.
    Фирменный акцент — янтарный (маркер «в работе / проверено» на оперативных картах) — отдельно от сторон A/B. */
 :root{
-  --bg:#e9ebe4; --paper:#f9faf7; --paper-2:#eff1ea; --ink:#141813; --ink-2:#464e46; --muted:#737b70;
+  --bg:#e9ebe4; --paper:#f9faf7; --paper-2:#eff1ea; --ink:#141813; --ink-2:#464e46; --muted:#646c61;
   --line:#d4d8cc; --grid:#e1e5da; --axis:#bcc2b2;
-  --accent:#9a6b00; --accent-2:#6b4f12; --accent-soft:#f3e7c7; --on-accent:#ffffff;
+  --accent:#8d6200; --accent-2:#6b4f12; --accent-soft:#f3e7c7; --on-accent:#ffffff;
   --side-a:#d6362f; --side-b:#1f5fb8; --band-a:rgba(214,54,47,.14); --band-b:rgba(31,95,184,.14);
   --neutral-bar:#b9beb0;
   --good:#1f8a3b; --warn:#b9790a; --crit:#c7342c; --good-ink:#116b28; --crit-ink:#a32017;
@@ -30,8 +30,8 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0a0d0f; --paper:#11161a; --paper-2:#161d22; --ink:#e8ede9; --ink-2:#a8b4ac; --muted:#71817a;
-    --line:#223038; --grid:#141c22; --axis:#2d3e48;
+    --bg:#0a0d0f; --paper:#11161a; --paper-2:#161d22; --ink:#e8ede9; --ink-2:#a8b4ac; --muted:#869790;
+    --line:#2b3b44; --grid:#141c22; --axis:#384b56;
     --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
     --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
     --neutral-bar:#394a46;
@@ -42,8 +42,8 @@
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0a0d0f; --paper:#11161a; --paper-2:#161d22; --ink:#e8ede9; --ink-2:#a8b4ac; --muted:#71817a;
-  --line:#223038; --grid:#141c22; --axis:#2d3e48;
+  --bg:#0a0d0f; --paper:#11161a; --paper-2:#161d22; --ink:#e8ede9; --ink-2:#a8b4ac; --muted:#869790;
+  --line:#2b3b44; --grid:#141c22; --axis:#384b56;
   --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
   --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
   --neutral-bar:#394a46;
@@ -86,6 +86,7 @@ button,input,select{font:inherit; color:inherit}
 .tab:hover{color:var(--ink); background:var(--paper-2)}
 .tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent); background:var(--accent-soft)}
 
+@media (max-width:700px){ .tabs{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; margin-inline:-16px; padding-inline:16px; max-width:none; width:calc(100% + 32px)} .tabs::-webkit-scrollbar{display:none} .tabs{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent); mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)} }
 .hdr-tools{margin-left:auto; display:flex; gap:8px; align-items:center; padding-bottom:10px}
 .seg.icons button{display:inline-flex; align-items:center; justify-content:center; padding:5px 8px}
 .seg.icons svg{display:block}
@@ -94,7 +95,7 @@ button,input,select{font:inherit; color:inherit}
 .banner{display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px 18px; align-items:start; font-size:13px; color:var(--ink-2); background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--axis); border-radius:var(--radius); padding:9px 13px; margin-bottom:16px; box-shadow:var(--shadow)}
 .banner #ds-switch{grid-column:2; justify-self:start; max-width:100%}
 .banner #banner-text{flex:none!important}
-@media (max-width:700px){ .banner{grid-template-columns:minmax(0,1fr)} .banner #ds-switch{grid-column:1; display:grid; grid-template-columns:1fr 1fr; width:100%} .banner #ds-switch button + button{border-left:0} .banner #ds-switch button:nth-child(even){border-left:1px solid var(--line)} .banner #ds-switch button:nth-child(n+3){border-top:1px solid var(--line)} }
+@media (max-width:700px){ .banner{grid-template-columns:minmax(0,1fr)} .banner #ds-switch{grid-column:1; display:grid; grid-template-columns:1fr 1fr; width:100%} .banner #ds-switch button + button{border-left:0} .banner #ds-switch button:nth-child(even){border-left:1px solid var(--line)} .banner #ds-switch button:nth-child(n+3){border-top:1px solid var(--line)} .banner #ds-switch button:last-child:nth-child(odd){grid-column:1/-1; border-left:0} }
 .cmp td:first-child{font-weight:600; color:var(--ink)}
 .cmp td:nth-child(2),.cmp th:nth-child(2){background:var(--accent-soft); color:var(--ink); box-shadow:inset 3px 0 0 var(--accent)}
 .banner strong{padding-top:2px; font-family:var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-size:12px}
@@ -112,6 +113,7 @@ button,input,select{font:inherit; color:inherit}
 .field{display:flex; flex-direction:column; gap:4px}
 .field label,.lbl{font:600 12px/1.2 var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--ink-2)}
 .field .hint{font-size:12px; color:var(--muted)}
+.inputs .field{justify-content:space-between}
 .row{display:flex; flex-wrap:wrap; gap:10px 16px; align-items:flex-end}
 select,input[type="number"],input[type="search"]{background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:7px 9px; min-width:0}
 input[type="number"]{width:100%; font-family:var(--f-mono)}
@@ -1135,7 +1137,7 @@ function renderMonitor() {
   $("mon-table").innerHTML = rows.map((r, i) => `<tr><td class="num">${i + 1}</td><td>${esc(LANG === "en" && r.names_en ? r.names_en : r.names)}</td>` +
     `<td><span class="track" style="display:inline-block;position:relative;width:110px;height:12px;vertical-align:middle;background:var(--line)"><span class="bar" style="width:${(r.p * 100).toFixed(1)}%;background:var(--side-a)"></span></span> ${fmt(r.p * 100, r.p < .1 ? 1 : 0)}%</td>` +
     `<td>${r.lag ? L("конфликт", "conflict") : "—"}</td><td class="num">${r.hist_years}</td><td>${r.contig ? L("граница", "border") : L(`${fmt(r.dist_km / 1000, 1)} тыс. км`, `${fmt(r.dist_km / 1000, 1)} thousand km`)}</td>` +
-    `<td>${r.ally ? L("да", "yes") : ""}</td><td class="num">${fmt(r.demo, 2)}</td></tr>`).join("");
+    `<td>${r.ally ? L("да", "yes") : "—"}</td><td class="num">${fmt(r.demo, 2)}</td></tr>`).join("");
   $("mon-note").innerHTML = L(`Модель — логистическая регрессия по соседству, расстоянию между столицами, годам конфликта пары за 10 лет, конфликту в прошлом году, совместной демократии (V-Dem) и союзному договору; исход — конфликт по UCDP/PRIO. ` +
     `Показатели индекса военной мощи (близость сил, сила сильнейшего) в монитор ${M.use_ivm ? "входят" : "не входят"}: вне выборки они ${M.use_ivm ? "улучшили" : "не улучшили"} прогноз (${fmt(ev.M2.logscore, 1)} против ${fmt(ev.M1.logscore, 1)}). ` +
     `Монитор видит в основном продолжение и историю конфликтов; новые очаги (начала конфликтов) он предсказывает хуже — AUC ${fmt(M.evaluation.onset.M1.auc, 2)} по ${M.evaluation.onset.M1.positives} началам. События после 2025 г. (перемирия, соглашения) в данных нет. Документ 6, раздел 7.10.`,
@@ -1147,6 +1149,8 @@ function openTab(name) {
   if (!TABS.includes(name)) name = "rating";
   TABS.forEach((t) => { $("tab-" + t).hidden = t !== name; $("t-" + t).setAttribute("aria-selected", String(t === name)); });
   if (location.hash.slice(1) !== name) history.replaceState(null, "", "#" + name);
+  // на телефоне вкладки — одна строка с прокруткой: активную держим в поле зрения
+  const tb = $("t-" + name), bar = tb.parentElement; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: bar.scrollLeft + tb.getBoundingClientRect().left - bar.getBoundingClientRect().left - (bar.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
   if (name === "lanchester") renderLanchester();
   if (name === "coalition") renderCoalition();
   if (name === "monitor") renderMonitor();
