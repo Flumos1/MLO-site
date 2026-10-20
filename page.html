@@ -291,7 +291,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 <main class="wrap">
   <div class="banner">
     <strong id="banner-tag"></strong><span id="banner-text" style="flex:1 1 320px"></span>
-    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="wide" data-i18n-en="177 countries · extended">177 государств · расширенный</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
+    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="wide" data-i18n-en="177 countries · extended">177 государств · расширенный</button></span>
   </div>
 
   <!-- РЕЙТИНГ -->
@@ -553,8 +553,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
             </div>
           </div>
           <label class="row small" style="gap:8px; align-items:center"><input type="checkbox" id="ln-mob" checked> <span data-i18n-en="Mobilisation and loss replacement">Мобилизация и восполнение потерь</span></label>
-          <label class="row small" style="gap:8px; align-items:center" id="ln-allies-row"><input type="checkbox" id="ln-allies"> <span data-i18n-en="Account for bloc allies">Учитывать союзников по блоку</span></label>
-          <p class="hint small muted" id="ln-allies-hint" hidden data-i18n-en="Allies are set in the &quot;Coalitions&quot; tab: reliability, force share, distance and arrival time for each member.">Союзников задают в разделе «Коалиции»: надёжность, доля сил, удалённость и срок вступления каждого участника.</p>
+          <p class="hint small muted" id="ln-allies-hint" data-i18n-en="Allies are set in the &quot;Coalitions&quot; tab: reliability, force share, distance and arrival time for each member.">Союзников задают в разделе «Коалиции»: надёжность, доля сил, удалённость и срок вступления каждого участника.</p>
         </div>
       </div>
       <div class="stack">
@@ -923,26 +922,8 @@ const EXTRA_REAL = [
   { id: "AXR", name: "«Ось сопротивления» (Хезболла, хуситы, ополчения)", name_en: "\"Axis of Resistance\" (Hezbollah, Houthis, militias)", short: "«Ось сопротивления»", short_en: "\"Axis of Resistance\"", ivm: 20, lam: 1.5 }
 ];
 
-/* Вымышленные государства. s — масштаб, w — богатство, t — технологии, m — милитаризация, k — ядерный класс 0–4,
-   a — союзы, e — боевой опыт, g — качество управления, sea — морское положение, dq — качество данных */
-const COUNTRIES_DEMO = [
-  { id: "ARD", name: "Арделия", name_en: "Ardelia", bloc: "Северный пакт", bloc_en: "Northern Pact", s: .80, w: .95, t: .95, m: .60, k: 4, a: .90, e: .70, g: .80, sea: 1.0, dq: .95 },
-  { id: "BOR", name: "Борвания", name_en: "Borvania", bloc: "Восточный союз", bloc_en: "Eastern Union", s: .90, w: .55, t: .70, m: .85, k: 4, a: .40, e: .90, g: .50, sea: .60, dq: .60 },
-  { id: "VEL", name: "Велирия", name_en: "Veliria", bloc: "Восточный союз", bloc_en: "Eastern Union", s: 1.0, w: .70, t: .80, m: .55, k: 3, a: .30, e: .20, g: .70, sea: .90, dq: .55 },
-  { id: "GAR", name: "Гарцония", name_en: "Garzonia", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .95, w: .45, t: .60, m: .50, k: 3, a: .30, e: .50, g: .55, sea: .70, dq: .70 },
-  { id: "DAL", name: "Дальмира", name_en: "Dalmira", bloc: "Северный пакт", bloc_en: "Northern Pact", s: .50, w: .85, t: .85, m: .45, k: 2, a: .90, e: .60, g: .80, sea: .90, dq: .90 },
-  { id: "EST", name: "Есталия", name_en: "Estalia", bloc: "Северный пакт", bloc_en: "Northern Pact", s: .55, w: .90, t: .90, m: .30, k: 1, a: .90, e: .10, g: .85, sea: .80, dq: .90 },
-  { id: "ZEL", name: "Зеландра", name_en: "Zelandra", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .20, w: .85, t: .90, m: .90, k: 2, a: .70, e: .95, g: .70, sea: .40, dq: .70 },
-  { id: "KAL", name: "Калдора", name_en: "Kaldora", bloc: "Восточный союз", bloc_en: "Eastern Union", s: .60, w: .35, t: .50, m: .80, k: 0, a: .40, e: .70, g: .45, sea: .60, dq: .45 },
-  { id: "LOR", name: "Лорвания", name_en: "Lorvania", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .70, w: .50, t: .55, m: .45, k: 0, a: .50, e: .30, g: .55, sea: .70, dq: .75 },
-  { id: "MIR", name: "Мирандия", name_en: "Mirandia", bloc: "Северный пакт", bloc_en: "Northern Pact", s: .35, w: .80, t: .80, m: .40, k: 0, a: .85, e: .20, g: .80, sea: 1.0, dq: .90 },
-  { id: "NOR", name: "Норрания", name_en: "Norrania", bloc: "Северный пакт", bloc_en: "Northern Pact", s: .25, w: .80, t: .75, m: .60, k: 0, a: .90, e: .30, g: .85, sea: .50, dq: .90 },
-  { id: "OSK", name: "Оскалия", name_en: "Oskalia", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .45, w: .20, t: .40, m: 1.0, k: 2, a: .20, e: .40, g: .40, sea: .50, dq: .35 },
-  { id: "PAL", name: "Палатия", name_en: "Palatia", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .45, w: .70, t: .55, m: .70, k: 0, a: .60, e: .50, g: .50, sea: .60, dq: .60 },
-  { id: "RIV", name: "Ривения", name_en: "Rivenia", bloc: "Неприсоединившиеся", bloc_en: "Non-aligned", s: .30, w: .30, t: .30, m: .30, k: 0, a: .30, e: .20, g: .40, sea: .30, dq: .50 }
-];
 const nI = IND.length;
-/* Текущий набор данных. Демо: V — показатели (страна × 253). Реальные: V — баллы столпов (страна × 12), SIG — σ из экспертной оценки. */
+/* Текущий набор данных. Пилот и расширенный: V — показатели (страна × 253). Эксперты: V — баллы столпов (страна × 12), SIG — σ из экспертной оценки. */
 let DS = null, COUNTRIES = [], nC = 0, V = null, SIG = null, IMP = null, COMPLETE = null;
 
 /* ---------- Утилиты ---------- */
@@ -958,54 +939,6 @@ function median(arr) { const s = [...arr].sort((a, b) => a - b); return quantile
 function heat(v) { return "h" + clamp(Math.floor(v * 7), 0, 6); }
 function niceStep(range, count) { const raw = range / count, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
 
-/* ---------- Синтетические данные ---------- */
-function latent(c, ind) {
-  const p = ind.pillar, r = ind.role, id = ind.id;
-  let b;
-  switch (r) {
-    case "N": b = .42 * c.s + .38 * c.m + .2 * c.w; break;
-    case "Q": b = .5 * c.t + .2 * c.w + .15 * c.m + .15 * c.e; break;
-    case "M": b = .55 * c.t + .25 * c.w + .2 * c.a; break;
-    case "S": b = .38 * c.w + .37 * c.s + .25 * c.g; break;
-    case "P": b = .45 * c.w + .3 * c.t + .25 * c.a; break;
-    case "G": b = c.k / 4; break;
-    default: b = .45 * c.s + .3 * c.g + .25 * c.a;
-  }
-  if (p === "NAV" && (r === "N" || r === "P")) b *= .3 + .7 * c.sea;
-  if (id === "N02" && !(c.sea > .8 && c.w > .75)) b *= .35;
-  if (p === "STR" && r !== "G") b *= .35 + .65 * c.k / 4;
-  if (id === "S05") b = c.k > 0 ? .55 + .1 * c.k : .55 * c.t;
-  if (id === "S14") b = c.k >= 2 ? .3 : c.bloc === "Северный пакт" ? .85 : .4 * c.a;
-  if (p === "PER" && r === "N") b = .55 * c.s + .45 * c.m;
-  if (id === "E03" || id === "E08" || id === "P04") b = .85 * c.m + .1;
-  if (id === "P14" || id === "H01" || id === "H02" || id === "H03") b = c.e;
-  else if (p === "GOV") b = r === "Q" ? .6 * c.g + .25 * c.t + .15 * c.e : .75 * c.g + .25 * c.w;
-  if (p === "ALL") b = r === "P" ? .55 * c.a + .45 * c.w : .75 * c.a + .25 * c.t;
-  if (p === "GEO") b = r === "P" ? .7 * c.sea + .3 * c.w : r === "C" ? .75 * c.s + .25 * c.g : .8 * c.s + .2 * c.g;
-  return b;
-}
-const SIG_BASE = { N: .04, S: .04, P: .05, G: .03, Q: .08, M: .09, C: .06 };
-function buildDemo() {
-  const C = COUNTRIES_DEMO, n = C.length;
-  const V = new Float64Array(n * nI), SIG = new Float64Array(n * nI), IMP = new Uint8Array(n * nI);
-  C.forEach((c, ci) => {
-    const rng = mulberry32(hashStr(c.id));
-    IND.forEach((ind, ii) => {
-      const k = ci * nI + ii, expert = ind.sources.includes("Э");
-      V[k] = clamp(latent(c, ind) + (ind.role === "G" ? .03 : .075) * gauss(rng), .02, .99);
-      SIG[k] = SIG_BASE[ind.role] * (1.6 - c.dq) * (expert ? 1.3 : 1);
-      if ((expert || ind.role === "Q" || ind.role === "M") && rng() < (1 - c.dq) * .45) IMP[k] = 1;
-    });
-    PILLARS.forEach((p) => {
-      let s = 0, m = 0;
-      IND.forEach((ind, ii) => { const k = ci * nI + ii; if (ind.pillar === p.code && !IMP[k]) { s += V[k]; m++; } });
-      const mean = m ? s / m : .3;
-      IND.forEach((ind, ii) => { const k = ci * nI + ii; if (ind.pillar === p.code && IMP[k]) { V[k] = mean; SIG[k] *= 2.2; } });
-    });
-  });
-  const COMPLETE = C.map((c, ci) => { let m = 0; for (let ii = 0; ii < nI; ii++) if (!IMP[ci * nI + ii]) m++; return m / nI; });
-  return { kind: "demo", countries: C, V, SIG, IMP, COMPLETE };
-}
 function buildReal() {
   const n = REAL.length, NP = PILLARS.length, V = new Float64Array(n * NP), SIG = new Float64Array(n * NP);
   REAL.forEach((c, ci) => c.scores.forEach((s, pi) => { V[ci * NP + pi] = s / 100; SIG[ci * NP + pi] = c.sigma / 100; }));
@@ -1043,7 +976,6 @@ function loadWide() {
 }
 const isPilotLike = () => DS.kind === "pilot" || DS.kind === "wide";
 const isReal = () => DS.kind === "real";
-const isDemo = () => DS.kind === "demo";
 const inIndex = (ii) => !DS.INC || DS.INC[ii] === 1;
 const DQ_LETTER = (dq) => dq >= .85 ? "A" : dq >= .7 ? "B" : dq >= .55 ? "C" : "D";
 const STRUCT_SIGMA = .10; // как в core/lanmil/config.py: σ столпа за долю веса, не покрытую данными
@@ -1319,7 +1251,6 @@ function renderProfile() {
     [L("Без стратегических сил", "Excluding strategic forces"), fmt(d.conv * 100, 1), L("конвенциональный потенциал", "conventional potential")],
     [L("Радиус проекции <span class=\"sym\">λ</span>", "Projection radius <span class=\"sym\">λ</span>"), L(`${fmt(d.lambda, 1)} тыс. км`, `${fmt(d.lambda, 1)} thousand km`), L(`на 5 тыс. км сохраняется ${fmt(Math.exp(-5 / d.lambda) * 100, 0)}%`, `${fmt(Math.exp(-5 / d.lambda) * 100, 0)}% retained at 5 thousand km`)],
     isReal() ? [L("Данные", "Data"), L(`класс ${c.dqL}`, `class ${c.dqL}`), L(`экспертные баллы столпов, σ = ${c.sigma}`, `expert pillar scores, σ = ${c.sigma}`)]
-      : isDemo() ? [L("Данные", "Data"), L(`класс ${DQ_LETTER(c.dq)}`, `class ${DQ_LETTER(c.dq)}`), L(`заполнено ${fmt(COMPLETE[ci] * 100, 0)}% показателей`, `${fmt(COMPLETE[ci] * 100, 0)}% of indicators filled`)]
       : [L("Данные", "Data"), L(`класс ${DQ_LETTER(c.dq)}`, `class ${DQ_LETTER(c.dq)}`), L(`наблюдения по ${fmt(COMPLETE[ci] * 100, 0)}% показателей индекса`, `observations for ${fmt(COMPLETE[ci] * 100, 0)}% of index indicators`)]
   ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
   const med = medianPillars();
@@ -1487,12 +1418,6 @@ function setLanchSides(reset = true) {
     const v = Number(el.value); if (Number.isFinite(v) && v >= 0) { ln[el.dataset.side][el.dataset.k] = v; renderLanchester(); }
   }));
 }
-function allyForce(ci, opp, share) {
-  const c = COUNTRIES[ci]; if (!isDemo() || c.bloc === "Неприсоединившиеся") return 0;
-  let s = 0;
-  COUNTRIES.forEach((o, oj) => { if (oj !== ci && oj !== opp && o.bloc === c.bloc) s += lanchInputs(oj).X0 * share * o.a; });
-  return s;
-}
 // Функция вступления g(t − τ): τ = 0 — силы на театре с первого дня, иначе 0 до τ и линейный рост до 1 за RAMP сут.
 const gIn = (t, tau) => tau <= 0 ? 1 : clamp((t - tau) / RAMP, 0, 1);
 function reinfDay(S, day) {
@@ -1536,7 +1461,7 @@ function simulate(A, B, o, rng) {
   return { xs, ys, x0, y0, end, winner, a, b };
 }
 function lnOptions(alpha) {
-  return { alpha: alpha ?? ln.alpha, D: ln.D, terrain: ln.terrain, bp: ln.bp, T: ln.T, mob: ln.mob, allies: ln.allies, allyA: allyForce(ui.lnA, ui.lnB, .3), allyB: allyForce(ui.lnB, ui.lnA, .4) };
+  return { alpha: alpha ?? ln.alpha, D: ln.D, terrain: ln.terrain, bp: ln.bp, T: ln.T, mob: ln.mob, allies: false, allyA: 0, allyB: 0 };
 }
 function outcomeText(r) {
   if (!r.winner) return L(`затяжные бои, ни одна сторона не сломлена за ${ln.T} сут`, `protracted fighting, neither side breaks within ${ln.T} days`);
@@ -1550,9 +1475,6 @@ function renderLanchester() {
   $("ln-D").disabled = !!ln.coal.A; $("ln-D-hint").hidden = !ln.coal.A;
   $("ln-terrain").value = String(ln.terrain);
   const anyCoal = !!(ln.coal.A || ln.coal.B);
-  $("ln-allies-row").hidden = !isDemo() || anyCoal; $("ln-allies-hint").hidden = !(!isDemo() || anyCoal);
-  if (!isDemo() || anyCoal) ln.allies = false;
-  $("ln-allies").checked = ln.allies;
   const o = lnOptions();
   const dres = simulate(ln.A, ln.B, o, null);
   const RUNS = 400, rng = mulberry32(777), runs = [];
@@ -1603,14 +1525,14 @@ dB/dt = −b · B^(1−α/2) · A^(α/2) + r_B(t)       b = k · e_A / d = ${fmt
 A побеждает, если A₀/B₀ > (a/b)^(1/α) = ${fmt(req, 2)}
 ` + (ln.coal.A
     ? `A₀ = Σ 10·ρⱼ·sⱼ·Mⱼ·e^(−Dⱼ/λⱼ) по участникам с τ = 0 = ${fmt(dres.x0)} ЕБП;  остальные прибывают по графику τ (+${fmt(rfA)} ЕБП)`
-    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} ЕБП${ln.allies ? " (с союзниками)" : ""}`),
+    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} ЕБП`),
 `dA/dt = −a · A^(1−α/2) · B^(α/2) + r_A(t)       a = k · e_B = ${fmt(dres.a, 4)}
 dB/dt = −b · B^(1−α/2) · A^(α/2) + r_B(t)       b = k · e_A / d = ${fmt(dres.b, 4)}
 Invariant (no replacement):  b·A^α − a·B^α = const,   α = ${fmt(ln.alpha, 2)}
 A wins if A₀/B₀ > (a/b)^(1/α) = ${fmt(req, 2)}
 ` + (ln.coal.A
     ? `A₀ = Σ 10·ρⱼ·sⱼ·Mⱼ·e^(−Dⱼ/λⱼ) across members with τ = 0 = ${fmt(dres.x0)} CPU;  the rest arrive on schedule τ (+${fmt(rfA)} CPU)`
-    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} CPU${ln.allies ? " (with allies)" : ""}`));
+    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} CPU`));
 }
 function drawBattle(host, { dres, band, Tshow, An, Bn }) {
   const W = 760, H = 330, m = { l: 62, r: 22, t: 16, b: 40 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
@@ -1740,15 +1662,6 @@ const CO_PRESETS = {
       B: [pt("UKR", 1, 1, 0, 0), pt("DEU", .9, .05, 1.5, 0, "D", "SF"), pt("GBR", .9, .05, 2, 0, "D", "SF"), pt("FRA", .9, .05, 2, 0, "D", "SF"), pt("USA", .7, .1, 7, 0, "B", "F")]
     }
   },
-  demo: {
-    bloc: {
-      name: "Восточный союз против Северного пакта", name_en: "Eastern Union vs. Northern Pact", alpha: ALPHA0, d: D_PD, T: 60,
-      note: "Вымышленные государства. Удалённости и задержки условные: показывают, как вступление союзников меняет баланс во времени.",
-      note_en: "Fictional countries. Distances and delays are illustrative: they show how allied arrival shifts the balance over time.",
-      A: [pt("BOR", 1, .6, .5, 0), pt("KAL", .8, .5, .5, 7, "A"), pt("VEL", .6, .3, 1.5, 14, "A")],
-      B: [pt("NOR", 1, 1, 0, 0), pt("EST", .85, .4, .8, 7, "A"), pt("DAL", .85, .3, 1.5, 14, "A"), pt("MIR", .8, .25, 2, 21, "A"), pt("ARD", .75, .2, 6, 30, "A")]
-    }
-  }
 };
 const coalPresetName = (p) => (LANG === "en" && p.name_en ? p.name_en : p.name);
 const coal = { preset: "", alpha: ALPHA0, d: D_PD, T: 60, t: 0, sides: { A: [], B: [] } };
@@ -1914,7 +1827,7 @@ const selfCheckText = () => SELFCHECK_RES.ok === null ? L("нет контрол
   : SELFCHECK_RES.ok ? L("сценарии совпадают", "scenarios match")
   : L("РАСХОЖДЕНИЕ: " + SELFCHECK_RES.bad.join("; "), "MISMATCH: " + SELFCHECK_RES.bad.join("; "));
 window.IVM_SELFCHECK = SELFCHECK_RES; window.IVM_RECHECK = selfCheck;
-const coalPresets = () => CO_PRESETS[DS.kind === "demo" ? "demo" : "real"];
+const coalPresets = () => CO_PRESETS.real;
 function plural(n, one, few, many) { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; }
 function applyCoalPreset(key) {
   const all = coalPresets();
@@ -1936,12 +1849,12 @@ function member(key) {
     const c = COUNTRIES[ci], d = det[ci];
     return { key, name: cName(c), short: cName(c), ivm: d.auto, lam: d.lambda, sus: isReal() ? realSus(d.P) : wmeanRaw(ci, LG.S), dq: c.dq, k: c.k, approx: false };
   }
-  const x = !isDemo() ? EXTRA_REAL.find((e) => e.id === key) : null;
+  const x = EXTRA_REAL.find((e) => e.id === key);
   return x ? { key, name: LANG === "en" && x.name_en ? x.name_en : x.name, short: LANG === "en" && x.short_en ? x.short_en : x.short, ivm: x.ivm / 100, lam: x.lam, sus: .45, dq: .5, k: key === "PRK" ? 2 : 0, approx: true } : null;
 }
 function coalPool() {
   const own = new Set(COUNTRIES.map((c) => c.id)); // в пилоте Польша, Белоруссия и КНДР — уже настоящие страны набора
-  return [...COUNTRIES.map((c) => member(c.id)), ...(!isDemo() ? EXTRA_REAL.filter((x) => !own.has(x.id)).map((x) => member(x.id)) : [])];
+  return [...COUNTRIES.map((c) => member(c.id)), ...EXTRA_REAL.filter((x) => !own.has(x.id)).map((x) => member(x.id))];
 }
 const unitsOf = (m) => Math.exp(KAPPA * m.ivm); // у.е. мощи M = exp(κ·ИВМ)
 function coalAt(side, t) {
@@ -2298,19 +2211,17 @@ function renderCatalog() {
 function fillCountrySelect(el, val) { el.innerHTML = COUNTRIES.map((c, i) => `<option value="${i}">${esc(cName(c))}</option>`).join(""); el.value = val; }
 const BANNER = {
   real: ["Реальные данные · октябрь 2026", "8 государств оценены экспертно по 12 столпам (балл ± σ) по открытым данным SIPRI, IISS и официальных бюджетов; 253 показателя для них ещё не собраны. Перекрывающиеся интервалы означают, что места статистически неразличимы."],
-  demo: ["Демо-режим", "14 вымышленных государств, значения показателей синтетические. Режим показывает работу всех 253 показателей и расчётную схему, а не реальный баланс сил."],
   wide: ["Расширенный набор · срез 2025", "177 государств: 40 пилотных; 31 страна с подробной оценкой ИИ по 67 показателям (Канада, Испания, Нидерланды, Норвегия, Румыния, ОАЭ, Катар, Алжир, ЮАР, Мексика, Сингапур и др.; класс D), 86 стран с грубой оценкой ИИ по профилю страны и 20 малых государств с оценкой по аналогам (значения округлены, интервалы шире; класс D). Для новых стран показатели качества техники взяты из таблиц Википедии автоматически, без ручной проверки (в пилоте она была). У новых стран восстановлено 3–24% значений; нет ручных данных IISS, поэтому страны с сильным качеством при небольшой численности занижены, а интервалы широкие. Состав индекса тот же, что у пилота; места пилотных стран почти не изменились (ранговая корреляция 0,9996)."],
   pilot: ["Пилот · срез 2025", "40 государств по открытым данным (ВБ, МВФ, SIPRI, UCDP, Factbook, Википедия, Global Firepower). В индекс входят показатели, по которым есть данные у половины стран. 67 показателей без объективного измерителя (подготовка, исправность, командование, запасы) до экспертной панели заполнены оценкой ИИ — класс D, источник «ai», самый низкий приоритет; крупные армии по-прежнему оцениваются выше, чем у экспертов."]
 };
 const BANNER_EN = {
   real: ["Real data · October 2026", "8 countries assessed by experts across 12 pillars (score ± σ) using open SIPRI, IISS and official budget data; 253 indicators are not yet collected for them. Overlapping intervals mean ranks are statistically indistinguishable."],
-  demo: ["Demo mode", "14 fictional countries, indicator values are synthetic. This mode shows all 253 indicators and the calculation scheme at work, not a real balance of power."],
   wide: ["Extended set · 2025 snapshot", "177 countries: 40 pilot; 31 countries with a detailed AI estimate for 67 indicators (Canada, Spain, the Netherlands, Norway, Romania, the UAE, Qatar, Algeria, South Africa, Mexico, Singapore and others; class D), 86 countries with a rough AI estimate based on the country profile and 20 small states estimated by analogy (values rounded, wider intervals; class D). Equipment-quality indicators for new countries come from Wikipedia tables automatically, without the manual check that the pilot had. 3–24% of the values of new countries are imputed; there is no manual IISS data, so countries with strong quality but small numbers are underrated and intervals are wide. The index composition is the same as in the pilot; pilot countries' ranks hardly changed (rank correlation 0.9996)."],
   pilot: ["Pilot · 2025 snapshot", "40 countries from open data (World Bank, IMF, SIPRI, UCDP, Factbook, Wikipedia, Global Firepower). The index includes indicators with data for at least half the countries. 67 indicators without an objective measure (training, readiness, command, stockpiles) are filled with an AI estimate until the expert panel — class D, source \"ai\", lowest priority; large armies are still scored higher than experts would."]
 };
 // keep = true — тот же набор (смена языка): выбранные страны, сценарий коалиций и настройки боя сохраняются
 function useDataset(kind, keep) {
-  if (!["real", "demo", "pilot", "wide"].includes(kind)) kind = "real";
+  if (!["real", "pilot", "wide"].includes(kind)) kind = PD ? "pilot" : "real"; // прежний «demo» из localStorage — на пилот
   if (kind === "pilot" && !PD) kind = "real";
   if (kind === "wide" && !window.WIDE_DATA) {
     // подгрузка wide.js; пока файл грузится, показываем пилот (или текущий набор), затем переключаемся
@@ -2320,15 +2231,15 @@ function useDataset(kind, keep) {
     if (DS) return;
     kind = PD ? "pilot" : "real";
   }
-  if (kind === "real" && !REAL.length) kind = "demo";
-  DS = kind === "real" ? buildReal() : kind === "pilot" ? buildPilot() : kind === "wide" ? buildPilot(window.WIDE_DATA, "wide") : buildDemo();
+  if (kind === "real" && !REAL.length && PD) kind = "pilot";
+  DS = kind === "real" ? buildReal() : kind === "pilot" ? buildPilot() : buildPilot(window.WIDE_DATA, "wide");
   COUNTRIES = DS.countries; nC = COUNTRIES.length; V = DS.V; SIG = DS.SIG; IMP = DS.IMP; COMPLETE = DS.COMPLETE;
   regroup();
   try { localStorage.setItem("ivm-dataset", kind); } catch (e) { /* хранилище недоступно — выбор не запоминается */ }
   const at = (id, fb) => { const i = COUNTRIES.findIndex((c) => c.id === id); return i >= 0 ? i : fb; };
   if (!keep) {
     ui.profile = 0;
-    if (kind !== "demo") { ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5; } else { ui.cmpA = 0; ui.cmpB = 1; ln.D = 3; }
+    ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5;
     ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; ln.A = null;
   }
   mc = null;
@@ -2485,7 +2396,6 @@ function init() {
   $("ln-bp").addEventListener("change", (e) => { ln.bp = bpValue(e.target.value); renderLanchester(); });
   $("ln-T").addEventListener("change", (e) => { ln.T = Number(e.target.value); renderLanchester(); });
   $("ln-mob").addEventListener("change", (e) => { ln.mob = e.target.checked; renderLanchester(); });
-  $("ln-allies").addEventListener("change", (e) => { ln.allies = e.target.checked; renderLanchester(); });
   initSalvo();
   initLayered();
   $("m-preset").addEventListener("change", (e) => { state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
