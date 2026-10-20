@@ -714,6 +714,19 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         </div>
       </div>
     </div>
+    <div class="panel">
+      <div class="panel-head"><h3 data-i18n-en="Probability scale and confidence">Шкала вероятности и уверенность</h3></div>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Probability">Вероятность</th><th data-i18n-en="Word (ODNI ICD 203)">Слово (ODNI ICD 203)</th></tr></thead><tbody>
+        <tr><td class="num">&lt; 5%</td><td data-i18n-en="almost no chance">почти исключено</td></tr>
+        <tr><td class="num">5–20%</td><td data-i18n-en="very unlikely">очень маловероятно</td></tr>
+        <tr><td class="num">20–45%</td><td data-i18n-en="unlikely">маловероятно</td></tr>
+        <tr><td class="num">45–55%</td><td data-i18n-en="roughly even chance">примерно равные шансы</td></tr>
+        <tr><td class="num">55–80%</td><td data-i18n-en="likely">вероятно</td></tr>
+        <tr><td class="num">80–95%</td><td data-i18n-en="very likely">очень вероятно</td></tr>
+        <tr><td class="num">≥ 95%</td><td data-i18n-en="almost certain">почти наверняка</td></tr>
+      </tbody></table></div>
+      <p class="small" style="margin-top:8px" data-i18n-en="Confidence is reported separately from probability and is counted on three criteria: (1) the data are observed rather than imputed (side coverage ≥ 85% or expert assessment); (2) this type of forecast has been tested out of sample with success — yes for the flashpoint monitor (AUC 0.96), no for the balance of forces and war outcomes (no better than an even-chance forecast on 10 wars), so their confidence is never high; (3) robustness — the probability is at least 0.2 away from 0.5 (for the monitor: the pair was in conflict last year). 3 of 3 — high, 2 — moderate, 0–1 — low. The rule was fixed on 20.10.2026 before it was shown on the site.">Уверенность указывается отдельно от вероятности и считается по трём критериям: (1) данные наблюдаемые, а не восстановленные (покрытие сторон ≥ 85% или экспертная оценка); (2) тип прогноза проверен вне выборки с успехом — да для монитора очагов (AUC 0,96), нет для баланса сил и исхода войн (на 10 войнах не лучше равновероятного прогноза), поэтому для них уверенность не бывает высокой; (3) устойчивость — вероятность не ближе 0,2 к 0,5 (для монитора — пара в конфликте в прошлом году). 3 из 3 — высокая, 2 — средняя, 0–1 — низкая. Правило зафиксировано 20.10.2026 до вывода на сайт.</p>
+    </div>
   </section>
 
   <!-- КАТАЛОГ -->
@@ -1257,7 +1270,7 @@ function renderMonitor() {
   $("mon-summary").textContent = L(`Вероятность вооружённого конфликта в паре из 40 государств в 2026 г. по данным 2025 г. · модель проверена вперёд по времени на ${ev.M1.n.toLocaleString("ru-RU")} прогнозах 2019–2025 гг. (AUC ${fmt(ev[M.use_ivm ? "M2" : "M1"].auc, 2)})`,
     `Probability of armed conflict for a pair of the 40 states in 2026, based on 2025 data · the model is validated forward in time on ${ev.M1.n.toLocaleString("en-US")} forecasts for 2019–2025 (AUC ${fmt(ev[M.use_ivm ? "M2" : "M1"].auc, 2)})`);
   $("mon-table").innerHTML = rows.map((r, i) => `<tr><td class="num">${i + 1}</td><td>${esc(LANG === "en" && r.names_en ? r.names_en : r.names)}</td>` +
-    `<td><span class="track" style="display:inline-block;position:relative;width:110px;height:12px;vertical-align:middle;background:var(--line)"><span class="bar" style="width:${(r.p * 100).toFixed(1)}%;background:var(--side-a)"></span></span> ${fmt(r.p * 100, r.p < .1 ? 1 : 0)}%</td>` +
+    `<td><span class="track" style="display:inline-block;position:relative;width:110px;height:12px;vertical-align:middle;background:var(--line)"><span class="bar" style="width:${(r.p * 100).toFixed(1)}%;background:var(--side-a)"></span></span> ${fmt(r.p * 100, r.p < .1 ? 1 : 0)}% <span class="muted small">${probTxt(r.p, confWord(1 + 1 + (r.lag ? 1 : 0)))}</span></td>` +
     `<td>${r.lag ? L("конфликт", "conflict") : "—"}</td><td class="num">${r.hist_years}</td><td>${r.contig ? L("граница", "border") : L(`${fmt(r.dist_km / 1000, 1)} тыс. км`, `${fmt(r.dist_km / 1000, 1)} thousand km`)}</td>` +
     `<td>${r.ally ? L("да", "yes") : "—"}</td><td class="num">${fmt(r.demo, 2)}</td></tr>`).join("");
   $("mon-note").innerHTML = L(`Модель — логистическая регрессия по соседству, расстоянию между столицами, годам конфликта пары за 10 лет, конфликту в прошлом году, совместной демократии (V-Dem) и союзному договору; исход — конфликт по UCDP/PRIO. ` +
@@ -1628,6 +1641,7 @@ function renderLanchester() {
   const best = pA >= pB && pA >= pN ? "A" : pB >= pN ? "B" : "N";
   $("ln-verdict").innerHTML = (best === "A" ? L(`A ломает оборону B с вероятностью ${fmt(pA * 100, 0)}%`, `A breaks through B's defence with probability ${fmt(pA * 100, 0)}%`) :
     best === "B" ? L(`B удерживает оборону с вероятностью ${fmt(pB * 100, 0)}%`, `B holds the defence with probability ${fmt(pB * 100, 0)}%`) : L(`Вероятнее всего затяжные бои: ${fmt(pN * 100, 0)}%`, `Most likely protracted fighting: ${fmt(pN * 100, 0)}%`)) +
+    ` <span class="small" style="font-family:var(--f-body);font-weight:400;color:var(--ink-2)">(${probTxt(Math.max(pA, pB, pN), warConfidence(Math.max(pA, pB, pN), ln.coal.A ? -1 : ui.lnA, ln.coal.B ? -1 : ui.lnB))})</span>` +
     `<span class="muted small" style="display:block;font-family:var(--f-body);font-weight:400;margin-top:4px">${L(`A — ${esc(An)}, B — ${esc(Bn)}. Исходы условны: модель считает соотношение сил верным, ошибка модели (σ = ${fmt(MODEL_SIGMA, 1)}) в них не входит.`, `A — ${esc(An)}, B — ${esc(Bn)}. Outcomes are conditional: the model takes the force ratio as given, the model error (σ = ${fmt(MODEL_SIGMA, 1)}) is not included.`)}</span>`;
   const seg = (cls, p, lbl) => p > 0 ? `<div class="${cls}" style="flex:${p}" data-tip="${lbl}: ${fmt(p * 100, 1)}%">${p >= .08 ? fmt(p * 100, 0) + "%" : ""}</div>` : "";
   $("ln-prob").innerHTML = seg("pa", pA, L(`Успех A (${esc(An)})`, `A succeeds (${esc(An)})`)) + seg("pn", pN, L("Затяжные бои", "Protracted fighting")) + seg("pb", pB, L(`Успех обороны B (${esc(Bn)})`, `B's defence succeeds (${esc(Bn)})`));
@@ -2092,7 +2106,7 @@ function renderCoalResults() {
     [L("Соотношение A : B", "Ratio A : B"), ratioTxt(ratio), L(`на сутки ${t}`, `on day ${t}`)],
     [L("Нужно A для прорыва", "A needs to break through"), `${fmt(R, 2)} : 1`, `d = ${fmt(coal.d, 1)} · α = ${fmt(coal.alpha, 2)} · e_A/e_B = ${fmt(eA / eB, 2)}`],
     [L("Окно перевеса A", "A's window of superiority"), winText, L(`когда A : B не ниже ${fmt(R, 2)} : 1`, `when A : B is at least ${fmt(R, 2)} : 1`)],
-    [L("Вероятность, что перевеса хватает", "Probability that superiority suffices"), pS === null ? "—" : `${fmt(pS * 100, 0)}%`, L(`с ошибкой модели σ = ${fmt(MODEL_SIGMA, 1)} (10 войн 2018–2025 гг.)`, `with model error σ = ${fmt(MODEL_SIGMA, 1)} (10 wars, 2018–2025)`)]
+    [L("Вероятность, что перевеса хватает", "Probability that superiority suffices"), pS === null ? "—" : `${fmt(pS * 100, 0)}%`, (pS === null ? "" : probTxt(pS, warConfidence(pS, COUNTRIES.findIndex((c) => c.id === (coal.sides.A[0] || {}).key), COUNTRIES.findIndex((c) => c.id === (coal.sides.B[0] || {}).key))) + " · ") + L(`с ошибкой модели σ = ${fmt(MODEL_SIGMA, 1)} (10 войн 2018–2025 гг.)`, `with model error σ = ${fmt(MODEL_SIGMA, 1)} (10 wars, 2018–2025)`)]
   ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
   let v;
   if (ratio === null) v = L(`На сутки ${t} у сторон нет сил на театре.`, `On day ${t} neither side has forces in theatre.`);
@@ -2442,6 +2456,32 @@ function initCoalition() {
     });
   });
 }
+/* ---------- Словесная шкала вероятности (ODNI ICD 203) и уровень уверенности ----------
+   Правило зафиксировано 20.10.2026 до вывода на сайт. Вероятность → слово по ступеням ICD 203:
+   <5% почти исключено; 5–20% очень маловероятно; 20–45% маловероятно; 45–55% примерно равные шансы; 55–80% вероятно;
+   80–95% очень вероятно; ≥95% почти наверняка. Уверенность — отдельно от вероятности, по трём критериям (как в PHIA и ICD 203):
+   (1) данные — наблюдаемые, а не восстановленные (покрытие сторон ≥ 85% или экспертная оценка);
+   (2) тип прогноза проверен вне выборки с успехом (монитор очагов — да, AUC 0,96; баланс и исход войны — нет: на 10 войнах не лучше
+       равновероятного прогноза, поэтому для них уверенность не бывает высокой);
+   (3) устойчивость — вероятность не ближе 0,2 к 0,5 (для монитора — пара в конфликте в прошлом году).
+   3 из 3 — высокая, 2 — средняя, 0–1 — низкая. */
+const PROB_STEPS = [[.05, "почти исключено", "almost no chance"], [.2, "очень маловероятно", "very unlikely"], [.45, "маловероятно", "unlikely"],
+  [.55, "примерно равные шансы", "roughly even chance"], [.8, "вероятно", "likely"], [.95, "очень вероятно", "very likely"], [1.01, "почти наверняка", "almost certain"]];
+function probWord(p) {
+  if (p === null || p === undefined || !Number.isFinite(p)) return "";
+  const s = PROB_STEPS.find((x) => p < x[0]) || PROB_STEPS[PROB_STEPS.length - 1];
+  return LANG === "en" ? s[2] : s[1];
+}
+function confWord(met) {
+  return met >= 3 ? L("уверенность высокая", "high confidence") : met === 2 ? L("уверенность средняя", "moderate confidence") : L("уверенность низкая", "low confidence");
+}
+// данные стороны: экспертная оценка или покрытие наблюдениями ≥ 85%
+const dataOk = (ci) => ci === null || ci < 0 ? false : isReal() ? true : (COMPLETE && COMPLETE[ci] >= .85);
+function warConfidence(p, ciA, ciB) {
+  const met = (dataOk(ciA) && dataOk(ciB) ? 1 : 0) + 0 /* (2) исход войн не проверен с успехом */ + (Math.abs(p - .5) >= .2 ? 1 : 0);
+  return confWord(met);
+}
+const probTxt = (p, conf) => `${probWord(p)}${conf ? "; " + conf : ""}`;
 /* ---------- Конкуренты (data/competitors.json -> window.COMPETITORS) ---------- */
 const CMP = window.COMPETITORS || null;
 const cmpUI = { preset: "research", w: null, filter: "all" };
