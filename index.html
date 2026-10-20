@@ -107,6 +107,12 @@ button,input,select{font:inherit; color:inherit}
 .org-card h4{margin:0; font:600 15px/1.25 var(--f-display)}
 .org-card .kv{font-size:13px} .org-card .kv b{font-weight:600; color:var(--ink-2)}
 .org-card a{color:var(--accent); font-size:12.5px; word-break:break-all}
+.warn-grid{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:12px}
+@media (max-width:800px){ .warn-grid{grid-template-columns:minmax(0,1fr)} }
+.wdot{display:inline-block; width:10px; height:10px; border-radius:50%; border:1.5px solid var(--axis)}
+.wdot.on{background:var(--crit); border-color:var(--crit)}
+.wdot.strong{box-shadow:0 0 0 3px color-mix(in srgb, var(--crit) 30%, transparent)}
+.wdot.watch{border-style:dashed}
 .docs-btn{display:inline-flex; align-items:center; gap:6px; font:600 12.5px/1 var(--f-display); letter-spacing:.05em; text-transform:uppercase; padding:7px 11px; border:1px solid var(--accent); border-radius:5px; background:var(--paper); color:var(--accent); cursor:pointer; transition:background-color .12s,color .12s}
 .docs-btn:hover{background:var(--accent-soft)}
 .docs-btn[aria-selected="true"]{background:var(--accent); color:var(--on-accent)}
@@ -754,6 +760,18 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country pair">Пара государств</th><th style="min-width:180px" data-i18n-en="Conflict probability in 2026">Вероятность конфликта в 2026 г.</th><th data-i18n-en="2025">2025 г.</th><th class="num" data-i18n-en="Conflict years of last 10">Лет конфликта из 10</th><th data-i18n-en="Neighbours">Соседство</th><th data-i18n-en="Alliance">Союз</th><th class="num" data-i18n-en="Democracy (min)">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
       <p class="small muted" id="mon-note"></p>
     </div>
+    <div class="panel" id="warn-panel">
+      <div class="panel-head">
+        <div style="min-width:0; flex:1 1 380px"><h3 data-i18n-en="Warning indicators">Признаки-предвестники</h3>
+          <p class="muted small" data-i18n-en="For the 25 hottest pairs: 5 dynamic and 3 structural indicators computed from open data with thresholds fixed in advance (protocol core/warning_signs.py), plus 7 indicators that require monitoring. They do not change the monitor's probabilities — a separate early-warning layer.">Для 25 самых горячих пар: 5 динамических и 3 структурных признака из открытых данных с порогами, зафиксированными заранее (протокол core/warning_signs.py), и 7 признаков, требующих наблюдения. Вероятности монитора они не меняют — это отдельный слой раннего предупреждения.</p></div>
+        <div class="field" style="min-width:min(100%,260px)"><label for="warn-pair" data-i18n-en="Pair">Пара</label><select id="warn-pair"></select></div>
+      </div>
+      <div class="warn-grid">
+        <div class="tbl-wrap"><table><thead><tr><th></th><th data-i18n-en="Indicator">Признак</th><th data-i18n-en="Value">Значение</th></tr></thead><tbody id="warn-auto"></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th></th><th data-i18n-en="Requires monitoring (threshold)">Требует наблюдения (порог)</th></tr></thead><tbody id="warn-manual"></tbody></table></div>
+      </div>
+      <p class="small muted" style="margin-top:8px" id="warn-sum"></p>
+    </div>
   </section>
 
   <!-- СРАВНЕНИЕ С РЫНКОМ -->
@@ -1310,7 +1328,7 @@ function openTab(name) {
   const tb = $("t-" + name), bar = tb.parentElement; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: bar.scrollLeft + tb.getBoundingClientRect().left - bar.getBoundingClientRect().left - (bar.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
   if (name === "lanchester") renderLanchester();
   if (name === "coalition") renderCoalition();
-  if (name === "monitor") renderMonitor();
+  if (name === "monitor") { renderMonitor(); renderWarnings(); }
   if (name === "competitors") renderCompetitors();
   window.scrollTo({ top: 0 });
 }
@@ -2504,6 +2522,23 @@ function warConfidence(p, ciA, ciB) {
   return confWord(met);
 }
 const probTxt = (p, conf) => `${probWord(p)}${conf ? "; " + conf : ""}`;
+/* ---------- Признаки-предвестники (core/warning_signs.py -> data/pilot/warnings_2026.json -> window.WARNINGS) ---------- */
+const WARN = window.WARNINGS || null;
+let warnSel = 0;
+function renderWarnings() {
+  if (!WARN || !$("warn-pair")) { if ($("warn-panel")) $("warn-panel").hidden = !WARN; return; }
+  const nm = (p) => LANG === "en" && p.names_en ? p.names_en : p.names;
+  $("warn-pair").innerHTML = WARN.pairs.map((p, i) => `<option value="${i}">${esc(nm(p))} · ${fmt(p.p * 100, p.p < .1 ? 1 : 0)}%</option>`).join("");
+  $("warn-pair").value = String(warnSel);
+  const p = WARN.pairs[warnSel], def = Object.fromEntries(WARN.auto_def.map((d) => [d[0], d]));
+  $("warn-auto").innerHTML = p.auto.map((a, k) => (k === 5 ? `<tr><td colspan="3" class="small muted" style="padding-top:10px">${L("Структурные (меняются медленно)", "Structural (change slowly)")}</td></tr>` : "") +
+    `<tr><td><span class="wdot${a.on ? " on" : ""}${a.strong ? " strong" : ""}" title="${a.on ? L("сработал", "triggered") : L("нет", "no")}"></span></td><td><b>${a.id}</b> ${esc(def[a.id][LANG === "en" ? 2 : 1])}</td><td class="small">${esc(LANG === "en" && a.value_en ? a.value_en : a.value)}</td></tr>`).join("");
+  $("warn-manual").innerHTML = WARN.manual_def.map((m) => `<tr><td><span class="wdot watch"></span></td><td><b>${m[0]}</b> ${esc(LANG === "en" ? m[2] : m[1])} <span class="muted small">· ${L("наблюдать", "watch")}</span></td></tr>`).join("");
+  const dyn = p.auto.slice(0, 5).filter((a) => a.on).length, str = p.auto.slice(5).filter((a) => a.on).length;
+  $("warn-sum").textContent = L(`Сработало: динамических ${dyn} из 5, структурных ${str} из 3. Данные на ${WARN.date}; ручные признаки заполняются только со ссылкой на источник и датой.`,
+    `Triggered: ${dyn} of 5 dynamic, ${str} of 3 structural. Data as of ${WARN.date}; manual indicators are filled only with a source and date.`);
+}
+if ($("warn-pair")) $("warn-pair").addEventListener("change", (e) => { warnSel = Number(e.target.value); renderWarnings(); });
 /* ---------- Конкуренты (data/competitors.json -> window.COMPETITORS) ---------- */
 const CMP = window.COMPETITORS || null;
 const cmpUI = { preset: "research", w: null, filter: "all" };
@@ -2607,7 +2642,7 @@ function setLang(v) {
   applyDynamicLang();
   useDataset(DS ? DS.kind : "real", !!DS);
   renderCatalog();
-  if (!$("tab-monitor").hidden) renderMonitor();
+  if (!$("tab-monitor").hidden) { renderMonitor(); renderWarnings(); }
   if ($("cmp2-sliders")) $("cmp2-sliders").innerHTML = "";
   if (!$("tab-competitors").hidden) renderCompetitors();
 }
