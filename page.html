@@ -275,7 +275,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 <main class="wrap">
   <div class="banner">
     <strong id="banner-tag"></strong><span id="banner-text" style="flex:1 1 320px"></span>
-    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="wide" data-i18n-en="157 countries · extended">157 государств · расширенный</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
+    <span class="seg sm" id="ds-switch" role="group" aria-label="Набор данных" data-i18n-en-aria="Dataset"><button data-v="real" data-i18n-en="8 countries · experts">8 государств · эксперты</button><button data-v="pilot" data-i18n-en="40 countries · pilot">40 государств · пилот</button><button data-v="wide" data-i18n-en="177 countries · extended">177 государств · расширенный</button><button data-v="demo" data-i18n-en="Demo · 14 fictional">Демо · 14 вымышленных</button></span>
   </div>
 
   <!-- РЕЙТИНГ -->
@@ -1009,7 +1009,7 @@ function buildPilot(data = PD, kind = "pilot") {
   });
   return { kind, countries: C, V, SIG, IMP, COMPLETE: C.map((c) => c.coverage), INC: Uint8Array.from(data.include) };
 }
-// Расширенный набор (157 стран): тот же формат, отдельный файл wide.js (≈ 1 МБ) — подгружается при первом выборе набора.
+// Расширенный набор (177 стран): тот же формат, отдельный файл wide.js (≈ 1 МБ) — подгружается при первом выборе набора.
 let wideLoading = null;
 function loadWide() {
   if (window.WIDE_DATA) return Promise.resolve(window.WIDE_DATA);
@@ -2279,13 +2279,13 @@ function fillCountrySelect(el, val) { el.innerHTML = COUNTRIES.map((c, i) => `<o
 const BANNER = {
   real: ["Реальные данные · октябрь 2026", "8 государств оценены экспертно по 12 столпам (балл ± σ) по открытым данным SIPRI, IISS и официальных бюджетов; 253 показателя для них ещё не собраны. Перекрывающиеся интервалы означают, что места статистически неразличимы."],
   demo: ["Демо-режим", "14 вымышленных государств, значения показателей синтетические. Режим показывает работу всех 253 показателей и расчётную схему, а не реальный баланс сил."],
-  wide: ["Расширенный набор · срез 2025", "157 государств: 40 пилотных; 31 страна с подробной оценкой ИИ по 67 показателям (Канада, Испания, Нидерланды, Норвегия, Румыния, ОАЭ, Катар, Алжир, ЮАР, Мексика, Сингапур и др.; класс D) и 86 стран с грубой оценкой ИИ по профилю страны (значения округлены, интервалы шире; класс D). У всех новых стран восстановлено 7–21% значений. Нет таблиц ВВТ из Википедии и ручных данных IISS, поэтому страны с сильным качеством при небольшой численности занижены, а интервалы широкие. Состав индекса тот же, что у пилота; места пилотных стран почти не изменились (ранговая корреляция 0,9996)."],
+  wide: ["Расширенный набор · срез 2025", "177 государств: 40 пилотных; 31 страна с подробной оценкой ИИ по 67 показателям (Канада, Испания, Нидерланды, Норвегия, Румыния, ОАЭ, Катар, Алжир, ЮАР, Мексика, Сингапур и др.; класс D), 86 стран с грубой оценкой ИИ по профилю страны и 20 малых государств с оценкой по аналогам (значения округлены, интервалы шире; класс D). Для новых стран показатели качества техники взяты из таблиц Википедии автоматически, без ручной проверки (в пилоте она была). У новых стран восстановлено 3–24% значений; нет ручных данных IISS, поэтому страны с сильным качеством при небольшой численности занижены, а интервалы широкие. Состав индекса тот же, что у пилота; места пилотных стран почти не изменились (ранговая корреляция 0,9996)."],
   pilot: ["Пилот · срез 2025", "40 государств по открытым данным (ВБ, МВФ, SIPRI, UCDP, Factbook, Википедия, Global Firepower). В индекс входят показатели, по которым есть данные у половины стран. 67 показателей без объективного измерителя (подготовка, исправность, командование, запасы) до экспертной панели заполнены оценкой ИИ — класс D, источник «ai», самый низкий приоритет; крупные армии по-прежнему оцениваются выше, чем у экспертов."]
 };
 const BANNER_EN = {
   real: ["Real data · October 2026", "8 countries assessed by experts across 12 pillars (score ± σ) using open SIPRI, IISS and official budget data; 253 indicators are not yet collected for them. Overlapping intervals mean ranks are statistically indistinguishable."],
   demo: ["Demo mode", "14 fictional countries, indicator values are synthetic. This mode shows all 253 indicators and the calculation scheme at work, not a real balance of power."],
-  wide: ["Extended set · 2025 snapshot", "157 countries: 40 pilot; 31 countries with a detailed AI estimate for 67 indicators (Canada, Spain, the Netherlands, Norway, Romania, the UAE, Qatar, Algeria, South Africa, Mexico, Singapore and others; class D) and 86 countries with a rough AI estimate based on the country profile (values rounded, wider intervals; class D). 7–21% of the values of all new countries are imputed. There are no equipment tables from Wikipedia or manual IISS data, so countries with strong quality but small numbers are underrated and intervals are wide. The index composition is the same as in the pilot; pilot countries' ranks hardly changed (rank correlation 0.9996)."],
+  wide: ["Extended set · 2025 snapshot", "177 countries: 40 pilot; 31 countries with a detailed AI estimate for 67 indicators (Canada, Spain, the Netherlands, Norway, Romania, the UAE, Qatar, Algeria, South Africa, Mexico, Singapore and others; class D), 86 countries with a rough AI estimate based on the country profile and 20 small states estimated by analogy (values rounded, wider intervals; class D). Equipment-quality indicators for new countries come from Wikipedia tables automatically, without the manual check that the pilot had. 3–24% of the values of new countries are imputed; there is no manual IISS data, so countries with strong quality but small numbers are underrated and intervals are wide. The index composition is the same as in the pilot; pilot countries' ranks hardly changed (rank correlation 0.9996)."],
   pilot: ["Pilot · 2025 snapshot", "40 countries from open data (World Bank, IMF, SIPRI, UCDP, Factbook, Wikipedia, Global Firepower). The index includes indicators with data for at least half the countries. 67 indicators without an objective measure (training, readiness, command, stockpiles) are filled with an AI estimate until the expert panel — class D, source \"ai\", lowest priority; large armies are still scored higher than experts would."]
 };
 function useDataset(kind) {
@@ -2294,8 +2294,8 @@ function useDataset(kind) {
   if (kind === "wide" && !window.WIDE_DATA) {
     // подгрузка wide.js; пока файл грузится, показываем пилот (или текущий набор), затем переключаемся
     document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("загрузка…", "loading…"); });
-    loadWide().then(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("157 государств · расширенный", "157 countries · extended"); }); useDataset("wide"); })
-      .catch(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") { b.textContent = L("157 государств · расширенный", "157 countries · extended"); b.disabled = true; } }); if (!DS) useDataset(PD ? "pilot" : "real"); });
+    loadWide().then(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("177 государств · расширенный", "177 countries · extended"); }); useDataset("wide"); })
+      .catch(() => { document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") { b.textContent = L("177 государств · расширенный", "177 countries · extended"); b.disabled = true; } }); if (!DS) useDataset(PD ? "pilot" : "real"); });
     if (DS) return;
     kind = PD ? "pilot" : "real";
   }
