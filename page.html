@@ -637,6 +637,11 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     </div>
     <div class="panel stack" style="gap:12px">
       <div class="panel-head"><div><h3 data-i18n-en="Salvoes & air defence · Hughes model">Залпы и ПВО · модель Хьюза</h3><span class="muted small" data-i18n-en="Missiles and drones vs. interceptors. Scenario calculator: you set the parameters, the model is not calibrated (claimed intercept probabilities and prices are class D).">Ракеты и дроны против перехватчиков. Сценарный калькулятор: параметры задаёте вы, модель не калибруется (заявленные вероятности перехвата и цены — класс D).</span></div></div>
+      <div class="row" style="gap:8px 12px; align-items:center">
+        <span class="small muted" data-i18n-en="Real salvo:">Реальный залп:</span>
+        <button class="btn" id="sv-apr24" data-i18n-en="Iran → Israel, 13–14.04.2024">Иран → Израиль, 13–14.04.2024</button>
+      </div>
+      <p class="small" id="sv-real-note" hidden></p>
       <div class="cols-even">
         <div class="inputs" id="sv-inputs"></div>
         <div class="stack" style="gap:10px">
@@ -1975,6 +1980,18 @@ function initLayered() {
   $("ld-preset").value = ld.v === 180 ? "slow" : ld.v === 500 ? "fast" : "custom";
   renderLayered();
 }
+// Реальный залп как пресет (CSIS Missile Defense Project; IDF; AP): 170 БПЛА, 30 крылатых и 120 баллистических ракет за одну ночь.
+// Наблюдение: перехвачено 99% (ЦАХАЛ) или 84% (Maariv); не менее 9 баллистических ракет попали в две авиабазы (официальный источник США);
+// около половины баллистических ракет, по оценке США, отказали при пуске или в полёте. Прорыв 1–16% при двух перехватчиках на цель
+// соответствует p = 0,6–0,9: это калибровка p, а не независимая проверка модели.
+if ($("sv-apr24")) $("sv-apr24").addEventListener("click", () => {
+  Object.assign(sv, { S: 320, z: 1, days: 1, k: 2, p: .9 });
+  initSalvo();
+  const leak = leakShare(2, .9) * 100;
+  $("sv-real-note").hidden = false;
+  $("sv-real-note").textContent = L(`Залп 13–14 апреля 2024 г.: 170 БПЛА, 30 крылатых и 120 баллистических ракет (CSIS, ЦАХАЛ). Наблюдение: перехвачено 99% по ЦАХАЛ или 84% по Maariv; не менее 9 баллистических ракет попали в две авиабазы; около половины баллистических ракет, по оценке США, отказали при пуске или в полёте. Модель при двух перехватчиках на цель и p = 0,9 даёт прорыв ${fmt(leak, 0)}%; наблюдаемому прорыву 1–16% соответствует p = 0,6–0,9. Это калибровка вероятности перехвата, а не независимая проверка модели.`,
+    `Salvo of 13–14 April 2024: 170 drones, 30 cruise and 120 ballistic missiles (CSIS, IDF). Observed: 99% intercepted per the IDF or 84% per Maariv; at least 9 ballistic missiles hit two airbases; about half of the ballistic missiles, per a US estimate, failed at launch or in flight. With two interceptors per target and p = 0.9 the model gives ${fmt(leak, 0)}% leakage; the observed 1–16% corresponds to p = 0.6–0.9. This calibrates the intercept probability rather than independently testing the model.`);
+});
 function initSalvo() {
   $("sv-inputs").innerHTML = (LANG === "en" ? SV_FIELDS_EN : SV_FIELDS).map(([k, lbl, st]) => `<div class="field"><label for="sv-${k}">${lbl}</label><input type="number" id="sv-${k}" step="${st}" min="0" value="${sv[k]}"></div>`).join("");
   for (const [k] of SV_FIELDS) $("sv-" + k).addEventListener("input", (e) => { const v = Number(e.target.value); if (Number.isFinite(v) && v >= 0) { sv[k] = k === "p" ? Math.min(v, 1) : k === "days" || k === "z" ? Math.max(1, Math.round(v)) : v; renderSalvo(); } });
