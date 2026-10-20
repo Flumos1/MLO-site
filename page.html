@@ -436,12 +436,13 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <div class="field">
           <label for="co-d"><span data-i18n-en="Defence coefficient">Коэффициент обороны</span> <span class="sym">d</span></label>
           <select id="co-d">
-            <option value="1" data-i18n-en="1.0 · prepared or fortified defence (CDB90 battles)">1,0 · подготовленная или укреплённая оборона (сражения CDB90)</option>
-            <option value="1.3" data-i18n-en="1.3 · hasty defence, air-defence strikes">1,3 · поспешная оборона, удары по ПВО</option>
-            <option value="1.7" data-i18n-en="1.7 · Ukraine 2024–2025: equipment loss ratio (Oryx)">1,7 · Украина 2024–2025: отношение потерь техники (Oryx)</option>
-            <option value="2.5" data-i18n-en="2.5 · former assumption &quot;prepared defence, drones&quot;">2,5 · прежнее допущение «подготовленная оборона, дроны»</option>
-            <option value="3" data-i18n-en="3.0 · former assumption &quot;mountains, fortified area&quot;">3,0 · прежнее допущение «горы, укрепрайон»</option>
+            <option value="1" data-i18n-en="1.0 · prepared defence" data-full="Подготовленная или укреплённая оборона; по сражениям CDB90 d ≈ 1,0–1,1." data-full-en="Prepared or fortified defence; CDB90 battles give d ≈ 1.0–1.1.">1,0 · подготовленная оборона</option>
+            <option value="1.3" data-i18n-en="1.3 · hasty defence, strikes" data-full="Поспешная оборона или удары по ПВО (таблица d ядра)." data-full-en="Hasty defence or strikes on air defences (core d table).">1,3 · поспешная оборона, удары</option>
+            <option value="1.7" data-i18n-en="1.7 · Ukraine 2024–25 (Oryx)" data-full="Война на Украине: отношение потерь техники по Oryx за 2024–2025 гг. (Oryx — нижняя граница, потери России документируются плотнее)." data-full-en="War in Ukraine: equipment loss ratio from Oryx, 2024–2025 (Oryx is a lower bound; Russian losses are documented more densely).">1,7 · Украина 2024–25 (Oryx)</option>
+            <option value="2.5" data-i18n-en="2.5 · former: defence + drones" data-full="Прежнее допущение «подготовленная оборона, дроны» — до измерений на сражениях, оставлено для сравнения." data-full-en="Former assumption &quot;prepared defence, drones&quot; — predates the battle measurements, kept for comparison.">2,5 · прежнее: оборона и дроны</option>
+            <option value="3" data-i18n-en="3.0 · former: mountains, fortified" data-full="Прежнее допущение «горы, укрепрайон» — до измерений на сражениях, оставлено для сравнения." data-full-en="Former assumption &quot;mountains, fortified area&quot; — predates the battle measurements, kept for comparison.">3,0 · прежнее: горы, укрепрайон</option>
           </select>
+          <p class="muted small" id="co-d-hint" style="margin-top:4px"></p>
         </div>
         <div class="field">
           <label for="co-T" data-i18n-en="Horizon, days">Горизонт, сут</label>
@@ -2012,7 +2013,7 @@ function renderCoalResults() {
   const preset = coalPresets()[coal.preset];
   $("co-note").textContent = preset ? (LANG === "en" && preset.note_en ? preset.note_en : preset.note) : L("Своя коалиция: добавьте участников на стороны A и B и задайте для каждого надёжность, долю сил, удалённость и срок вступления.", "Custom coalition: add members to sides A and B and set reliability, force share, distance and arrival time for each.");
   $("co-alpha").value = coal.alpha; $("co-alpha-out").textContent = fmt(coal.alpha, 2);
-  $("co-d").value = String(coal.d); $("co-T").value = String(T);
+  $("co-d").value = String(coal.d); coDHint(); $("co-T").value = String(T);
   $("co-t").max = T; $("co-t").value = t; $("co-t-out").textContent = `${t} ${L("сут", "days")}`;
   const eA = coalE("A"), eB = coalE("B"), R = coalReq();
   const S = [];
@@ -2346,7 +2347,7 @@ function initCoalition() {
   $("co-preset").addEventListener("change", (e) => { applyCoalPreset(e.target.value); renderCoalition(); });
   $("co-reset").addEventListener("click", () => { applyCoalPreset(coal.preset); renderCoalition(); });
   $("co-alpha").addEventListener("input", (e) => { coal.alpha = Number(e.target.value); renderCoalResults(); });
-  $("co-d").addEventListener("change", (e) => { coal.d = Number(e.target.value); renderCoalResults(); });
+  $("co-d").addEventListener("change", (e) => { coal.d = Number(e.target.value); coDHint(); renderCoalResults(); });
   $("co-T").addEventListener("change", (e) => { coal.T = Number(e.target.value); coal.t = Math.min(coal.t, coal.T); renderCoalResults(); });
   $("co-t").addEventListener("input", (e) => { coal.t = Number(e.target.value); renderCoalResults(); });
   $("co-to-lanch").addEventListener("click", () => {
@@ -2388,6 +2389,11 @@ function initCoalition() {
     });
   });
 }
+// Полное пояснение выбранного d — под списком (в самом списке подписи короткие, чтобы не обрезались)
+function coDHint() {
+  const o = $("co-d").selectedOptions[0];
+  $("co-d-hint").textContent = o ? (LANG === "en" ? o.dataset.fullEn : o.dataset.full) || "" : "";
+}
 /* ---------- Переключатель языка ---------- */
 function applyStaticLang() {
   document.documentElement.lang = LANG === "en" ? "en" : "ru";
@@ -2409,6 +2415,7 @@ function applyStaticLang() {
     el.setAttribute("placeholder", LANG === "en" ? el.dataset.i18nEnPlaceholder : el.dataset.i18nRuPlaceholder);
   });
   document.querySelectorAll("#lang-switch button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === LANG)));
+  if ($("co-d-hint")) coDHint();
 }
 // Подписи, которые строятся в JS при запуске: их нужно пересобрать при смене языка.
 function applyDynamicLang() {
