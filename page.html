@@ -545,6 +545,14 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="panel-head"><h3 data-i18n-en="Formulas with current parameters">Формулы с текущими параметрами</h3></div>
       <div class="formula" id="co-formula"></div>
     </div>
+    <div class="panel" id="wg-panel" hidden>
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Scenario series: how the outcome depends on assumptions">Серия прогонов: как исход зависит от допущений</h3>
+        <p class="muted small" id="wg-sub"></p></div></div>
+      <div class="prob" id="wg-bar" style="margin-bottom:8px"></div>
+      <p class="small" id="wg-crit"></p>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Assumption">Допущение</th><th data-i18n-en="Outcome at each level, others at base">Исход по уровням при прочих базовых</th><th data-i18n-en="Share of A success over all combinations">Доля успеха A по всем сочетаниям</th></tr></thead><tbody id="wg-table"></tbody></table></div>
+      <p class="small muted" style="margin-top:8px" data-i18n-en="Deterministic battle model on expert scores; assumptions that the methodology does not measure are varied: allies' force share s, arrival times τ, allies' reliability ρ, defence coefficient d, law exponent α, breakpoint bp (core/wargame.py). This describes the model's sensitivity to assumptions, not a forecast.">Детерминированная модель боя на экспертных баллах; перебираются допущения, которые методика не измеряет: доля сил союзников s, сроки вступления τ, надёжность союзников ρ, коэффициент обороны d, показатель закона α, порог слома bp (core/wargame.py). Это описание чувствительности модели к допущениям, а не прогноз.</p>
+    </div>
   </section>
 
   <!-- ЛАНЧЕСТЕР -->
@@ -2124,6 +2132,7 @@ function renderCoalition() {
   renderCoalResults();
 }
 function renderCoalResults() {
+  renderWargame();
   const T = coal.T, t = Math.min(coal.t, T);
   const preset = coalPresets()[coal.preset];
   $("co-note").textContent = preset ? (LANG === "en" && preset.note_en ? preset.note_en : preset.note) : L("Своя коалиция: добавьте участников на стороны A и B и задайте для каждого надёжность, долю сил, удалённость и срок вступления.", "Custom coalition: add members to sides A and B and set reliability, force share, distance and arrival time for each.");
@@ -2549,6 +2558,24 @@ function renderWarnings() {
     `Triggered: ${dyn} of 5 dynamic, ${str} of 3 structural. Data as of ${WARN.date}; manual indicators are filled only with a source and date.`);
 }
 if ($("warn-pair")) $("warn-pair").addEventListener("change", (e) => { warnSel = Number(e.target.value); renderWarnings(); });
+/* ---------- Серии прогонов (core/wargame.py -> data/pilot/wargame.json -> window.WARGAME) ---------- */
+function renderWargame() {
+  const W = window.WARGAME, panel = $("wg-panel");
+  if (!panel) return;
+  const sc = W && isReal() ? W.scenarios[coal.preset] : null;
+  panel.hidden = !sc;
+  if (!sc) return;
+  const oc = (o) => o === "A" ? L("успех A", "A succeeds") : o === "B" ? L("оборона удержана", "defence holds") : L("затяжные бои", "protracted");
+  const cls = { A: "pa", B: "pb", N: "pn" };
+  $("wg-sub").textContent = L(`${sc.n} сочетаний допущений · базовые допущения сценария дают: ${oc(sc.base.outcome)}${sc.base.end ? `, сутки ${sc.base.end}` : ""}`,
+    `${sc.n} combinations of assumptions · the scenario's base assumptions give: ${oc(sc.base.outcome)}${sc.base.end ? `, day ${sc.base.end}` : ""}`);
+  $("wg-bar").innerHTML = ["A", "N", "B"].map((o) => sc.share[o] > 0 ? `<div class="${cls[o]}" style="flex:${sc.share[o]}" data-tip="${oc(o)}: ${fmt(sc.share[o] * 100, 0)}%">${sc.share[o] >= .08 ? fmt(sc.share[o] * 100, 0) + "%" : ""}</div>` : "").join("");
+  const nm = (k) => W.names[k][LANG === "en" ? 1 : 0];
+  $("wg-crit").innerHTML = sc.critical.length ? L(`<b>Критические допущения</b> (их изменение при прочих базовых меняет исход): ${sc.critical.map(nm).join(", ")}.`, `<b>Critical assumptions</b> (changing them with the rest at base changes the outcome): ${sc.critical.map(nm).join(", ")}.`)
+    : L("Исход не меняется ни от одного допущения по отдельности — вывод устойчив к ним.", "No single assumption changes the outcome — the conclusion is robust to them.");
+  $("wg-table").innerHTML = Object.entries(sc.factors).map(([k, f]) => `<tr><td>${esc(nm(k))}</td><td class="small">${f.levels.map((l) => `${fmt(l.value, 2)} → <b>${oc(l.outcome)}</b>`).join("; ")}</td>` +
+    `<td class="small">${Object.entries(f.share_A).map(([v, s]) => `${fmt(Number(v), 2)}: ${fmt(s * 100, 0)}%`).join(" · ")}</td></tr>`).join("");
+}
 /* ---------- Конкуренты (data/competitors.json -> window.COMPETITORS) ---------- */
 const CMP = window.COMPETITORS || null;
 const cmpUI = { preset: "research", w: null, filter: "all" };
