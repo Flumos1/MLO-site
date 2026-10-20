@@ -1475,9 +1475,12 @@ function fillLanchSelect(el, side) {
   el.innerHTML = (c ? `<option value="coal">${L("Коалиция", "Coalition")}: ${esc(c.name)}</option>` : "") + COUNTRIES.map((x, i) => `<option value="${i}">${esc(cName(x))}</option>`).join("");
   el.value = c ? "coal" : String(cur);
 }
-function setLanchSides() {
-  ln.A = ln.coal.A ? { ...ln.coal.A } : lanchInputs(ui.lnA);
-  ln.B = ln.coal.B ? { ...ln.coal.B } : lanchInputs(ui.lnB);
+function setLanchSides(reset = true) {
+  // reset = false — только перерисовать списки и поля (смена языка), введённые значения сохраняются
+  if (reset || !ln.A || !ln.B) {
+    ln.A = ln.coal.A ? { ...ln.coal.A } : lanchInputs(ui.lnA);
+    ln.B = ln.coal.B ? { ...ln.coal.B } : lanchInputs(ui.lnB);
+  }
   fillLanchSelect($("ln-a"), "A"); fillLanchSelect($("ln-b"), "B");
   $("ln-a-inputs").innerHTML = sideInputsHTML("A"); $("ln-b-inputs").innerHTML = sideInputsHTML("B");
   document.querySelectorAll("#ln-a-inputs input,#ln-b-inputs input").forEach((el) => el.addEventListener("input", () => {
@@ -2305,7 +2308,8 @@ const BANNER_EN = {
   wide: ["Extended set · 2025 snapshot", "177 countries: 40 pilot; 31 countries with a detailed AI estimate for 67 indicators (Canada, Spain, the Netherlands, Norway, Romania, the UAE, Qatar, Algeria, South Africa, Mexico, Singapore and others; class D), 86 countries with a rough AI estimate based on the country profile and 20 small states estimated by analogy (values rounded, wider intervals; class D). Equipment-quality indicators for new countries come from Wikipedia tables automatically, without the manual check that the pilot had. 3–24% of the values of new countries are imputed; there is no manual IISS data, so countries with strong quality but small numbers are underrated and intervals are wide. The index composition is the same as in the pilot; pilot countries' ranks hardly changed (rank correlation 0.9996)."],
   pilot: ["Pilot · 2025 snapshot", "40 countries from open data (World Bank, IMF, SIPRI, UCDP, Factbook, Wikipedia, Global Firepower). The index includes indicators with data for at least half the countries. 67 indicators without an objective measure (training, readiness, command, stockpiles) are filled with an AI estimate until the expert panel — class D, source \"ai\", lowest priority; large armies are still scored higher than experts would."]
 };
-function useDataset(kind) {
+// keep = true — тот же набор (смена языка): выбранные страны, сценарий коалиций и настройки боя сохраняются
+function useDataset(kind, keep) {
   if (!["real", "demo", "pilot", "wide"].includes(kind)) kind = "real";
   if (kind === "pilot" && !PD) kind = "real";
   if (kind === "wide" && !window.WIDE_DATA) {
@@ -2322,9 +2326,12 @@ function useDataset(kind) {
   regroup();
   try { localStorage.setItem("ivm-dataset", kind); } catch (e) { /* хранилище недоступно — выбор не запоминается */ }
   const at = (id, fb) => { const i = COUNTRIES.findIndex((c) => c.id === id); return i >= 0 ? i : fb; };
-  ui.profile = 0;
-  if (kind !== "demo") { ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5; } else { ui.cmpA = 0; ui.cmpB = 1; ln.D = 3; }
-  ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; ln.A = null; mc = null;
+  if (!keep) {
+    ui.profile = 0;
+    if (kind !== "demo") { ui.cmpA = at("RUS", 0); ui.cmpB = at("UKR", 1); ln.D = .5; } else { ui.cmpA = 0; ui.cmpB = 1; ln.D = 3; }
+    ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; ln.A = null;
+  }
+  mc = null;
   const bn = (LANG === "en" ? BANNER_EN : BANNER)[kind];
   $("banner-tag").textContent = bn[0]; $("banner-text").textContent = bn[1];
   document.querySelectorAll("#ds-switch button").forEach((b) => {
@@ -2337,9 +2344,9 @@ function useDataset(kind) {
   $("co-preset").innerHTML = Object.entries(coalPresets()).map(([k, p]) => `<option value="${k}">${esc(coalPresetName(p))}</option>`).join("") + `<option value="custom">${L("Своя коалиция", "Custom coalition")}</option>`;
   det = compute(V, state);
   baseRanks = ranksOf(compute(V, DEFAULTS).map((x) => x.Ieff));
-  applyCoalPreset("");
+  if (!keep) applyCoalPreset("");
   recompute(true);
-  setLanchSides();
+  setLanchSides(!keep);
   if (!$("tab-lanchester").hidden) renderLanchester();
   if (!$("tab-coalition").hidden) renderCoalition();
 }
@@ -2441,7 +2448,7 @@ function setLang(v) {
   try { localStorage.setItem("ivm-lang", LANG); } catch (e) { /* хранилище недоступно */ }
   applyStaticLang();
   applyDynamicLang();
-  useDataset(DS ? DS.kind : "real");
+  useDataset(DS ? DS.kind : "real", !!DS);
   renderCatalog();
   if (!$("tab-monitor").hidden) renderMonitor();
 }
