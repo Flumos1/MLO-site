@@ -344,7 +344,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
           <h3 style="color:var(--accent)" data-i18n-en="Proven, not just claimed">Проверено, а не только заявлено</h3>
           <p class="small" style="margin-top:4px" data-i18n-en="The only open military power index with a published protocol for testing against real wars and flashpoints — mistakes and limits are not hidden.">Единственный открытый индекс военной мощи с опубликованным протоколом проверки на реальных войнах и очагах напряжённости — промахи и ограничения не скрываются.</p>
         </div>
-        <button class="btn" id="rating-to-competitors" data-i18n-en="Compare with TENET MCI, GFP, IISS →">Сравнить с TENET MCI, GFP, IISS →</button>
+        <button class="btn" id="rating-to-competitors" data-i18n-en="15 competitors and the rating →">15 конкурентов и рейтинг →</button>
       </div>
       <div class="tiles">
         <div class="tile"><span class="lbl" data-i18n-en="Flashpoint monitor AUC">AUC монитора очагов</span><div class="big num">0,96</div><div class="sub" data-i18n-en="out-of-sample, 780 pairs, 5,460 forecasts">вне выборки, 780 пар, 5 460 прогнозов</div></div>
@@ -352,6 +352,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <div class="tile"><span class="lbl" data-i18n-en="Historical battles">Исторических сражений</span><div class="big num">404</div><div class="sub" data-i18n-en="CDB90 — Lanchester's law exponent α measured">CDB90 — измерен показатель закона Ланчестера α</div></div>
         <div class="tile"><span class="lbl" data-i18n-en="Methodology">Методика</span><div class="big num" data-i18n-en="open">открыта</div><div class="sub" data-i18n-en="all code and data — competitors' cores are proprietary">весь код и данные — у конкурентов ядро проприетарное</div></div>
       </div>
+      <p class="small" style="margin-top:10px" data-i18n-en="Compared with 15 US and UK organisations (Janes, IISS, RAND, CSIS, ViEWS, Global Firepower and others) we lead on 9 of 26 criteria — testing on wars, measured combat law, uncertainty, transparency, nuclear axis, coalitions, salvoes, flashpoint monitor, price — and no one has this whole set. We lose on staff, classified and paid data: that is resources, not method.">По сравнению с 15 структурами США и Великобритании (Janes, IISS, RAND, CSIS, ViEWS, Global Firepower и др.) мы впереди по 9 из 26 критериев — проверка на войнах, измеренный закон боя, неопределённость, прозрачность, ядерная ось, коалиции, залпы, монитор очагов, цена — и такого набора нет ни у кого. Проигрываем в штате, закрытых и платных данных: это ресурсы, а не методика.</p>
     </div>
     <div class="panel">
       <div class="panel-head">
@@ -364,6 +365,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
             <label for="rating-measure" data-i18n-en="Show">Показать</label>
             <select id="rating-measure"></select>
           </div>
+          <div class="field" style="justify-content:flex-end"><button class="btn" data-open-tab="method" data-i18n-en="Own pillar weights →">Свои веса столпов →</button></div>
           <div class="field" style="min-width:220px">
             <label for="rating-D" data-i18n-en="Theatre distance, thousand km">Удалённость театра, тыс. км</label>
             <div class="range-line"><input type="range" id="rating-D" data-bind="D" min="0" max="12" step="0.5"><output data-out="D"></output></div>
@@ -913,6 +915,19 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
           </div>
         </article>
       </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Open data (CC BY 4.0)">Открытые данные (CC BY 4.0)</h3>
+        <p class="muted small" data-i18n-en="Our results in CSV and JSON: use freely with attribution “MPI Lanchester–Osipov”. Third-party source data (GFP, SIPRI, IISS via Wikipedia and others) are not included — they have their own licences.">Наши результаты в CSV и JSON: можно использовать свободно со ссылкой «ИВМ Ланчестер–Осипов». Исходные данные третьих сторон (GFP, SIPRI, IISS через Википедию и др.) не включены — у них свои лицензии.</p></div></div>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="File">Файл</th><th data-i18n-en="Contents">Содержимое</th></tr></thead><tbody>
+          <tr><td><a href="data/ivm_rating_pilot40_2025.csv" download>ivm_rating_pilot40_2025.csv</a></td><td data-i18n-en="Ranking of 40 pilot countries: MPI, 90% interval, ranks, 12 pillars">Рейтинг 40 стран пилота: ИВМ, 90% интервал, места, 12 столпов</td></tr>
+          <tr><td><a href="data/ivm_rating_extended177_2025.csv" download>ivm_rating_extended177_2025.csv</a></td><td data-i18n-en="Ranking of 177 countries (lighter core for 137 new ones)">Рейтинг 177 стран (облегчённое ядро для 137 новых)</td></tr>
+          <tr><td><a href="data/ivm_rating_experts8_2026.csv" download>ivm_rating_experts8_2026.csv</a></td><td data-i18n-en="Expert assessment of 8 states by pillar">Экспертная оценка 8 государств по столпам</td></tr>
+          <tr><td><a href="data/ivm_monitor_2026.csv" download>ivm_monitor_2026.csv</a></td><td data-i18n-en="Flashpoint monitor: conflict probability for 780 pairs in 2026">Монитор очагов: вероятность конфликта для 780 пар в 2026 г.</td></tr>
+          <tr><td><a href="data/ivm_indicators.csv" download>ivm_indicators.csv</a></td><td data-i18n-en="Catalogue of 253 indicators">Каталог 253 показателей</td></tr>
+          <tr><td><a href="data/ivm_params.json" download>ivm_params.json</a></td><td data-i18n-en="Methodology parameters and scenario checks">Параметры методики и контрольные значения сценариев</td></tr>
+          <tr><td><a href="data/README_LICENSE.txt" download>README_LICENSE.txt</a></td><td data-i18n-en="Field descriptions and licence">Описание полей и лицензия</td></tr>
+      </tbody></table></div>
     </div>
   </section>
 
