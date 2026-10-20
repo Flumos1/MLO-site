@@ -88,6 +88,8 @@ button,input,select{font:inherit; color:inherit}
 .banner #ds-switch{grid-column:2; justify-self:start; max-width:100%}
 .banner #banner-text{flex:none!important}
 @media (max-width:700px){ .banner{grid-template-columns:minmax(0,1fr)} .banner #ds-switch{grid-column:1; display:grid; grid-template-columns:1fr 1fr; width:100%} .banner #ds-switch button + button{border-left:0} .banner #ds-switch button:nth-child(even){border-left:1px solid var(--line)} .banner #ds-switch button:nth-child(n+3){border-top:1px solid var(--line)} }
+.cmp td:first-child{font-weight:600; color:var(--ink)}
+.cmp td:nth-child(2),.cmp th:nth-child(2){background:var(--accent-soft); color:var(--ink); box-shadow:inset 3px 0 0 var(--accent)}
 .banner strong{padding-top:2px; font-family:var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-size:12px}
 
 .panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:16px; min-width:0; box-shadow:var(--shadow)}
@@ -692,7 +694,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
           </div>
         </div>
       </div>
-      <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country pair">Пара государств</th><th style="min-width:180px" data-i18n-en="Conflict probability in 2026">Вероятность конфликта в 2026 г.</th><th data-i18n-en="2025">2025 г.</th><th class="num" data-i18n-en="Years of conflict per 10">Лет конфликта за 10</th><th data-i18n-en="Neighbours">Соседство</th><th data-i18n-en="Alliance">Союз</th><th class="num" data-i18n-en="Democracy (min)">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
+      <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country pair">Пара государств</th><th style="min-width:180px" data-i18n-en="Conflict probability in 2026">Вероятность конфликта в 2026 г.</th><th data-i18n-en="2025">2025 г.</th><th class="num" data-i18n-en="Conflict years of last 10">Лет конфликта из 10</th><th data-i18n-en="Neighbours">Соседство</th><th data-i18n-en="Alliance">Союз</th><th class="num" data-i18n-en="Democracy (min)">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
       <p class="small muted" id="mon-note"></p>
     </div>
   </section>
@@ -707,17 +709,17 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         </div>
       </div>
       <div class="tbl-wrap">
-        <table>
+        <table class="cmp">
           <thead><tr><th data-i18n-en="Criterion">Критерий</th><th data-i18n-en="MPI Lanchester–Osipov">ИВМ «Ланчестер–Осипов»</th><th>TENET MCI</th><th>Global Firepower</th><th>IISS Military Balance</th></tr></thead>
           <tbody>
-            <tr><td data-i18n-en="Methodology">Методика</td><td class="num" style="text-align:left" data-i18n-en="code and formulas are open">код и формулы открыты</td><td data-i18n-en="proprietary">проприетарная</td><td data-i18n-en="closed formula">закрытая формула</td><td data-i18n-en="closed">закрытая</td></tr>
+            <tr><td data-i18n-en="Methodology">Методика</td><td style="text-align:left" data-i18n-en="code and formulas are open">код и формулы открыты</td><td data-i18n-en="proprietary">проприетарная</td><td data-i18n-en="closed formula">закрытая формула</td><td data-i18n-en="closed">закрытая</td></tr>
             <tr><td data-i18n-en="Combat law">Закон боя</td><td style="text-align:left" data-i18n-en="α measured on 404 battles (0.65–0.98) — quadratic law rejected">α измерен на 404 сражениях (0,65–0,98) — квадратичный закон отвергнут</td><td data-i18n-en="claims N²">декларирует N²</td><td data-i18n-en="no explicit battle model">нет явной модели боя</td><td data-i18n-en="no battle model">нет модели боя</td></tr>
             <tr><td data-i18n-en="Historical testing">Проверка на истории</td><td style="text-align:left" data-i18n-en="10 wars 2018–2025, protocol fixed before the run, misses published">10 войн 2018–2025, протокол до расчёта, промахи опубликованы</td><td data-i18n-en="not published">не опубликована</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
             <tr><td data-i18n-en="Uncertainty">Неопределённость</td><td style="text-align:left" data-i18n-en="intervals, Monte Carlo, Sobol indices, model σ">интервалы, Монте-Карло, индексы Соболя, σ модели</td><td data-i18n-en="not visible">не видно</td><td data-i18n-en="point figures">точечные числа</td><td data-i18n-en="point figures">точечные числа</td></tr>
             <tr><td data-i18n-en="Flashpoint monitor">Монитор очагов</td><td style="text-align:left" data-i18n-en="AUC 0.96 out-of-sample, 780 pairs">AUC 0,96 вне выборки, 780 пар</td><td data-i18n-en="none (MERIDIAN — influence, untested)">нет (MERIDIAN — влияние, без проверки)</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
             <tr><td data-i18n-en="Battle model & coalitions">Модель боя и коалиции</td><td style="text-align:left" data-i18n-en="Lanchester–Helmbold, Hughes salvoes, coalitions (ρ, s, τ, D)">Ланчестер–Хельмболд, залпы Хьюза, коалиции (ρ, s, τ, D)</td><td data-i18n-en="not published">не опубликована</td><td data-i18n-en="none">нет</td><td data-i18n-en="none">нет</td></tr>
-            <tr><td data-i18n-en="Country coverage">Охват стран</td><td data-i18n-en="40 (pilot) / 8 experts">40 (пилот) / 8 эксперты</td><td>150+</td><td>145+</td><td>170+</td></tr>
-            <tr><td data-i18n-en="Indicators">Показатели</td><td data-i18n-en="253 (≈215 in the pilot index)">253 (≈215 в индексе пилота)</td><td>200+</td><td>60+</td><td data-i18n-en="no single index">нет единого индекса</td></tr>
+            <tr><td data-i18n-en="Country coverage">Охват стран</td><td style="text-align:left" data-i18n-en="177 (extended) · 40 (pilot, checked by hand) · 8 (experts)">177 (расширенный) · 40 (пилот, проверен вручную) · 8 (эксперты)</td><td>150+</td><td>145+</td><td>170+</td></tr>
+            <tr><td data-i18n-en="Indicators">Показатели</td><td style="text-align:left" data-i18n-en="253 (≈215 in the pilot index)">253 (≈215 в индексе пилота)</td><td>200+</td><td>60+</td><td data-i18n-en="no single index">нет единого индекса</td></tr>
             <tr><td data-i18n-en="Expert assessment">Экспертная оценка</td><td style="text-align:left" data-i18n-en="Delphi panel (ready to launch), currently a temporary class-D AI estimate">панель Дельфи (готова к запуску), пока — временная оценка ИИ класса D</td><td data-i18n-en="staff of former military & intelligence officers">штат бывших военных и разведчиков</td><td data-i18n-en="unknown">неизвестно</td><td data-i18n-en="analyst staff (data benchmark)">штат аналитиков (эталон данных)</td></tr>
             <tr><td data-i18n-en="Data">Данные</td><td style="text-align:left" data-i18n-en="open sources (SIPRI, UCDP, World Bank, etc.)">открытые источники (SIPRI, UCDP, ВБ и др.)</td><td data-i18n-en="likely paid OSINT">вероятно платные OSINT</td><td data-i18n-en="mixed, no per-figure sourcing">смешанные, без ссылок на каждую цифру</td><td data-i18n-en="paid, closed">платные, закрытые</td></tr>
             <tr><td data-i18n-en="Access cost">Стоимость доступа</td><td data-i18n-en="free">бесплатно</td><td data-i18n-en="paid (B2B)">платный (B2B)</td><td data-i18n-en="free (ad-supported)">бесплатно (реклама)</td><td data-i18n-en="paid publication">платное издание</td></tr>
