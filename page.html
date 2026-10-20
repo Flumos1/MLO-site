@@ -19,6 +19,7 @@
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --radius:8px;
   --shadow:0 1px 2px rgba(20,24,19,.04);
+  color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -27,7 +28,7 @@
     --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
     --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
     --neutral-bar:#394a46;
-    --good-ink:#35c15b; --crit-ink:#ef6b62;
+    --good:#2fb350; --warn:#e0a030; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
     --seq0:#0f3457; --seq1:#1c4d78; --seq2:#2f699f; --seq3:#5088c9; --seq4:#7fa9db; --seq5:#aecbea; --seq6:#d8e6f6;
     color-scheme:dark;
     --shadow:0 1px 2px rgba(0,0,0,.4);
@@ -39,7 +40,7 @@
   --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
   --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
   --neutral-bar:#394a46;
-  --good-ink:#35c15b; --crit-ink:#ef6b62;
+  --good:#2fb350; --warn:#e0a030; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
   --seq0:#0f3457; --seq1:#1c4d78; --seq2:#2f699f; --seq3:#5088c9; --seq4:#7fa9db; --seq5:#aecbea; --seq6:#d8e6f6;
   color-scheme:dark;
   --shadow:0 1px 2px rgba(0,0,0,.4);
@@ -78,10 +79,16 @@ button,input,select{font:inherit; color:inherit}
 .tab:hover{color:var(--ink); background:var(--paper-2)}
 .tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent); background:var(--accent-soft)}
 
-@media (max-width:900px){ .top{position:static} .tab{padding:11px 10px 9px} .lang-switch,.top-inner>.seg{margin-left:0} }
+.hdr-tools{margin-left:auto; display:flex; gap:8px; align-items:center; padding-bottom:10px}
+.seg.icons button{display:inline-flex; align-items:center; justify-content:center; padding:5px 8px}
+.seg.icons svg{display:block}
+@media (max-width:900px){ .top{position:static} .tab{padding:11px 10px 9px} .hdr-tools{margin-left:0; padding-bottom:8px} }
 .wrap{max-width:1320px; margin:0 auto; padding-inline:16px; padding-block:16px 56px}
-.banner{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; font-size:13px; color:var(--ink-2); background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--axis); border-radius:var(--radius); padding:9px 13px; margin-bottom:16px; box-shadow:var(--shadow)}
-.banner strong{font-family:var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-size:12px}
+.banner{display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px 18px; align-items:start; font-size:13px; color:var(--ink-2); background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--axis); border-radius:var(--radius); padding:9px 13px; margin-bottom:16px; box-shadow:var(--shadow)}
+.banner #ds-switch{grid-column:2; justify-self:start; max-width:100%}
+.banner #banner-text{flex:none!important}
+@media (max-width:700px){ .banner{grid-template-columns:minmax(0,1fr)} .banner #ds-switch{grid-column:1; display:grid; grid-template-columns:1fr 1fr; width:100%} .banner #ds-switch button + button{border-left:0} .banner #ds-switch button:nth-child(even){border-left:1px solid var(--line)} .banner #ds-switch button:nth-child(n+3){border-top:1px solid var(--line)} }
+.banner strong{padding-top:2px; font-family:var(--f-display); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-size:12px}
 
 .panel{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:16px; min-width:0; box-shadow:var(--shadow)}
 .panel-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--line)}
@@ -266,9 +273,16 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 <button class="tab" role="tab" id="t-method" data-tab="method" aria-selected="false" data-i18n-en="Methodology &amp; weights">Методика и веса</button>
       <button class="tab" role="tab" id="t-catalog" data-tab="catalog" aria-selected="false" data-i18n-en="Indicators">Показатели</button>
     </nav>
-    <span class="seg sm" id="lang-switch" role="group" aria-label="Язык · Language" style="margin-left:auto">
-      <button data-v="ru" aria-pressed="true">RU</button><button data-v="en" aria-pressed="false">EN</button>
-    </span>
+    <div class="hdr-tools">
+      <span class="seg sm icons" id="theme-switch" role="group" aria-label="Тема оформления" data-i18n-en-aria="Colour theme">
+        <button data-v="light" aria-pressed="false" title="Светлая" data-i18n-en-title="Light" aria-label="Светлая" data-i18n-en-aria="Light"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2.2v2M10 15.8v2M2.2 10h2M15.8 10h2M4.5 4.5l1.4 1.4M14.1 14.1l1.4 1.4M4.5 15.5l1.4-1.4M14.1 5.9l1.4-1.4"/></svg></button>
+        <button data-v="auto" aria-pressed="true" title="Как в системе" data-i18n-en-title="Match system" aria-label="Как в системе" data-i18n-en-aria="Match system"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 2.8a7.2 7.2 0 0 1 0 14.4z" fill="currentColor" stroke="none"/></svg></button>
+        <button data-v="dark" aria-pressed="false" title="Тёмная" data-i18n-en-title="Dark" aria-label="Тёмная" data-i18n-en-aria="Dark"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M16.6 12.2A7 7 0 0 1 7.8 3.4a7 7 0 1 0 8.8 8.8z"/></svg></button>
+      </span>
+      <span class="seg sm" id="lang-switch" role="group" aria-label="Язык · Language">
+        <button data-v="ru" aria-pressed="true">RU</button><button data-v="en" aria-pressed="false">EN</button>
+      </span>
+    </div>
   </div>
 </header>
 
@@ -2384,6 +2398,10 @@ function applyStaticLang() {
     if (!el.dataset.i18nRuAria) el.dataset.i18nRuAria = el.getAttribute("aria-label") || "";
     el.setAttribute("aria-label", LANG === "en" ? el.dataset.i18nEnAria : el.dataset.i18nRuAria);
   });
+  document.querySelectorAll("[data-i18n-en-title]").forEach((el) => {
+    if (!el.dataset.i18nRuTitle) el.dataset.i18nRuTitle = el.getAttribute("title") || "";
+    el.setAttribute("title", LANG === "en" ? el.dataset.i18nEnTitle : el.dataset.i18nRuTitle);
+  });
   document.querySelectorAll("[data-i18n-en-placeholder]").forEach((el) => {
     if (!el.dataset.i18nRuPlaceholder) el.dataset.i18nRuPlaceholder = el.getAttribute("placeholder") || "";
     el.setAttribute("placeholder", LANG === "en" ? el.dataset.i18nEnPlaceholder : el.dataset.i18nRuPlaceholder);
@@ -2419,6 +2437,17 @@ function setLang(v) {
   if (!$("tab-monitor").hidden) renderMonitor();
 }
 document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
+/* ---------- Переключатель темы: авто (как в системе) / светлая / тёмная ---------- */
+let THEME = (function () { try { const v = localStorage.getItem("ivm-theme"); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; } })();
+function setTheme(v, save) {
+  if (v !== "light" && v !== "dark") v = "auto";
+  THEME = v;
+  if (v === "auto") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme", v);
+  if (save) { try { if (v === "auto") localStorage.removeItem("ivm-theme"); else localStorage.setItem("ivm-theme", v); } catch (e) { /* хранилище недоступно */ } }
+  document.querySelectorAll("#theme-switch button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
+}
+document.querySelectorAll("#theme-switch button").forEach((b) => b.addEventListener("click", () => setTheme(b.dataset.v, true)));
+setTheme(THEME, false);
 
 function init() {
   applyStaticLang();
