@@ -112,6 +112,179 @@ window.IVM_PARAMS = {
    "window": []
   }
  },
+ "pilot_presets": {
+  "taiwan": {
+   "name": "Китай против Тайваня при участии США и Японии · Тайваньский пролив",
+   "name_en": "China vs. Taiwan with US and Japanese participation · Taiwan Strait",
+   "note": "Иллюстративный сценарий, не прогноз. Очаг из документа 4: Китай выделяет на театр половину сил, Тайвань воюет всеми. США (ρ 0,5) и Япония (ρ 0,3) — коалиции по случаю: договора о взаимной обороне с Тайванем нет. Задержки τ — допущение (США через 7 сут, Япония через 10). Десант через пролив и блокада в модели не описаны: d = 1,0 (подготовленная оборона) занижает трудность высадки.",
+   "note_en": "Illustrative scenario, not a forecast. Hot spot from document 4: China commits half its forces to the theatre, Taiwan fights with everything. The US (ρ 0.5) and Japan (ρ 0.3) are ad hoc coalitions: there is no mutual defence treaty with Taiwan. Delays τ are an assumption (the US after 7 days, Japan after 10). An amphibious crossing and a blockade are not modelled: d = 1.0 (prepared defence) understates the difficulty of a landing.",
+   "alpha": 1.0,
+   "d": 1.0,
+   "T": 60,
+   "A": [
+    {
+     "key": "CHN",
+     "rho": 1,
+     "s": 0.5,
+     "D": 0.2,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    }
+   ],
+   "B": [
+    {
+     "key": "TWN",
+     "rho": 1,
+     "s": 1,
+     "D": 0,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    },
+    {
+     "key": "USA",
+     "rho": 0.5,
+     "s": 0.2,
+     "D": 3,
+     "tau": 7,
+     "cls": "D",
+     "types": "TI"
+    },
+    {
+     "key": "JPN",
+     "rho": 0.3,
+     "s": 0.1,
+     "D": 1.2,
+     "tau": 10,
+     "cls": "D",
+     "types": "T"
+    }
+   ]
+  },
+  "indpak": {
+   "name": "Индия против Пакистана · граница на Пенджабе и Кашмире",
+   "name_en": "India vs. Pakistan · Punjab and Kashmir border",
+   "note": "Иллюстративный сценарий, не прогноз. Очаг из документа 4: Индия выделяет на театр 40% сил, Пакистан — 80%. Китай поставляет Пакистану вооружения (тип «снабжение», ρ 0,3). Обе стороны — ядерные: по методике ядерная ось ограничивает цели сценария, а не добавляет у.е. Горизонт 30 суток — допущение (короткая война).",
+   "note_en": "Illustrative scenario, not a forecast. Hot spot from document 4: India commits 40% of its forces to the theatre, Pakistan 80%. China supplies Pakistan with weapons (type \"supply\", ρ 0.3). Both sides are nuclear: in this methodology the nuclear axis constrains the scenario's objectives and adds no CPU. The 30-day horizon is an assumption (a short war).",
+   "alpha": 1.0,
+   "d": 1.0,
+   "T": 30,
+   "A": [
+    {
+     "key": "IND",
+     "rho": 1,
+     "s": 0.4,
+     "D": 0.3,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    }
+   ],
+   "B": [
+    {
+     "key": "PAK",
+     "rho": 1,
+     "s": 0.8,
+     "D": 0.2,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    },
+    {
+     "key": "CHN",
+     "rho": 0.3,
+     "s": 0.05,
+     "D": 2,
+     "tau": 0,
+     "cls": "E",
+     "types": "S"
+    }
+   ]
+  },
+  "korea": {
+   "name": "КНДР против Республики Корея и США · Корейский полуостров",
+   "name_en": "DPRK vs. Republic of Korea and the US · Korean Peninsula",
+   "note": "Иллюстративный сценарий, не прогноз. Очаг из документа 4: КНДР выделяет на театр 70% сил, Республика Корея — 80%. США (ρ 0,6, договор о взаимной обороне 1953 г.) держат часть сил на полуострове и в Японии (D 0,5 тыс. км). Россия (ρ 0,3, договор 2024 г.) — только снабжение. Ядерная ось и артиллерийский удар по Сеулу в модели не описаны.",
+   "note_en": "Illustrative scenario, not a forecast. Hot spot from document 4: the DPRK commits 70% of its forces to the theatre, the Republic of Korea 80%. The US (ρ 0.6, 1953 mutual defence treaty) keeps part of its forces on the peninsula and in Japan (D 0.5 thousand km). Russia (ρ 0.3, 2024 treaty) provides supply only. The nuclear axis and an artillery strike on Seoul are not modelled.",
+   "alpha": 1.0,
+   "d": 1.0,
+   "T": 60,
+   "A": [
+    {
+     "key": "PRK",
+     "rho": 1,
+     "s": 0.7,
+     "D": 0.1,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    },
+    {
+     "key": "RUS",
+     "rho": 0.3,
+     "s": 0.02,
+     "D": 6,
+     "tau": 10,
+     "cls": "B",
+     "types": "S"
+    }
+   ],
+   "B": [
+    {
+     "key": "KOR",
+     "rho": 1,
+     "s": 0.8,
+     "D": 0,
+     "tau": 0,
+     "cls": "",
+     "types": "T"
+    },
+    {
+     "key": "USA",
+     "rho": 0.6,
+     "s": 0.2,
+     "D": 0.5,
+     "tau": 0,
+     "cls": "B",
+     "types": "T"
+    }
+   ]
+  }
+ },
+ "pilot_checks": {
+  "taiwan": {
+   "ratio": 3.0431,
+   "ratio30": 1.9588,
+   "required": 1.075,
+   "p_sufficient": 0.6986,
+   "window": [
+    [
+     0,
+     60
+    ]
+   ]
+  },
+  "indpak": {
+   "ratio": 1.1189,
+   "ratio30": 1.1189,
+   "required": 1.0,
+   "p_sufficient": 0.5224,
+   "window": [
+    [
+     0,
+     30
+    ]
+   ]
+  },
+  "korea": {
+   "ratio": 0.1639,
+   "ratio30": 0.1639,
+   "required": 1.0,
+   "p_sufficient": 0.1829,
+   "window": []
+  }
+ },
  "salvo_check": {
   "input": {
    "S": 100,

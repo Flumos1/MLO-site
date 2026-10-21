@@ -452,7 +452,9 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <div class="row">
           <div class="field" style="min-width:180px"><label for="cmp-a" data-i18n-en="Side A">Сторона A</label><select id="cmp-a"></select></div>
           <div class="field" style="min-width:180px"><label for="cmp-b" data-i18n-en="Side B">Сторона B</label><select id="cmp-b"></select></div>
-          <button class="btn btn-primary" id="cmp-to-lanch" data-i18n-en="Simulate battle A vs. B →">Смоделировать бой A против B →</button>
+          <button class="btn" id="cmp-report-html" title="Отчёт по паре: профиль, баланс сил, вероятность, ограничения" data-i18n-en-title="Pair report: profile, force balance, probability, limitations" data-i18n-en="Pair report (.html)">Отчёт по паре (.html)</button>
+    <button class="btn" id="cmp-report-md" data-i18n-en="Pair report (.md)">Отчёт по паре (.md)</button>
+    <button class="btn btn-primary" id="cmp-to-lanch" data-i18n-en="Simulate battle A vs. B →">Смоделировать бой A против B →</button>
         </div>
       </div>
       <div class="tiles" id="cmp-tiles"></div>
@@ -1584,6 +1586,22 @@ function renderCompare() {
   $("cmp-thead").innerHTML = `<tr><th>${real ? L("Код", "Code") : "ID"}</th><th>${real ? L("Столп", "Pillar") : L("Показатель", "Indicator")}</th>${real ? "" : `<th>${L("Столп", "Pillar")}</th>`}<th class="num">A</th><th class="num">B</th><th class="num">A − B</th></tr>`;
   $("cmp-table").innerHTML = gaps.slice(0, 15).map((g) => `<tr><td class="num">${g.id}</td><td>${esc(g.name)}</td>${real ? "" : `<td>${esc(g.tag)}</td>`}<td class="num">${fmt(g.va * 100, 0)}</td><td class="num">${fmt(g.vb * 100, 0)}</td><td class="num ${g.d >= 0 ? "delta-up" : "delta-down"}">${g.d >= 0 ? "+" : "−"}${fmt(Math.abs(g.d) * 100, 0)}</td></tr>`).join("");
 }
+function pairReport(kind) {
+  const snap = JSON.parse(JSON.stringify({ preset: coal.preset, t: coal.t, alpha: coal.alpha, d: coal.d, T: coal.T, sides: coal.sides }));
+  try {
+    applyCoalPreset("custom"); // A — нападающий, B — обороняющийся; параметры по умолчанию
+    reportPair = { a: ui.cmpA, b: ui.cmpB };
+    renderCoalResults();
+    const text = kind === "md" ? reportMarkdown() : reportHtml();
+    if (text) downloadText(`ivm-pair-${COUNTRIES[ui.cmpA].id}-${COUNTRIES[ui.cmpB].id}-${new Date().toISOString().slice(0, 10)}.${kind === "md" ? "md" : "html"}`, text, kind === "md" ? "text/markdown" : "text/html");
+  } finally {
+    reportPair = null;
+    Object.assign(coal, snap);
+    renderCoalResults();
+  }
+}
+$("cmp-report-html").addEventListener("click", () => pairReport("html"));
+$("cmp-report-md").addEventListener("click", () => pairReport("md"));
 $("cmp-to-lanch").addEventListener("click", () => { ui.lnA = ui.cmpA; ui.lnB = ui.cmpB; ln.coal = { A: null, B: null }; setLanchSides(); openTab("lanchester"); });
 $("rating-to-competitors").addEventListener("click", () => openTab("competitors"));
 
@@ -2056,7 +2074,9 @@ const selfCheckText = () => SELFCHECK_RES.ok === null ? L("нет контрол
   : SELFCHECK_RES.ok ? L("сценарии совпадают", "scenarios match")
   : L("РАСХОЖДЕНИЕ: " + SELFCHECK_RES.bad.join("; "), "MISMATCH: " + SELFCHECK_RES.bad.join("; "));
 window.IVM_SELFCHECK = SELFCHECK_RES; window.IVM_RECHECK = selfCheck;
-const coalPresets = () => CO_PRESETS.real;
+// сценарии очагов (документ 4) заданы в ядре (coalition.PRESETS_PILOT → IVM_PARAMS.pilot_presets) и доступны в наборах пилота и расширенном
+if (IP.pilot_presets) CO_PRESETS.pilot = Object.fromEntries(Object.entries(IP.pilot_presets).map(([k, v]) => [k, { ...v, A: v.A.map((x) => pt(x.key, x.rho, x.s, x.D, x.tau, x.cls, x.types)), B: v.B.map((x) => pt(x.key, x.rho, x.s, x.D, x.tau, x.cls, x.types)) }]));
+const coalPresets = () => (isPilotLike() && CO_PRESETS.pilot ? { ...CO_PRESETS.real, ...CO_PRESETS.pilot } : CO_PRESETS.real);
 function plural(n, one, few, many) { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; }
 function applyCoalPreset(key) {
   const all = coalPresets();
@@ -2666,6 +2686,7 @@ document.querySelectorAll("#cmp2-preset button").forEach((b) => b.addEventListen
   renderCompetitors();
 }));
 /* ---------- Отчёт по сценарию (скачиваемый файл из текущего состояния конструктора коалиций) ---------- */
+let reportPair = null; // {a, b} — индексы стран, когда отчёт строится из вкладки «Сравнение»
 function reportData() {
   if (!lastCoal) return null;
   const c = lastCoal, W = window.WARGAME, sc = W && isReal() ? W.scenarios[coal.preset] : null;
@@ -2675,7 +2696,7 @@ function reportData() {
   const sides = ["A", "B"].map((side) => ({ side, name: coalName(side), force: (side === "A" ? c.atA : c.atB).F, e: coalE(side), parts: (side === "A" ? c.atA : c.atB).parts.map(({ p, m, v }) => ({
     name: m ? m.name : p.key, rho: p.rho, s: p.s, D: p.D, tau: p.tau, types: [p.troops && L("войска", "troops"), p.supply && L("снабжение", "supply"), p.intel && L("разведка", "intelligence"), p.base && L("территория", "territory"), p.finance && L("финансы", "finance")].filter(Boolean).join(", ") || "—",
     on: p.on, force: v, ivm: m ? m.ivm * 100 : null })) }));
-  return { c, sc, preset, ratioTxt, conf, sides, title: preset ? coalPresetName(preset) : L("Своя коалиция", "Custom coalition"), date: new Date().toISOString().slice(0, 10) };
+  return { c, sc, preset, ratioTxt, conf, sides, title: reportPair ? L(`${cName(COUNTRIES[reportPair.a])} против ${cName(COUNTRIES[reportPair.b])}`, `${cName(COUNTRIES[reportPair.a])} vs. ${cName(COUNTRIES[reportPair.b])}`) : preset ? coalPresetName(preset) : L("Своя коалиция", "Custom coalition"), date: new Date().toISOString().slice(0, 10) };
 }
 function reportMarkdown() {
   const d = reportData(); if (!d) return "";
@@ -2683,10 +2704,22 @@ function reportMarkdown() {
   const oc = (o) => o === "A" ? L("успех A", "A succeeds") : o === "B" ? L("оборона удержана", "defence holds") : L("затяжные бои", "protracted fighting");
   const L1 = [];
   L1.push(`# ${L("Отчёт по сценарию", "Scenario report")}: ${d.title}`, "", `${L("Дата", "Date")}: ${d.date} · ${L("набор данных", "dataset")}: ${({ real: L("8 государств · эксперты", "8 states · experts"), pilot: L("40 государств · пилот", "40 states · pilot"), wide: L("177 государств · расширенный", "177 states · extended") })[DS.kind] || DS.kind} · ${L("сайт", "site")}: https://flumos1.github.io/MLO-site/`, "");
-  L1.push(`## ${L("Итог", "Summary")}`, "", c.verdict.replace(/\s+/g, " ").trim(), "");
+  L1.push(`## ${L("Итог", "Summary")}`, "", c.verdict.replace(/\s+/g, " ").replace(/([.!?])(?=[А-ЯЁA-Z«])/g, "$1 ").trim(), "");
   L1.push(`- ${L("Соотношение A : B на сутки", "Ratio A : B on day")} ${c.t}: **${d.ratioTxt(c.ratio)}**`, `- ${L("Нужно A для прорыва", "A needs to break through")}: **${fmt(c.R, 2)} : 1** (d = ${fmt(coal.d, 1)}, α = ${fmt(coal.alpha, 2)}, e_A/e_B = ${fmt(c.eA / c.eB, 2)})`,
     `- ${L("Окно перевеса A", "A's window of superiority")}: ${c.winText}`,
     `- ${L("Вероятность, что перевеса хватает", "Probability that superiority suffices")}: **${c.pS === null ? "—" : fmt(c.pS * 100, 0) + "%"}**${c.pS === null ? "" : " — " + probTxt(c.pS, d.conf)}`, "");
+  if (reportPair) {
+    const a = reportPair.a, b = reportPair.b, dA = det[a], dB = det[b], rk = ranksOf(det.map((x) => x.Ieff));
+    L1.push(`## ${L("Профиль сторон", "Profile of the sides")}`, "",
+      `| | A — ${cName(COUNTRIES[a])} | B — ${cName(COUNTRIES[b])} |`, "|---|---|---|",
+      `| ${L("ИВМ (с ядерной осью)", "MPI (with nuclear axis)")} | ${fmt(dA.Ieff * 100, 1)} (${L("место", "rank")} ${rk[a]}) | ${fmt(dB.Ieff * 100, 1)} (${L("место", "rank")} ${rk[b]}) |`,
+      `| ${L("ИВМ без ядерной оси", "MPI excl. nuclear")} | ${fmt(dA.conv * 100, 1)} | ${fmt(dB.conv * 100, 1)} |`,
+      `| λ, ${L("тыс. км", "k km")} | ${fmt(dA.lambda, 1)} | ${fmt(dB.lambda, 1)} |`);
+    PILLARS.forEach((p, pi) => L1.push(`| ${pName(p)} | ${fmt(dA.P[pi] * 100, 0)} | ${fmt(dB.P[pi] * 100, 0)} |`));
+    L1.push("", L(`Соотношение ИВМ: ${fmt(dA.Ieff / dB.Ieff, 2)} : 1. В расчёте баланса A — нападающий, B — обороняющийся (по умолчанию «подготовленная оборона», d = ${fmt(coal.d, 1)}).`,
+      `MPI ratio: ${fmt(dA.Ieff / dB.Ieff, 2)} : 1. In the balance calculation A attacks and B defends (default “prepared defence”, d = ${fmt(coal.d, 1)}).`), "");
+  }
+  if (DS.kind !== "real") L1.push(L(`> Набор данных «${DS.kind === "wide" ? "177 государств" : "40 государств"}»: значения части показателей получены из оценки ИИ (класс D, низший приоритет) и восстановлены по аналогам; интервалы неопределённости — в рейтинге.`, `> Dataset “${DS.kind === "wide" ? "177 states" : "40 states"}”: some indicator values come from an AI estimate (class D, lowest priority) or were reconstructed from analogues; uncertainty intervals are shown in the ranking.`), "");
   L1.push(`## ${L("Стороны", "Sides")}`, "");
   d.sides.forEach((s) => {
     L1.push(`### ${s.side} — ${s.name}: ${fmt(s.force, 1)} ${L("у.е.", "CPU")}, e = ${fmt(s.e, 2)}`, "", `| ${L("Участник", "Member")} | ρ | s | D, ${L("тыс. км", "k km")} | τ, ${L("сут", "d")} | ${L("Вклад", "Contribution")} | ${L("ИВМ без союзов", "MPI w/o alliances")} | ${L("Силы на театре", "Forces in theatre")} |`, "|---|---|---|---|---|---|---|---|");
