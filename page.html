@@ -476,6 +476,8 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <div style="min-width:0; flex:1 1 360px">
           <h2 data-i18n-en="Coalition builder">Конструктор коалиций</h2>
           <p class="muted small" id="co-note"></p>
+          <details id="co-events" class="small" style="margin-top:6px"><summary id="co-events-sum"></summary><ul class="list" id="co-events-list" style="margin:6px 0 0;padding:0"></ul>
+            <p class="muted small" style="margin-top:4px" data-i18n-en="The journal records events that bear on allies' reliability; it does not change ρ automatically — adjust ρ yourself and cite the event.">Журнал фиксирует события, влияющие на надёжность союзников; он не меняет ρ автоматически — корректируйте ρ сами и ссылайтесь на событие.</p></details>
         </div>
         <div class="row">
           <div class="field" style="min-width:min(100%,300px)"><label for="co-preset" data-i18n-en="Scenario">Сценарий</label><select id="co-preset"></select></div>
@@ -501,6 +503,12 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <div class="field">
           <label for="co-T" data-i18n-en="Horizon, days">Горизонт, сут</label>
           <select id="co-T"><option>30</option><option>60</option><option>90</option><option>180</option></select>
+        </div>
+        <div class="field" id="co-geo-field">
+          <label for="co-theatre" data-i18n-en="Theatre (for D from the map)">Театр (для D по карте)</label>
+          <select id="co-theatre"></select>
+          <button class="btn" id="co-apply-map-d" style="margin-top:4px" data-i18n-en="Apply D from the map">Применить D по карте</button>
+          <p class="muted small" style="margin-top:4px" data-i18n-en="D = the shortest distance from the capital or a major base of the member (great circle); 0 for a host of the theatre. Base coordinates are approximate (±50 km).">D — кратчайшее расстояние от столицы или крупной базы участника (дуга большого круга); 0 для принимающей стороны театра. Координаты баз приближённые (±50 км).</p>
         </div>
         <div class="field">
           <label for="co-t" data-i18n-en="Day for contribution breakdown">Сутки для разбивки вклада</label>
@@ -1892,7 +1900,7 @@ const CO_PRESETS = {
   },
 };
 const coalPresetName = (p) => (LANG === "en" && p.name_en ? p.name_en : p.name);
-const coal = { preset: "", alpha: ALPHA0, d: D_PD, T: 60, t: 0, sides: { A: [], B: [] } };
+const coal = { theatre: "", preset: "", alpha: ALPHA0, d: D_PD, T: 60, t: 0, sides: { A: [], B: [] } };
 // α, d и горизонт сценариев — из ядра (coalition.PRESETS), чтобы прототип не расходился с расчётом
 if (IP.presets) for (const [k, v] of Object.entries(IP.presets)) if (CO_PRESETS.real[k]) Object.assign(CO_PRESETS.real[k], { alpha: v.alpha, d: v.d, T: v.T });
 // Залпы и ПВО — повторяет core/lanmil/salvo.py (контрольный пример — IVM_PARAMS.salvo_check)
@@ -2075,6 +2083,7 @@ function applyCoalPreset(key) {
   const all = coalPresets();
   if (key !== "custom" && !all[key]) key = Object.keys(all)[0];
   coal.preset = key; coal.t = 0;
+  { const th = theatreOfPreset(key); if (th) coal.theatre = th[0]; }
   if (key === "custom") {
     coal.alpha = ALPHA0; coal.d = D_PD; coal.T = 60;
     coal.sides = { A: [pt(COUNTRIES[ui.cmpA].id, 1, 1, 0, 0)], B: [pt(COUNTRIES[ui.cmpB].id, 1, 1, 0, 0)] };
@@ -2164,6 +2173,8 @@ function renderCoalition() {
     $("co-addbtn-" + side).disabled = !opts.length;
   });
   $("co-preset").value = coal.preset;
+  fillTheatres();
+  renderEvents();
   renderCoalResults();
 }
 let lastCoal = null;
@@ -2225,7 +2236,9 @@ function renderCoalResults() {
       const extras = [p.supply && L("снабжение", "supply"), p.intel && L("разведка", "intelligence"), p.base && L("территория", "territory"), p.finance && L("финансы", "finance")].filter(Boolean);
       const role = !p.on ? L("не участвует", "not participating") : !p.troops ? (extras.length ? extras.join(L(" и ", " and ")) + L(" без войск", " without troops") : L("вклад не выбран", "no contribution selected"))
         : gIn(t, p.tau) <= 0 ? L(`войска прибывают после ${p.tau}-х суток`, `troops arrive after day ${p.tau}`) : L(`на сутки ${t}: ${fmt(val, 1)} у.е.`, `on day ${t}: ${fmt(val, 1)} CPU`) + (extras.length ? " + " + extras.join(", ") : "");
-      f.textContent = L(`ИВМ без союзов ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} тыс. км · ${role}`, `MPI without alliances ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} thousand km · ${role}`);
+      const md = coal.theatre ? mapD(p.key, coal.theatre) : null;
+      const mdTxt = md ? L(` · D по карте ${fmt(md.d, 1)} тыс. км (${md.via})`, ` · D from the map ${fmt(md.d, 1)} thousand km (${md.via})`) : "";
+      f.textContent = L(`ИВМ без союзов ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} тыс. км · ${role}${mdTxt}`, `MPI without alliances ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} thousand km · ${role}${mdTxt}`);
     });
   });
   $("co-legend").innerHTML = `<span><span class="sw" style="background:var(--side-a)"></span>A · ${esc(coalName("A"))}</span><span><span class="sw" style="background:var(--side-b)"></span>B · ${esc(coalName("B"))}</span><span><span class="sw" style="background:var(--band-a);height:10px"></span>${L("перевес A достаточен для прорыва", "A's superiority suffices for a breakthrough")}</span>`;
@@ -2508,6 +2521,13 @@ function useDataset(kind, keep) {
 }
 function initCoalition() {
   $("co-preset").addEventListener("change", (e) => { applyCoalPreset(e.target.value); renderCoalition(); });
+  if ($("co-theatre")) {
+    $("co-theatre").addEventListener("change", (e) => { coal.theatre = e.target.value; renderCoalResults(); });
+    $("co-apply-map-d").addEventListener("click", () => {
+      for (const side of ["A", "B"]) for (const p of coal.sides[side]) { const md = mapD(p.key, coal.theatre); if (md) p.D = md.d; }
+      renderCoalition();
+    });
+  }
   $("co-reset").addEventListener("click", () => { applyCoalPreset(coal.preset); renderCoalition(); });
   $("co-alpha").addEventListener("input", (e) => { coal.alpha = Number(e.target.value); renderCoalResults(); });
   $("co-d").addEventListener("change", (e) => { coal.d = Number(e.target.value); coDHint(); renderCoalResults(); });
@@ -2765,6 +2785,40 @@ const reportName = (ext) => `ivm-report-${(coal.preset || "custom")}-${new Date(
 if ($("co-report-html")) {
   $("co-report-html").addEventListener("click", () => { const h = reportHtml(); if (h) downloadText(reportName("html"), h, "text/html"); });
   $("co-report-md").addEventListener("click", () => { const m = reportMarkdown(); if (m) downloadText(reportName("md"), m, "text/markdown"); });
+}
+/* ---------- D по карте театра (core/lanmil/theatre.py → data/pilot/theatre_geo.json → window.THEATRE_GEO) ---------- */
+const GEO = window.THEATRE_GEO || null;
+function havKm(la1, lo1, la2, lo2) {
+  const r = Math.PI / 180, p1 = la1 * r, p2 = la2 * r, dp = p2 - p1, dl = (lo2 - lo1) * r;
+  return 2 * 6371 * Math.asin(Math.sqrt(Math.sin(dp / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) ** 2));
+}
+// {d: тыс. км, via} или null — участник вне справочника (например, «ось сопротивления»)
+function mapD(key, thId) {
+  const th = GEO && GEO.theatres[thId]; if (!th) return null;
+  const isos = GEO.groups[key] || [key];
+  if (isos.some((i) => th.hosts.includes(i)) || th.hosts.includes(key)) return { d: 0, via: L("принимающая сторона", "host of the theatre") };
+  let best = null;
+  const take = (km, via) => { if (!best || km < best.km) best = { km, via }; };
+  for (const i of isos) { const c = GEO.capitals[i]; if (c) take(havKm(c[0], c[1], th.lat, th.lon), c[2]); }
+  for (const [iso, name, la, lo, , nameEn] of GEO.bases) if (isos.includes(iso)) take(havKm(la, lo, th.lat, th.lon), LANG === "en" ? nameEn : name);
+  return best && { d: Math.round(best.km / 100) / 10, via: best.via };
+}
+const thName = (t) => (LANG === "en" ? t.en : t.ru);
+const theatreOfPreset = (k) => GEO && Object.entries(GEO.theatres).find(([, v]) => v.presets.includes(k));
+const RHO_EV = window.RHO_EVENTS || [];
+function renderEvents() {
+  const box = $("co-events"); if (!box) return;
+  const keys = new Set([...coal.sides.A, ...coal.sides.B].map((p) => p.key));
+  const ev = RHO_EV.filter((e) => e.members.filter((m) => keys.has(m)).length >= e.need).sort((a, b) => b.date.localeCompare(a.date));
+  box.hidden = !RHO_EV.length;
+  $("co-events-sum").textContent = L(`Журнал событий по надёжности союзников: ${ev.length}`, `Journal of events bearing on allies' reliability: ${ev.length}`);
+  $("co-events-list").innerHTML = ev.length ? ev.map((e) => `<li><span><b class="num">${e.date}</b> ${e.dir === "+" ? "▲" : e.dir === "−" ? "▼" : "●"} ${esc(LANG === "en" ? e.en : e.ru)}</span><span class="muted small">${esc(e.source)}</span></li>`).join("")
+    : `<li class="muted">${L("Для участников этого сценария событий в журнале нет.", "The journal has no events for this scenario's members.")}</li>`;
+}
+function fillTheatres() {
+  const sel = $("co-theatre"); if (!sel || !GEO) { if ($("co-geo-field")) $("co-geo-field").hidden = true; return; }
+  sel.innerHTML = Object.entries(GEO.theatres).map(([k, v]) => `<option value="${k}">${esc(thName(v))}</option>`).join("");
+  sel.value = coal.theatre || Object.keys(GEO.theatres)[0];
 }
 // Полное пояснение выбранного d — под списком (в самом списке подписи короткие, чтобы не обрезались)
 function coDHint() {
