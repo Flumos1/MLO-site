@@ -346,7 +346,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <button class="btn" id="rating-to-competitors" data-i18n-en="15 competitors and the rating →">15 конкурентов и рейтинг →</button>
       </div>
       <div class="tiles">
-        <div class="tile"><span class="lbl" data-i18n-en="Flashpoint monitor AUC">AUC монитора очагов</span><div class="big num" data-i18n-en="0.96">0,96</div><div class="sub" data-i18n-en="out-of-sample, 5,460 forecasts; but a simple baseline (border + history + last year) gives 0.958 — the gain comes from geography and history, not from our model. For interstate conflicts on 176 countries (both sides principal parties) the model beats the baseline by 10.8 in log score (AUC 0.965 vs 0.955; 26 positives — low power)">вне выборки, 5 460 прогнозов; но простой ориентир (граница + история + прошлый год) даёт 0,958 — результат даёт география и история, а не наша модель. Для межгосударственных конфликтов на 176 странах (обе стороны основные) модель лучше ориентира на 10,8 по логарифмической оценке (AUC 0,965 против 0,955; 26 положительных — мощность мала)</div></div>
+        <div class="tile"><span class="lbl" data-i18n-en="Flashpoint monitor AUC">AUC монитора очагов</span><div class="big num" data-i18n-en="0.96">0,96</div><div class="sub" data-i18n-en="out-of-sample, 5,460 forecasts; a simple baseline (border + history + last year) gives 0.958 — the result comes from geography and history, not from our model. Conflict onsets (8 cases): no advantage over the baseline. Interstate conflicts, 176 countries: AUC 0.965 vs 0.955, log-score gain 10.8 (26 positives; mostly base-rate calibration) — see the Monitor tab">вне выборки, 5 460 прогнозов; простой ориентир (граница + история + прошлый год) даёт 0,958 — результат даёт география и история, а не наша модель. Начала конфликтов (8 случаев): преимущества над ориентиром нет. Межгосударственные конфликты, 176 стран: AUC 0,965 против 0,955, выигрыш по логарифмической оценке 10,8 (26 положительных; в основном калибровка базовой частоты) — подробности во вкладке «Монитор»</div></div>
         <div class="tile"><span class="lbl" data-i18n-en="Tested on wars">Проверка на войнах</span><div class="big num">10</div><div class="sub" data-i18n-en="2018–2025, protocol fixed before the run">2018–2025 гг., протокол зафиксирован до расчёта</div></div>
         <div class="tile"><span class="lbl" data-i18n-en="Historical battles">Исторических сражений</span><div class="big num">404</div><div class="sub" data-i18n-en="CDB90 — Lanchester's law exponent α measured">CDB90 — измерен показатель закона Ланчестера α</div></div>
         <div class="tile"><span class="lbl" data-i18n-en="Methodology">Методика</span><div class="big num" data-i18n-en="open">открыта</div><div class="sub" data-i18n-en="code (MIT), formulas, parameters and results (CC BY) — github.com/Flumos1/MLO-core">код (MIT), формулы, параметры и результаты (CC BY) — github.com/Flumos1/MLO-core</div></div>
@@ -788,6 +788,12 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       </div>
       <div class="tbl-wrap"><table><thead><tr><th class="num">#</th><th data-i18n-en="Country pair">Пара государств</th><th style="min-width:180px" data-i18n-en="Conflict probability in 2026">Вероятность конфликта в 2026 г.</th><th data-i18n-en="2025">2025 г.</th><th class="num" data-i18n-en="Conflict years of last 10">Лет конфликта из 10</th><th data-i18n-en="Neighbours">Соседство</th><th data-i18n-en="Alliance">Союз</th><th class="num" data-i18n-en="Democracy (min)">Демократия (min)</th></tr></thead><tbody id="mon-table"></tbody></table></div>
       <p class="small muted" id="mon-note"></p>
+    </div>
+    <div class="panel" id="mon-checks-panel">
+      <div class="panel-head"><div><h3 data-i18n-en="How well does the monitor really work">Насколько монитор работает на самом деле</h3><p class="muted small" data-i18n-en="Forward-in-time checks against a simple baseline B1 (border + history + conflict last year). Log score: higher is better.">Проверки вперёд по времени против простого ориентира B1 (граница + история + конфликт в прошлом году). Логарифмическая оценка: больше — лучше.</p></div></div>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Check">Проверка</th><th class="num" data-i18n-en="Positives">Положительных</th><th class="num">M0</th><th class="num">B1</th><th class="num">M1</th><th class="num">AUC B1</th><th class="num">AUC M1</th><th class="num" data-i18n-en="M1 − B1">M1 − B1</th></tr></thead><tbody id="mon-checks"></tbody></table></div>
+      <p class="small muted" id="mon-checks-note"></p>
+      <details style="margin-top:8px"><summary class="small" id="mon-pairs-sum"></summary><ul class="list small" id="mon-pairs" style="margin:6px 0 0;padding:0"></ul></details>
     </div>
     <div class="panel" id="warn-panel">
       <div class="panel-head">
@@ -1350,6 +1356,20 @@ function renderMonitor() {
     `Military-power index indicators (closeness of forces, strength of the strongest side) are ${M.use_ivm ? "included" : "not included"} in the monitor: out of sample they ${M.use_ivm ? "improved" : "did not improve"} the forecast (${fmt(ev.M2.logscore, 1)} versus ${fmt(ev.M1.logscore, 1)}). ` +
     `The monitor mostly sees the continuation and history of conflicts; new flashpoints (conflict onsets) are predicted less well — AUC ${fmt(M.evaluation.onset.M1.auc, 2)} over ${M.evaluation.onset.M1.positives} onsets. Events after 2025 (ceasefires, agreements) are not in the data. Document 6, section 7.10.`);
 }
+function renderMonitorChecks() {
+  const C = window.MONITOR_CHECKS, box = $("mon-checks");
+  if (!C || !box) { if ($("mon-checks-panel")) $("mon-checks-panel").hidden = true; return; }
+  const f1 = (x) => fmt(x, 1), row = (label, n, m, a, b1, m1) => `<tr><td>${label}</td><td class="num">${n}</td><td class="num">${f1(m.logscore)}</td><td class="num">${f1(b1.logscore)}</td><td class="num">${f1(m1.logscore)}</td><td class="num">${fmt(b1.auc, 3)}</td><td class="num">${fmt(m1.auc, 3)}</td><td class="num"><b>${m1.logscore - b1.logscore >= 0 ? "+" : "−"}${fmt(Math.abs(m1.logscore - b1.logscore), 1)}</b></td></tr>`;
+  const pi = C.pilot_incidence, po = C.pilot_onset, ws = C.wide_strict;
+  box.innerHTML = row(L("Конфликт в паре, 40 государств (780 пар), исход UCDP ≥ 1 основной", "Conflict in a pair, 40 states (780 pairs), UCDP outcome, ≥ 1 principal party"), pi.M1.positives, pi.M0, pi.B1.auc, pi.B1, pi.M1)
+    + row(L("Начало конфликта, 40 государств (главное назначение — раннее предупреждение)", "Conflict onset, 40 states (the main early-warning use)"), po.M1.positives, po.M0, po.B1.auc, po.B1, po.M1)
+    + row(L(`Межгосударственный конфликт, ${C.wide_countries} стран (обе стороны основные)`, `Interstate conflict, ${C.wide_countries} countries (both sides principal)`), ws.M1.positives, ws.M0, ws.B1.auc, ws.B1, ws.M1);
+  $("mon-checks-note").textContent = L(
+    `Выигрыш на ${C.wide_countries} странах (+${f1(C.wide_gain_vs_B1)}) достигнут на ${ws.M1.positives} положительных парах-годах и в основном даёт калибровка базовой частоты: AUC выше всего на ${fmt(ws.M1.auc - ws.B1.auc, 3)}. Начало конфликта предсказывается не лучше ориентира. Монитор показывает данные 40 государств независимо от выбранного набора; на 176 странах прогноз не публикуется (метки 2026 г. неполны).`,
+    `The gain on ${C.wide_countries} countries (+${f1(C.wide_gain_vs_B1)}) comes from ${ws.M1.positives} positive pair-years and is mostly base-rate calibration: AUC is higher by only ${fmt(ws.M1.auc - ws.B1.auc, 3)}. Conflict onset is not predicted better than the baseline. The monitor shows the 40-state data whatever dataset is selected; no forecast is published for 176 countries (2026 labels are incomplete).`);
+  $("mon-pairs-sum").textContent = L(`Конфликтные пары 2016–2025 гг. в строгой проверке: ${C.pairs.length}`, `Conflict pairs 2016–2025 in the strict check: ${C.pairs.length}`);
+  $("mon-pairs").innerHTML = C.pairs.map((p) => `<li>${esc(LANG === "en" ? p.en : p.ru)}</li>`).join("");
+}
 function openTab(name) {
   if (!TABS.includes(name)) name = "rating";
   TABS.forEach((t) => { $("tab-" + t).hidden = t !== name; $("t-" + t).setAttribute("aria-selected", String(t === name)); });
@@ -1358,7 +1378,7 @@ function openTab(name) {
   const tb = $("t-" + name), bar = tb.parentElement; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: bar.scrollLeft + tb.getBoundingClientRect().left - bar.getBoundingClientRect().left - (bar.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
   if (name === "lanchester") renderLanchester();
   if (name === "coalition") renderCoalition();
-  if (name === "monitor") { renderMonitor(); renderWarnings(); }
+  if (name === "monitor") { renderMonitor(); renderMonitorChecks(); renderWarnings(); }
   if (name === "competitors") renderCompetitors();
   if (name === "rating") renderProjection();
   window.scrollTo({ top: 0 });
@@ -1504,10 +1524,10 @@ function renderProfile() {
       "The index converts into Lanchester equation parameters: N-role indicators give numbers, Q and M give effectiveness, S gives reserve and replacement rate, P gives the projection radius.");
   const li2 = lanchInputs(ci);
   $("pf-lanch").innerHTML = [
-    [L("Начальный боевой потенциал N₀", "Initial combat potential N₀"), `${fmt(li2.X0)} ${L("ЕБП", "CPU")}`],
+    [L("Начальный боевой потенциал N₀", "Initial combat potential N₀"), `${fmt(li2.X0)} ${L("ЕБП", "CP")}`],
     [L("Эффективность e (качество × множители)", "Effectiveness e (quality × multipliers)"), fmt(li2.e, 2)],
-    [L("Мобилизационный резерв", "Mobilisation reserve"), `${fmt(li2.R)} ${L("ЕБП", "CPU")}`],
-    [L("Темп восполнения", "Replacement rate"), L(`${fmt(li2.r, 1)} ЕБП/сут`, `${fmt(li2.r, 1)} CPU/day`)],
+    [L("Мобилизационный резерв", "Mobilisation reserve"), `${fmt(li2.R)} ${L("ЕБП", "CP")}`],
+    [L("Темп восполнения", "Replacement rate"), L(`${fmt(li2.r, 1)} ЕБП/сут`, `${fmt(li2.r, 1)} CP/day`)],
     [L("Задержка мобилизации", "Mobilisation delay"), L(`${li2.delay} сут`, `${li2.delay} days`)],
     [L("Радиус проекции λ", "Projection radius λ"), L(`${fmt(li2.lambda, 1)} тыс. км`, `${fmt(li2.lambda, 1)} thousand km`)]
   ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
@@ -1625,7 +1645,7 @@ function lanchInputs(ci) {
   return sideFrom(Math.round(Math.pow(10, 1 + 2.6 * n)), .5 + 1.5 * q, s, det[ci].lambda, 1.6 - COUNTRIES[ci].dq);
 }
 const LN_FIELDS = [["X0", "N₀, ЕБП", 1], ["e", "Эффективность <span class=\"sym\">e</span>", .05], ["R", "Резерв, ЕБП", 1], ["r", "Восполнение, ЕБП/сут", .1], ["delay", "Задержка, сут", 1], ["lambda", "<span class=\"sym\">λ</span>, тыс. км", .1]];
-const LN_FIELDS_EN = [["X0", "N₀, CPU", 1], ["e", "Effectiveness <span class=\"sym\">e</span>", .05], ["R", "Reserve, CPU", 1], ["r", "Replacement, CPU/day", .1], ["delay", "Delay, days", 1], ["lambda", "<span class=\"sym\">λ</span>, thousand km", .1]];
+const LN_FIELDS_EN = [["X0", "N₀, CP", 1], ["e", "Effectiveness <span class=\"sym\">e</span>", .05], ["R", "Reserve, CP", 1], ["r", "Replacement, CP/day", .1], ["delay", "Delay, days", 1], ["lambda", "<span class=\"sym\">λ</span>, thousand km", .1]];
 // coal.A / coal.B — входы, собранные в конструкторе коалиций (тогда сторона — коалиция, а не одно государство).
 const ln = { A: null, B: null, coal: { A: null, B: null }, alpha: ALPHA0, D: 3, terrain: D_PD, bp: BP.campaign, T: 180, mob: true, allies: false };
 function sideInputsHTML(side) {
@@ -1746,7 +1766,7 @@ function renderLanchester() {
     [L("Нужно A для успеха", "A needs for success"), `${fmt(req, 2)} : 1`],
     [L("Боевая мощь F_A / F_B", "Combat power F_A / F_B"), fmt(F, 2)],
     ln.coal.A ? [L("Доля сил A, дошедшая до театра", "Share of A's forces reaching the theatre"), L("по участникам", "by member")] : [L("Доля сил A, дошедшая до театра", "Share of A's forces reaching the theatre"), `${fmt(Math.exp(-ln.D / Math.max(ln.A.lambda, .1)) * 100, 0)}%`],
-    ...(rfA || rfB ? [[L("Подкрепления союзников по графику τ, ЕБП", "Allied reinforcements on schedule τ, CPU"), `A +${fmt(rfA)} · B +${fmt(rfB)}`]] : []),
+    ...(rfA || rfB ? [[L("Подкрепления союзников по графику τ, ЕБП", "Allied reinforcements on schedule τ, CP"), `A +${fmt(rfA)} · B +${fmt(rfB)}`]] : []),
     [L("Цена двукратного недостатка сил", "Cost of a twofold force shortfall"), `e × ${fmt(Math.pow(2, ln.alpha), 2)}`]
   ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
   $("ln-sens").innerHTML = [1, 1.5, 2].map((al) => {
@@ -1767,8 +1787,8 @@ dB/dt = −b · B^(1−α/2) · A^(α/2) + r_B(t)       b = k · e_A / d = ${fmt
 Invariant (no replacement):  b·A^α − a·B^α = const,   α = ${fmt(ln.alpha, 2)}
 A wins if A₀/B₀ > (a/b)^(1/α) = ${fmt(req, 2)}
 ` + (ln.coal.A
-    ? `A₀ = Σ 10·ρⱼ·sⱼ·Mⱼ·e^(−Dⱼ/λⱼ) across members with τ = 0 = ${fmt(dres.x0)} CPU;  the rest arrive on schedule τ (+${fmt(rfA)} CPU)`
-    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} CPU`));
+    ? `A₀ = Σ 10·ρⱼ·sⱼ·Mⱼ·e^(−Dⱼ/λⱼ) across members with τ = 0 = ${fmt(dres.x0)} CP;  the rest arrive on schedule τ (+${fmt(rfA)} CP)`
+    : `A₀ = N₀ · e^(−D/λ) = ${fmt(ln.A.X0)} · e^(−${fmt(ln.D, 1)}/${fmt(ln.A.lambda, 1)}) = ${fmt(dres.x0)} CP`));
 }
 function drawBattle(host, { dres, band, Tshow, An, Bn }) {
   const W = 760, H = 330, m = { l: 62, r: 22, t: 16, b: 40 }, iw = W - m.l - m.r, ih = H - m.t - m.b;
@@ -1784,7 +1804,7 @@ function drawBattle(host, { dres, band, Tshow, An, Bn }) {
   const xst = niceStep(Tshow, 6);
   for (let d = 0; d <= Tshow; d += xst) s += `<text x="${sx(d)}" y="${H - m.b + 18}" text-anchor="middle" class="ax-label">${d}</text>`;
   s += `<text x="${m.l + iw / 2}" y="${H - 6}" text-anchor="middle" class="ax-label">${L("сутки", "days")}</text>`;
-  s += `<text x="14" y="${m.t + ih / 2}" text-anchor="middle" class="ax-label" transform="rotate(-90 14 ${m.t + ih / 2})">${L("ЕБП", "CPU")}</text>`;
+  s += `<text x="14" y="${m.t + ih / 2}" text-anchor="middle" class="ax-label" transform="rotate(-90 14 ${m.t + ih / 2})">${L("ЕБП", "CP")}</text>`;
   const area = (lo, hi) => hi.map((v, d) => `${sx(d)},${sy(v)}`).join(" ") + " " + lo.map((v, d) => `${sx(d)},${sy(v)}`).reverse().join(" ");
   s += `<polygon points="${area(band.xlo, band.xhi)}" fill="var(--band-a)"/><polygon points="${area(band.ylo, band.yhi)}" fill="var(--band-b)"/>`;
   const bpA = dres.x0 * (1 - ln.bp), bpB = dres.y0 * (1 - ln.bp);
@@ -1809,7 +1829,7 @@ function drawBattle(host, { dres, band, Tshow, An, Bn }) {
     const d = clamp(Math.round(((loc.x - m.l) / iw) * Tshow), 0, Tshow);
     cross.setAttribute("x1", sx(d)); cross.setAttribute("x2", sx(d)); cross.setAttribute("opacity", ".5");
     const va = d < xs.length ? fmt(xs[d]) : "—", vb = d < ys.length ? fmt(ys[d]) : "—";
-    showTip(`<b>${L("Сутки", "Day")} ${d}</b><br>A · ${esc(An)}: ${va} ${L("ЕБП", "CPU")} <span style="opacity:.7">(${fmt(band.xlo[d])}–${fmt(band.xhi[d])})</span><br>B · ${esc(Bn)}: ${vb} ${L("ЕБП", "CPU")} <span style="opacity:.7">(${fmt(band.ylo[d])}–${fmt(band.yhi[d])})</span>`, ev);
+    showTip(`<b>${L("Сутки", "Day")} ${d}</b><br>A · ${esc(An)}: ${va} ${L("ЕБП", "CP")} <span style="opacity:.7">(${fmt(band.xlo[d])}–${fmt(band.xhi[d])})</span><br>B · ${esc(Bn)}: ${vb} ${L("ЕБП", "CP")} <span style="opacity:.7">(${fmt(band.ylo[d])}–${fmt(band.yhi[d])})</span>`, ev);
   });
   hit.addEventListener("mouseleave", () => { cross.setAttribute("opacity", "0"); hideTip(); });
 }
@@ -2158,7 +2178,7 @@ function pcardHTML(side, p, i) {
     <div class="pc-grid">
       <div class="field"><label for="${id}-rho">${L("Надёжность", "Reliability")} <span class="sym">ρ</span></label><div class="range-line"><input type="range" id="${id}-rho" data-f="rho" min="0" max="1" step="0.05" value="${p.rho}"><output id="${id}-rho-out">${fmt(p.rho, 2)}</output></div></div>
       <div class="field"><label for="${id}-s">${L("Доля сил", "Force share")} <span class="sym">s</span></label><div class="range-line"><input type="range" id="${id}-s" data-f="s" min="0" max="1" step="0.01" value="${p.s}"><output id="${id}-s-out">${fmt(p.s, 2)}</output></div></div>
-      <div class="field"><label for="${id}-D"><span class="sym">D</span>, ${L("тыс. км", "thousand km")}</label><input type="number" id="${id}-D" data-f="D" min="0" max="20" step="0.1" value="${p.D}"></div>
+      <div class="field"><label for="${id}-D"><span class="sym">D</span>, ${L("тыс. км", "thousand km")}</label><input type="number" id="${id}-D" data-f="D" min="0" max="20" step="0.01" value="${p.D}"></div>
       <div class="field"><label for="${id}-tau"><span class="sym">τ</span>, ${L("сут", "days")}</label><input type="number" id="${id}-tau" data-f="tau" min="0" max="365" step="1" value="${p.tau}"></div>
     </div>
     <div class="pc-foot" id="${id}-foot"></div>
@@ -2207,8 +2227,8 @@ function renderCoalResults() {
   const ratioTxt = (r) => r === null ? "—" : Number.isFinite(r) ? `${fmt(r, 2)} : 1` : L("без противника", "no opponent");
   const pS = pSufficient(ratio, R);
   $("co-tiles").innerHTML = [
-    [`<span class="chip chip-a">A</span> ${L("силы на театре", "forces in theatre")}`, `${fmt(atA.F, 1)} ${L("у.е.", "CPU")}`, `${L("сутки", "day")} ${t} · ${L("доля союзников", "allied share")} ${allyPct(atA)}`],
-    [`<span class="chip chip-b">B</span> ${L("силы на театре", "forces in theatre")}`, `${fmt(atB.F, 1)} ${L("у.е.", "CPU")}`, `${L("сутки", "day")} ${t} · ${L("доля союзников", "allied share")} ${allyPct(atB)}`],
+    [`<span class="chip chip-a">A</span> ${L("силы на театре", "forces in theatre")}`, `${fmt(atA.F, 1)} ${L("у.е.", "c.u.")}`, `${L("сутки", "day")} ${t} · ${L("доля союзников", "allied share")} ${allyPct(atA)}`],
+    [`<span class="chip chip-b">B</span> ${L("силы на театре", "forces in theatre")}`, `${fmt(atB.F, 1)} ${L("у.е.", "c.u.")}`, `${L("сутки", "day")} ${t} · ${L("доля союзников", "allied share")} ${allyPct(atB)}`],
     [L("Соотношение A : B", "Ratio A : B"), ratioTxt(ratio), L(`на сутки ${t}`, `on day ${t}`)],
     [L("Нужно A для прорыва", "A needs to break through"), `${fmt(R, 2)} : 1`, `d = ${fmt(coal.d, 1)} · α = ${fmt(coal.alpha, 2)} · e_A/e_B = ${fmt(eA / eB, 2)}`],
     [L("Окно перевеса A", "A's window of superiority"), winText, L(`когда A : B не ниже ${fmt(R, 2)} : 1`, `when A : B is at least ${fmt(R, 2)} : 1`)],
@@ -2225,19 +2245,19 @@ function renderCoalResults() {
   if (pS !== null) v += L(` С учётом ошибки модели вероятность, что перевеса хватает, — ${fmt(pS * 100, 0)}%: на 10 проверочных войнах 2018–2025 гг. соотношение сил по индексу не показало прогностической силы (документ 6, раздел 7.8).`, ` Allowing for model error, the probability that this superiority suffices is ${fmt(pS * 100, 0)}%: across 10 validation wars of 2018–2025 the index force ratio showed no predictive power (document 6, section 7.8).`);
   const nucOf = (side) => coal.sides[side].filter((p) => p.on && p.troops && p.rho > 0).map((p) => member(p.key)).filter((m) => m && m.k >= 2).map((m) => m.short);
   const nA = nucOf("A"), nB = nucOf("B");
-  if (nA.length || nB.length) v += `<span class="muted" style="display:block;margin-top:6px">${L(`Ядерные государства с войсками на театре: A — ${nA.length ? esc(nA.join(", ")) : "нет"}; B — ${nB.length ? esc(nB.join(", ")) : "нет"}. По методике ядерная ось ограничивает цели сценария и не добавляет у.е.`, `Nuclear powers with troops in theatre: A — ${nA.length ? esc(nA.join(", ")) : "none"}; B — ${nB.length ? esc(nB.join(", ")) : "none"}. In this methodology the nuclear axis constrains the scenario's objectives and adds no CPU.`)}</span>`;
+  if (nA.length || nB.length) v += `<span class="muted" style="display:block;margin-top:6px">${L(`Ядерные государства с войсками на театре: A — ${nA.length ? esc(nA.join(", ")) : "нет"}; B — ${nB.length ? esc(nB.join(", ")) : "нет"}. По методике ядерная ось ограничивает цели сценария и не добавляет у.е.`, `Nuclear powers with troops in theatre: A — ${nA.length ? esc(nA.join(", ")) : "none"}; B — ${nB.length ? esc(nB.join(", ")) : "none"}. In this methodology the nuclear axis constrains the scenario's objectives and adds no c.u..`)}</span>`;
   $("co-verdict").innerHTML = v;
   lastCoal = { t, T, R, eA, eB, ratio, pS, win, winText, atA, atB, verdict: $("co-verdict").innerText };
   ["A", "B"].forEach((side) => {
     const at = side === "A" ? atA : atB;
-    $("co-sum-" + side).textContent = `${fmt(at.F, 1)} ${L("у.е.", "CPU")} · e = ${fmt(coalE(side), 2)}`;
+    $("co-sum-" + side).textContent = `${fmt(at.F, 1)} ${L("у.е.", "c.u.")} · e = ${fmt(coalE(side), 2)}`;
     at.parts.forEach(({ p, m, v: val, i }) => {
       const f = $(`co-${side}-${i}-foot`); if (!f || !m) return;
       const extras = [p.supply && L("снабжение", "supply"), p.intel && L("разведка", "intelligence"), p.base && L("территория", "territory"), p.finance && L("финансы", "finance")].filter(Boolean);
       const role = !p.on ? L("не участвует", "not participating") : !p.troops ? (extras.length ? extras.join(L(" и ", " and ")) + L(" без войск", " without troops") : L("вклад не выбран", "no contribution selected"))
-        : gIn(t, p.tau) <= 0 ? L(`войска прибывают после ${p.tau}-х суток`, `troops arrive after day ${p.tau}`) : L(`на сутки ${t}: ${fmt(val, 1)} у.е.`, `on day ${t}: ${fmt(val, 1)} CPU`) + (extras.length ? " + " + extras.join(", ") : "");
+        : gIn(t, p.tau) <= 0 ? L(`войска прибывают после ${p.tau}-х суток`, `troops arrive after day ${p.tau}`) : L(`на сутки ${t}: ${fmt(val, 1)} у.е.`, `on day ${t}: ${fmt(val, 1)} c.u.`) + (extras.length ? " + " + extras.join(", ") : "");
       const md = coal.theatre ? mapD(p.key, coal.theatre) : null;
-      const mdTxt = md ? L(` · D по карте ${fmt(md.d, 1)} тыс. км (${md.via})`, ` · D from the map ${fmt(md.d, 1)} thousand km (${md.via})`) : "";
+      const mdTxt = md ? L(` · D по карте ${fmt(md.d, 2)} тыс. км (${md.via})`, ` · D from the map ${fmt(md.d, 2)} thousand km (${md.via})`) : "";
       f.textContent = L(`ИВМ без союзов ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} тыс. км · ${role}${mdTxt}`, `MPI without alliances ${fmt(m.ivm * 100, 1)} · λ ${fmt(m.lam, 1)} thousand km · ${role}${mdTxt}`);
     });
   });
@@ -2263,7 +2283,7 @@ Mⱼ = exp(κ · MPIⱼ / 100),  κ = 2.6·ln 10 ≈ ${fmt(KAPPA, 2)};  MPIⱼ �
 g(t − τ) = 0 until τ, then linear to 1 over ${RAMP} days;  τ = 0 — forces in theatre from day one
 e = Π (1 + 0.15·ρⱼ) over members contributing "intelligence", capped at 1.6:   e_A = ${fmt(eA, 2)},  e_B = ${fmt(eB, 2)}
 A needs to break through:  R = (e_B · d / e_A)^(1/α) = (${fmt(eB, 2)} · ${fmt(coal.d, 1)} / ${fmt(eA, 2)})^(1/${fmt(coal.alpha, 2)}) = ${fmt(R, 2)}
-Day ${t}:  F_A = ${fmt(atA.F, 1)} CPU,  F_B = ${fmt(atB.F, 1)} CPU,  A : B = ${ratioTxt(ratio)}
+Day ${t}:  F_A = ${fmt(atA.F, 1)} c.u.,  F_B = ${fmt(atB.F, 1)} c.u.,  A : B = ${ratioTxt(ratio)}
 Supply is not part of F: in the battle model it adds reserve R and replacement rate r to a side.
 Finance is not part of F: R += η · 10·ρ·s·M,  r += η · 10·ρ·s·M / τ_F,  η = ${FIN_ETA},  τ_F = ${FIN_TAU} days (prototype assumptions).
 P(superiority suffices) = Φ(ln(A:B ÷ R) / σ),  σ = ${fmt(MODEL_SIGMA, 1)} — model error over 10 wars of 2018–2025.
@@ -2276,18 +2296,18 @@ function coalName(side) {
   return member(on[0].key).name + (n > 0 ? L(` + ${n} ${plural(n, "союзник", "союзника", "союзников")}`, ` + ${n} ${n === 1 ? "ally" : "allies"}`) : "");
 }
 function renderCoalBars(atA, atB, t) {
-  $("co-bars-day").textContent = L(`сутки ${t}, у.е. мощи`, `day ${t}, CPU of power`);
+  $("co-bars-day").textContent = L(`сутки ${t}, у.е. мощи`, `day ${t}, c.u. of power`);
   const maxF = Math.max(atA.F, atB.F, 1e-9);
   $("co-bars").innerHTML = [["A", atA], ["B", atB]].map(([side, at]) => {
     const col = side === "A" ? "var(--side-a)" : "var(--side-b)";
     const segs = at.parts.filter((x) => x.v > 0);
-    const bar = segs.map((x, j) => `<i style="flex:${x.v};background:${col};opacity:${Math.max(.3, 1 - j * .16).toFixed(2)}" data-tip="<b>${esc(x.m.name)}</b><br>${fmt(x.v, 1)} ${L("у.е.", "CPU")} · ${fmt(x.v / at.F * 100, 0)}%"></i>`).join("");
+    const bar = segs.map((x, j) => `<i style="flex:${x.v};background:${col};opacity:${Math.max(.3, 1 - j * .16).toFixed(2)}" data-tip="<b>${esc(x.m.name)}</b><br>${fmt(x.v, 1)} ${L("у.е.", "c.u.")} · ${fmt(x.v / at.F * 100, 0)}%"></i>`).join("");
     const rows = at.parts.filter((x) => x.m).map((x) => {
       const val = x.v > 0 ? `${fmt(x.v, 1)} · ${fmt(x.v / at.F * 100, 0)}%` : !x.p.on ? L("не участвует", "not participating") : !x.p.troops ? L("без войск", "without troops") : L("ещё не прибыл", "not yet arrived");
       return `<li><span>${esc(x.m.name)}</span><span class="num${x.v > 0 ? "" : " muted"}">${val}</span></li>`;
     }).join("");
     return `<div class="stack" style="gap:6px">
-      <div class="row" style="justify-content:space-between;align-items:baseline"><span class="chip ${side === "A" ? "chip-a" : "chip-b"}">${side} · ${esc(coalName(side))}</span><span class="num">${fmt(at.F, 1)} ${L("у.е.", "CPU")}</span></div>
+      <div class="row" style="justify-content:space-between;align-items:baseline"><span class="chip ${side === "A" ? "chip-a" : "chip-b"}">${side} · ${esc(coalName(side))}</span><span class="num">${fmt(at.F, 1)} ${L("у.е.", "c.u.")}</span></div>
       <div class="co-bar" style="width:${Math.max(2, at.F / maxF * 100).toFixed(1)}%">${bar}</div>
       <ul class="list" style="margin:0;padding:0">${rows}</ul>
     </div>`;
@@ -2305,7 +2325,7 @@ function drawCoalChart(host, S, R, tSel, T) {
   const L0 = Math.log(lo), L1 = Math.log(hi);
   const syR = (v) => bot.y + bot.h - ((Math.log(clamp(v, lo, hi)) - L0) / (L1 - L0)) * bot.h;
   let s = `<svg viewBox="0 0 ${W} ${H}" data-hover-chart role="img" aria-label="${L("Силы сторон на театре и их соотношение по суткам", "Forces of the sides in theatre and their ratio by day")}">`;
-  s += `<text x="${m.l}" y="${top.y - 10}" class="ax-label">${L("Силы на театре, у.е. мощи", "Forces in theatre, CPU of power")}</text>`;
+  s += `<text x="${m.l}" y="${top.y - 10}" class="ax-label">${L("Силы на театре, у.е. мощи", "Forces in theatre, c.u. of power")}</text>`;
   for (let v = 0; v <= fmax + 1e-9; v += st) {
     s += `<line x1="${m.l}" x2="${W - m.r}" y1="${syF(v)}" y2="${syF(v)}" stroke="${v === 0 ? "var(--axis)" : "var(--line)"}" stroke-width="1"/>`;
     s += `<text x="${m.l - 8}" y="${syF(v) + 4}" text-anchor="end" class="ax-label">${fmt(v, st < 1 ? 1 : 0)}</text>`;
@@ -2350,7 +2370,7 @@ function drawCoalChart(host, S, R, tSel, T) {
     cross.setAttribute("x1", sx(d)); cross.setAttribute("x2", sx(d)); cross.setAttribute("opacity", ".5");
     const r = x.r === null ? "—" : Number.isFinite(x.r) ? `${fmt(x.r, 2)} : 1` : L("без противника", "no opponent");
     showTip(L(`<b>Сутки ${d}</b><br>A: ${fmt(x.a, 1)} у.е. · B: ${fmt(x.b, 1)} у.е.<br>A : B = ${r} (нужно ${fmt(R, 2)} : 1)<br><span style="opacity:.7">Нажмите, чтобы разложить вклад на эти сутки</span>`,
-      `<b>Day ${d}</b><br>A: ${fmt(x.a, 1)} CPU · B: ${fmt(x.b, 1)} CPU<br>A : B = ${r} (${fmt(R, 2)} : 1 needed)<br><span style="opacity:.7">Click to break down the contribution on that day</span>`), ev);
+      `<b>Day ${d}</b><br>A: ${fmt(x.a, 1)} c.u. · B: ${fmt(x.b, 1)} c.u.<br>A : B = ${r} (${fmt(R, 2)} : 1 needed)<br><span style="opacity:.7">Click to break down the contribution on that day</span>`), ev);
   });
   hit.addEventListener("mouseleave", () => { cross.setAttribute("opacity", "0"); hideTip(); });
   hit.addEventListener("click", (ev) => { coal.t = dayAt(ev); renderCoalResults(); });
@@ -2377,12 +2397,12 @@ function drawCoalGraph(host, atA, atB) {
         const mx = (cx + px) / 2, my = (cy + py) / 2;
         edges += `<rect x="${mx - 8}" y="${my - 8}" width="16" height="16" rx="3" fill="var(--paper)" stroke="${col}"/><text x="${mx}" y="${my + 4}" text-anchor="middle" font-size="11" font-weight="600">${x.p.cls}</text>`;
       }
-      const tipTxt = `<b>${esc(x.m.name)}</b><br>${L("Класс", "Class")} ${x.p.cls || "—"}${x.p.cls ? " · " + esc(coClassName(x.p.cls)) : ""}<br>ρ = ${fmt(x.p.rho, 2)} · s = ${fmt(x.p.s, 2)} · τ = ${x.p.tau} ${L("сут", "days")}<br>${L("Вклад", "Contribution")}: ${fmt(x.v, 1)} ${L("у.е.", "CPU")}`;
+      const tipTxt = `<b>${esc(x.m.name)}</b><br>${L("Класс", "Class")} ${x.p.cls || "—"}${x.p.cls ? " · " + esc(coClassName(x.p.cls)) : ""}<br>ρ = ${fmt(x.p.rho, 2)} · s = ${fmt(x.p.s, 2)} · τ = ${x.p.tau} ${L("сут", "days")}<br>${L("Вклад", "Contribution")}: ${fmt(x.v, 1)} ${L("у.е.", "c.u.")}`;
       nodes += `<g opacity="${x.p.on ? 1 : .4}"><circle cx="${px}" cy="${py}" r="${r}" fill="${x.v > 0 ? band : "var(--paper)"}" stroke="${col}" stroke-width="2" data-tip="${tipTxt}"/>`;
       nodes += `<text x="${side === "A" ? px - r - 6 : px + r + 6}" y="${py + 4}" text-anchor="${side === "A" ? "end" : "start"}" font-size="12">${esc(x.m.short)}</text></g>`;
     });
     const r = rad(lead);
-    nodes += `<g opacity="${lead.p.on ? 1 : .4}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="${col}" stroke="var(--paper)" stroke-width="2" data-tip="<b>${esc(lead.m.name)}</b><br>${L("основа стороны", "core of the side")} ${side}<br>${L("Вклад", "Contribution")}: ${fmt(lead.v, 1)} ${L("у.е.", "CPU")}"/>`;
+    nodes += `<g opacity="${lead.p.on ? 1 : .4}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="${col}" stroke="var(--paper)" stroke-width="2" data-tip="<b>${esc(lead.m.name)}</b><br>${L("основа стороны", "core of the side")} ${side}<br>${L("Вклад", "Contribution")}: ${fmt(lead.v, 1)} ${L("у.е.", "c.u.")}"/>`;
     nodes += `<text x="${cx}" y="${cy + r + 16}" text-anchor="middle" font-size="12" font-weight="600">${esc(lead.m.short)}</text></g>`;
     return r;
   };
@@ -2735,7 +2755,7 @@ function reportMarkdown() {
   if (DS.kind !== "real") L1.push(L(`> Набор данных «${DS.kind === "wide" ? "177 государств" : "40 государств"}»: значения части показателей получены из оценки ИИ (класс D, низший приоритет) и восстановлены по аналогам; интервалы неопределённости — в рейтинге.`, `> Dataset “${DS.kind === "wide" ? "177 states" : "40 states"}”: some indicator values come from an AI estimate (class D, lowest priority) or were reconstructed from analogues; uncertainty intervals are shown in the ranking.`), "");
   L1.push(`## ${L("Стороны", "Sides")}`, "");
   d.sides.forEach((s) => {
-    L1.push(`### ${s.side} — ${s.name}: ${fmt(s.force, 1)} ${L("у.е.", "CPU")}, e = ${fmt(s.e, 2)}`, "", `| ${L("Участник", "Member")} | ρ | s | D, ${L("тыс. км", "k km")} | τ, ${L("сут", "d")} | ${L("Вклад", "Contribution")} | ${L("ИВМ без союзов", "MPI w/o alliances")} | ${L("Силы на театре", "Forces in theatre")} |`, "|---|---|---|---|---|---|---|---|");
+    L1.push(`### ${s.side} — ${s.name}: ${fmt(s.force, 1)} ${L("у.е.", "c.u.")}, e = ${fmt(s.e, 2)}`, "", `| ${L("Участник", "Member")} | ρ | s | D, ${L("тыс. км", "k km")} | τ, ${L("сут", "d")} | ${L("Вклад", "Contribution")} | ${L("ИВМ без союзов", "MPI w/o alliances")} | ${L("Силы на театре", "Forces in theatre")} |`, "|---|---|---|---|---|---|---|---|");
     s.parts.forEach((p) => L1.push(`| ${p.name}${p.on ? "" : " (" + L("выкл.", "off") + ")"} | ${fmt(p.rho, 2)} | ${fmt(p.s, 2)} | ${fmt(p.D, 1)} | ${p.tau} | ${p.types} | ${p.ivm === null ? "—" : fmt(p.ivm, 1)} | ${fmt(p.force, 1)} |`));
     L1.push("");
   });
@@ -2801,7 +2821,7 @@ function mapD(key, thId) {
   const take = (km, via) => { if (!best || km < best.km) best = { km, via }; };
   for (const i of isos) { const c = GEO.capitals[i]; if (c) take(havKm(c[0], c[1], th.lat, th.lon), c[2]); }
   for (const [iso, name, la, lo, , nameEn] of GEO.bases) if (isos.includes(iso)) take(havKm(la, lo, th.lat, th.lon), LANG === "en" ? nameEn : name);
-  return best && { d: Math.round(best.km / 100) / 10, via: best.via };
+  return best && { d: Math.round(best.km / 10) / 100, via: best.via };
 }
 const thName = (t) => (LANG === "en" ? t.en : t.ru);
 const theatreOfPreset = (k) => GEO && Object.entries(GEO.theatres).find(([, v]) => v.presets.includes(k));
