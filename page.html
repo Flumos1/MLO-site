@@ -1253,6 +1253,8 @@ function loadWide() {
   return wideLoading;
 }
 const isPilotLike = () => DS.kind === "pilot" || DS.kind === "wide";
+// ячейка заполнена оценкой ИИ (класс D): значение скрыто до закрытия раунда 1 экспертной панели, в индексе остаётся
+const aiCell = (ci, ii) => isPilotLike() && ((AD().meta[ci][ii] || "").split("|")[2] === "ai");
 const isReal = () => DS.kind === "real";
 const inIndex = (ii) => !DS.INC || DS.INC[ii] === 1;
 const DQ_LETTER = (dq) => dq >= .85 ? "A" : dq >= .7 ? "B" : dq >= .55 ? "C" : "D";
@@ -1566,7 +1568,7 @@ function renderProfile() {
     PILLARS.forEach((p, pi) => diffs.push({ label: pName(p), diff: d.P[pi] - med[pi] }));
   } else {
     IND.forEach((ind, ii) => {
-      if (IMP[ci * nI + ii] || !inIndex(ii) || Number.isNaN(X[ci * nI + ii])) return;
+      if (IMP[ci * nI + ii] || !inIndex(ii) || Number.isNaN(X[ci * nI + ii]) || aiCell(ci, ii)) return;
       const md = median(COUNTRIES.map((_, cj) => X[cj * nI + ii]));
       diffs.push({ label: indName(ind), tag: pShort(PILLARS[PI[ind.pillar]]), diff: X[ci * nI + ii] - md });
     });
@@ -1608,26 +1610,28 @@ function renderProfile() {
   if (pilot) {
     $("pf-tbl-note").hidden = false;
     $("pf-tbl-note").textContent = L(`${DS.kind === "wide" ? "Расширенный набор" : "Пилот"}: в индекс входят ${AD().include.filter(Boolean).length} из ${nI} показателей — те, по которым есть данные хотя бы у половины стран. ` +
-      "Пропуски в них восстановлены по средней той же страны в столпе с повышенной σ. Значение, год, источник и класс достоверности — в столбцах таблицы (источник «ai» — оценка ИИ до экспертной панели, класс D); полный список ссылок — data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.",
+      "Пропуски в них восстановлены по средней той же страны в столпе с повышенной σ. Значение, год, источник и класс достоверности — в столбцах таблицы (источник «ai» — оценка ИИ до экспертной панели, класс D: такие значения скрыты, пока не закрыт раунд 1 панели, чтобы не влиять на экспертов; в индекс они входят); полный список ссылок — data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.",
       `${DS.kind === "wide" ? "Extended set" : "Pilot"}: ${AD().include.filter(Boolean).length} of ${nI} indicators enter the index — those with data for at least half the countries. ` +
-      "Gaps in them are imputed from the same country's pillar mean with an increased σ. Value, year, source and reliability class are in the table columns (source \"ai\" — a pre-panel AI estimate, class D); the full reference list is in data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.");
+      "Gaps in them are imputed from the same country's pillar mean with an increased σ. Value, year, source and reliability class are in the table columns (source \"ai\" — a pre-panel AI estimate, class D: such values are hidden until round 1 of the panel is closed so as not to influence the experts; they do enter the index); the full reference list is in data/" + (DS.kind === "wide" ? "wide" : "pilot") + "/slice_2025.csv.");
   }
   const REL = L({ A: "официальная статистика", B: "исследовательская база", C: "OSINT или пересчёт", D: "экспертная оценка" },
     { A: "official statistics", B: "research database", C: "OSINT or derived", D: "expert estimate" });
   $("pf-table").innerHTML = IND.map((ind, ii) => ({ ind, ii })).filter((x) => x.ind.pillar === p).map(({ ind, ii }) => {
     const k = ci * nI + ii, v = X[k], raw = pilot ? AD().raw[ci][ii] : null;
     const [yr, rel, src] = pilot ? (AD().meta[ci][ii] || "||").split("|") : ["", "", ""];
-    const sub = pilot && raw != null ? `${fmt(raw, Math.abs(raw) < 10 ? 2 : 0)} ${esc(unitName(ind))} · ${yr}` : `${esc(unitName(ind))} · ${esc(ind.sources.map(srcKey).join(", "))}`;
+    const hide = pilot && src === "ai" && inIndex(ii) && !IMP[k];
+    const sub = hide ? `${esc(unitName(ind))} · ${L("значение скрыто до экспертной панели", "value hidden until the expert panel")}` : pilot && raw != null ? `${fmt(raw, Math.abs(raw) < 10 ? 2 : 0)} ${esc(unitName(ind))} · ${yr}` : `${esc(unitName(ind))} · ${esc(ind.sources.map(srcKey).join(", "))}`;
     let data;
-    if (!inIndex(ii)) data = `<span class="chip" data-tip="${L("Данных меньше чем у половины стран — показатель не входит в индекс", "Data for fewer than half the countries — the indicator is not in the index")}">${L("не в индексе", "not in index")}${raw != null ? "" : L(", нет данных", ", no data")}</span>`;
+    if (!inIndex(ii)) data = `<span class="chip" data-tip="${L("Данных меньше чем у половины стран — показатель не входит в индекс", "Data for fewer than half the countries — the indicator is not in the index")}">${L("не в индексе", "not in index")}${raw != null || src === "ai" ? "" : L(", нет данных", ", no data")}</span>`;
     else if (IMP[k]) data = `<span class="chip" data-tip="${L("Значения нет в источниках; подставлено среднее по столпу, неопределённость увеличена", "No value in the sources; the pillar mean is substituted, uncertainty increased")}">${L("восстановлено", "imputed")}</span>`;
+    else if (hide) data = `<span class="chip" data-tip="${L("Заполнено оценкой ИИ (класс D). Значение скрыто, чтобы не влиять на экспертов, пока не закрыт раунд 1 панели; в индекс показатель входит с широкой неопределённостью.", "Filled with an AI estimate (class D). The value is hidden so as not to influence the experts until round 1 of the panel is closed; the indicator enters the index with wide uncertainty.")}">${L("ожидает панели", "awaiting panel")} · D</span>`;
     else if (pilot) data = `<span class="small" data-tip="${L("Класс", "Class")} ${esc(rel)}: ${esc(REL[rel] || "")}">${esc(src)} · ${esc(rel)}</span>`;
     else data = `<span class="muted small">${L("наблюдение", "observation")}</span>`;
     const has = !Number.isNaN(v) && inIndex(ii);
     return `<tr><td class="num">${ind.id}</td><td>${esc(indName(ind))}<div class="muted small">${sub}</div></td>
       <td><span class="role" data-tip="<b>${rName(ind.role)}</b><br>${esc(rDesc(ind.role))}">${ind.role}</span></td>
-      <td class="num">${has ? `<span class="mini"><i style="width:${(v * 100).toFixed(0)}%"></i></span>${fmt(v * 100, 0)}` : "—"}</td>
-      <td class="num">${has ? fmt(SIG[k] * 100, 0) : "—"}</td>
+      <td class="num">${hide ? `<span class="muted small">${L("скрыто", "hidden")}</span>` : has ? `<span class="mini"><i style="width:${(v * 100).toFixed(0)}%"></i></span>${fmt(v * 100, 0)}` : "—"}</td>
+      <td class="num">${has && !hide ? fmt(SIG[k] * 100, 0) : "—"}</td>
       <td>${data}</td></tr>`;
   }).join("");
 }
@@ -1659,10 +1663,10 @@ function renderCompare() {
   const gaps = real
     ? PILLARS.map((p, pi) => ({ id: p.code, name: pName(p), tag: pShort(p), va: dA.P[pi], vb: dB.P[pi] }))
     : IND.map((ind, ii) => ({ id: ind.id, name: indName(ind), tag: pShort(PILLARS[PI[ind.pillar]]), va: X[a * nI + ii], vb: X[b * nI + ii], ii }))
-      .filter((g) => inIndex(g.ii) && !Number.isNaN(g.va) && !Number.isNaN(g.vb));
+      .filter((g) => inIndex(g.ii) && !Number.isNaN(g.va) && !Number.isNaN(g.vb) && !aiCell(a, g.ii) && !aiCell(b, g.ii));
   gaps.forEach((g) => { g.d = g.va - g.vb; });
   gaps.sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
-  $("cmp-tbl-title").textContent = real ? L("Разрывы по столпам", "Gaps by pillar") : L("Наибольшие разрывы по показателям", "Largest gaps by indicator");
+  $("cmp-tbl-title").textContent = real ? L("Разрывы по столпам", "Gaps by pillar") : L("Наибольшие разрывы по показателям (без заполненных оценкой ИИ)", "Largest gaps by indicator (excluding AI-estimated ones)");
   $("cmp-thead").innerHTML = `<tr><th>${real ? L("Код", "Code") : "ID"}</th><th>${real ? L("Столп", "Pillar") : L("Показатель", "Indicator")}</th>${real ? "" : `<th>${L("Столп", "Pillar")}</th>`}<th class="num">A</th><th class="num">B</th><th class="num">A − B</th></tr>`;
   $("cmp-table").innerHTML = gaps.slice(0, 15).map((g) => `<tr><td class="num">${g.id}</td><td>${esc(g.name)}</td>${real ? "" : `<td>${esc(g.tag)}</td>`}<td class="num">${fmt(g.va * 100, 0)}</td><td class="num">${fmt(g.vb * 100, 0)}</td><td class="num ${g.d >= 0 ? "delta-up" : "delta-down"}">${g.d >= 0 ? "+" : "−"}${fmt(Math.abs(g.d) * 100, 0)}</td></tr>`).join("");
 }
