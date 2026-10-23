@@ -1223,6 +1223,8 @@ function buildReal() {
 /* Пилот на 40 странах: нормированные значения 253 показателей, σ и признак восстановления
    (core/run.py -> data/pilot/proto_2025.json -> prototype/pilot.js). Показатели с данными менее чем у половины стран не входят в индекс. */
 const PD = window.PILOT_DATA || null;
+// Расширенный набор показывается, только если выборочная сверка прошла (правило протокола core/spotcheck_wide.py) или в адресе ?wide=1 (для автора)
+const WIDE_SHOWN = !!((window.IVM_PASSPORT && window.IVM_PASSPORT.spotcheck && window.IVM_PASSPORT.spotcheck.show_wide) || /[?&]wide=1/.test(location.search));
 const AD = () => (DS && DS.kind === "wide" ? window.WIDE_DATA : PD); // данные активного набора с пилотным форматом
 function buildPilot(data = PD, kind = "pilot") {
   const C = data.countries.map((c) => ({ ...c })), n = C.length;
@@ -2558,6 +2560,7 @@ const BANNER_EN = {
 function useDataset(kind, keep) {
   if (!["real", "pilot", "wide"].includes(kind)) kind = PD ? "pilot" : "real"; // прежний «demo» из localStorage — на пилот
   if (kind === "pilot" && !PD) kind = "real";
+  if (kind === "wide" && !WIDE_SHOWN) kind = PD ? "pilot" : "real";
   if (kind === "wide" && !window.WIDE_DATA) {
     // подгрузка wide.js; пока файл грузится, показываем пилот (или текущий набор), затем переключаемся
     document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.textContent = L("загрузка…", "loading…"); });
@@ -3048,9 +3051,9 @@ function renderExperts() {
     ["no", "Не подтверждено", "Not confirmed", "Показатели с оценкой ИИ достоверны", "Indicators filled by AI estimates are reliable",
       `67 показателей без открытого измерителя заполнены суждением одной модели (класс D, ${fx(P.pilot.d_share_pct, 1)}% заполненных ячеек пилота). Панель экспертов (Дельфи) ещё не проведена — отсюда эта страница.`,
       `67 indicators with no open proxy are filled by the judgement of a single model (class D, ${fx(P.pilot.d_share_pct, 1)}% of filled pilot cells). The expert (Delphi) panel has not been held yet — hence this page.`],
-    ["no", "Не проверено", "Not verified", "Расширенный набор (" + P.wide.countries + " стран) надёжен", "The extended set (" + P.wide.countries + " countries) is reliable",
-      `Таблицы техники новых стран разобраны автоматически, без ручной сверки; заполнено ${fx(P.wide.fill_pct, 1)}% ячеек. Автоматическая проверка данных (форматы, диапазоны, выбросы, копии страниц) есть, выборочная сверка с независимым источником — в «Паспорте».`,
-      `Equipment tables of the new countries are parsed automatically, without manual checking; ${fx(P.wide.fill_pct, 1)}% of cells are filled. There is an automatic data audit (formats, ranges, outliers, copied pages); a spot check against an independent source is described in the passport.`],
+    ["no", "Не подтверждено", "Not confirmed", "Расширенный набор (" + P.wide.countries + " стран) надёжен", "The extended set (" + P.wide.countries + " countries) is reliable",
+      P.spotcheck ? `Выборочная сверка личного состава (P01) 20 случайных новых стран с карточками Википедии: согласие ${P.spotcheck.agree} из ${P.spotcheck.checked} (${Math.round(P.spotcheck.share * 100)}%, 95% интервал ${Math.round(P.spotcheck.wilson95[0] * 100)}–${Math.round(P.spotcheck.wilson95[1] * 100)}%) — по заранее принятому правилу (порог 90%) набор скрыт на показах. Расхождения в основном из-за разных определений и годов в эталоне, есть и ошибка разбора эталона; сверка не доказывает правильность самих источников. Заполнено ${fx(P.wide.fill_pct, 1)}% ячеек, таблицы техники разобраны автоматически.` : `Таблицы техники новых стран разобраны автоматически, без ручной сверки; заполнено ${fx(P.wide.fill_pct, 1)}% ячеек.`,
+      P.spotcheck ? `Spot check of personnel (P01) for 20 random new countries against Wikipedia infoboxes: agreement ${P.spotcheck.agree} of ${P.spotcheck.checked} (${Math.round(P.spotcheck.share * 100)}%, 95% interval ${Math.round(P.spotcheck.wilson95[0] * 100)}–${Math.round(P.spotcheck.wilson95[1] * 100)}%) — under the rule set in advance (90% threshold) the set is hidden in demos. Most mismatches come from differing definitions and years in the reference, and there is one parsing error in the reference; the check does not prove the sources themselves right. ${fx(P.wide.fill_pct, 1)}% of cells are filled, equipment tables are parsed automatically.` : `Equipment tables of the new countries are parsed automatically, without manual checking; ${fx(P.wide.fill_pct, 1)}% of cells are filled.`],
   ];
   const faq = [
     ["Если индекс не предсказывает исход войн, зачем он нужен?", "Он сравнивает ресурсную базу государств (расходы, численность, качество техники, промышленность, союзы) с интервалами неопределённости и показывает, где данных не хватает. Исход войны определяют ещё подготовка, мораль, цели и разведка — открытые данные их не измеряют. Мы публикуем это как результат проверки, а не прячем.", "If the index does not predict war outcomes, what is it for?", "It compares the resource base of states (spending, manpower, equipment quality, industry, alliances) with uncertainty intervals and shows where data is missing. War outcomes also depend on training, morale, aims and intelligence — open data do not measure them. We publish this as a test result rather than hide it."],
@@ -3134,6 +3137,7 @@ function init() {
   $("cat-q").addEventListener("input", (e) => { ui.catQ = e.target.value; renderCatalog(); });
   let saved = "real";
   try { saved = localStorage.getItem("ivm-dataset") || "real"; } catch (e) { /* хранилище недоступно — открываем реальные данные */ }
+  document.querySelectorAll("#ds-switch button").forEach((b) => { if (b.dataset.v === "wide") b.hidden = !WIDE_SHOWN; });
   useDataset(saved);
   renderCatalog();
   openTab(location.hash.slice(1) || "rating");

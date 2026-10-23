@@ -750,6 +750,16 @@ window.IVM_PASSPORT = {
   "validation2.json",
   "model_error.json"
  ],
+ "spotcheck": {
+  "checked": 18,
+  "agree": 9,
+  "share": 0.5,
+  "wilson95": [
+   0.29,
+   0.71
+  ],
+  "show_wide": false
+ },
  "sources_terms": [
   {
    "id": "gfp",
