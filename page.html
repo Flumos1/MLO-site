@@ -108,6 +108,18 @@ button,input,select{font:inherit; color:inherit}
 .wdot.watch{border-style:dashed}
 .docs-btn{display:inline-flex; align-items:center; gap:6px; font:600 12.5px/1 var(--f-display); letter-spacing:.05em; text-transform:uppercase; padding:7px 11px; border:1px solid var(--accent); border-radius:5px; background:var(--paper); color:var(--accent); cursor:pointer; transition:background-color .12s,color .12s}
 .docs-btn:hover{background:var(--accent-soft)}
+.fb-fab{position:fixed; right:14px; bottom:14px; z-index:40; display:inline-flex; align-items:center; gap:6px; font:600 12.5px/1 var(--f-display); letter-spacing:.04em; padding:9px 12px; border:1px solid var(--accent); border-radius:999px; background:var(--paper); color:var(--accent); cursor:pointer; box-shadow:var(--shadow)}
+.fb-fab:hover{background:var(--accent-soft)}
+.fb-dlg{position:fixed; inset:0; z-index:60; display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px 16px; background:rgba(0,0,0,.45); overflow:auto}
+.fb-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:16px; width:min(640px,100%); box-shadow:var(--shadow)}
+.fb-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 12px}
+.fb-grid .wide{grid-column:1/-1}
+.fb-grid textarea,.fb-grid input[type="text"]{background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:7px 9px; min-width:0; font:inherit; color:inherit; width:100%}
+.fb-grid textarea{min-height:92px; resize:vertical}
+.fb-actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; align-items:center}
+.fb-actions a.btn{text-decoration:none; color:inherit}
+.fb-actions a.btn-primary{color:var(--on-accent)}
+@media (max-width:560px){ .fb-grid{grid-template-columns:1fr} .fb-fab span{display:none} }
 .docs-btn[aria-selected="true"]{background:var(--accent); color:var(--on-accent)}
 .doc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr)); gap:12px}
 .doc-card{display:flex; gap:14px; padding:14px; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-2); min-width:0}
@@ -399,7 +411,10 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
           <h2 id="pf-title"></h2>
           <span id="pf-chips" class="row" style="gap:6px"></span>
         </div>
-        <div class="field" style="min-width:200px"><label for="pf-country" data-i18n-en="Country">Государство</label><select id="pf-country"></select></div>
+        <div class="row" style="align-items:flex-end;gap:10px">
+          <button class="btn" id="pf-report" type="button" data-i18n-en="Report an error in this country's data">Ошибка в данных этой страны</button>
+          <div class="field" style="min-width:200px"><label for="pf-country" data-i18n-en="Country">Государство</label><select id="pf-country"></select></div>
+        </div>
       </div>
       <div class="tiles" id="pf-tiles"></div>
     </div>
@@ -1005,6 +1020,30 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
 </main>
 <footer data-i18n-en="Interface prototype for the military power assessment program. Full methodology, architecture and work plan — in docs/Анализ_и_план.md. Indicator catalogue — data/indicators.csv, scores for 8 countries — data/countries_2026.json (snapshot — October 2026).">Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
 <div class="tip" id="tip" hidden></div>
+<button class="fb-fab" id="fb-open" type="button" aria-haspopup="dialog"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17V3.5M4 4h10l-2 3.5 2 3.5H4"/></svg><span data-i18n-en="Report an error">Сообщить об ошибке</span></button>
+<div class="fb-dlg" id="fb-dlg" role="dialog" aria-modal="true" aria-labelledby="fb-title" hidden>
+  <div class="fb-card">
+    <div class="panel-head">
+      <h2 id="fb-title" data-i18n-en="Report an error or a remark">Сообщить об ошибке или замечании</h2>
+      <button class="btn" id="fb-close" type="button" aria-label="Закрыть" data-i18n-en-aria="Close">✕</button>
+    </div>
+    <div class="fb-grid">
+      <div class="field"><label for="fb-kind" data-i18n-en="What is it about">О чём</label><select id="fb-kind"></select></div>
+      <div class="field"><label for="fb-country" data-i18n-en="Country">Государство</label><select id="fb-country"></select></div>
+      <div class="field"><label for="fb-ind" data-i18n-en="Indicator (ID or name)">Показатель (ID или название)</label><input type="text" id="fb-ind" placeholder="G01" maxlength="80"></div>
+      <div class="field"><label for="fb-src" data-i18n-en="Correct value and source (link)">Верное значение и источник (ссылка)</label><input type="text" id="fb-src" maxlength="300"></div>
+      <div class="field wide"><label for="fb-text" data-i18n-en="What is wrong, and why do you think so">Что не так и почему вы так считаете</label><textarea id="fb-text" maxlength="2000"></textarea></div>
+      <div class="field wide"><label for="fb-who" data-i18n-en="How to address you (optional; area of expertise helps)">Как к вам обращаться (необязательно; полезна область компетенции)</label><input type="text" id="fb-who" maxlength="120"></div>
+    </div>
+    <p class="small muted" style="margin-top:10px" data-i18n-en="Context is added automatically: tab, dataset, language and site version. GitHub issues are public; the e-mail goes only to the authors.">Контекст добавится автоматически: вкладка, набор данных, язык и версия сайта. Обращения на GitHub публичны; письмо видят только авторы.</p>
+    <div class="fb-actions">
+      <a class="btn btn-primary" id="fb-gh" target="_blank" rel="noopener" data-i18n-en="Open on GitHub (public)">Открыть на GitHub (публично)</a>
+      <a class="btn" id="fb-mail" data-i18n-en="Send by e-mail">Отправить письмом</a>
+      <button class="btn" id="fb-copy" type="button" data-i18n-en="Copy text">Копировать текст</button>
+      <span class="small muted" id="fb-note" role="status"></span>
+    </div>
+  </div>
+</div>
 
 <script src="indicators.js"></script>
 <script src="countries.js"></script>
@@ -2900,6 +2939,53 @@ function setLang(v) {
   if (!$("tab-rating").hidden) renderProjection();
 }
 document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
+/* ---------- Обратная связь: форма → GitHub Issues (MLO-site) или письмо ---------- */
+const FEEDBACK = { mail: "braimstill@gmail.com", issues: "https://github.com/Flumos1/MLO-site/issues/new", version: "0.9-rc · 23.10.2026" };
+const FB_KINDS = [["data", "Ошибка в данных страны", "Error in country data"], ["method", "Замечание к методике", "Remark on the methodology"], ["scenario", "Допущения сценария (ρ, s, D, τ)", "Scenario assumptions (ρ, s, D, τ)"], ["forecast", "Вероятность или прогноз", "Probability or forecast"], ["other", "Другое / предложение", "Other / suggestion"]];
+function fbText() {
+  const kind = FB_KINDS.find((k) => k[0] === $("fb-kind").value) || FB_KINDS[0];
+  const ci = $("fb-country").value, c = ci === "" ? null : COUNTRIES[Number(ci)];
+  const lines = [
+    `${L("Тема", "Topic")}: ${L(kind[1], kind[2])}`,
+    `${L("Государство", "Country")}: ${c ? `${cName(c)} (${c.id})` : "—"}`,
+    `${L("Показатель", "Indicator")}: ${$("fb-ind").value.trim() || "—"}`,
+    "", `${L("Что не так", "What is wrong")}:`, $("fb-text").value.trim() || "—",
+    "", `${L("Верное значение и источник", "Correct value and source")}: ${$("fb-src").value.trim() || "—"}`,
+    `${L("Автор", "Author")}: ${$("fb-who").value.trim() || "—"}`,
+    "", "---", `${L("Вкладка", "Tab")}: ${location.hash.slice(1) || "rating"}`, `${L("Набор данных", "Dataset")}: ${DS ? DS.kind : "—"}`, `${L("Язык", "Language")}: ${LANG}`, `${L("Версия сайта", "Site version")}: ${FEEDBACK.version}`,
+  ];
+  const title = `[${L(kind[1], kind[2])}] ${c ? cName(c) : ""} ${$("fb-ind").value.trim()}`.replace(/\s+/g, " ").trim();
+  return { title, body: lines.join("\n") };
+}
+function fbRefresh() {
+  const t = fbText();
+  $("fb-gh").href = `${FEEDBACK.issues}?title=${encodeURIComponent(t.title)}&body=${encodeURIComponent(t.body)}`;
+  $("fb-mail").href = `mailto:${FEEDBACK.mail}?subject=${encodeURIComponent("MPI: " + t.title)}&body=${encodeURIComponent(t.body)}`;
+}
+function openFeedback(pre = {}) {
+  $("fb-kind").innerHTML = FB_KINDS.map((k) => `<option value="${k[0]}">${esc(L(k[1], k[2]))}</option>`).join("");
+  $("fb-country").innerHTML = `<option value="">${esc(L("— не относится к стране —", "— not about a country —"))}</option>` + COUNTRIES.map((c, i) => `<option value="${i}">${esc(cName(c))}</option>`).join("");
+  $("fb-kind").value = pre.kind || "data";
+  $("fb-country").value = pre.country === undefined ? "" : String(pre.country);
+  $("fb-ind").value = pre.ind || "";
+  $("fb-note").textContent = "";
+  fbRefresh();
+  $("fb-dlg").hidden = false;
+  $("fb-text").focus();
+}
+function closeFeedback() { $("fb-dlg").hidden = true; $("fb-open").focus(); }
+$("fb-open").addEventListener("click", () => openFeedback({ country: !$("tab-profile").hidden ? ui.profile : undefined }));
+$("pf-report").addEventListener("click", () => openFeedback({ country: ui.profile, kind: "data" }));
+$("fb-close").addEventListener("click", closeFeedback);
+$("fb-dlg").addEventListener("click", (e) => { if (e.target === $("fb-dlg")) closeFeedback(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("fb-dlg").hidden) closeFeedback(); });
+["fb-kind", "fb-country", "fb-ind", "fb-src", "fb-text", "fb-who"].forEach((id) => $(id).addEventListener("input", fbRefresh));
+$("fb-copy").addEventListener("click", () => {
+  const t = fbText(), txt = t.title + "\n\n" + t.body;
+  const done = () => { $("fb-note").textContent = L("Скопировано", "Copied"); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, () => { $("fb-note").textContent = L("Не удалось скопировать", "Copy failed"); });
+  else $("fb-note").textContent = L("Копирование недоступно — выделите текст вручную", "Copy unavailable — select the text manually");
+});
 /* ---------- Переключатель темы: авто (как в системе) / светлая / тёмная ---------- */
 let THEME = (function () { try { const v = localStorage.getItem("ivm-theme"); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; } })();
 function setTheme(v, save) {
