@@ -266,10 +266,10 @@ window.IVM_PARAMS = {
    ]
   },
   "indpak": {
-   "ratio": 1.1189,
-   "ratio30": 1.1189,
+   "ratio": 1.1419,
+   "ratio30": 1.1419,
    "required": 1.0,
-   "p_sufficient": 0.5224,
+   "p_sufficient": 0.5265,
    "window": [
     [
      0,
