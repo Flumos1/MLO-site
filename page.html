@@ -1035,6 +1035,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
     </div>
   </section>
 </main>
+<div class="small muted" id="site-version" style="text-align:center;margin:14px 0 4px"></div>
 <footer data-i18n-en="Interface prototype for the military power assessment program. Full methodology, architecture and work plan — in docs/Анализ_и_план.md. Indicator catalogue — data/indicators.csv, scores for 8 countries — data/countries_2026.json (snapshot — October 2026).">Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
 <div class="tip" id="tip" hidden></div>
 <button class="fb-fab" id="fb-open" type="button" aria-haspopup="dialog"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17V3.5M4 4h10l-2 3.5 2 3.5H4"/></svg><span data-i18n-en="Report an error">Сообщить об ошибке</span></button>
@@ -2953,6 +2954,7 @@ function applyDynamicLang() {
 function setLang(v) {
   if (v !== "ru" && v !== "en") v = "ru";
   LANG = v;
+  if (typeof renderVersion === "function") setTimeout(renderVersion, 0);
   try { localStorage.setItem("ivm-lang", LANG); } catch (e) { /* хранилище недоступно */ }
   applyStaticLang();
   applyDynamicLang();
@@ -2967,6 +2969,12 @@ function setLang(v) {
 document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
 /* ---------- Обратная связь: форма → GitHub Issues (MLO-site) или письмо ---------- */
 const FEEDBACK = { mail: "braimstill@gmail.com", issues: "https://github.com/Flumos1/MLO-site/issues/new", version: "0.9-rc · 23.10.2026" };
+function renderVersion() {
+  const el = $("site-version"); if (!el) return;
+  el.innerHTML = L(`Версия ${esc(FEEDBACK.version)} (экспертный предпросмотр) · срез данных 2025 г. · <a href="CHANGELOG.md" target="_blank" rel="noopener">журнал изменений</a>`,
+    `Version ${esc(FEEDBACK.version)} (expert preview) · 2025 data slice · <a href="CHANGELOG.md" target="_blank" rel="noopener">change log</a>`);
+}
+renderVersion();
 const FB_KINDS = [["data", "Ошибка в данных страны", "Error in country data"], ["method", "Замечание к методике", "Remark on the methodology"], ["scenario", "Допущения сценария (ρ, s, D, τ)", "Scenario assumptions (ρ, s, D, τ)"], ["forecast", "Вероятность или прогноз", "Probability or forecast"], ["other", "Другое / предложение", "Other / suggestion"]];
 function fbText() {
   const kind = FB_KINDS.find((k) => k[0] === $("fb-kind").value) || FB_KINDS[0];
