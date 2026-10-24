@@ -860,6 +860,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="cmp2-sliders" id="cmp2-sliders" hidden></div>
       <div class="tbl-wrap"><table class="cmp2-rank"><thead id="cmp2-head"></thead><tbody id="cmp2-rank"></tbody></table></div>
       <p class="small muted" style="margin-top:8px" id="cmp2-summary"></p>
+      <div id="cmp2-rubric" style="margin-top:10px"></div>
     </div>
     <div class="panel">
       <div class="panel-head">
@@ -931,6 +932,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <!-- ДОКУМЕНТЫ -->
   <section id="tab-experts" class="stack" hidden>
     <div id="experts-body" class="stack"></div>
+    <div class="panel" id="fc-log" hidden></div>
   </section>
 
   <section id="tab-docs" class="stack" hidden>
@@ -2784,6 +2786,30 @@ function renderCompetitors() {
     `<div class="kv"><b>${L("Их сила", "Their strength")}:</b> ${esc(cmpL(o, "strength"))}</div><div class="kv"><b>${L("Берём себе", "What we take")}:</b> ${esc(cmpL(o, "take"))}</div>` +
     (o.url ? `<a href="${o.url}" target="_blank" rel="noopener">${o.url.replace(/^https?:\/\//, "")}</a>` : "") + `</article>`).join("");
   $("cmp2-std").innerHTML = CMP.standards.map((s) => `<li><b>${esc(s.name)}</b> — ${esc(LANG === "en" ? s.en : s.ru)}</li>`).join("");
+  renderRubric();
+}
+// Рубрика и свидетельства по нашей строке: каждый балл — уровень 0–5 по одинаковым описаниям и ссылка на то, что его подтверждает
+function renderRubric() {
+  const box = $("cmp2-rubric"), me = CMP && CMP.orgs.find((o) => o.id === "ivm_now");
+  if (!box || !me || !me.evidence) return;
+  const en = LANG === "en";
+  const rows = CMP.criteria.map((c) => {
+    const e = me.evidence[c.id], lv = c.rubric[e.score];
+    return `<tr><td><b>${esc(en ? c.en : c.ru)}</b><div class="muted small">${L("вес", "weight")} ${c.w_research}</div></td><td class="num"><b>${e.score}</b></td><td class="small">${esc(en ? lv.en : lv.ru)}</td><td class="small">${esc(en ? e.en : e.ru)}</td><td class="small">${esc(en ? e.next_en : e.next_ru)}</td></tr>`;
+  }).join("");
+  box.innerHTML = `<details><summary class="small"><b>${L("Как поставлены баллы ИВМ: рубрика и свидетельства", "How the MPI scores are set: rubric and evidence")}</b></summary>
+    <p class="muted small" style="margin:6px 0">${esc(en ? CMP.rubric_note_en : CMP.rubric_note)}</p>
+    <div class="tbl-wrap"><table><thead><tr><th>${L("Критерий", "Criterion")}</th><th class="num">${L("Балл", "Score")}</th><th>${L("Уровень по рубрике", "Rubric level")}</th><th>${L("Свидетельство", "Evidence")}</th><th>${L("Что поднимет балл", "What raises the score")}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+}
+// Журнал прогнозов: что зафиксировано до исхода, когда проверяется и каков результат
+function renderForecastLog() {
+  const box = $("fc-log"), F = window.FORECAST_LOG;
+  if (!box || !F) return;
+  box.hidden = false;
+  const en = LANG === "en", ST = { pending: ["ждёт исхода", "awaiting the outcome"], partial: ["проверен частично", "partly checked"], scored: ["оценён", "scored"] };
+  box.innerHTML = `<div class="panel-head"><div><h3>${L("Журнал прогнозов", "Forecast log")}</h3><p class="muted small">${esc(en ? F.rule_en : F.rule)} ${L("Обновлено", "Updated")} ${F.updated}.</p></div></div>
+    <div class="tbl-wrap"><table><thead><tr><th>№</th><th>${L("Что прогнозируется", "What is forecast")}</th><th>${L("Зафиксирован", "Fixed")}</th><th>${L("Проверка", "Check")}</th><th>${L("Статус", "Status")}</th><th>${L("Примечание", "Note")}</th></tr></thead><tbody>${F.entries.map((e) =>
+      `<tr><td class="num"><b>${esc(e.id)}</b></td><td>${esc(en ? e.en : e.ru)}</td><td class="small">${e.fixed}<div class="muted">${L("коммит", "commit")} ${esc(e.commit)}</div></td><td class="small">${e.resolves}</td><td><span class="chip">${ST[e.status][en ? 1 : 0]}</span></td><td class="small">${esc(en ? e.en_note : e.ru_note)}</td></tr>`).join("")}</tbody></table></div>`;
 }
 document.querySelectorAll("#cmp2-preset button").forEach((b) => b.addEventListener("click", () => {
   cmpUI.preset = b.dataset.v;
@@ -3029,6 +3055,10 @@ $("fb-copy").addEventListener("click", () => {
 });
 /* ---------- Для экспертов: тур, задания, что проверено, трудные вопросы, паспорт модели ---------- */
 function renderExperts() {
+  renderExpertsBase();
+  renderForecastLog();
+}
+function renderExpertsBase() {
   const P = window.IVM_PASSPORT;
   const root = $("experts-body");
   if (!P) { root.innerHTML = `<div class="panel"><p class="muted">${esc(L("Паспорт не собран (data/passport.json).", "Passport not built (data/passport.json)."))}</p></div>`; return; }
