@@ -1390,7 +1390,7 @@
    "arxiv": null,
    "used_in": [
     "docs/Подбор_партнёров.md",
-    "ответ о теории игр"
+    "core/focal_points.py"
    ],
    "topics": [
     "сдерживание",
