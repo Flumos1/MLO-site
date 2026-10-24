@@ -3,7 +3,7 @@ MPI Lanchester–Osipov, open results. Licence CC BY 4.0: use with attribution �
 
 Файлы / Files:
   ivm_rating_pilot40_2025.csv — рейтинг 40 стран пилота (полная версия) / ranking of the 40 pilot countries (full version)
-  ivm_rating_extended177_2025.csv — рейтинг 177 стран (облегчённое ядро для 137 новых) / ranking of 177 countries (lighter core for 137)
+  ivm_rating_extended_2025.csv — рейтинг расширенного набора: пилот и страны с согласованными источниками (облегчённое ядро для новых) / ranking of the extended set: pilot and countries with cross-checked sources (lighter core for new ones)
   ivm_rating_experts8_2026.csv — экспертная оценка 8 государств по столпам / expert assessment of 8 states by pillar
   ivm_monitor_2026.csv — монитор очагов: вероятность конфликта в паре в 2026 г. / flashpoint monitor: conflict probability per pair in 2026
   ivm_indicators.csv — каталог 253 показателей / catalogue of 253 indicators

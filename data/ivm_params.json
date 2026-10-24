@@ -164,7 +164,7 @@
    "name": "Индия против Пакистана · граница на Пенджабе и Кашмире",
    "name_en": "India vs. Pakistan · Punjab and Kashmir border",
    "note": "Иллюстративный сценарий, не прогноз. Очаг из документа 4: Индия выделяет на театр 40% сил, Пакистан — 80%. Китай поставляет Пакистану вооружения (тип «снабжение», ρ 0,3). Обе стороны — ядерные: по методике ядерная ось ограничивает цели сценария, а не добавляет у.е. Горизонт 30 суток — допущение (короткая война).",
-   "note_en": "Illustrative scenario, not a forecast. Hot spot from document 4: India commits 40% of its forces to the theatre, Pakistan 80%. China supplies Pakistan with weapons (type \"supply\", ρ 0.3). Both sides are nuclear: in this methodology the nuclear axis constrains the scenario's objectives and adds no CPU. The 30-day horizon is an assumption (a short war).",
+   "note_en": "Illustrative scenario, not a forecast. Hot spot from document 4: India commits 40% of its forces to the theatre, Pakistan 80%. China supplies Pakistan with weapons (type \"supply\", ρ 0.3). Both sides are nuclear: in this methodology the nuclear axis constrains the scenario's objectives and adds no c.u.. The 30-day horizon is an assumption (a short war).",
    "alpha": 1.0,
    "d": 1.0,
    "T": 30,
@@ -264,10 +264,10 @@
    ]
   },
   "indpak": {
-   "ratio": 1.1189,
-   "ratio30": 1.1189,
+   "ratio": 1.1419,
+   "ratio30": 1.1419,
    "required": 1.0,
-   "p_sufficient": 0.5224,
+   "p_sufficient": 0.5265,
    "window": [
     [
      0,
