@@ -16,7 +16,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Osipov M. The influence of the numbers of the fighting sides on their losses // Voennyi sbornik. 1915. No. 6–10. (in Russian)"
   },
   {
    "id": "R002",
@@ -224,7 +225,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Shumov V. V. Accounting for psychological factors in combat (conflict) models // Computer Research and Modeling. 2016. Vol. 8, No. 6. P. 951–964. (in Russian)"
   },
   {
    "id": "R015",
@@ -240,7 +242,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Mitskevich. Teaching materials: the ratio of arms and services, the Osipov–Lanchester model. Minsk: BSUIR. (in Russian)"
   },
   {
    "id": "R016",
@@ -256,7 +259,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Shleiko. A method for assessing the effectiveness of fire engagement // Vestnik KazNU. (in Russian)"
   },
   {
    "id": "R017",
@@ -272,7 +276,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Yusupov R. M., Ivanov. Russian mathematical models of combat of the early 20th century // Informatics and Automation. 2023. (in Russian)"
   },
   {
    "id": "R018",
@@ -288,7 +293,8 @@
    "topics": [
     "теория боя",
     "Ланчестер"
-   ]
+   ],
+   "text_en": "Combat capabilities // Great Russian Encyclopedia (bigenc.ru). (in Russian)"
   },
   {
    "id": "R019",
@@ -448,7 +454,8 @@
    "topics": [
     "проверка моделей боя",
     "исторические данные"
-   ]
+   ],
+   "text_en": "Concepts Analysis Agency. CDB90: Database of Battles. US Army, 1990 (version jrnold/cdb90, ODC-By licence)."
   },
   {
    "id": "R029",
@@ -512,7 +519,8 @@
    "topics": [
     "индексы мощи",
     "конкуренты"
-   ]
+   ],
+   "text_en": "Singer J. D., Bremer S., Stuckey J. Capability distribution, uncertainty, and major power war, 1820–1965 // Russett B. (ed.) Peace, War, and Numbers. Beverly Hills: Sage, 1972. (CINC index, Correlates of War project)"
   },
   {
    "id": "R033",
@@ -1057,7 +1065,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "SIPRI Military Expenditure Database; SIPRI Fact Sheet «Trends in World Military Expenditure, 2025» (April 2026); SIPRI Top-100 (December 2025); SIPRI Yearbook 2026, ch. 8 «World nuclear forces»; SIPRI Arms Transfers Database (October 2026)."
   },
   {
    "id": "R066",
@@ -1132,7 +1141,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "CIA World Factbook; UCS Satellite Database (May 2023)."
   },
   {
    "id": "R071",
@@ -1147,7 +1157,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "Gleditsch N. P. et al. Armed conflict 1946–2001: a new dataset // Journal of Peace Research. 2002. Vol. 39, № 5. P. 615–637; UCDP/PRIO Armed Conflict Dataset, version 26.1."
   },
   {
    "id": "R072",
@@ -1177,7 +1188,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "Coppedge M. et al. V-Dem Dataset; Teorell J. et al. Quality of Government Standard Dataset (January 2026); World Values Survey / European Values Study."
   },
   {
    "id": "R074",
@@ -1237,7 +1249,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "United Nations — Uniformed Personnel Contributions; USGS Mineral Commodity Summaries 2026; FAOSTAT; Secure World Foundation «Global Counterspace Capabilities» (2025); CSIS Missile Threat."
   },
   {
    "id": "R078",
@@ -1267,7 +1280,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "Oryx. Documenting Russian/Ukrainian Equipment Losses (snapshots of the Internet Archive Wayback Machine, 2022–2026); WarSpotting."
   },
   {
    "id": "R080",
@@ -1282,7 +1296,8 @@
    ],
    "topics": [
     "источники данных"
-   ]
+   ],
+   "text_en": "Wikipedia: tables of the armed forces' armaments and the list of countries with foreign bases (IISS, GFP and Oryx data in the notes)."
   },
   {
    "id": "R081",
@@ -1298,7 +1313,8 @@
    "topics": [
     "хроника",
     "конкурентная среда"
-   ]
+   ],
+   "text_en": "Britannica «2026 Iran war»; CFR Global Conflict Tracker; International Crisis Group; ISW; Reuters, AP, Al Jazeera, PBS, Fortune, Financial Times — chronicle of 2025–2026"
   },
   {
    "id": "R082",
@@ -1314,7 +1330,8 @@
    "topics": [
     "хроника",
     "конкурентная среда"
-   ]
+   ],
+   "text_en": "TENET Intelligence: A Quantitative Framework for Modern Military Power: The TENET MCI; Force Size vs. Force Quality; Forecast Record (tenetintel.com, 2025–2026; copies — Wayback Machine)."
   },
   {
    "id": "R083",
@@ -1330,7 +1347,8 @@
    "topics": [
     "хроника",
     "конкурентная среда"
-   ]
+   ],
+   "text_en": "Verisk Maplecroft. Predictive War Index (May 2026) // Fortune. 14.06.2026."
   },
   {
    "id": "R084",
