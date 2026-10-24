@@ -19,7 +19,7 @@
   --accent:#8d6200; --accent-2:#6b4f12; --accent-soft:#f3e7c7; --on-accent:#ffffff;
   --side-a:#d6362f; --side-b:#1f5fb8; --band-a:rgba(214,54,47,.14); --band-b:rgba(31,95,184,.14);
   --neutral-bar:#b9beb0;
-  --good:#1f8a3b; --warn:#b9790a; --crit:#c7342c; --good-ink:#116b28; --crit-ink:#a32017;
+  --good:#1f8a3b; --warn:#b9790a; --warn-ink:#8a5a00; --on-side:#ffffff; --crit:#c7342c; --good-ink:#116b28; --crit-ink:#a32017;
   --seq0:#d8e6f6; --seq1:#aecbea; --seq2:#7fa9db; --seq3:#5088c9; --seq4:#2f699f; --seq5:#1c4d78; --seq6:#0f3457;
   --f-display:"Space Grotesk","IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;
@@ -35,7 +35,7 @@
     --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
     --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
     --neutral-bar:#394a46;
-    --good:#2fb350; --warn:#e0a030; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
+    --good:#2fb350; --warn:#e0a030; --warn-ink:#e0a030; --on-side:#0d1114; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
     --seq0:#0f3457; --seq1:#1c4d78; --seq2:#2f699f; --seq3:#5088c9; --seq4:#7fa9db; --seq5:#aecbea; --seq6:#d8e6f6;
     color-scheme:dark;
     --shadow:0 1px 2px rgba(0,0,0,.4);
@@ -47,7 +47,7 @@
   --accent:#e8a93e; --accent-2:#f6c876; --accent-soft:#2c230f; --on-accent:#171100;
   --side-a:#ef5a51; --side-b:#4f93e8; --band-a:rgba(239,90,81,.18); --band-b:rgba(79,147,232,.18);
   --neutral-bar:#394a46;
-  --good:#2fb350; --warn:#e0a030; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
+  --good:#2fb350; --warn:#e0a030; --warn-ink:#e0a030; --on-side:#0d1114; --crit:#ef5a51; --good-ink:#35c15b; --crit-ink:#ef6b62;
   --seq0:#0f3457; --seq1:#1c4d78; --seq2:#2f699f; --seq3:#5088c9; --seq4:#7fa9db; --seq5:#aecbea; --seq6:#d8e6f6;
   color-scheme:dark;
   --shadow:0 1px 2px rgba(0,0,0,.4);
@@ -100,7 +100,7 @@ button,input,select{font:inherit; color:inherit}
 .res-done{color:var(--good-ink); border-color:var(--good)}
 .res-even{color:var(--ink-2)}
 .res-fixable{color:var(--side-b); border-color:var(--side-b)}
-.res-partial{color:var(--warn); border-color:var(--warn)}
+.res-partial{color:var(--warn-ink); border-color:var(--warn-ink)}
 .res-unfixable{color:var(--crit-ink); border-color:var(--crit)}
 .org-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:10px}
 .org-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-2); padding:12px; display:flex; flex-direction:column; gap:5px; min-width:0}
@@ -122,7 +122,7 @@ button,input,select{font:inherit; color:inherit}
 .xp-steps li::before{content:counter(xp); font:700 13px/1 var(--f-mono); color:var(--accent)}
 .xp-tasks{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:10px}
 .xp-st{display:inline-block; font:600 11.5px/1 var(--f-display); letter-spacing:.04em; text-transform:uppercase; padding:4px 7px; border-radius:3px; border:1px solid currentColor; white-space:nowrap}
-.xp-ok{color:var(--good-ink)} .xp-part{color:var(--warn)} .xp-no{color:var(--crit-ink)}
+.xp-ok{color:var(--good-ink)} .xp-part{color:var(--warn-ink)} .xp-no{color:var(--crit-ink)}
 .xp-faq details{border-bottom:1px solid var(--line); padding:8px 0}
 .xp-faq summary{cursor:pointer; font-weight:600}
 .xp-faq details p{margin:6px 0 2px; color:var(--ink-2)}
@@ -201,7 +201,7 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 .kl-chip{min-width:28px; text-align:center; font:600 11px/1 var(--f-mono); padding:6px 4px; border-radius:3px; border:1px solid var(--line); cursor:help; position:relative; background:var(--paper-2); color:var(--ink-2)}
 .kl-bat{background:var(--accent-soft); color:var(--accent-2); border-color:var(--accent)}
 .kl-nuc{background:var(--band-a); color:var(--side-a); border-color:var(--side-a)}
-.kl-out{background:var(--neutral-bar); color:var(--ink-2)}
+.kl-out{background:var(--neutral-bar); color:var(--ink)}
 .kl-thr{box-shadow:inset 0 -3px 0 var(--ink)}
 .kl-at::after{content:"●"; position:absolute; top:-7px; right:-3px; font-size:11px; color:var(--side-b)}
 .kl-legend{display:flex; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--ink-2); margin-bottom:6px}
@@ -288,7 +288,7 @@ tbody tr:hover{background:var(--accent-soft)}
 .inputs{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px}
 .prob{display:flex; height:30px; border-radius:3px; overflow:hidden; gap:2px; background:var(--paper)}
 .prob div{display:flex; align-items:center; justify-content:center; font:600 13px/1 var(--f-mono); color:#fff; min-width:0; overflow:hidden; white-space:nowrap}
-.prob .pa{background:var(--side-a)} .prob .pn{background:var(--neutral-bar); color:var(--ink)} .prob .pb{background:var(--side-b)}
+.prob .pa{background:var(--side-a); color:var(--on-side)} .prob .pn{background:var(--neutral-bar); color:var(--ink)} .prob .pb{background:var(--side-b); color:var(--on-side)}
 .verdict{font:600 24px/1.15 var(--f-display)}
 .kv{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 12px; font-size:13px}
 .kv dt{color:var(--ink-2)} .kv dd{margin:0; font-family:var(--f-mono); text-align:right}
@@ -343,7 +343,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <circle cx="16" cy="16" r="2.3" fill="var(--accent)"/>
       </svg>
       <div class="brand-txt">
-        <span class="brand-mark"><span data-i18n-en="MPI">ИВМ</span> <b>·</b> <span data-i18n-en="Lanchester–Osipov">Ланчестер–Осипов</span></span>
+        <span class="brand-mark" role="heading" aria-level="1"><span data-i18n-en="MPI">ИВМ</span> <b>·</b> <span data-i18n-en="Lanchester–Osipov">Ланчестер–Осипов</span></span>
         <span class="brand-sub"><span data-i18n-en="Military Power Index ·">индекс военной мощи ·</span> <span id="ind-count">253</span> <span data-i18n-en="indicators · 12 pillars">показателя · 12 столпов</span></span>
       </div>
     </div>
@@ -940,7 +940,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="panel-head">
         <div>
           <h3 data-i18n-en="In detail: the MPI against TENET MCI, Global Firepower and IISS">Подробно: ИВМ против TENET MCI, Global Firepower и IISS</h3>
-          <p class="muted small" data-i18n-en="Main competitor — TENET Intelligence, Military Capability Index (MCI, USA): 150+ countries, proprietary core, claims a quadratic Lanchester law, no published war testing. Full analysis — docs/Конкуренты_и_новизна.md.">Главный конкурент — TENET Intelligence, Military Capability Index (MCI, США): 150+ стран, проприетарное ядро, заявлен квадратичный закон Ланчестера, проверки на войнах не опубликовано. Разбор — docs/Конкуренты_и_новизна.md.</p>
+          <p class="muted small" data-i18n-en="Main competitor — TENET Intelligence, Military Capability Index (MCI, USA): 150+ countries, proprietary core, claims a quadratic Lanchester law, no published war testing. Full analysis — document 8, Documents section.">Главный конкурент — TENET Intelligence, Military Capability Index (MCI, США): 150+ стран, проприетарное ядро, заявлен квадратичный закон Ланчестера, проверки на войнах не опубликовано. Разбор — документ 8 («Модели боя и новизна», раздел «Документы»).</p>
         </div>
       </div>
       <div class="tbl-wrap">
@@ -1121,7 +1121,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   </section>
 </main>
 <div class="small muted" id="site-version" style="text-align:center;margin:14px 0 4px"></div>
-<footer data-i18n-en="Interface prototype for the military power assessment program. Full methodology, architecture and work plan — in docs/Анализ_и_план.md. Indicator catalogue — data/indicators.csv, scores for 8 countries — data/countries_2026.json (snapshot — October 2026).">Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в docs/Анализ_и_план.md. Каталог показателей — data/indicators.csv, оценки 8 государств — data/countries_2026.json (срез — октябрь 2026 г.).</footer>
+<footer data-i18n-en="Interface prototype for the military power assessment program. Full methodology, architecture and work plan — in the Documents section (documents 1–6, 8, 9). Indicator catalogue — data/ivm_indicators.csv, scores for 8 countries — data/ivm_rating_experts8_2026.csv (snapshot — October 2026).">Прототип интерфейса программы оценки военной мощи. Полная методика, архитектура и план работ — в разделе «Документы» (документы 1–6, 8, 9). Каталог показателей — data/ivm_indicators.csv, оценки 8 государств — data/ivm_rating_experts8_2026.csv (срез — октябрь 2026 г.).</footer>
 <div class="tip" id="tip" hidden></div>
 <button class="fb-fab" id="fb-open" type="button" aria-haspopup="dialog"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17V3.5M4 4h10l-2 3.5 2 3.5H4"/></svg><span data-i18n-en="Report an error">Сообщить об ошибке</span></button>
 <div class="fb-dlg" id="fb-dlg" role="dialog" aria-modal="true" aria-labelledby="fb-title" hidden>
@@ -3045,7 +3045,7 @@ function renderForecastLog() {
   const en = LANG === "en", ST = { pending: ["ждёт исхода", "awaiting the outcome"], partial: ["проверен частично", "partly checked"], scored: ["оценён", "scored"] };
   box.innerHTML = `<div class="panel-head"><div><h3>${L("Журнал прогнозов", "Forecast log")}</h3><p class="muted small">${esc(en ? F.rule_en : F.rule)} ${L("Обновлено", "Updated")} ${F.updated}.</p></div></div>
     <div class="tbl-wrap"><table><thead><tr><th>№</th><th>${L("Что прогнозируется", "What is forecast")}</th><th>${L("Зафиксирован", "Fixed")}</th><th>${L("Проверка", "Check")}</th><th>${L("Статус", "Status")}</th><th>${L("Примечание", "Note")}</th></tr></thead><tbody>${F.entries.map((e) =>
-      `<tr><td class="num"><b>${esc(e.id)}</b></td><td>${esc(en ? e.en : e.ru)}</td><td class="small">${e.fixed}<div class="muted">${L("коммит", "commit")} ${esc(e.commit)}</div></td><td class="small">${e.resolves}</td><td><span class="chip">${ST[e.status][en ? 1 : 0]}</span></td><td class="small">${esc(en ? e.en_note : e.ru_note)}</td></tr>`).join("")}</tbody></table></div>`;
+      `<tr><td class="num"><b>${esc(en ? e.id.replace(/^П-/, "F-").replace(/^М-/, "M-") : e.id)}</b></td><td>${esc(en ? e.en : e.ru)}</td><td class="small">${e.fixed}<div class="muted">${L("коммит", "commit")} ${esc(e.commit)}</div></td><td class="small">${e.resolves}</td><td><span class="chip">${ST[e.status][en ? 1 : 0]}</span></td><td class="small">${esc(en ? e.en_note : e.ru_note)}</td></tr>`).join("")}</tbody></table></div>`;
 }
 document.querySelectorAll("#cmp2-preset button").forEach((b) => b.addEventListener("click", () => {
   cmpUI.preset = b.dataset.v;
@@ -3430,7 +3430,7 @@ function init() {
   $("ln-mob").addEventListener("change", (e) => { ln.mob = e.target.checked; renderLanchester(); });
   initSalvo();
   initLayered();
-  $("m-preset").addEventListener("change", (e) => { state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
+  $("m-preset").addEventListener("change", (e) => { if (!PRESETS[e.target.value]) return; state.preset = e.target.value; state.weights = { ...PRESETS[state.preset].w }; recompute(false); });
   document.querySelectorAll("#m-nuclear button").forEach((b) => b.addEventListener("click", () => { state.nuclear = b.dataset.v; recompute(false); }));
   document.querySelectorAll("#m-norm button").forEach((b) => b.addEventListener("click", () => { state.norm = b.dataset.v; recompute(false); }));
   $("m-reset").addEventListener("click", () => { Object.assign(state, JSON.parse(JSON.stringify(DEFAULTS))); recompute(false); });
