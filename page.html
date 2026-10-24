@@ -187,6 +187,18 @@ input[type="range"]{width:100%; accent-color:var(--accent)}
 .seg button[aria-pressed="true"]{background:var(--accent); color:var(--on-accent)}
 .chip{display:inline-flex; align-items:center; gap:4px; font:500 12px/1 var(--f-body); padding:4px 7px; border-radius:3px; background:var(--paper-2); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap}
 .chip-strong{background:var(--accent); color:var(--on-accent); border-color:var(--accent)}
+.kl{display:grid; gap:8px; margin:6px 0 10px}
+.kl-row{display:grid; grid-template-columns:minmax(130px,200px) 1fr; gap:8px; align-items:center}
+.kl-h{font:600 12px/1.25 var(--f-body); color:var(--ink-2)}
+.kl-chips{display:flex; flex-wrap:wrap; gap:3px}
+.kl-chip{min-width:28px; text-align:center; font:600 11px/1 var(--f-mono); padding:6px 4px; border-radius:3px; border:1px solid var(--line); cursor:help; position:relative; background:var(--paper-2); color:var(--ink-2)}
+.kl-bat{background:var(--accent-soft); color:var(--accent-2); border-color:var(--accent)}
+.kl-nuc{background:var(--band-a); color:var(--side-a); border-color:var(--side-a)}
+.kl-out{background:var(--neutral-bar); color:var(--ink-2)}
+.kl-thr{box-shadow:inset 0 -3px 0 var(--ink)}
+.kl-at::after{content:"●"; position:absolute; top:-7px; right:-3px; font-size:11px; color:var(--side-b)}
+.kl-legend{display:flex; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--ink-2); margin-bottom:6px}
+@media (max-width:640px){.kl-row{grid-template-columns:1fr}}
 .chip-a{border-color:var(--side-a); color:var(--ink)}
 .chip-b{border-color:var(--side-b); color:var(--ink)}
 .dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex:none}
@@ -870,6 +882,20 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       </div>
       <p class="small muted" style="margin-top:8px" id="warn-sum"></p>
     </div>
+    <div class="panel" id="kl-panel">
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Escalation ladder (Kahn, 1965)">Лестница эскалации (Кан, 1965)</h3>
+        <p class="muted small" id="kl-sub"></p></div></div>
+      <div class="kl-legend" id="kl-legend"></div>
+      <div class="kl" id="kl-ladder"></div>
+      <p class="small" id="kl-detail" style="min-height:2.4em"></p>
+      <h4 class="small" data-i18n-en="Where flashpoints stand now (the project author's reading)">Где сейчас очаги (оценка автора проекта)</h4>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Pair">Пара</th><th data-i18n-en="Rung">Ступень</th><th data-i18n-en="Since">С</th><th data-i18n-en="Source">Источник</th><th data-i18n-en="Note">Пояснение</th></tr></thead><tbody id="kl-status"></tbody></table></div>
+      <h4 class="small" style="margin-top:12px" data-i18n-en="What the battle model covers in each scenario">Что описывает модель боя в каждом сценарии</h4>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Scenario">Сценарий</th><th>A · <span data-i18n-en="core nuclear class">ядерный класс ядра</span></th><th>B · <span data-i18n-en="core nuclear class">ядерный класс ядра</span></th><th data-i18n-en="Reading">Вывод</th></tr></thead><tbody id="kl-scen"></tbody></table></div>
+      <h4 class="small" style="margin-top:12px" data-i18n-en="Early-warning signs on the ladder (proposal)">Признаки-предвестники на лестнице (предложение)</h4>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Sign">Признак</th><th data-i18n-en="Rungs">Ступени</th></tr></thead><tbody id="kl-signs"></tbody></table></div>
+      <p class="small muted" style="margin-top:8px" data-i18n-en="The ladder is a structural metaphor, not a calibrated model: rungs are ordered but have no transition probabilities, and the linear order is debatable. Rung names are from Kahn (1965) as reproduced in Davis and Stan, RAND R-3235 (1984), the Russian wording is ours. Mapping to the project's modules and the status table are the project author's proposal and reading, not data; the monitor's probabilities do not use them. See docs/Лестница_Канна.md and the Literature section.">Лестница — структурная метафора, а не калиброванная модель: ступени упорядочены, но вероятностей переходов нет, а линейный порядок спорен. Названия ступеней — по Кану (1965) в изложении Davis и Stan, RAND R-3235 (1984), русская формулировка наша. Привязка к модулям проекта и таблица положения — предложение и оценка автора проекта, а не данные; вероятности монитора их не используют. См. docs/Лестница_Канна.md и раздел «Литература».</p>
+    </div>
   </section>
 
   <!-- СРАВНЕНИЕ С РЫНКОМ -->
@@ -1495,7 +1521,7 @@ function openTab(name) {
   const tb = $("t-" + name), bar = tb.parentElement; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: bar.scrollLeft + tb.getBoundingClientRect().left - bar.getBoundingClientRect().left - (bar.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
   if (name === "lanchester") renderLanchester();
   if (name === "coalition") renderCoalition();
-  if (name === "monitor") { renderMonitor(); renderMonitorChecks(); renderWarnings(); }
+  if (name === "monitor") { renderMonitor(); renderMonitorChecks(); renderWarnings(); renderKahn(); }
   if (name === "competitors") renderCompetitors();
   if (name === "rating") renderProjection();
   if (name === "experts") renderExperts();
@@ -2887,6 +2913,48 @@ function renderRefs() {
   }).join("") || `<div class="panel"><p class="muted">${L("Ничего не найдено.", "Nothing found.")}</p></div>`;
 }
 if ($("rf-q")) $("rf-q").addEventListener("input", renderRefs);
+/* ---------- Лестница эскалации Канна (data/ref/kahn_ladder.csv, kahn_status.csv -> window.KAHN) ---------- */
+const KAHN_SIGNS = [
+  ["A1 · бои 2026 г. (UCDP Candidate)", "A1 · fighting in 2026 (UCDP Candidate)", "7–8"], ["A2 · конфликт в 2025 г.", "A2 · conflict in 2025", "7–11"],
+  ["A3 · рост военных расходов ≥ 20%", "A3 · military spending growth ≥ 20%", "4–5"], ["A4 · расходы ≥ 4% ВВП", "A4 · spending ≥ 4% of GDP", "4–5"], ["A5 · импорт вооружений ≥ 2× среднего", "A5 · arms imports ≥ 2× average", "4–5"],
+  ["Заявления руководства", "Leadership statements", "2–3 (15 при ядерных «ультиматумах»)"], ["Выход из договоров", "Withdrawal from treaties", "2–3"], ["Мобилизация", "Mobilisation", "5"],
+  ["Переброска сил", "Force deployments", "5–8"], ["Закрытие воздушного пространства", "Airspace closure", "6–8"], ["Атаки на инфраструктуру", "Attacks on infrastructure", "7–8"], ["Эвакуация посольств", "Embassy evacuation", "8–10"]];
+function renderKahn() {
+  const K = window.KAHN, box = $("kl-ladder");
+  if (!K || !box) { if ($("kl-panel")) $("kl-panel").hidden = true; return; }
+  $("kl-panel").hidden = false;
+  const use = (n) => (n <= 8 ? "mon" : n <= 13 ? "bat" : n <= 25 ? "nuc" : "out");
+  const useTxt = { mon: L("монитор очагов: признаки-предвестники", "flashpoint monitor: early-warning signs"), bat: L("модель боя и коалиции: обычная война", "battle model and coalitions: conventional war"),
+    nuc: L("ядерная ось: ограничивает цели сценария, вне модели боя", "nuclear axis: constrains scenario goals, outside the battle model"), out: L("вне модели: центральная война", "outside the model: central war") };
+  const nm = (r) => (LANG === "en" ? r.name_en : r.name_ru), gn = (r) => (LANG === "en" ? r.group_en : r.group_ru);
+  const at = {};
+  K.status.forEach((s) => { for (let n = Number(s.rung); n <= Number(s.rung_hi || s.rung); n++) (at[n] = at[n] || []).push(LANG === "en" ? s.pair_en : s.pair_ru); });
+  const groups = [];
+  K.ladder.forEach((r) => { let g = groups.find((x) => x.k === r.group_en); if (!g) { g = { k: r.group_en, r }; g.items = []; groups.push(g); } g.items.push(r); });
+  box.innerHTML = groups.map((g) => `<div class="kl-row"><div class="kl-h">${esc(gn(g.r))}<br><span class="muted">${L("ступени", "rungs")} ${g.items[0].rung}–${g.items[g.items.length - 1].rung}</span></div><div class="kl-chips">` +
+    g.items.map((r) => { const n = Number(r.rung), u = use(n), thr = r.threshold === "1"; return `<span class="kl-chip kl-${u}${thr ? " kl-thr" : ""}${at[n] ? " kl-at" : ""}" tabindex="0" role="button" data-rung="${n}" data-tip="${n}. ${esc(nm(r))}${thr ? " · " + L("порог", "threshold") : ""}${at[n] ? "<br>● " + esc(at[n].join("; ")) : ""}">${n}</span>`; }).join("") + `</div></div>`).join("");
+  $("kl-legend").innerHTML = ["mon", "bat", "nuc", "out"].map((u) => `<span><span class="kl-chip kl-${u}" style="display:inline-block;min-width:16px;padding:3px">&nbsp;</span> ${esc(useTxt[u])}</span>`).join("") +
+    `<span><span class="kl-chip kl-thr" style="display:inline-block;min-width:16px;padding:3px">&nbsp;</span> ${L("порог (рубеж, который трудно пересечь незаметно)", "threshold (a firebreak hard to cross unnoticed)")}</span><span><span style="color:var(--side-b)">●</span> ${L("очаг в таблице ниже", "flashpoint in the table below")}</span>`;
+  const show = (n) => { const r = K.ladder.find((x) => Number(x.rung) === n); if (r) $("kl-detail").innerHTML = `<b>${n}. ${esc(nm(r))}</b> · ${esc(gn(r))}${r.threshold === "1" ? " · " + L("порог", "threshold") : ""}. ${esc(useTxt[use(n)])}.${at[n] ? " " + L("Очаги: ", "Flashpoints: ") + esc(at[n].join("; ")) + "." : ""}`; };
+  box.querySelectorAll(".kl-chip").forEach((c) => { c.onclick = () => show(Number(c.dataset.rung)); c.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(Number(c.dataset.rung)); } }; });
+  if (!$("kl-detail").textContent.trim()) $("kl-detail").textContent = L("Нажмите на ступень — появится название и что с ней делает проект.", "Click a rung to see its name and what the project does with it.");
+  $("kl-sub").textContent = L("44 ступени в 7 группах и 6 порогов: что описывает модель боя, где граница ядерной оси, и где сейчас очаги", "44 rungs in 7 groups and 6 thresholds: what the battle model covers, where the nuclear axis begins, and where flashpoints stand");
+  const rung = (n) => { const r = K.ladder.find((x) => Number(x.rung) === Number(n)); return r ? `${n}. ${nm(r)}` : String(n); };
+  $("kl-status").innerHTML = K.status.map((s) => `<tr><td>${esc(LANG === "en" ? s.pair_en : s.pair_ru)}</td><td class="small">${esc(rung(s.rung))}${s.rung_hi && s.rung_hi !== s.rung ? " … " + esc(rung(s.rung_hi)) : ""}</td><td class="small">${esc(s.date)}</td><td class="small">${esc(s.source)}</td><td class="small">${esc(LANG === "en" ? s.note_en : s.note_ru)}</td></tr>`).join("");
+  const kOf = (p) => { const m = member(p.key); return m ? m.k || 0 : 0; };
+  $("kl-scen").innerHTML = Object.entries(coalPresets()).map(([k, p]) => {
+    const kc = (s) => kOf(p[s][0]), ka = (s) => Math.max(0, ...p[s].slice(1).map(kOf));
+    const cA = kc("A") >= 2, cB = kc("B") >= 2, aA = ka("A") >= 2, aB = ka("B") >= 2;
+    const nA = cA || aA, nB = cB || aB, who = (c, a) => (c ? L("ядро", "core") : L("союзники", "allies")) + (c && a ? L(" и союзники", " and allies") : "");
+    const txt = cA && cB ? L("ядра обеих сторон ядерные: модель описывает ступени 10–13, выше порога 14 она не применима, ядерная ось ограничивает цели сценария", "the cores of both sides are nuclear: the model covers rungs 10–13, above rung 14 it does not apply, the nuclear axis constrains the scenario's goals")
+      : nA && nB ? L(`ядерные государства есть на обеих сторонах (A — ${who(cA, aA)}, B — ${who(cB, aB)}): модель описывает ступени 10–13, выход выше порога 14 возможен через ядерных участников, ядерная ось ограничивает цели`, `nuclear states are on both sides (A — ${who(cA, aA)}, B — ${who(cB, aB)}): the model covers rungs 10–13, going above rung 14 is possible through nuclear participants, the nuclear axis constrains goals`)
+      : nA || nB ? L(`ядерные государства только на стороне ${nA ? "A" : "B"} (${nA ? who(cA, aA) : who(cB, aB)}): модель описывает ступени 10–13, ядерная угроза выводит сценарий за рамки модели боя`, `nuclear states only on side ${nA ? "A" : "B"} (${nA ? who(cA, aA) : who(cB, aB)}): the model covers rungs 10–13, the nuclear threat takes the scenario beyond the battle model`)
+      : L("ядерного фактора нет: модель описывает ступени 10–13 целиком", "no nuclear factor: the model covers rungs 10–13 in full");
+    const cell = (s) => `${kc(s)}${ka(s) > kc(s) ? ` <span class="muted">(${L("союзники", "allies")}: ${ka(s)})</span>` : ""}`;
+    return `<tr><td class="small">${esc(LANG === "en" && p.name_en ? p.name_en : p.name)}</td><td class="num">${cell("A")}</td><td class="num">${cell("B")}</td><td class="small">${txt}</td></tr>`;
+  }).join("");
+  $("kl-signs").innerHTML = KAHN_SIGNS.map((s) => `<tr><td class="small">${esc(L(s[0], s[1]))}</td><td class="small">${esc(s[2])}</td></tr>`).join("");
+}
 /* ---------- Прогноз ресурсной базы (core/projection.py -> data/pilot/projection_2035.json -> window.PROJECTION) ---------- */
 let pjSc = "trend";
 function renderProjection() {
