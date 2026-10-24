@@ -900,6 +900,28 @@ window.IVM_PASSPORT = {
    }
   }
  },
+ "fearon_capital": {
+  "n": 3696,
+  "positives": 25,
+  "gain": -1.2394568609830543,
+  "coef": -0.1929037385988759,
+  "accepted": false
+ },
+ "war_winner": {
+  "primary": {
+   "n": 21,
+   "share": 0.6190476190476191,
+   "lo": 0.38095238095238093,
+   "hi": 0.8095238095238095
+  },
+  "all": {
+   "n": 75,
+   "share": 0.6533333333333333,
+   "lo": 0.5466666666666666,
+   "hi": 0.76
+  },
+  "supported": false
+ },
  "wide_confirmed": {
   "n_confirmed": 21,
   "n_new": 137,
