@@ -611,6 +611,14 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Assumption">Допущение</th><th data-i18n-en="Outcome at each level, others at base">Исход по уровням при прочих базовых</th><th data-i18n-en="Share of A success over all combinations">Доля успеха A по всем сочетаниям</th></tr></thead><tbody id="wg-table"></tbody></table></div>
       <p class="small muted" style="margin-top:8px" data-i18n-en="Deterministic battle model on expert scores; assumptions that the methodology does not measure are varied: allies' force share s, arrival times τ, allies' reliability ρ, defence coefficient d, law exponent α, breakpoint bp (core/wargame.py). This describes the model's sensitivity to assumptions, not a forecast.">Детерминированная модель боя на экспертных баллах; перебираются допущения, которые методика не измеряет: доля сил союзников s, сроки вступления τ, надёжность союзников ρ, коэффициент обороны d, показатель закона α, порог слома bp (core/wargame.py). Это описание чувствительности модели к допущениям, а не прогноз.</p>
     </div>
+    <div class="panel" id="sh-panel" hidden>
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Allies' contribution (Shapley value)">Вклад союзников (значение Шепли)</h3>
+        <p class="muted small" id="sh-sub"></p></div>
+        <span class="seg sm" id="sh-metric" role="group" aria-label="Показатель" data-i18n-en-aria="Measure"><button data-v="window" data-i18n-en="Timeliness">Вовремя</button><button data-v="force" data-i18n-en="Force">Сила</button><button data-v="battle" data-i18n-en="Time to break">Срок слома</button></span></div>
+      <p class="small" id="sh-what"></p>
+      <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Side">Сторона</th><th data-i18n-en="Participant">Участник</th><th data-i18n-en="Contribution at the scenario's assumptions">Вклад при допущениях сценария</th><th data-i18n-en="5–95% over assumptions">5–95% по допущениям</th><th data-i18n-en="Share of gain">Доля прироста</th><th data-i18n-en="Largest contributor in">Главный вкладчик в</th></tr></thead><tbody id="sh-table"></tbody></table></div>
+      <p class="small muted" style="margin-top:8px" data-i18n-en="Cooperative game: a participant's contribution is the average of its marginal contributions over all orders of joining (Shapley value; core/shapley.py). Computed at the scenario's original assumptions; after moving the sliders the numbers are not recomputed. Intervals come from random draws of the unmeasured assumptions (s, τ, ρ, d, α, bp). This is an analysis of scenario assumptions, not a forecast and not advice on whom to ally with.">Кооперативная игра: вклад участника — среднее его предельных вкладов по всем порядкам вступления (значение Шепли; core/shapley.py). Посчитано при исходных допущениях сценария и не пересчитывается после изменения ползунков. Интервалы — по случайным выборкам не измеренных допущений (s, τ, ρ, d, α, bp). Это разбор допущений сценария, а не прогноз и не совет, с кем блокироваться.</p>
+    </div>
   </section>
 
   <!-- ЛАНЧЕСТЕР -->
@@ -2277,6 +2285,7 @@ function renderCoalition() {
 let lastCoal = null;
 function renderCoalResults() {
   renderWargame();
+  renderShapley();
   const T = coal.T, t = Math.min(coal.t, T);
   const preset = coalPresets()[coal.preset];
   $("co-note").textContent = preset ? (LANG === "en" && preset.note_en ? preset.note_en : preset.note) : L("Своя коалиция: добавьте участников на стороны A и B и задайте для каждого надёжность, долю сил, удалённость и срок вступления.", "Custom coalition: add members to sides A and B and set reliability, force share, distance and arrival time for each.");
@@ -2731,6 +2740,39 @@ function renderWargame() {
   $("wg-table").innerHTML = Object.entries(sc.factors).map(([k, f]) => `<tr><td>${esc(nm(k))}</td><td class="small">${f.levels.map((l) => `${fmt(l.value, 2)} → <b>${oc(l.outcome)}</b>`).join("; ")}</td>` +
     `<td class="small">${Object.entries(f.share_A).map(([v, s]) => `${fmt(Number(v), 2)}: ${fmt(s * 100, 0)}%`).join(" · ")}</td></tr>`).join("");
 }
+/* ---------- Вклад союзников по Шепли (core/shapley.py -> data/pilot/shapley.json -> window.SHAPLEY) ---------- */
+let shMetric = "window";
+function renderShapley() {
+  const SH = window.SHAPLEY, panel = $("sh-panel");
+  if (!panel) return;
+  const sc = SH && coal.preset !== "custom" ? (SH.scenarios[isReal() ? "expert" : "pilot"] || {})[coal.preset] : null;
+  panel.hidden = !sc;
+  if (!sc) return;
+  document.querySelectorAll("#sh-metric button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === shMetric)));
+  const unit = { force: L("у.е.", "c.u."), window: L("сут", "days"), battle: L("сут", "days") }[shMetric];
+  const what = {
+    window: L("Сутки горизонта, когда сторона имеет перевес (для обороны — сутки без перевеса нападающего): показывает, кто нужен вовремя.", "Days of the horizon when the side has the upper hand (for the defence — days without the attacker's superiority): shows who is needed in time."),
+    force: L("Сила стороны на конец горизонта (у.е.): вклад войск и территории. Снабжение, финансы и разведка здесь не видны.", "Force of the side at the end of the horizon (c.u.): troops and territory. Supply, finance and intelligence are not visible here."),
+    battle: L("Сутки до слома стороны в модели боя (если не ломается — горизонт): единственный показатель, где видны снабжение, финансы и разведка. Если оборона и так держится до конца горизонта, вклад 0 значит «не нужен до конца», а не «слабый».", "Days until the side breaks in the battle model (the horizon if it does not break): the only measure where supply, finance and intelligence show. If the defence holds to the end of the horizon anyway, a contribution of 0 means \"not needed\", not \"weak\".")
+  }[shMetric];
+  $("sh-what").textContent = what;
+  $("sh-sub").textContent = L(`${SH.draws} случайных выборок допущений · значения при исходных допущениях сценария`, `${SH.draws} random draws of assumptions · values at the scenario's original assumptions`);
+  const rows = [];
+  for (const side of ["A", "B"]) {
+    const m = sc.sides[side] && sc.sides[side][shMetric];
+    if (!m) continue;
+    const lead = member(coal.sides[side][0].key);
+    m.players.forEach((p, i) => {
+      const mem = member(p.key), share = m.gain > 1e-9 ? p.phi / m.gain : null;
+      rows.push(`<tr><td>${i === 0 ? `<b>${side}</b> · ${esc(lead ? lead.short : "")}` : ""}</td><td>${esc(mem ? mem.short : p.key)}</td>` +
+        `<td><b>${fmt(p.phi, shMetric === "force" ? 1 : 1)}</b> ${unit}</td><td class="small">${fmt(p.p5, 1)} … ${fmt(p.p95, 1)}</td>` +
+        `<td>${share === null ? "—" : fmt(share * 100, 0) + "%"}</td><td class="small">${p.p_top > 0 ? fmt(p.p_top * 100, 0) + "% " + L("выборок", "draws") : "—"}</td></tr>`);
+    });
+    rows.push(`<tr class="muted small"><td></td><td>${L("прирост за счёт всех", "gain from all")}</td><td>${fmt(m.gain, 1)} ${unit}</td><td>${fmt(m.gain_p5, 1)} … ${fmt(m.gain_p95, 1)}</td><td></td><td></td></tr>`);
+  }
+  $("sh-table").innerHTML = rows.join("") || `<tr><td colspan="6">—</td></tr>`;
+}
+if ($("sh-metric")) $("sh-metric").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { shMetric = b.dataset.v; renderShapley(); } });
 /* ---------- Прогноз ресурсной базы (core/projection.py -> data/pilot/projection_2035.json -> window.PROJECTION) ---------- */
 let pjSc = "trend";
 function renderProjection() {
