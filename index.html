@@ -462,6 +462,18 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
         <dl class="kv" id="pf-lanch"></dl>
       </div>
     </div>
+    <div class="panel" id="lv-panel" hidden>
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Levers: what would move the index">Рычаги: что сдвинет индекс</h3>
+        <p class="muted small" id="lv-sub"></p></div></div>
+      <div class="cols-even">
+        <div><h4 class="small" data-i18n-en="Pillars">Столпы</h4>
+          <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Pillar">Столп</th><th data-i18n-en="Score">Балл</th><th data-i18n-en="+10 points">+10 баллов</th><th data-i18n-en="To median">До медианы</th><th data-i18n-en="To upper quartile">До верхней четверти</th></tr></thead><tbody id="lv-pillars"></tbody></table></div></div>
+        <div><h4 class="small" data-i18n-en="Indicators below the median (largest gains)">Показатели ниже медианы (наибольший прирост)</h4>
+          <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Indicator">Показатель</th><th data-i18n-en="Value">Значение</th><th data-i18n-en="To median">До медианы</th><th data-i18n-en="To upper quartile">До верхней четверти</th></tr></thead><tbody id="lv-ind"></tbody></table></div></div>
+      </div>
+      <p class="small" id="lv-combo" style="margin-top:8px"></p>
+      <p class="small muted" style="margin-top:8px" data-i18n-en="Sensitivity of the index, not a forecast and not advice: the effect of improving one pillar or indicator with everything else unchanged, computed by the same core (core/levers.py). Gains are in index points (0–100); the cost of a lever is not in the data, so gains are compared, not gains per unit of spending. Excluded: geography and context, the nuclear axis, filled-in gaps and class D values (including the AI estimate).">Чувствительность индекса, а не прогноз и не совет: эффект улучшения одного столпа или показателя при остальном неизменном, рассчитан тем же ядром (core/levers.py). Приросты — в баллах индекса (0–100); стоимости рычагов в данных нет, поэтому сравниваются приросты, а не прирост на единицу затрат. Исключены география и контекст, ядерная ось, восстановленные пропуски и значения класса D (в том числе оценка ИИ).</p>
+    </div>
     <div class="panel">
       <div class="panel-head">
         <h3 id="pf-tbl-title">Показатели столпа</h3>
@@ -1562,10 +1574,28 @@ function radarSVG(series) {
 function medianPillars() { return PILLARS.map((p, pi) => median(det.map((d) => d.P[pi]))); }
 
 /* ---------- Профиль ---------- */
+/* ---------- Рычаги страны (core/levers.py -> data/pilot/levers_2025.json -> window.LEVERS) ---------- */
+function renderLevers() {
+  const LV = window.LEVERS, panel = $("lv-panel");
+  if (!panel) return;
+  const c = COUNTRIES[ui.profile], r = LV && DS.kind === "pilot" && c ? LV.countries[c.id] : null;
+  panel.hidden = !r;
+  if (!r) return;
+  $("lv-sub").textContent = L(`ИВМ ${fmt(r.I, 1)}, место ${r.rank} из ${nC} в наборе пилота · приросты в баллах индекса при остальном неизменном`, `MPI ${fmt(r.I, 1)}, rank ${r.rank} of ${nC} in the pilot set · gains in index points with everything else unchanged`);
+  const g = (x) => x > 0.005 ? `<span class="delta-up">+${fmt(x, 2)}</span>` : "—";
+  $("lv-pillars").innerHTML = [...r.pillars].sort((a, b) => b.d10 - a.d10).map((x) => `<tr><td>${esc(pName(PILLARS[PI[x.p]]))}</td><td class="num">${fmt(x.P, 0)}</td><td>${g(x.d10)}</td><td>${g(x.d_med)}</td><td>${g(x.d_p75)}</td></tr>`).join("");
+  $("lv-ind").innerHTML = r.indicators.map((x) => {
+    const ind = IND.find((q) => q.id === x.i);
+    return `<tr><td>${esc(ind ? indName(ind) : x.i)} <span class="muted small">· ${esc(x.i)}</span></td><td class="num">${fmt(x.x * 100, 0)}</td><td>${g(x.d_med)}${x.rank_med && x.rank_med < r.rank ? ` <span class="muted small">${L("место", "rank")} ${x.rank_med}</span>` : ""}</td><td>${g(x.d_p75)}</td></tr>`;
+  }).join("") || `<tr><td colspan="4">—</td></tr>`;
+  $("lv-combo").textContent = L(`Пять самых сильных рычагов-показателей вместе (до медианы): ИВМ ${fmt(r.I, 1)} → ${fmt(r.top5.I, 1)} (${r.top5.d >= 0 ? "+" : ""}${fmt(r.top5.d, 2)}), место ${r.rank} → ${r.top5.rank}.`,
+    `The five strongest indicator levers together (to the median): MPI ${fmt(r.I, 1)} → ${fmt(r.top5.I, 1)} (${r.top5.d >= 0 ? "+" : ""}${fmt(r.top5.d, 2)}), rank ${r.rank} → ${r.top5.rank}.`);
+}
 function renderProfile() {
   const ci = ui.profile, c = COUNTRIES[ci], d = det[ci], m = mc ? mc[ci] : null;
   const rank = ranksOf(det.map((x) => x.Ieff))[ci];
   $("pf-title").textContent = cName(c);
+  renderLevers();
   $("pf-chips").innerHTML = `<span class="chip">${esc(cBloc(c))}</span><span class="chip chip-strong">${esc(cNuc(c))}</span>`;
   $("pf-tiles").innerHTML = [
     [L("ИВМ", "MPI"), fmt(d.Ieff * 100, 1), m ? `90%: ${fmt(m.p5 * 100, 1)}–${fmt(m.p95 * 100, 1)}` : L("считается…", "computing…")],
