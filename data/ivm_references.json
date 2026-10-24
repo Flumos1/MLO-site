@@ -1,0 +1,1534 @@
+{
+ "note": "Литература и источники проекта ИВМ «Ланчестер–Осипов»; основа — автореферат (документ 9), группа З добавлена 24.10.2026.",
+ "count": 95,
+ "items": [
+  {
+   "id": "R001",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Осипов М. Влияние численности сражающихся сторон на их потери // Военный сборник. 1915. № 6–10.",
+   "year": 1915,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R002",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Lanchester F. W. Aircraft in Warfare: The Dawn of the Fourth Arm. London: Constable, 1916.",
+   "year": 1916,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R003",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Engel J. H. A verification of Lanchester's law // Journal of the Operations Research Society of America. 1954. Vol. 2, № 2. P. 163–171.",
+   "year": 1954,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R004",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Deitchman S. J. A Lanchester model of guerrilla warfare // Operations Research. 1962. Vol. 10, № 6. P. 818–827.",
+   "year": 1962,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R005",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Helmbold R. L. A modification of Lanchester's equations // Operations Research. 1965. Vol. 13, № 5. P. 857–859.",
+   "year": 1965,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R006",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Schaffer M. B. Lanchester Models of Guerrilla Engagements. RAND RM-5053-ARPA, 1967.",
+   "year": 1967,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R007",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Boulding K. E. Conflict and Defense: A General Theory. New York: Harper, 1962.",
+   "year": 1962,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R008",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Snyder G. H. The balance of power and the balance of terror // Seabury P. (ed.) The Balance of Power. San Francisco: Chandler, 1965.",
+   "year": 1965,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R009",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Dupuy T. N. Numbers, Predictions and War. Indianapolis: Bobbs-Merrill, 1979.",
+   "year": 1979,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R010",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Hughes W. P. A salvo model of warships in missile combat used to evaluate their staying power // Naval Research Logistics. 1995. Vol. 42, № 2. P. 267–289.",
+   "year": 1995,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R011",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Kress M., Caulkins J. P., Feichtinger G., Grass D., Seidl A. Lanchester model for three-way combat // European Journal of Operational Research. 2018. Vol. 264, № 1. P. 46–54.",
+   "year": 2018,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R012",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Coulson S. Lanchester modelling of intelligence in combat // IMA Journal of Management Mathematics. 2019. Vol. 30, № 2. P. 149.",
+   "year": 2019,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R013",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Atkinson M. P., Kress M., MacKay N. J. Targeting, deployment, and loss-tolerance in Lanchester engagements // Operations Research. 2021. doi 10.1287/opre.2020.2022.",
+   "year": 2021,
+   "doi": "10.1287/opre.2020.2022",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R014",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Шумов В. В. Учёт психологических факторов в моделях боя (конфликта) // Компьютерные исследования и моделирование. 2016. Т. 8, № 6. С. 951–964.",
+   "year": 2016,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R015",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Мицкевич. Методические материалы: соотношение родов войск, модель Осипова–Ланчестера. Минск: БГУИР.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R016",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Шлейко. Метод оценки эффективности огневого поражения // Вестник КазНУ.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R017",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Юсупов Р. М., Иванов. Российские математические модели боевых действий начала XX века // Информатика и автоматизация. 2023.",
+   "year": 2023,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R018",
+   "group": "А",
+   "group_title": "А. Классическая теория боя",
+   "text": "Боевые возможности // Большая российская энциклопедия (bigenc.ru).",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "теория боя",
+    "Ланчестер"
+   ]
+  },
+  {
+   "id": "R019",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Bracken J. Lanchester models of the Ardennes campaign // Naval Research Logistics. 1995. Vol. 42, № 4. P. 559–577.",
+   "year": 1995,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R020",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Clemens S. C. The application of Lanchester models to the Battle of Kursk. 1997.",
+   "year": 1997,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R021",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Fricker R. D. Attrition models of the Ardennes campaign // Naval Research Logistics. 1998. Vol. 45, № 1. P. 1–22.",
+   "year": 1998,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R022",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Hartley D. S. Predicting Combat Effects. Linthicum: INFORMS, 2001.",
+   "year": 2001,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R023",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Helmbold R. L. Historical support for a mixed law Lanchestrian attrition model: Helmbold's ratio. OSTI 5087936.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R024",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Lucas T. W., Turkes T. Fitting Lanchester equations to the battles of Kursk and Ardennes // Naval Research Logistics. 2004. Vol. 51, № 1. P. 95–116.",
+   "year": 2004,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R025",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Fitting Lanchester and Other Equations to the Battle of Kursk. DTIC ADA378391.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R026",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Rubio-Campillo X. Model selection in historical research using Approximate Bayesian Computation // PLoS ONE. 2016. Vol. 11, № 1. e0146491.",
+   "year": 2016,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R027",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Plowes N. J. R., Adams E. S. An empirical test of Lanchester's square law: mortality during battles of the fire ant Solenopsis invicta // Proceedings of the Royal Society B. 2005. PMC1559866.",
+   "year": 2005,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R028",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Concepts Analysis Agency. CDB90: Database of Battles. US Army, 1990 (версия jrnold/cdb90, лицензия ODC-By).",
+   "year": 1990,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R029",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Chung D., Jeong B. Analyzing Russia–Ukraine war patterns based on Lanchester model using SINDy algorithm // Mathematics. 2024. Vol. 12, № 6. 851. doi 10.3390/math12060851.",
+   "year": 2024,
+   "doi": "10.3390/math12060851",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R030",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "The Least Action-Augmented Lanchester Model. arXiv 2512.15058, 2025.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": "2512.15058",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R031",
+   "group": "Б",
+   "group_title": "Б. Проверка моделей боя на исторических данных",
+   "text": "Aggregate combat modeling using high-resolution simulation: the «meeting engagement» scenario as a case study. arXiv 2607.15312, 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": "2607.15312",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "проверка моделей боя",
+    "исторические данные"
+   ]
+  },
+  {
+   "id": "R032",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Singer J. D., Bremer S., Stuckey J. Capability distribution, uncertainty, and major power war, 1820–1965 // Russett B. (ed.) Peace, War, and Numbers. Beverly Hills: Sage, 1972. (индекс CINC, проект Correlates of War)",
+   "year": 1820,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R033",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Carroll R. J., Kenkel B. Prediction, proxies, and power // American Journal of Political Science. 2019. Vol. 63, № 3. P. 577–593.",
+   "year": 2019,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R034",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Beckley M. The power of nations: measuring what matters // International Security. 2018. Vol. 43, № 2. P. 7–44.",
+   "year": 2018,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R035",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Souva M. Material military power: a country-year measure of military power, 1865–2019 // Journal of Peace Research. 2023. Vol. 60, № 6. P. 1002–1009.",
+   "year": 1865,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R036",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Global Firepower. 2026 Military Strength Ranking (globalfirepower.com).",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R037",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Lowy Institute. Asia Power Index 2025: Key Findings.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R038",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "BICC. Global Militarization Index 2025.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R039",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "The Heritage Foundation. 2026 Index of U.S. Military Strength.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R040",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Credit Suisse Research Institute. The End of Globalization or a more Multipolar World? 2015.",
+   "year": 2015,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R041",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "GlobalMilitary.net. ATLAS Index: Military Rankings Methodology (2026).",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R042",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Saaty T. L. The Analytic Hierarchy Process. New York: McGraw-Hill, 1980.",
+   "year": 1980,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R043",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Antipotential-potential method and weapon scores. DTIC ADA295844.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R044",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "The Dupuy Institute. Scoring weapons and aggregation in Trevor Dupuy's combat models. 2018.",
+   "year": 2018,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R045",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Ben-Haim Y. WEI–WUV and info-gap robustness. Technion.",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R046",
+   "group": "В",
+   "group_title": "В. Индексы военной и национальной мощи",
+   "text": "Vox Ukraine. Global Firepower — a «military ranking» without verified facts or transparent methodology. 2025.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "индексы мощи",
+    "конкуренты"
+   ]
+  },
+  {
+   "id": "R047",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Watling J., Reynolds N. Tactical Developments During the Third Year of the Russo-Ukrainian War. London: RUSI, February 2025.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R048",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Plichta M. Precise mass in action: assessing Ukraine's one-way attack drone campaign // The RUSI Journal. 2025. Vol. 170, № 4. P. 42–48.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R049",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Berthelsen E. Innovating at the pace of relevance: the case of Ukrainian unmanned systems // Defence Studies. 2026. doi 10.1080/14702436.2026.2692416.",
+   "year": 2026,
+   "doi": "10.1080/14702436.2026.2692416",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R050",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Randow C., Allaire R. H., Mastroberardino A., Luo R. Modeling drone swarms with a PDE extension of Lanchester's laws // Journal of Defense Modeling and Simulation. 2026. doi 10.1177/15485129261436073.",
+   "year": 2026,
+   "doi": "10.1177/15485129261436073",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R051",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Gogerty N. From Square Law to Swarm Law: A Drone-extended Lanchester Model and the New Mathematics of Attrition across Eight Conflicts. SSRN 6881358, 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R052",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Pokorny L. The Economics of Asymmetric Attrition: A Quantitative Analysis of Low-Cost Drone Warfare in the Ukraine and Iranian Shahed Programs (2022–2026). Zenodo, 2026. doi 10.5281/zenodo.18919501.",
+   "year": 2022,
+   "doi": "10.5281/zenodo.18919501",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R053",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "On the problem of assigning multiple interceptors over multiple aerial threats. arXiv 2608.31143, 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": "2608.31143",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R054",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Scaling and Trade-offs in Multi-agent Autonomous Systems. arXiv 2603.10743, 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": "2603.10743",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R055",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Modeling Large-Scale Adversarial Swarm Engagements using Optimal Control. arXiv 2602.23323, 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": "2602.23323",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R056",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Forecasting Russian Equipment Losses Using Time Series and Deep Learning Models. arXiv 2509.07813, 2025.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": "2509.07813",
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R057",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Radford B. J., Dai Y., Stoehr N., Schein A., Fernández M., Sajid H. Estimating conflict losses and reporting biases // PNAS. 2023. Vol. 120, № 34. e2307372120.",
+   "year": 2023,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R058",
+   "group": "Г",
+   "group_title": "Г. Дроны, ПВО и современная война",
+   "text": "Podobnik B., Medvidovic L., Wild D., Boccaletti S. Empirical study and model of warfare dynamics: willingness to risk // Chaos. 2025. doi 10.1063/5.0277615.",
+   "year": 2025,
+   "doi": "10.1063/5.0277615",
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "дроны",
+    "ПВО",
+    "потери"
+   ]
+  },
+  {
+   "id": "R059",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Dalkey N., Helmer O. An experimental application of the Delphi method to the use of experts // Management Science. 1963. Vol. 9, № 3. P. 458–467.",
+   "year": 1963,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R060",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Kendall M. G., Babington Smith B. The problem of m rankings // Annals of Mathematical Statistics. 1939. Vol. 10, № 3. P. 275–287.",
+   "year": 1939,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R061",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Cooke R. M. Experts in Uncertainty: Opinion and Subjective Probability in Science. Oxford University Press, 1991.",
+   "year": 1991,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R062",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Sobol' I. M. Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates // Mathematics and Computers in Simulation. 2001. Vol. 55. P. 271–280.",
+   "year": 2001,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R063",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Saltelli A. et al. Global Sensitivity Analysis: The Primer. Chichester: Wiley, 2008.",
+   "year": 2008,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R064",
+   "group": "Д",
+   "group_title": "Д. Статистические и экспертные методы",
+   "text": "Gneiting T., Raftery A. E. Strictly proper scoring rules, prediction, and estimation // Journal of the American Statistical Association. 2007. Vol. 102, № 477. P. 359–378.",
+   "year": 2007,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "экспертные методы",
+    "статистика",
+    "чувствительность"
+   ]
+  },
+  {
+   "id": "R065",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "SIPRI Military Expenditure Database; SIPRI Fact Sheet «Trends in World Military Expenditure, 2025» (апрель 2026); SIPRI Top-100 (декабрь 2025); SIPRI Yearbook 2026, гл. 8 «World nuclear forces»; SIPRI Arms Transfers Database (октябрь 2026).",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R066",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "IISS. The Military Balance 2024–2026.",
+   "year": 2024,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R067",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "World Bank: World Development Indicators, Worldwide Governance Indicators, Human Capital Index, Data360, Climate Change Knowledge Portal (CRU TS 4.08).",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R068",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "IMF. World Economic Outlook (DataMapper).",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R069",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Our World in Data (Energy Institute Statistical Review); UN World Population Prospects 2024.",
+   "year": 2024,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R070",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "CIA World Factbook; UCS Satellite Database (май 2023).",
+   "year": 2023,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R071",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Gleditsch N. P. et al. Armed conflict 1946–2001: a new dataset // Journal of Peace Research. 2002. Vol. 39, № 5. P. 615–637; UCDP/PRIO Armed Conflict Dataset, версия 26.1.",
+   "year": 1946,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R072",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Leeds B. A. et al. Alliance Treaty Obligations and Provisions, 1815–1944 // International Interactions. 2002. Vol. 28, № 3. P. 237–260; ATOP 5.1.",
+   "year": 1815,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R073",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Coppedge M. et al. V-Dem Dataset; Teorell J. et al. Quality of Government Standard Dataset (январь 2026); World Values Survey / European Values Study.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R074",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Bjørnskov C., Rode M. Regime types and regime change: a new dataset on democracy, coups, and political institutions // Review of International Organizations. 2020. Vol. 15. P. 531–551.",
+   "year": 2020,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R075",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Nunn N., Puga D. Ruggedness: the blessing of bad geography in Africa // Review of Economics and Statistics. 2012. Vol. 94, № 1. P. 20–36.",
+   "year": 2012,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R076",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Transparency International CPI 2025; WIPO Global Innovation Index 2025; worldsteel; FAS Nuclear Notebook; ITU Global Cybersecurity Index 2024.",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R077",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "ООН — Uniformed Personnel Contributions; USGS Mineral Commodity Summaries 2026; FAOSTAT; Secure World Foundation «Global Counterspace Capabilities» (2025); CSIS Missile Threat.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R078",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Natural Earth; TeleGeography Submarine Cable Map; U.S. EIA «World Oil Transit Chokepoints»; OurAirports; UNCTADstat; UNESCO UIS; CSET «The Global Distribution of STEM Graduates» (2023); UNIDO.",
+   "year": 2023,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R079",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Oryx. Documenting Russian/Ukrainian Equipment Losses (снимки Internet Archive Wayback Machine, 2022–2026); WarSpotting.",
+   "year": 2022,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R080",
+   "group": "Е",
+   "group_title": "Е. Источники данных",
+   "text": "Википедия: таблицы вооружений вооружённых сил и список стран с зарубежными базами (данные IISS, GFP, Oryx в примечаниях).",
+   "year": null,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "источники данных"
+   ]
+  },
+  {
+   "id": "R081",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "Britannica «2026 Iran war»; CFR Global Conflict Tracker; International Crisis Group; ISW; Reuters, AP, Al Jazeera, PBS, Fortune, Financial Times — хроника 2025–2026 гг.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R082",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "TENET Intelligence: A Quantitative Framework for Modern Military Power: The TENET MCI; Force Size vs. Force Quality; Forecast Record (tenetintel.com, 2025–2026; копии — Wayback Machine).",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R083",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "Verisk Maplecroft. Predictive War Index (май 2026) // Fortune. 14.06.2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R084",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "Rhombus Power. Guardian (rhombuspower.com; Federal News Network, 2023).",
+   "year": 2023,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R085",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "Johns Hopkins APL. GenWar Lab (2025); U.S. Air Force RFI «WarMatrix Ecosystem» (2025).",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R086",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "VIEWS — Violence & Impacts Early-Warning System (PRIO, Uppsala University); ACLED Conflict Index 2026.",
+   "year": 2026,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ]
+  },
+  {
+   "id": "R087",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Schelling T. C. The Strategy of Conflict. Cambridge, MA: Harvard University Press, 1960.",
+   "year": 1960,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/Подбор_партнёров.md",
+    "ответ о теории игр"
+   ],
+   "topics": [
+    "сдерживание",
+    "торг",
+    "фокальные точки"
+   ]
+  },
+  {
+   "id": "R088",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Schelling T. C. Arms and Influence. New Haven: Yale University Press, 1966.",
+   "year": 1966,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/Подбор_партнёров.md"
+   ],
+   "topics": [
+    "принуждение",
+    "сдерживание",
+    "обязательства"
+   ]
+  },
+  {
+   "id": "R089",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Kahn H. On Escalation: Metaphors and Scenarios. New York: Praeger, 1965.",
+   "year": 1965,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "data/ref/kahn_ladder.csv"
+   ],
+   "topics": [
+    "лестница эскалации",
+    "44 ступени"
+   ]
+  },
+  {
+   "id": "R090",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Kahn H. Thinking about the Unthinkable. New York: Horizon Press, 1962.",
+   "year": 1962,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "data/ref/kahn_ladder.csv"
+   ],
+   "topics": [
+    "лестница эскалации",
+    "16 ступеней"
+   ]
+  },
+  {
+   "id": "R091",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Davis P. K., Stan P. J. E. Concepts and Models of Escalation. Santa Monica: RAND Corporation, R-3235, 1984.",
+   "year": 1984,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "data/ref/kahn_ladder.csv"
+   ],
+   "topics": [
+    "эскалация",
+    "модели",
+    "лестница эскалации"
+   ]
+  },
+  {
+   "id": "R092",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Fearon J. D. Rationalist explanations for war // International Organization. 1995. Vol. 49, № 3. P. 379–414.",
+   "year": 1995,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "core/monitor_fearon.py"
+   ],
+   "topics": [
+    "торг",
+    "проблема обязательств",
+    "монитор очагов"
+   ]
+  },
+  {
+   "id": "R093",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Shapley L. S. A value for n-person games // Kuhn H. W., Tucker A. W. (eds.) Contributions to the Theory of Games, Vol. II. Princeton: Princeton University Press, 1953. P. 307–317.",
+   "year": 1953,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "core/lanmil/shapley.py"
+   ],
+   "topics": [
+    "значение Шепли",
+    "кооперативные игры"
+   ]
+  },
+  {
+   "id": "R094",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Leeds B. A., Long A. G., Mitchell S. M. Reevaluating alliance reliability: specific threats, specific promises // Journal of Conflict Resolution. 2000. Vol. 44, № 5. P. 686–699.",
+   "year": 2000,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "data/ref/rho_classes.csv"
+   ],
+   "topics": [
+    "надёжность союзов",
+    "ATOP"
+   ]
+  },
+  {
+   "id": "R095",
+   "group": "З",
+   "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
+   "text": "Reassessing the fulfillment of alliance commitments in war // Research & Politics. 2018. doi 10.1177/2053168018779697.",
+   "year": 2018,
+   "doi": "10.1177/2053168018779697",
+   "arxiv": null,
+   "used_in": [
+    "data/ref/rho_classes.csv",
+    "docs/Подбор_партнёров.md"
+   ],
+   "topics": [
+    "надёжность союзов",
+    "оборонные пакты 41%"
+   ]
+  }
+ ]
+}
