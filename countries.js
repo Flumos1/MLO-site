@@ -869,6 +869,14 @@ window.IVM_PASSPORT = {
   "coef": 0.04530812710999634,
   "accepted": false
  },
+ "focal": {
+  "n": 599,
+  "share_loser": 0.24874791318864775,
+  "null": 0.23624457429048412,
+  "p1": 0.2467,
+  "p2": 0.0,
+  "supported": false
+ },
  "wide_confirmed": {
   "n_confirmed": 21,
   "n_new": 137,
