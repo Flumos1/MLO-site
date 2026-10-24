@@ -624,6 +624,19 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
       <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Side">Сторона</th><th data-i18n-en="Participant">Участник</th><th data-i18n-en="Contribution at the scenario's assumptions">Вклад при допущениях сценария</th><th data-i18n-en="5–95% over assumptions">5–95% по допущениям</th><th data-i18n-en="Share of gain">Доля прироста</th><th data-i18n-en="Largest contributor in">Главный вкладчик в</th></tr></thead><tbody id="sh-table"></tbody></table></div>
       <p class="small muted" style="margin-top:8px" data-i18n-en="Cooperative game: a participant's contribution is the average of its marginal contributions over all orders of joining (Shapley value; core/shapley.py). Computed at the scenario's original assumptions; after moving the sliders the numbers are not recomputed. Intervals come from random draws of the unmeasured assumptions (s, τ, ρ, d, α, bp). This is an analysis of scenario assumptions, not a forecast and not advice on whom to ally with.">Кооперативная игра: вклад участника — среднее его предельных вкладов по всем порядкам вступления (значение Шепли; core/shapley.py). Посчитано при исходных допущениях сценария и не пересчитывается после изменения ползунков. Интервалы — по случайным выборкам не измеренных допущений (s, τ, ρ, d, α, bp). Это разбор допущений сценария, а не прогноз и не совет, с кем блокироваться.</p>
     </div>
+    <div class="panel" id="ch-panel" hidden>
+      <div class="panel-head"><div style="min-width:0"><h3 data-i18n-en="Choosing partners: which sets matter">Подбор партнёров: какие наборы важны</h3>
+        <p class="muted small" id="ch-sub"></p></div>
+        <span class="seg sm" id="ch-metric" role="group" aria-label="Показатель" data-i18n-en-aria="Measure"><button data-v="window" data-i18n-en="Timeliness">Вовремя</button><button data-v="battle" data-i18n-en="Time to break">Срок слома</button></span></div>
+      <p class="small" id="ch-warn"></p>
+      <div class="cols-even">
+        <div><h4 class="small" data-i18n-en="Best sets of partners (up to four)">Лучшие наборы партнёров (до четырёх)</h4>
+          <div class="tbl-wrap"><table><thead><tr><th data-i18n-en="Set">Набор</th><th data-i18n-en="Mean">Среднее</th><th data-i18n-en="Worst 10%">Худшие 10%</th><th data-i18n-en="Best in draws">Лучший в выборках</th></tr></thead><tbody id="ch-sets"></tbody></table></div></div>
+        <div><h4 class="small" data-i18n-en="If allies are less reliable (ρ capped)">Если союзники менее надёжны (потолок ρ)</h4>
+          <div class="tbl-wrap"><table><thead><tr><th>ρ</th><th data-i18n-en="Timeliness, days">Вовремя, сут</th><th data-i18n-en="Days to break">Срок слома, сут</th></tr></thead><tbody id="ch-stress"></tbody></table></div></div>
+      </div>
+      <p class="small muted" style="margin-top:8px" data-i18n-en="Exhaustive search over sets of partners from a pool (data/ref/coalition_pools.csv) under random draws of unmeasured assumptions; each candidate's reliability ρ is drawn between the class lower bound and the scenario assumption (core/chooser.py). Historical lower bounds: 41% of defence pacts were honoured in wars of 1816–2003, 22% after 1945 (Research &amp; Politics, 2018), but NATO is absent from those data because deterrence worked. Costs and political compatibility are not in the data. This is an analysis of scenario assumptions, not a forecast and not advice on whom to ally with.">Полный перебор наборов партнёров из пула (data/ref/coalition_pools.csv) на случайных выборках не измеренных допущений; надёжность ρ кандидата берётся между нижней границей класса и допущением сценария (core/chooser.py). Исторические нижние границы: 41% оборонных пактов выполнялись в войнах 1816–2003 гг., 22% — после 1945 г. (Research &amp; Politics, 2018), но НАТО в этих данных нет, потому что сдерживание сработало. Стоимости и политической совместимости в данных нет. Это разбор допущений сценария, а не прогноз и не совет, с кем блокироваться.</p>
+    </div>
   </section>
 
   <!-- ЛАНЧЕСТЕР -->
@@ -2309,6 +2322,7 @@ let lastCoal = null;
 function renderCoalResults() {
   renderWargame();
   renderShapley();
+  renderChooser();
   const T = coal.T, t = Math.min(coal.t, T);
   const preset = coalPresets()[coal.preset];
   $("co-note").textContent = preset ? (LANG === "en" && preset.note_en ? preset.note_en : preset.note) : L("Своя коалиция: добавьте участников на стороны A и B и задайте для каждого надёжность, долю сил, удалённость и срок вступления.", "Custom coalition: add members to sides A and B and set reliability, force share, distance and arrival time for each.");
@@ -2796,6 +2810,29 @@ function renderShapley() {
   $("sh-table").innerHTML = rows.join("") || `<tr><td colspan="6">—</td></tr>`;
 }
 if ($("sh-metric")) $("sh-metric").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { shMetric = b.dataset.v; renderShapley(); } });
+/* ---------- Подбор партнёров (core/chooser.py -> data/pilot/chooser.json -> window.CHOOSER) ---------- */
+let chMetric = "window", chUser = false; // chUser — показатель выбран вручную; иначе берётся информативный (где наборы различаются)
+function renderChooser() {
+  const CH = window.CHOOSER, panel = $("ch-panel");
+  if (!panel) return;
+  const sc = CH && DS.kind === "pilot" && coal.preset !== "custom" ? CH.scenarios[coal.preset] : null;
+  panel.hidden = !sc;
+  if (!sc) return;
+  const spread = (mm) => mm.all_k[0].mean - mm.core_only.mean;
+  if (!chUser) chMetric = spread(sc.metrics.window) > 0.5 || spread(sc.metrics.battle) <= 0.5 ? "window" : "battle";
+  document.querySelectorAll("#ch-metric button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === chMetric)));
+  const nm = (k) => { const m = member(k); return m ? m.short : k; };
+  const core = member(sc.core);
+  $("ch-sub").textContent = L(`Сторона ${sc.side}: ядро — ${core ? core.short : sc.core}; ${sc.draws} выборок допущений, наборы до ${sc.K} партнёров из пула ${sc.candidates.length}`,
+    `Side ${sc.side}: core — ${core ? core.short : sc.core}; ${sc.draws} draws of assumptions, sets of up to ${sc.K} partners from a pool of ${sc.candidates.length}`);
+  $("ch-warn").textContent = sc.core_holds >= 0.95 ? L(`Ядро стороны держится до конца горизонта (${sc.T} сут) в ${fmt(sc.core_holds * 100, 0)}% выборок — партнёры в этом сценарии по этому показателю не нужны, ранжирование наборов не информативно.`,
+    `The side's core holds to the end of the horizon (${sc.T} days) in ${fmt(sc.core_holds * 100, 0)}% of draws — partners are not needed in this scenario by this measure, the ranking of sets is uninformative.`) : "";
+  const m = sc.metrics[chMetric], row = (x, isCore) => `<tr><td>${isCore ? `<span class="muted">${L("только ядро", "core only")}</span>` : x.keys.map((k) => esc(nm(k))).join(" + ")}</td><td class="num">${fmt(x.mean, 1)}</td><td class="num">${fmt(x.p10, 0)}</td><td>${fmt(x.p_best * 100, 0)}%</td></tr>`;
+  $("ch-sets").innerHTML = row(m.core_only, true) + m.all_k.filter((x) => x.keys.length).slice(0, 5).map((x) => row(x, false)).join("");
+  const lab = (r) => r === null ? L("как в сценарии", "as in the scenario") : r === 0.66 ? L("≤ 0,66 (до 1945 г.)", "≤ 0.66 (before 1945)") : r === 0.41 ? L("≤ 0,41 (оборонные пакты 1816–2003)", "≤ 0.41 (defence pacts 1816–2003)") : L("≤ 0,22 (после 1945 г.)", "≤ 0.22 (after 1945)");
+  $("ch-stress").innerHTML = sc.stress.map((s) => `<tr><td class="small">${lab(s.rho)}</td><td class="num">${fmt(s.window, 0)}</td><td class="num">${fmt(s.battle, 0)}</td></tr>`).join("");
+}
+if ($("ch-metric")) $("ch-metric").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { chMetric = b.dataset.v; chUser = true; renderChooser(); } });
 /* ---------- Прогноз ресурсной базы (core/projection.py -> data/pilot/projection_2035.json -> window.PROJECTION) ---------- */
 let pjSc = "trend";
 function renderProjection() {
