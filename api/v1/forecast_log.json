@@ -1,0 +1,58 @@
+{
+ "api_version": "v1",
+ "kind": "forecast-log",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "data": {
+  "updated": "2026-10-24",
+  "rule": "Прогноз фиксируется коммитом до проверяемого периода; протокол не меняется после расчёта; результат публикуется в любом случае, в том числе промах.",
+  "rule_en": "A forecast is fixed by a commit before the period under test; the protocol does not change after the calculation; the result is published in any case, including a miss.",
+  "entries": [
+   {
+    "id": "П-001",
+    "ru": "Потери техники России и Украины, IV квартал 2026 г. (по Oryx)",
+    "en": "Equipment losses of Russia and Ukraine, Q4 2026 (per Oryx)",
+    "fixed": "2026-10-13",
+    "commit": "120f950",
+    "resolves": "2027-01-31",
+    "status": "pending",
+    "ru_note": "Прогноз зафиксирован до периода; оценка по снимкам Oryx 1.11, 1.12 и 1.01.2027.",
+    "en_note": "Fixed before the period; scored on Oryx snapshots of 1 Nov, 1 Dec and 1 Jan 2027."
+   },
+   {
+    "id": "П-002",
+    "ru": "Доля тяжёлой техники в записях потерь России (WarSpotting), I квартал 2027 г.",
+    "en": "Share of heavy equipment in Russian loss records (WarSpotting), Q1 2027",
+    "fixed": "2026-10-19",
+    "commit": "6d181e7",
+    "resolves": "2027-07-15",
+    "status": "pending",
+    "ru_note": "H0 21% [11–31%], возврат к 2025 г. — 58%, к 2024 г. — 72%; проверка не раньше 15.07.2027.",
+    "en_note": "H0 21% [11–31%], a return to 2025 — 58%, to 2024 — 72%; checked no earlier than 15 July 2027."
+   },
+   {
+    "id": "М-2026",
+    "ru": "Монитор очагов: вероятность конфликта пар на 2026 г.",
+    "en": "Flashpoint monitor: pair conflict probabilities for 2026",
+    "fixed": "2026-10-13",
+    "commit": "2433f56",
+    "resolves": "2027-04-30",
+    "status": "partial",
+    "ru_note": "Проверка по предварительным меткам янв–авг 2026 (П-003, 19.10.2026): AUC 0,874, логарифмическая оценка хуже базовой — правило не выполнено, метки неполны; «не подтверждён и не опровергнут». Повтор — после полного ACD за 2026 г.",
+    "en_note": "Checked on provisional Jan–Aug 2026 labels (P-003, 19 Oct 2026): AUC 0.874, log score worse than the baseline — the rule is not met, labels are incomplete; “neither confirmed nor refuted”. To be repeated after the full ACD for 2026."
+   },
+   {
+    "id": "П-003",
+    "ru": "Проверка монитора по предварительным меткам 2026 г.",
+    "en": "Monitor check on provisional 2026 labels",
+    "fixed": "2026-10-19",
+    "commit": "bb41fc8",
+    "resolves": "2026-10-19",
+    "status": "scored",
+    "ru_note": "Протокол зафиксирован коммитом 8711080 до метрик; результат опубликован, хотя правило не выполнено.",
+    "en_note": "The protocol was committed (8711080) before the metrics; the result is published although the rule is not met."
+   }
+  ]
+ }
+}

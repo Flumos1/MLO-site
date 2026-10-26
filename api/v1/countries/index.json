@@ -1,0 +1,477 @@
+{
+ "api_version": "v1",
+ "kind": "country-list",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "count": 61,
+ "data": [
+  {
+   "iso3": "AFG",
+   "name_en": "Afghanistan",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "AGO",
+   "name_en": "Angola",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ALB",
+   "name_en": "Albania",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ARM",
+   "name_en": "Armenia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "AUS",
+   "name_en": "Australia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "AZE",
+   "name_en": "Azerbaijan",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "BEL",
+   "name_en": "Belgium",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BFA",
+   "name_en": "Burkina Faso",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BGD",
+   "name_en": "Bangladesh",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BLR",
+   "name_en": "Belarus",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "BRA",
+   "name_en": "Brazil",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "CAN",
+   "name_en": "Canada",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CHL",
+   "name_en": "Chile",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CHN",
+   "name_en": "China",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "COD",
+   "name_en": "DR Congo",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "DEU",
+   "name_en": "Germany",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "DZA",
+   "name_en": "Algeria",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ECU",
+   "name_en": "Ecuador",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "EGY",
+   "name_en": "Egypt",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "ERI",
+   "name_en": "Eritrea",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "ETH",
+   "name_en": "Ethiopia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "FIN",
+   "name_en": "Finland",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "FRA",
+   "name_en": "France",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "GAB",
+   "name_en": "Gabon",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "GBR",
+   "name_en": "United Kingdom",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "GRC",
+   "name_en": "Greece",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "HRV",
+   "name_en": "Croatia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "IDN",
+   "name_en": "Indonesia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "IND",
+   "name_en": "India",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "IRN",
+   "name_en": "Iran",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "ISR",
+   "name_en": "Israel",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "ITA",
+   "name_en": "Italy",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "JOR",
+   "name_en": "Jordan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "JPN",
+   "name_en": "Japan",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "KHM",
+   "name_en": "Cambodia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "KOR",
+   "name_en": "Republic of Korea",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "MOZ",
+   "name_en": "Mozambique",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MYS",
+   "name_en": "Malaysia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "PAK",
+   "name_en": "Pakistan",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "PHL",
+   "name_en": "Philippines",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "POL",
+   "name_en": "Poland",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "PRK",
+   "name_en": "North Korea",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "RUS",
+   "name_en": "Russia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "RWA",
+   "name_en": "Rwanda",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "SAU",
+   "name_en": "Saudi Arabia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "SEN",
+   "name_en": "Senegal",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SGP",
+   "name_en": "Singapore",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SRB",
+   "name_en": "Serbia",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "SVN",
+   "name_en": "Slovenia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SWE",
+   "name_en": "Sweden",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "TCD",
+   "name_en": "Chad",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "THA",
+   "name_en": "Thailand",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "TKM",
+   "name_en": "Turkmenistan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "TUR",
+   "name_en": "Türkiye",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "TWN",
+   "name_en": "Taiwan",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "UKR",
+   "name_en": "Ukraine",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "USA",
+   "name_en": "United States",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "VEN",
+   "name_en": "Venezuela",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "VNM",
+   "name_en": "Vietnam",
+   "sets": [
+    "extended",
+    "pilot40"
+   ]
+  },
+  {
+   "iso3": "YEM",
+   "name_en": "Yemen",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ZWE",
+   "name_en": "Zimbabwe",
+   "sets": [
+    "extended"
+   ]
+  }
+ ]
+}

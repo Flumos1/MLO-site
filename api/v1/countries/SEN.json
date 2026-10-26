@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "SEN",
+ "data": {
+  "extended": {
+   "iso3": "SEN",
+   "name_ru": "Сенегал",
+   "name_en": "Senegal",
+   "set": "extended",
+   "rank": 52,
+   "ivm": 16.53,
+   "ivm_autonomous": 15.92,
+   "p5": 15.9,
+   "p50": 17.99,
+   "p95": 20.22,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.888,
+   "imputed_share": 0.112,
+   "nuclear_class": 0,
+   "lambda": 2.79,
+   "pillars": {
+    "GRD": 19.3,
+    "AIR": 6.5,
+    "NAV": 3.37,
+    "STR": 0.0,
+    "C4I": 11.26,
+    "PER": 40.25,
+    "ECO": 18.88,
+    "IND": 6.26,
+    "LOG": 14.74,
+    "GEO": 41.53,
+    "ALL": 26.67,
+    "GOV": 41.2
+   }
+  }
+ }
+}

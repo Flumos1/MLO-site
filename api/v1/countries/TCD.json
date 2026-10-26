@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "TCD",
+ "data": {
+  "extended": {
+   "iso3": "TCD",
+   "name_ru": "Чад",
+   "name_en": "Chad",
+   "set": "extended",
+   "rank": 56,
+   "ivm": 16.13,
+   "ivm_autonomous": 15.85,
+   "p5": 15.76,
+   "p50": 17.83,
+   "p95": 19.77,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.86,
+   "imputed_share": 0.14,
+   "nuclear_class": 0,
+   "lambda": 2.72,
+   "pillars": {
+    "GRD": 20.29,
+    "AIR": 7.51,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 7.31,
+    "PER": 38.0,
+    "ECO": 25.32,
+    "IND": 4.88,
+    "LOG": 25.06,
+    "GEO": 34.33,
+    "ALL": 20.44,
+    "GOV": 36.84
+   }
+  }
+ }
+}

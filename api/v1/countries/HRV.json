@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "HRV",
+ "data": {
+  "extended": {
+   "iso3": "HRV",
+   "name_ru": "Хорватия",
+   "name_en": "Croatia",
+   "set": "extended",
+   "rank": 41,
+   "ivm": 25.6,
+   "ivm_autonomous": 24.23,
+   "p5": 24.13,
+   "p50": 26.4,
+   "p95": 28.53,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.94,
+   "imputed_share": 0.06,
+   "nuclear_class": 0,
+   "lambda": 3.03,
+   "pillars": {
+    "GRD": 36.18,
+    "AIR": 14.72,
+    "NAV": 10.04,
+    "STR": 3.8,
+    "C4I": 19.63,
+    "PER": 48.6,
+    "ECO": 31.69,
+    "IND": 9.59,
+    "LOG": 26.56,
+    "GEO": 26.71,
+    "ALL": 49.19,
+    "GOV": 43.99
+   }
+  }
+ }
+}

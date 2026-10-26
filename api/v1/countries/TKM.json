@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "TKM",
+ "data": {
+  "extended": {
+   "iso3": "TKM",
+   "name_ru": "Туркмения",
+   "name_en": "Turkmenistan",
+   "set": "extended",
+   "rank": 48,
+   "ivm": 18.9,
+   "ivm_autonomous": 19.09,
+   "p5": 18.5,
+   "p50": 20.63,
+   "p95": 22.87,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.888,
+   "imputed_share": 0.112,
+   "nuclear_class": 0,
+   "lambda": 2.71,
+   "pillars": {
+    "GRD": 38.39,
+    "AIR": 15.6,
+    "NAV": 1.69,
+    "STR": 0.0,
+    "C4I": 9.42,
+    "PER": 33.42,
+    "ECO": 29.24,
+    "IND": 4.03,
+    "LOG": 29.85,
+    "GEO": 29.25,
+    "ALL": 16.26,
+    "GOV": 30.44
+   }
+  }
+ }
+}

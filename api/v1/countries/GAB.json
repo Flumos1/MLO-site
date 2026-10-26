@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "GAB",
+ "data": {
+  "extended": {
+   "iso3": "GAB",
+   "name_ru": "Габон",
+   "name_en": "Gabon",
+   "set": "extended",
+   "rank": 58,
+   "ivm": 14.37,
+   "ivm_autonomous": 14.09,
+   "p5": 14.21,
+   "p50": 16.27,
+   "p95": 18.19,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.884,
+   "imputed_share": 0.116,
+   "nuclear_class": 0,
+   "lambda": 2.9,
+   "pillars": {
+    "GRD": 13.59,
+    "AIR": 6.05,
+    "NAV": 3.13,
+    "STR": 0.0,
+    "C4I": 5.83,
+    "PER": 37.81,
+    "ECO": 18.47,
+    "IND": 4.89,
+    "LOG": 25.37,
+    "GEO": 34.7,
+    "ALL": 18.73,
+    "GOV": 34.89
+   }
+  }
+ }
+}

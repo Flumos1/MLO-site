@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "AGO",
+ "data": {
+  "extended": {
+   "iso3": "AGO",
+   "name_ru": "Ангола",
+   "name_en": "Angola",
+   "set": "extended",
+   "rank": 44,
+   "ivm": 22.69,
+   "ivm_autonomous": 22.46,
+   "p5": 21.69,
+   "p50": 23.9,
+   "p95": 26.07,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.93,
+   "imputed_share": 0.07,
+   "nuclear_class": 0,
+   "lambda": 2.75,
+   "pillars": {
+    "GRD": 33.49,
+    "AIR": 17.92,
+    "NAV": 6.54,
+    "STR": 0.0,
+    "C4I": 10.84,
+    "PER": 42.26,
+    "ECO": 23.13,
+    "IND": 5.8,
+    "LOG": 32.01,
+    "GEO": 49.8,
+    "ALL": 26.17,
+    "GOV": 42.31
+   }
+  }
+ }
+}

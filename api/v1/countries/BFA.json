@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "BFA",
+ "data": {
+  "extended": {
+   "iso3": "BFA",
+   "name_ru": "Буркина-Фасо",
+   "name_en": "Burkina Faso",
+   "set": "extended",
+   "rank": 59,
+   "ivm": 13.72,
+   "ivm_autonomous": 13.21,
+   "p5": 13.39,
+   "p50": 15.57,
+   "p95": 17.67,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.833,
+   "imputed_share": 0.167,
+   "nuclear_class": 0,
+   "lambda": 2.52,
+   "pillars": {
+    "GRD": 13.55,
+    "AIR": 4.62,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 6.58,
+    "PER": 44.37,
+    "ECO": 25.5,
+    "IND": 4.89,
+    "LOG": 8.81,
+    "GEO": 39.16,
+    "ALL": 22.2,
+    "GOV": 29.11
+   }
+  }
+ }
+}

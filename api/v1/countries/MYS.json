@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "MYS",
+ "data": {
+  "extended": {
+   "iso3": "MYS",
+   "name_ru": "Малайзия",
+   "name_en": "Malaysia",
+   "set": "extended",
+   "rank": 35,
+   "ivm": 31.6,
+   "ivm_autonomous": 32.16,
+   "p5": 30.45,
+   "p50": 32.22,
+   "p95": 33.91,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.963,
+   "imputed_share": 0.037,
+   "nuclear_class": 0,
+   "lambda": 3.89,
+   "pillars": {
+    "GRD": 33.67,
+    "AIR": 23.71,
+    "NAV": 27.61,
+    "STR": 0.27,
+    "C4I": 22.06,
+    "PER": 54.57,
+    "ECO": 36.32,
+    "IND": 20.15,
+    "LOG": 40.33,
+    "GEO": 41.13,
+    "ALL": 24.17,
+    "GOV": 40.28
+   }
+  }
+ }
+}

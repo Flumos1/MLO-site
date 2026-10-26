@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "JOR",
+ "data": {
+  "extended": {
+   "iso3": "JOR",
+   "name_ru": "Иордания",
+   "name_en": "Jordan",
+   "set": "extended",
+   "rank": 38,
+   "ivm": 29.46,
+   "ivm_autonomous": 28.58,
+   "p5": 27.81,
+   "p50": 30.37,
+   "p95": 32.77,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.916,
+   "imputed_share": 0.084,
+   "nuclear_class": 0,
+   "lambda": 2.48,
+   "pillars": {
+    "GRD": 53.54,
+    "AIR": 29.54,
+    "NAV": 6.4,
+    "STR": 0.0,
+    "C4I": 23.44,
+    "PER": 60.17,
+    "ECO": 30.64,
+    "IND": 8.27,
+    "LOG": 19.66,
+    "GEO": 32.01,
+    "ALL": 43.55,
+    "GOV": 50.18
+   }
+  }
+ }
+}

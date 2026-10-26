@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "YEM",
+ "data": {
+  "extended": {
+   "iso3": "YEM",
+   "name_ru": "Йемен",
+   "name_en": "Yemen",
+   "set": "extended",
+   "rank": 54,
+   "ivm": 16.43,
+   "ivm_autonomous": 16.55,
+   "p5": 15.96,
+   "p50": 18.2,
+   "p95": 20.44,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.833,
+   "imputed_share": 0.167,
+   "nuclear_class": 0,
+   "lambda": 2.89,
+   "pillars": {
+    "GRD": 20.4,
+    "AIR": 11.58,
+    "NAV": 4.04,
+    "STR": 0.0,
+    "C4I": 5.34,
+    "PER": 38.46,
+    "ECO": 19.4,
+    "IND": 7.49,
+    "LOG": 15.87,
+    "GEO": 46.98,
+    "ALL": 14.68,
+    "GOV": 34.74
+   }
+  }
+ }
+}

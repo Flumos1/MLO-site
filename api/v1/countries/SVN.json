@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "SVN",
+ "data": {
+  "extended": {
+   "iso3": "SVN",
+   "name_ru": "Словения",
+   "name_en": "Slovenia",
+   "set": "extended",
+   "rank": 47,
+   "ivm": 21.82,
+   "ivm_autonomous": 20.36,
+   "p5": 20.71,
+   "p50": 23.02,
+   "p95": 25.36,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 2.24,
+   "pillars": {
+    "GRD": 29.96,
+    "AIR": 8.58,
+    "NAV": 4.55,
+    "STR": 3.26,
+    "C4I": 20.01,
+    "PER": 48.17,
+    "ECO": 27.91,
+    "IND": 10.83,
+    "LOG": 19.21,
+    "GEO": 23.96,
+    "ALL": 48.43,
+    "GOV": 43.3
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "SGP",
+ "data": {
+  "extended": {
+   "iso3": "SGP",
+   "name_ru": "Сингапур",
+   "name_en": "Singapore",
+   "set": "extended",
+   "rank": 25,
+   "ivm": 41.31,
+   "ivm_autonomous": 42.72,
+   "p5": 39.45,
+   "p50": 41.44,
+   "p95": 43.2,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.944,
+   "imputed_share": 0.056,
+   "nuclear_class": 0,
+   "lambda": 3.99,
+   "pillars": {
+    "GRD": 50.78,
+    "AIR": 38.44,
+    "NAV": 34.55,
+    "STR": 0.0,
+    "C4I": 42.18,
+    "PER": 60.8,
+    "ECO": 49.54,
+    "IND": 34.85,
+    "LOG": 38.31,
+    "GEO": 25.98,
+    "ALL": 23.69,
+    "GOV": 55.11
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "ZWE",
+ "data": {
+  "extended": {
+   "iso3": "ZWE",
+   "name_ru": "Зимбабве",
+   "name_en": "Zimbabwe",
+   "set": "extended",
+   "rank": 55,
+   "ivm": 16.18,
+   "ivm_autonomous": 15.7,
+   "p5": 16.03,
+   "p50": 17.82,
+   "p95": 19.74,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.86,
+   "imputed_share": 0.14,
+   "nuclear_class": 0,
+   "lambda": 2.72,
+   "pillars": {
+    "GRD": 19.83,
+    "AIR": 10.53,
+    "NAV": 1.26,
+    "STR": 0.0,
+    "C4I": 8.68,
+    "PER": 36.53,
+    "ECO": 19.46,
+    "IND": 6.68,
+    "LOG": 16.06,
+    "GEO": 40.61,
+    "ALL": 23.89,
+    "GOV": 32.95
+   }
+  }
+ }
+}

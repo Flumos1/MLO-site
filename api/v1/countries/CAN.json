@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "CAN",
+ "data": {
+  "extended": {
+   "iso3": "CAN",
+   "name_ru": "Канада",
+   "name_en": "Canada",
+   "set": "extended",
+   "rank": 22,
+   "ivm": 42.83,
+   "ivm_autonomous": 41.73,
+   "p5": 41.04,
+   "p50": 42.96,
+   "p95": 44.76,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.958,
+   "imputed_share": 0.042,
+   "nuclear_class": 0,
+   "lambda": 3.97,
+   "pillars": {
+    "GRD": 43.66,
+    "AIR": 29.36,
+    "NAV": 30.43,
+    "STR": 4.89,
+    "C4I": 37.35,
+    "PER": 55.73,
+    "ECO": 49.67,
+    "IND": 35.08,
+    "LOG": 53.54,
+    "GEO": 46.48,
+    "ALL": 60.19,
+    "GOV": 54.13
+   }
+  }
+ }
+}

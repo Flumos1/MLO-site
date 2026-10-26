@@ -1,0 +1,234 @@
+{
+ "openapi": "3.0.3",
+ "info": {
+  "title": "ИВМ Ланчестера–Осипова: открытый интерфейс (чтение)",
+  "version": "1.0.0",
+  "description": "Статический JSON-интерфейс результатов индекса военной мощи. Лицензия CC BY 4.0, ссылка на источник обязательна.",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/"
+  }
+ },
+ "servers": [
+  {
+   "url": "https://flumos1.github.io/MLO-site/api/v1"
+  }
+ ],
+ "paths": {
+  "/index.json": {
+   "get": {
+    "summary": "Описание интерфейса и перечень адресов",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/ratings/pilot40.json": {
+   "get": {
+    "summary": "Рейтинг 40 стран пилота",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/ratings/extended.json": {
+   "get": {
+    "summary": "Рейтинг пилота и согласованных стран",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/ratings/experts8.json": {
+   "get": {
+    "summary": "Экспертная оценка 8 государств",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/countries/index.json": {
+   "get": {
+    "summary": "Перечень стран",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/countries/{iso3}.json": {
+   "get": {
+    "summary": "Страна: ИВМ, интервал, места, столпы по наборам",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    },
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "pattern": "^[A-Z]{3}$"
+      }
+     }
+    ]
+   }
+  },
+  "/monitor/2026.json": {
+   "get": {
+    "summary": "Монитор очагов, 780 пар",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/indicators.json": {
+   "get": {
+    "summary": "Каталог 253 показателей",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/params.json": {
+   "get": {
+    "summary": "Параметры методики",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/forecast_log.json": {
+   "get": {
+    "summary": "Журнал прогнозов",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "Envelope": {
+    "type": "object",
+    "required": [
+     "api_version",
+     "kind",
+     "license",
+     "attribution",
+     "generated",
+     "data"
+    ],
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "license": {
+      "type": "string"
+     },
+     "attribution": {
+      "type": "string"
+     },
+     "generated": {
+      "type": "string",
+      "format": "date"
+     },
+     "data": {}
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "BEL",
+ "data": {
+  "extended": {
+   "iso3": "BEL",
+   "name_ru": "Бельгия",
+   "name_en": "Belgium",
+   "set": "extended",
+   "rank": 34,
+   "ivm": 32.08,
+   "ivm_autonomous": 30.83,
+   "p5": 30.6,
+   "p50": 32.48,
+   "p95": 34.35,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.935,
+   "imputed_share": 0.065,
+   "nuclear_class": 0,
+   "lambda": 2.99,
+   "pillars": {
+    "GRD": 32.87,
+    "AIR": 23.11,
+    "NAV": 18.56,
+    "STR": 4.08,
+    "C4I": 32.62,
+    "PER": 53.33,
+    "ECO": 41.14,
+    "IND": 16.48,
+    "LOG": 30.98,
+    "GEO": 29.19,
+    "ALL": 52.72,
+    "GOV": 50.18
+   }
+  }
+ }
+}

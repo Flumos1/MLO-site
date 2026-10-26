@@ -1,0 +1,172 @@
+{
+ "api_version": "v1",
+ "kind": "rating-expert",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "set": "experts8",
+ "note": "Экспертная оценка 8 государств по 12 столпам, 2026",
+ "count": 8,
+ "data": [
+  {
+   "key": "USA",
+   "name_ru": "США",
+   "name_en": "United States",
+   "sigma": 5,
+   "pillars": {
+    "GRD": 85,
+    "AIR": 98,
+    "NAV": 97,
+    "STR": 95,
+    "C4I": 98,
+    "PER": 85,
+    "ECO": 98,
+    "IND": 85,
+    "LOG": 95,
+    "GEO": 85,
+    "ALL": 88,
+    "GOV": 75
+   }
+  },
+  {
+   "key": "FRA",
+   "name_ru": "Франция",
+   "name_en": "France",
+   "sigma": 6,
+   "pillars": {
+    "GRD": 50,
+    "AIR": 65,
+    "NAV": 70,
+    "STR": 75,
+    "C4I": 70,
+    "PER": 65,
+    "ECO": 70,
+    "IND": 80,
+    "LOG": 65,
+    "GEO": 60,
+    "ALL": 90,
+    "GOV": 65
+   }
+  },
+  {
+   "key": "ISR",
+   "name_ru": "Израиль",
+   "name_en": "Israel",
+   "sigma": 8,
+   "pillars": {
+    "GRD": 70,
+    "AIR": 85,
+    "NAV": 45,
+    "STR": 60,
+    "C4I": 90,
+    "PER": 75,
+    "ECO": 45,
+    "IND": 75,
+    "LOG": 50,
+    "GEO": 25,
+    "ALL": 75,
+    "GOV": 75
+   }
+  },
+  {
+   "key": "RUS",
+   "name_ru": "Россия",
+   "name_en": "Russia",
+   "sigma": 10,
+   "pillars": {
+    "GRD": 80,
+    "AIR": 60,
+    "NAV": 55,
+    "STR": 97,
+    "C4I": 60,
+    "PER": 70,
+    "ECO": 50,
+    "IND": 70,
+    "LOG": 70,
+    "GEO": 90,
+    "ALL": 40,
+    "GOV": 55
+   }
+  },
+  {
+   "key": "GBR",
+   "name_ru": "Великобритания",
+   "name_en": "United Kingdom",
+   "sigma": 6,
+   "pillars": {
+    "GRD": 35,
+    "AIR": 60,
+    "NAV": 70,
+    "STR": 65,
+    "C4I": 80,
+    "PER": 55,
+    "ECO": 70,
+    "IND": 65,
+    "LOG": 60,
+    "GEO": 65,
+    "ALL": 92,
+    "GOV": 60
+   }
+  },
+  {
+   "key": "DEU",
+   "name_ru": "Германия",
+   "name_en": "Germany",
+   "sigma": 6,
+   "pillars": {
+    "GRD": 45,
+    "AIR": 50,
+    "NAV": 40,
+    "STR": 15,
+    "C4I": 60,
+    "PER": 50,
+    "ECO": 80,
+    "IND": 75,
+    "LOG": 70,
+    "GEO": 50,
+    "ALL": 92,
+    "GOV": 65
+   }
+  },
+  {
+   "key": "UKR",
+   "name_ru": "Украина",
+   "name_en": "Ukraine",
+   "sigma": 12,
+   "pillars": {
+    "GRD": 65,
+    "AIR": 35,
+    "NAV": 25,
+    "STR": 15,
+    "C4I": 70,
+    "PER": 65,
+    "ECO": 25,
+    "IND": 50,
+    "LOG": 45,
+    "GEO": 45,
+    "ALL": 55,
+    "GOV": 65
+   }
+  },
+  {
+   "key": "IRN",
+   "name_ru": "Иран",
+   "name_en": "Iran",
+   "sigma": 14,
+   "pillars": {
+    "GRD": 45,
+    "AIR": 15,
+    "NAV": 30,
+    "STR": 30,
+    "C4I": 25,
+    "PER": 45,
+    "ECO": 15,
+    "IND": 45,
+    "LOG": 30,
+    "GEO": 70,
+    "ALL": 20,
+    "GOV": 35
+   }
+  }
+ ]
+}

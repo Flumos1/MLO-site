@@ -1,0 +1,54 @@
+{
+ "api_version": "v1",
+ "kind": "api-index",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "data": {
+  "base": "https://flumos1.github.io/MLO-site/api/v1",
+  "endpoints": [
+   {
+    "path": "/index.json",
+    "description": "Описание интерфейса и перечень адресов"
+   },
+   {
+    "path": "/ratings/pilot40.json",
+    "description": "Рейтинг 40 стран пилота"
+   },
+   {
+    "path": "/ratings/extended.json",
+    "description": "Рейтинг пилота и согласованных стран"
+   },
+   {
+    "path": "/ratings/experts8.json",
+    "description": "Экспертная оценка 8 государств"
+   },
+   {
+    "path": "/countries/index.json",
+    "description": "Перечень стран"
+   },
+   {
+    "path": "/countries/{iso3}.json",
+    "description": "Страна: ИВМ, интервал, места, столпы по наборам"
+   },
+   {
+    "path": "/monitor/2026.json",
+    "description": "Монитор очагов, 780 пар"
+   },
+   {
+    "path": "/indicators.json",
+    "description": "Каталог 253 показателей"
+   },
+   {
+    "path": "/params.json",
+    "description": "Параметры методики"
+   },
+   {
+    "path": "/forecast_log.json",
+    "description": "Журнал прогнозов"
+   }
+  ],
+  "openapi": "https://flumos1.github.io/MLO-site/api/v1/openapi.json",
+  "terms": "Только чтение; данные сторонних источников и оценка ИИ не отдаются; ссылка на источник обязательна."
+ }
+}

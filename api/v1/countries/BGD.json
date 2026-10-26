@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "BGD",
+ "data": {
+  "extended": {
+   "iso3": "BGD",
+   "name_ru": "Бангладеш",
+   "name_en": "Bangladesh",
+   "set": "extended",
+   "rank": 40,
+   "ivm": 26.49,
+   "ivm_autonomous": 27.0,
+   "p5": 25.34,
+   "p50": 27.29,
+   "p95": 29.31,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.944,
+   "imputed_share": 0.056,
+   "nuclear_class": 0,
+   "lambda": 3.23,
+   "pillars": {
+    "GRD": 33.97,
+    "AIR": 17.03,
+    "NAV": 25.38,
+    "STR": 0.54,
+    "C4I": 15.63,
+    "PER": 51.71,
+    "ECO": 30.41,
+    "IND": 9.6,
+    "LOG": 31.21,
+    "GEO": 46.12,
+    "ALL": 19.74,
+    "GOV": 35.13
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "ECU",
+ "data": {
+  "extended": {
+   "iso3": "ECU",
+   "name_ru": "Эквадор",
+   "name_en": "Ecuador",
+   "set": "extended",
+   "rank": 43,
+   "ivm": 23.09,
+   "ivm_autonomous": 23.39,
+   "p5": 22.05,
+   "p50": 24.21,
+   "p95": 26.1,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.926,
+   "imputed_share": 0.074,
+   "nuclear_class": 0,
+   "lambda": 2.79,
+   "pillars": {
+    "GRD": 27.4,
+    "AIR": 12.52,
+    "NAV": 20.57,
+    "STR": 0.27,
+    "C4I": 14.98,
+    "PER": 48.7,
+    "ECO": 29.51,
+    "IND": 5.52,
+    "LOG": 28.71,
+    "GEO": 41.42,
+    "ALL": 18.95,
+    "GOV": 37.78
+   }
+  }
+ }
+}

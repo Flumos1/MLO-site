@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-10-26",
+ "iso3": "ALB",
+ "data": {
+  "extended": {
+   "iso3": "ALB",
+   "name_ru": "Албания",
+   "name_en": "Albania",
+   "set": "extended",
+   "rank": 50,
+   "ivm": 17.99,
+   "ivm_autonomous": 16.51,
+   "p5": 17.49,
+   "p50": 19.83,
+   "p95": 21.98,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 2.54,
+   "pillars": {
+    "GRD": 22.78,
+    "AIR": 2.2,
+    "NAV": 4.77,
+    "STR": 3.26,
+    "C4I": 18.85,
+    "PER": 46.34,
+    "ECO": 26.71,
+    "IND": 7.33,
+    "LOG": 13.07,
+    "GEO": 27.48,
+    "ALL": 46.16,
+    "GOV": 39.96
+   }
+  }
+ }
+}
