@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "OMN",
+ "data": {
+  "extended": {
+   "iso3": "OMN",
+   "name_ru": "Оман",
+   "name_en": "Oman",
+   "set": "extended",
+   "rank": 54,
+   "ivm": 28.86,
+   "ivm_autonomous": 28.83,
+   "p5": 27.53,
+   "p50": 29.64,
+   "p95": 32.05,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.916,
+   "imputed_share": 0.084,
+   "nuclear_class": 0,
+   "lambda": 2.78,
+   "pillars": {
+    "GRD": 34.22,
+    "AIR": 28.01,
+    "NAV": 15.02,
+    "STR": 0.27,
+    "C4I": 25.16,
+    "PER": 46.24,
+    "ECO": 40.8,
+    "IND": 6.93,
+    "LOG": 37.55,
+    "GEO": 33.96,
+    "ALL": 29.42,
+    "GOV": 43.48
+   }
+  }
+ }
+}

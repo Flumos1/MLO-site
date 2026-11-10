@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "BHR",
+ "data": {
+  "extended": {
+   "iso3": "BHR",
+   "name_ru": "Бахрейн",
+   "name_en": "Bahrain",
+   "set": "extended",
+   "rank": 62,
+   "ivm": 27.14,
+   "ivm_autonomous": 26.78,
+   "p5": 25.93,
+   "p50": 28.01,
+   "p95": 29.74,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.935,
+   "imputed_share": 0.065,
+   "nuclear_class": 0,
+   "lambda": 2.9,
+   "pillars": {
+    "GRD": 38.19,
+    "AIR": 27.61,
+    "NAV": 19.06,
+    "STR": 0.0,
+    "C4I": 27.0,
+    "PER": 51.53,
+    "ECO": 25.72,
+    "IND": 4.6,
+    "LOG": 28.37,
+    "GEO": 21.38,
+    "ALL": 32.49,
+    "GOV": 43.56
+   }
+  }
+ }
+}

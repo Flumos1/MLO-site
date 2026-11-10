@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "JAM",
+ "data": {
+  "extended": {
+   "iso3": "JAM",
+   "name_ru": "Ямайка",
+   "name_en": "Jamaica",
+   "set": "extended",
+   "rank": 130,
+   "ivm": 13.14,
+   "ivm_autonomous": 12.88,
+   "p5": 13.09,
+   "p50": 15.13,
+   "p95": 17.23,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.781,
+   "imputed_share": 0.219,
+   "nuclear_class": 0,
+   "lambda": 2.93,
+   "pillars": {
+    "GRD": 12.52,
+    "AIR": 3.41,
+    "NAV": 3.17,
+    "STR": 0.0,
+    "C4I": 8.78,
+    "PER": 37.4,
+    "ECO": 17.14,
+    "IND": 7.0,
+    "LOG": 11.03,
+    "GEO": 32.58,
+    "ALL": 17.03,
+    "GOV": 37.68
+   }
+  }
+ }
+}

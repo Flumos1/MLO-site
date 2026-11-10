@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "NAM",
+ "data": {
+  "extended": {
+   "iso3": "NAM",
+   "name_ru": "Намибия",
+   "name_en": "Namibia",
+   "set": "extended",
+   "rank": 96,
+   "ivm": 17.66,
+   "ivm_autonomous": 17.08,
+   "p5": 16.88,
+   "p50": 18.93,
+   "p95": 21.02,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.898,
+   "imputed_share": 0.102,
+   "nuclear_class": 0,
+   "lambda": 2.37,
+   "pillars": {
+    "GRD": 21.44,
+    "AIR": 10.75,
+    "NAV": 7.46,
+    "STR": 0.27,
+    "C4I": 11.24,
+    "PER": 39.07,
+    "ECO": 17.83,
+    "IND": 7.01,
+    "LOG": 11.99,
+    "GEO": 32.74,
+    "ALL": 26.87,
+    "GOV": 41.73
+   }
+  }
+ }
+}

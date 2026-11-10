@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "TUN",
+ "data": {
+  "extended": {
+   "iso3": "TUN",
+   "name_ru": "Тунис",
+   "name_en": "Tunisia",
+   "set": "extended",
+   "rank": 77,
+   "ivm": 22.27,
+   "ivm_autonomous": 21.61,
+   "p5": 21.24,
+   "p50": 23.37,
+   "p95": 25.31,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.935,
+   "imputed_share": 0.065,
+   "nuclear_class": 0,
+   "lambda": 2.89,
+   "pillars": {
+    "GRD": 29.67,
+    "AIR": 12.52,
+    "NAV": 13.63,
+    "STR": 0.0,
+    "C4I": 15.31,
+    "PER": 45.44,
+    "ECO": 22.16,
+    "IND": 8.13,
+    "LOG": 21.07,
+    "GEO": 33.97,
+    "ALL": 32.88,
+    "GOV": 40.79
+   }
+  }
+ }
+}

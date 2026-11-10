@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "DNK",
+ "data": {
+  "extended": {
+   "iso3": "DNK",
+   "name_ru": "Дания",
+   "name_en": "Denmark",
+   "set": "extended",
+   "rank": 36,
+   "ivm": 36.63,
+   "ivm_autonomous": 35.56,
+   "p5": 34.83,
+   "p50": 36.83,
+   "p95": 38.66,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 3.14,
+   "pillars": {
+    "GRD": 36.13,
+    "AIR": 25.82,
+    "NAV": 28.2,
+    "STR": 3.26,
+    "C4I": 37.19,
+    "PER": 56.19,
+    "ECO": 48.94,
+    "IND": 22.73,
+    "LOG": 33.92,
+    "GEO": 26.14,
+    "ALL": 53.72,
+    "GOV": 58.41
+   }
+  }
+ }
+}

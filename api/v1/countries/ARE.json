@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "ARE",
+ "data": {
+  "extended": {
+   "iso3": "ARE",
+   "name_ru": "ОАЭ",
+   "name_en": "United Arab Emirates",
+   "set": "extended",
+   "rank": 23,
+   "ivm": 43.14,
+   "ivm_autonomous": 43.55,
+   "p5": 41.44,
+   "p50": 43.32,
+   "p95": 45.31,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.93,
+   "imputed_share": 0.07,
+   "nuclear_class": 0,
+   "lambda": 3.65,
+   "pillars": {
+    "GRD": 60.93,
+    "AIR": 43.26,
+    "NAV": 21.8,
+    "STR": 3.47,
+    "C4I": 45.28,
+    "PER": 55.12,
+    "ECO": 55.97,
+    "IND": 29.46,
+    "LOG": 46.59,
+    "GEO": 28.77,
+    "ALL": 37.59,
+    "GOV": 52.62
+   }
+  }
+ }
+}

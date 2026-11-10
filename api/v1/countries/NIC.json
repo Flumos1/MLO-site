@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "NIC",
+ "data": {
+  "extended": {
+   "iso3": "NIC",
+   "name_ru": "Никарагуа",
+   "name_en": "Nicaragua",
+   "set": "extended",
+   "rank": 112,
+   "ivm": 15.48,
+   "ivm_autonomous": 15.53,
+   "p5": 14.92,
+   "p50": 16.92,
+   "p95": 18.94,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.907,
+   "imputed_share": 0.093,
+   "nuclear_class": 0,
+   "lambda": 2.34,
+   "pillars": {
+    "GRD": 20.89,
+    "AIR": 7.14,
+    "NAV": 4.86,
+    "STR": 0.0,
+    "C4I": 10.87,
+    "PER": 37.52,
+    "ECO": 22.65,
+    "IND": 5.49,
+    "LOG": 10.58,
+    "GEO": 34.3,
+    "ALL": 14.79,
+    "GOV": 33.96
+   }
+  }
+ }
+}

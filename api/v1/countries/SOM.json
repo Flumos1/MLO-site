@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "SOM",
+ "data": {
+  "extended": {
+   "iso3": "SOM",
+   "name_ru": "Сомали",
+   "name_en": "Somalia",
+   "set": "extended",
+   "rank": 141,
+   "ivm": 11.96,
+   "ivm_autonomous": 11.24,
+   "p5": 12.02,
+   "p50": 14.18,
+   "p95": 16.39,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.847,
+   "imputed_share": 0.153,
+   "nuclear_class": 0,
+   "lambda": 2.59,
+   "pillars": {
+    "GRD": 6.19,
+    "AIR": 0.7,
+    "NAV": 2.27,
+    "STR": 0.0,
+    "C4I": 5.91,
+    "PER": 42.69,
+    "ECO": 22.02,
+    "IND": 6.09,
+    "LOG": 8.44,
+    "GEO": 38.92,
+    "ALL": 24.7,
+    "GOV": 32.14
+   }
+  }
+ }
+}

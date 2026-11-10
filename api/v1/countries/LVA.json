@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "LVA",
+ "data": {
+  "extended": {
+   "iso3": "LVA",
+   "name_ru": "Латвия",
+   "name_en": "Latvia",
+   "set": "extended",
+   "rank": 76,
+   "ivm": 22.46,
+   "ivm_autonomous": 20.97,
+   "p5": 21.24,
+   "p50": 23.91,
+   "p95": 26.26,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.916,
+   "imputed_share": 0.084,
+   "nuclear_class": 0,
+   "lambda": 2.82,
+   "pillars": {
+    "GRD": 28.57,
+    "AIR": 2.49,
+    "NAV": 7.51,
+    "STR": 3.26,
+    "C4I": 24.97,
+    "PER": 50.81,
+    "ECO": 30.3,
+    "IND": 12.92,
+    "LOG": 26.24,
+    "GEO": 24.55,
+    "ALL": 49.47,
+    "GOV": 48.1
+   }
+  }
+ }
+}

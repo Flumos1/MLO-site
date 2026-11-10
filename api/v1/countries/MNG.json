@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MNG",
+ "data": {
+  "extended": {
+   "iso3": "MNG",
+   "name_ru": "Монголия",
+   "name_en": "Mongolia",
+   "set": "extended",
+   "rank": 99,
+   "ivm": 16.89,
+   "ivm_autonomous": 16.84,
+   "p5": 16.32,
+   "p50": 18.61,
+   "p95": 20.6,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.888,
+   "imputed_share": 0.112,
+   "nuclear_class": 0,
+   "lambda": 2.94,
+   "pillars": {
+    "GRD": 25.47,
+    "AIR": 5.99,
+    "NAV": 0.0,
+    "STR": 0.27,
+    "C4I": 7.94,
+    "PER": 45.63,
+    "ECO": 23.34,
+    "IND": 7.11,
+    "LOG": 28.55,
+    "GEO": 31.21,
+    "ALL": 17.7,
+    "GOV": 34.49
+   }
+  }
+ }
+}

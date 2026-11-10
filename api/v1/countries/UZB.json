@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "UZB",
+ "data": {
+  "extended": {
+   "iso3": "UZB",
+   "name_ru": "Узбекистан",
+   "name_en": "Uzbekistan",
+   "set": "extended",
+   "rank": 70,
+   "ivm": 23.9,
+   "ivm_autonomous": 24.51,
+   "p5": 22.54,
+   "p50": 24.98,
+   "p95": 27.36,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.902,
+   "imputed_share": 0.098,
+   "nuclear_class": 0,
+   "lambda": 2.9,
+   "pillars": {
+    "GRD": 44.65,
+    "AIR": 18.97,
+    "NAV": 0.0,
+    "STR": 0.54,
+    "C4I": 17.15,
+    "PER": 44.62,
+    "ECO": 35.55,
+    "IND": 7.42,
+    "LOG": 32.85,
+    "GEO": 40.95,
+    "ALL": 15.99,
+    "GOV": 38.69
+   }
+  }
+ }
+}

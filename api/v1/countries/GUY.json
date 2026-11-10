@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "GUY",
+ "data": {
+  "extended": {
+   "iso3": "GUY",
+   "name_ru": "Гайана",
+   "name_en": "Guyana",
+   "set": "extended",
+   "rank": 122,
+   "ivm": 13.88,
+   "ivm_autonomous": 13.68,
+   "p5": 13.98,
+   "p50": 16.26,
+   "p95": 18.25,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.772,
+   "imputed_share": 0.228,
+   "nuclear_class": 0,
+   "lambda": 3.01,
+   "pillars": {
+    "GRD": 12.32,
+    "AIR": 3.86,
+    "NAV": 3.17,
+    "STR": 0.0,
+    "C4I": 7.76,
+    "PER": 37.05,
+    "ECO": 28.25,
+    "IND": 4.89,
+    "LOG": 16.66,
+    "GEO": 30.95,
+    "ALL": 17.03,
+    "GOV": 35.27
+   }
+  }
+ }
+}

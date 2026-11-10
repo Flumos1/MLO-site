@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "CZE",
+ "data": {
+  "extended": {
+   "iso3": "CZE",
+   "name_ru": "Чехия",
+   "name_en": "Czechia",
+   "set": "extended",
+   "rank": 46,
+   "ivm": 31.25,
+   "ivm_autonomous": 29.89,
+   "p5": 29.5,
+   "p50": 32.11,
+   "p95": 34.34,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.851,
+   "imputed_share": 0.149,
+   "nuclear_class": 0,
+   "lambda": 2.83,
+   "pillars": {
+    "GRD": 38.57,
+    "AIR": 22.06,
+    "NAV": 0.0,
+    "STR": 4.08,
+    "C4I": 29.58,
+    "PER": 47.06,
+    "ECO": 41.74,
+    "IND": 34.41,
+    "LOG": 32.85,
+    "GEO": 33.66,
+    "ALL": 54.0,
+    "GOV": 49.74
+   }
+  }
+ }
+}

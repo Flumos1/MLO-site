@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MMR",
+ "data": {
+  "extended": {
+   "iso3": "MMR",
+   "name_ru": "Мьянма",
+   "name_en": "Myanmar",
+   "set": "extended",
+   "rank": 57,
+   "ivm": 28.28,
+   "ivm_autonomous": 29.55,
+   "p5": 26.72,
+   "p50": 29.11,
+   "p95": 31.44,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.916,
+   "imputed_share": 0.084,
+   "nuclear_class": 0,
+   "lambda": 2.75,
+   "pillars": {
+    "GRD": 43.19,
+    "AIR": 20.57,
+    "NAV": 23.37,
+    "STR": 0.0,
+    "C4I": 14.05,
+    "PER": 68.23,
+    "ECO": 32.92,
+    "IND": 12.65,
+    "LOG": 24.64,
+    "GEO": 43.69,
+    "ALL": 13.15,
+    "GOV": 37.12
+   }
+  }
+ }
+}

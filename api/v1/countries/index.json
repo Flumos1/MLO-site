@@ -4,7 +4,7 @@
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
  "generated": "2026-11-10",
- "count": 125,
+ "count": 150,
  "data": [
   {
    "iso3": "AFG",
@@ -24,6 +24,13 @@
   {
    "iso3": "ALB",
    "name_en": "Albania",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ARE",
+   "name_en": "United Arab Emirates",
    "sets": [
     "extended"
    ]
@@ -102,6 +109,13 @@
    ]
   },
   {
+   "iso3": "BHR",
+   "name_en": "Bahrain",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "BHS",
    "name_en": "Bahamas",
    "sets": [
@@ -114,6 +128,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "BLZ",
+   "name_en": "Belize",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -218,6 +239,13 @@
    ]
   },
   {
+   "iso3": "CPV",
+   "name_en": "Cabo Verde",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "CRI",
    "name_en": "Costa Rica",
    "sets": [
@@ -239,11 +267,25 @@
    ]
   },
   {
+   "iso3": "CZE",
+   "name_en": "Czechia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "DEU",
    "name_en": "Germany",
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "DNK",
+   "name_en": "Denmark",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -373,8 +415,22 @@
    ]
   },
   {
+   "iso3": "GUY",
+   "name_en": "Guyana",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "HRV",
    "name_en": "Croatia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "HUN",
+   "name_en": "Hungary",
    "sets": [
     "extended"
    ]
@@ -434,6 +490,13 @@
    ]
   },
   {
+   "iso3": "JAM",
+   "name_en": "Jamaica",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "JOR",
    "name_en": "Jordan",
    "sets": [
@@ -479,6 +542,13 @@
    ]
   },
   {
+   "iso3": "KWT",
+   "name_en": "Kuwait",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "LAO",
    "name_en": "Laos",
    "sets": [
@@ -509,6 +579,13 @@
   {
    "iso3": "LUX",
    "name_en": "Luxembourg",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "LVA",
+   "name_en": "Latvia",
    "sets": [
     "extended"
    ]
@@ -549,6 +626,20 @@
    ]
   },
   {
+   "iso3": "MMR",
+   "name_en": "Myanmar",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MNG",
+   "name_en": "Mongolia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "MOZ",
    "name_en": "Mozambique",
    "sets": [
@@ -563,8 +654,22 @@
    ]
   },
   {
+   "iso3": "MWI",
+   "name_en": "Malawi",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "MYS",
    "name_en": "Malaysia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NAM",
+   "name_en": "Namibia",
    "sets": [
     "extended"
    ]
@@ -579,6 +684,13 @@
   {
    "iso3": "NGA",
    "name_en": "Nigeria",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NIC",
+   "name_en": "Nicaragua",
    "sets": [
     "extended"
    ]
@@ -607,6 +719,13 @@
   {
    "iso3": "NZL",
    "name_en": "New Zealand",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "OMN",
+   "name_en": "Oman",
    "sets": [
     "extended"
    ]
@@ -679,6 +798,13 @@
    ]
   },
   {
+   "iso3": "QAT",
+   "name_en": "Qatar",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "ROU",
    "name_en": "Romania",
    "sets": [
@@ -738,6 +864,13 @@
    ]
   },
   {
+   "iso3": "SOM",
+   "name_en": "Somalia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "SRB",
    "name_en": "Serbia",
    "sets": [
@@ -748,6 +881,13 @@
   {
    "iso3": "SUR",
    "name_en": "Suriname",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SVK",
+   "name_en": "Slovakia",
    "sets": [
     "extended"
    ]
@@ -765,6 +905,20 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "SWZ",
+   "name_en": "Eswatini",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SYC",
+   "name_en": "Seychelles",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -825,6 +979,13 @@
    ]
   },
   {
+   "iso3": "TUN",
+   "name_en": "Tunisia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "TUR",
    "name_en": "Türkiye",
    "sets": [
@@ -878,6 +1039,13 @@
    ]
   },
   {
+   "iso3": "UZB",
+   "name_en": "Uzbekistan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "VEN",
    "name_en": "Venezuela",
    "sets": [
@@ -910,6 +1078,13 @@
   {
    "iso3": "YEM",
    "name_en": "Yemen",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ZMB",
+   "name_en": "Zambia",
    "sets": [
     "extended"
    ]

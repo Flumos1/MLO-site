@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "QAT",
+ "data": {
+  "extended": {
+   "iso3": "QAT",
+   "name_ru": "Катар",
+   "name_en": "Qatar",
+   "set": "extended",
+   "rank": 45,
+   "ivm": 31.32,
+   "ivm_autonomous": 31.13,
+   "p5": 29.84,
+   "p50": 32.06,
+   "p95": 34.15,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.898,
+   "imputed_share": 0.102,
+   "nuclear_class": 0,
+   "lambda": 2.79,
+   "pillars": {
+    "GRD": 41.64,
+    "AIR": 35.43,
+    "NAV": 16.79,
+    "STR": 0.0,
+    "C4I": 29.32,
+    "PER": 42.29,
+    "ECO": 49.94,
+    "IND": 4.82,
+    "LOG": 44.56,
+    "GEO": 23.91,
+    "ALL": 34.13,
+    "GOV": 42.89
+   }
+  }
+ }
+}
