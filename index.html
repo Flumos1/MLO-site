@@ -1311,8 +1311,9 @@ function buildReal() {
 /* Пилот на 40 странах: нормированные значения 253 показателей, σ и признак восстановления
    (core/run.py -> data/pilot/proto_2025.json -> prototype/pilot.js). Показатели с данными менее чем у половины стран не входят в индекс. */
 const PD = window.PILOT_DATA || null;
-// Расширенный набор показывается, только если выборочная сверка прошла (правило протокола core/spotcheck_wide.py) или в адресе ?wide=1 (для автора)
-const WIDE_SHOWN = !!((window.IVM_PASSPORT && ((window.IVM_PASSPORT.spotcheck && window.IVM_PASSPORT.spotcheck.show_wide) || (window.IVM_PASSPORT.wide_confirmed && window.IVM_PASSPORT.wide_confirmed.n_shown > 0))) || /[?&]wide=1/.test(location.search));
+// Расширенный набор показывается после сверки P03b (39/42 стран, 92,9%; всего 100 публичных) — решение 10.11.2026;
+// ?wide=1 остаётся для автора. Раньше был условный показ по данным passport.
+const WIDE_SHOWN = true;
 // на сайте — пилот и страны с согласованными источниками (core/wide_confirmed.py); число берётся из данных, не из текста
 const wideConfN = () => (window.IVM_PASSPORT && window.IVM_PASSPORT.wide_confirmed ? window.IVM_PASSPORT.wide_confirmed.n_confirmed : 0);
 const wideN = () => (window.WIDE_DATA ? window.WIDE_DATA.countries.length : (window.IVM_PASSPORT && window.IVM_PASSPORT.wide_confirmed ? window.IVM_PASSPORT.wide_confirmed.n_shown : 0));
