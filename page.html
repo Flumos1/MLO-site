@@ -987,6 +987,7 @@ footer{max-width:1320px; margin:0 auto; padding:0 16px 32px; font-size:12px; col
   <section id="tab-experts" class="stack" hidden>
     <div id="experts-body" class="stack"></div>
     <div class="panel" id="fc-log" hidden></div>
+    <div class="panel" id="upd-log" hidden></div>
   </section>
 
   <section id="tab-refs" class="stack" hidden>
@@ -3041,6 +3042,19 @@ function renderForecastLog() {
     <div class="tbl-wrap"><table><thead><tr><th>№</th><th>${L("Что прогнозируется", "What is forecast")}</th><th>${L("Зафиксирован", "Fixed")}</th><th>${L("Проверка", "Check")}</th><th>${L("Статус", "Status")}</th><th>${L("Примечание", "Note")}</th></tr></thead><tbody>${F.entries.map((e) =>
       `<tr><td class="num"><b>${esc(en ? e.id.replace(/^П-/, "F-").replace(/^М-/, "M-") : e.id)}</b></td><td>${esc(en ? e.en : e.ru)}</td><td class="small">${e.fixed}<div class="muted">${L("коммит", "commit")} ${esc(e.commit)}</div></td><td class="small">${e.resolves}</td><td><span class="chip">${ST[e.status][en ? 1 : 0]}</span></td><td class="small">${esc(en ? e.en_note : e.ru_note)}</td></tr>`).join("")}</tbody></table></div>`;
 }
+// История обновлений: подтверждённые прогоны, снимки, ручные правки (data/updates_log.json)
+function renderUpdates() {
+  const box = $("upd-log"), U = window.UPDATES;
+  if (!box || !U) return;
+  box.hidden = false;
+  const en = LANG === "en";
+  const rows = (U.entries || []).slice(0, 12).map((e) => {
+    const t = U.types[e.type] || { ru: e.type, en: e.type };
+    return `<tr><td class="small">${esc(e.date)}</td><td class="small">${esc(en ? t.en : t.ru)}</td><td class="small">${esc(e.commit || "—")}</td><td class="small">${e.merged ? L("подтверждён", "confirmed") : L("не подтверждён", "unconfirmed")}</td><td class="small">${esc(en ? e.note_en : e.note)}</td></tr>`;
+  }).join("");
+  box.innerHTML = `<div class="panel-head"><div><h3>${L("История обновлений", "Update history")}</h3><p class="muted small">${esc(en ? U.rule_en : U.rule_ru)} ${L("Обновлено", "Updated")} ${esc(U.updated)}.</p></div></div>
+    <div class="tbl-wrap"><table><thead><tr><th>${L("Дата", "Date")}</th><th>${L("Тип", "Type")}</th><th>${L("Коммит", "Commit")}</th><th>${L("Статус", "Status")}</th><th>${L("Что изменилось", "What changed")}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
 document.querySelectorAll("#cmp2-preset button").forEach((b) => b.addEventListener("click", () => {
   cmpUI.preset = b.dataset.v;
   if (b.dataset.v === "custom" && !cmpUI.w) cmpUI.w = CMP.criteria.map((c) => c.w_research);
@@ -3289,6 +3303,7 @@ $("fb-copy").addEventListener("click", () => {
 function renderExperts() {
   renderExpertsBase();
   renderForecastLog();
+  renderUpdates();
 }
 function renderExpertsBase() {
   const P = window.IVM_PASSPORT;

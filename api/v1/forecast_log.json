@@ -3,9 +3,9 @@
  "kind": "forecast-log",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-10-26",
+ "generated": "2026-11-10",
  "data": {
-  "updated": "2026-10-24",
+  "updated": "2026-11-10",
   "rule": "Прогноз фиксируется коммитом до проверяемого периода; протокол не меняется после расчёта; результат публикуется в любом случае, в том числе промах.",
   "rule_en": "A forecast is fixed by a commit before the period under test; the protocol does not change after the calculation; the result is published in any case, including a miss.",
   "entries": [
@@ -52,6 +52,94 @@
     "status": "scored",
     "ru_note": "Протокол зафиксирован коммитом 8711080 до метрик; результат опубликован, хотя правило не выполнено.",
     "en_note": "The protocol was committed (8711080) before the metrics; the result is published although the rule is not met."
+   },
+   {
+    "id": "П-004",
+    "ru": "Недельный прирост зафиксированных Oryx потерь России, неделя 7–14.12.2026",
+    "en": "Weekly increment of Oryx-documented Russian equipment losses, week 7–14 Dec 2026",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2026-12-16",
+    "status": "pending",
+    "ru_note": "27 единиц, 80% интервал 17–43; проверка по снимкам data/pilot/snapshots/losses_2026-12-07/14.json (tools/snapshot_losses.py); поток — core/lanmil/forecast_stream.py, скоринг — python core/forecast_stream.py --score.",
+    "en_note": "27 units, 80% interval 17–43; scored from data/pilot/snapshots/losses_2026-12-07/14.json; stream module core/lanmil/forecast_stream.py."
+   },
+   {
+    "id": "П-005",
+    "ru": "Потери России по Oryx за декабрь 2026 г.",
+    "en": "Russian equipment losses recorded by Oryx in December 2026",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-01-20",
+    "status": "pending",
+    "ru_note": "113 единиц, 80% интервал 66–141; обучение только до 01.10.2026; проверка в январе 2027 по снимкам Wayback 1.12.2026 и 1.01.2027.",
+    "en_note": "113 units, 80% interval 66–141; trained only up to 1 Oct 2026; scored in January 2027 from Wayback snapshots of 1 Dec 2026 and 1 Jan 2027."
+   },
+   {
+    "id": "П-006",
+    "ru": "Потери Украины по Oryx за декабрь 2026 г.",
+    "en": "Ukrainian equipment losses recorded by Oryx in December 2026",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-01-20",
+    "status": "pending",
+    "ru_note": "178 единиц, 80% интервал 124–228; проверка вместе с П-005.",
+    "en_note": "178 units, 80% interval 124–228; scored together with P-005."
+   },
+   {
+    "id": "П-007",
+    "ru": "Отношение потерь Россия/Украина по Oryx за декабрь 2026 г. будет ниже 1,0",
+    "en": "Russia/Ukraine Oryx loss ratio in December 2026 will be below 1.0",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-01-20",
+    "status": "pending",
+    "ru_note": "p = 0,80; проверка вместе с П-005/П-006 (исход — факт отношения); проверяет константу d = 1,7 методики.",
+    "en_note": "p = 0.80; scored together with P-005/P-006; tests the methodology constant d = 1.7."
+   },
+   {
+    "id": "П-008",
+    "ru": "Число новых записей WarSpotting о потерях России, добавленных за 16.11–31.12.2026",
+    "en": "Number of new WarSpotting records of Russian losses added over 16 Nov – 31 Dec 2026",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-01-12",
+    "status": "pending",
+    "ru_note": "476 записей, 80% интервал 354–641; проверка по цепочке недельных снимков до 11.01.2027 (WarSpotting API, tools/snapshot_losses.py).",
+    "en_note": "476 records, 80% interval 354–641; scored from the chain of weekly snapshots up to 11 Jan 2027."
+   },
+   {
+    "id": "П-009",
+    "ru": "Число новых записей WarSpotting (П-008) превысит 500",
+    "en": "The number of new WarSpotting records (P-008) will exceed 500",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-01-12",
+    "status": "pending",
+    "ru_note": "p = 0,42; исход — тот же факт, что у П-008: 1, если больше 500.",
+    "en_note": "p = 0.42; same observed value as P-008: 1 if above 500."
+   },
+   {
+    "id": "П-010",
+    "ru": "Монитор очагов: вероятности конфликта для 30 пар на 2027 г.",
+    "en": "Flashpoint monitor: conflict probabilities for 30 pairs in 2027",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-05-31",
+    "status": "pending",
+    "ru_note": "25 пар с наибольшей вероятностью + 5 пар полосы калибровки (0,1–2%); Брайер, лог-оценка, AUC против базовой частоты; предварительная проверка по UCDP Candidate за янв–март 2027 (до 31.05.2027), полная — после ACD за 2027 г.",
+    "en_note": "Top-25 pairs plus 5 calibration-band pairs (0.1–2%); Brier, log score and AUC against the base rate; provisional check on UCDP Candidate for Jan–Mar 2027 (by 31 May 2027), full check after the 2027 ACD."
+   },
+   {
+    "id": "П-011",
+    "ru": "Число межгосударственных боевых событий пары Россия—Украина в декабре 2026 г. по UCDP Candidate (признак-предвестник A1)",
+    "en": "Number of interstate combat events of the Russia–Ukraine pair in December 2026 in UCDP Candidate (warning sign A1)",
+    "fixed": "2026-11-10",
+    "commit": "c8be38c",
+    "resolves": "2027-03-01",
+    "status": "pending",
+    "ru_note": "322 события, 80% интервал 236–408; проверка по выпуску Candidate, покрывающему декабрь 2026 г. (февраль–март 2027); расхождение с полным ACD — в примечании, без пересчёта.",
+    "en_note": "322 events, 80% interval 236–408; scored from the Candidate release covering December 2026 (Feb–Mar 2027)."
    }
   ]
  }

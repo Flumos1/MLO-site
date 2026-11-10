@@ -3,7 +3,7 @@
  "kind": "params",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-10-26",
+ "generated": "2026-11-10",
  "data": {
   "alpha": 1.0,
   "alpha_mc": [
@@ -258,10 +258,10 @@
   },
   "pilot_checks": {
    "taiwan": {
-    "ratio": 3.0431,
-    "ratio30": 1.9588,
+    "ratio": 3.0322,
+    "ratio30": 1.9659,
     "required": 1.075,
-    "p_sufficient": 0.6986,
+    "p_sufficient": 0.6979,
     "window": [
      [
       0,
@@ -270,10 +270,10 @@
     ]
    },
    "indpak": {
-    "ratio": 1.1419,
-    "ratio30": 1.1419,
+    "ratio": 1.144,
+    "ratio30": 1.144,
     "required": 1.0,
-    "p_sufficient": 0.5265,
+    "p_sufficient": 0.5268,
     "window": [
      [
       0,
@@ -282,10 +282,10 @@
     ]
    },
    "korea": {
-    "ratio": 0.1639,
-    "ratio30": 0.1639,
+    "ratio": 0.1613,
+    "ratio30": 0.1613,
     "required": 1.0,
-    "p_sufficient": 0.1829,
+    "p_sufficient": 0.1808,
     "window": []
    }
   },
