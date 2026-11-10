@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "PNG",
+ "data": {
+  "extended": {
+   "iso3": "PNG",
+   "name_ru": "Папуа — Новая Гвинея",
+   "name_en": "Papua New Guinea",
+   "set": "extended",
+   "rank": 93,
+   "ivm": 13.36,
+   "ivm_autonomous": 12.86,
+   "p5": 13.76,
+   "p50": 15.74,
+   "p95": 17.99,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.791,
+   "imputed_share": 0.209,
+   "nuclear_class": 0,
+   "lambda": 3.05,
+   "pillars": {
+    "GRD": 9.47,
+    "AIR": 2.53,
+    "NAV": 2.84,
+    "STR": 0.0,
+    "C4I": 8.23,
+    "PER": 33.84,
+    "ECO": 16.53,
+    "IND": 4.92,
+    "LOG": 25.35,
+    "GEO": 45.94,
+    "ALL": 21.59,
+    "GOV": 34.58
+   }
+  }
+ }
+}

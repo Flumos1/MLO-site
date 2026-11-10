@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "ROU",
+ "data": {
+  "extended": {
+   "iso3": "ROU",
+   "name_ru": "Румыния",
+   "name_en": "Romania",
+   "set": "extended",
+   "rank": 35,
+   "ivm": 34.07,
+   "ivm_autonomous": 32.94,
+   "p5": 32.63,
+   "p50": 34.54,
+   "p95": 36.48,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.949,
+   "imputed_share": 0.051,
+   "nuclear_class": 0,
+   "lambda": 2.93,
+   "pillars": {
+    "GRD": 43.22,
+    "AIR": 22.84,
+    "NAV": 18.6,
+    "STR": 4.08,
+    "C4I": 25.53,
+    "PER": 56.93,
+    "ECO": 39.89,
+    "IND": 23.2,
+    "LOG": 35.48,
+    "GEO": 32.61,
+    "ALL": 52.29,
+    "GOV": 48.12
+   }
+  }
+ }
+}

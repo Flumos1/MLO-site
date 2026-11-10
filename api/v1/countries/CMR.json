@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "CMR",
+ "data": {
+  "extended": {
+   "iso3": "CMR",
+   "name_ru": "Камерун",
+   "name_en": "Cameroon",
+   "set": "extended",
+   "rank": 72,
+   "ivm": 17.49,
+   "ivm_autonomous": 17.03,
+   "p5": 16.83,
+   "p50": 19.06,
+   "p95": 21.22,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.879,
+   "imputed_share": 0.121,
+   "nuclear_class": 0,
+   "lambda": 3.06,
+   "pillars": {
+    "GRD": 20.17,
+    "AIR": 6.51,
+    "NAV": 4.01,
+    "STR": 0.0,
+    "C4I": 10.01,
+    "PER": 41.9,
+    "ECO": 21.28,
+    "IND": 7.8,
+    "LOG": 21.25,
+    "GEO": 44.29,
+    "ALL": 24.87,
+    "GOV": 36.74
+   }
+  }
+ }
+}

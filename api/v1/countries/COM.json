@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "COM",
+ "data": {
+  "extended": {
+   "iso3": "COM",
+   "name_ru": "Коморы",
+   "name_en": "Comoros",
+   "set": "extended",
+   "rank": 88,
+   "ivm": 14.11,
+   "ivm_autonomous": 13.05,
+   "p5": 14.17,
+   "p50": 16.55,
+   "p95": 18.86,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.73,
+   "imputed_share": 0.27,
+   "nuclear_class": 0,
+   "lambda": 3.02,
+   "pillars": {
+    "GRD": 10.96,
+    "AIR": 5.92,
+    "NAV": 3.17,
+    "STR": 0.0,
+    "C4I": 9.33,
+    "PER": 33.06,
+    "ECO": 25.12,
+    "IND": 5.19,
+    "LOG": 9.61,
+    "GEO": 31.21,
+    "ALL": 33.81,
+    "GOV": 32.93
+   }
+  }
+ }
+}

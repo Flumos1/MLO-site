@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "PRY",
+ "data": {
+  "extended": {
+   "iso3": "PRY",
+   "name_ru": "Парагвай",
+   "name_en": "Paraguay",
+   "set": "extended",
+   "rank": 83,
+   "ivm": 14.99,
+   "ivm_autonomous": 14.35,
+   "p5": 14.86,
+   "p50": 16.78,
+   "p95": 18.67,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.856,
+   "imputed_share": 0.144,
+   "nuclear_class": 0,
+   "lambda": 2.78,
+   "pillars": {
+    "GRD": 16.32,
+    "AIR": 6.7,
+    "NAV": 2.84,
+    "STR": 0.0,
+    "C4I": 9.5,
+    "PER": 40.22,
+    "ECO": 21.46,
+    "IND": 5.74,
+    "LOG": 13.98,
+    "GEO": 27.63,
+    "ALL": 25.62,
+    "GOV": 33.57
+   }
+  }
+ }
+}

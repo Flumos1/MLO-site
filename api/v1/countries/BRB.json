@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "BRB",
+ "data": {
+  "extended": {
+   "iso3": "BRB",
+   "name_ru": "Барбадос",
+   "name_en": "Barbados",
+   "set": "extended",
+   "rank": 94,
+   "ivm": 12.99,
+   "ivm_autonomous": 13.03,
+   "p5": 13.09,
+   "p50": 15.35,
+   "p95": 17.71,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.758,
+   "imputed_share": 0.242,
+   "nuclear_class": 0,
+   "lambda": 2.98,
+   "pillars": {
+    "GRD": 13.42,
+    "AIR": 5.42,
+    "NAV": 4.59,
+    "STR": 0.0,
+    "C4I": 11.06,
+    "PER": 38.0,
+    "ECO": 15.32,
+    "IND": 2.72,
+    "LOG": 14.46,
+    "GEO": 22.22,
+    "ALL": 12.45,
+    "GOV": 40.95
+   }
+  }
+ }
+}

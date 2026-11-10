@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "KEN",
+ "data": {
+  "extended": {
+   "iso3": "KEN",
+   "name_ru": "Кения",
+   "name_en": "Kenya",
+   "set": "extended",
+   "rank": 61,
+   "ivm": 21.25,
+   "ivm_autonomous": 21.18,
+   "p5": 20.27,
+   "p50": 22.53,
+   "p95": 24.56,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.926,
+   "imputed_share": 0.074,
+   "nuclear_class": 0,
+   "lambda": 2.77,
+   "pillars": {
+    "GRD": 33.28,
+    "AIR": 13.95,
+    "NAV": 4.7,
+    "STR": 0.0,
+    "C4I": 13.85,
+    "PER": 47.4,
+    "ECO": 24.74,
+    "IND": 6.98,
+    "LOG": 19.66,
+    "GEO": 44.32,
+    "ALL": 22.24,
+    "GOV": 39.81
+   }
+  }
+ }
+}

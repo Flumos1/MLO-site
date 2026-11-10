@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "PAN",
+ "data": {
+  "extended": {
+   "iso3": "PAN",
+   "name_ru": "Панама",
+   "name_en": "Panama",
+   "set": "extended",
+   "rank": 87,
+   "ivm": 14.2,
+   "ivm_autonomous": 13.68,
+   "p5": 14.15,
+   "p50": 16.61,
+   "p95": 18.91,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.874,
+   "imputed_share": 0.126,
+   "nuclear_class": 0,
+   "lambda": 3.63,
+   "pillars": {
+    "GRD": 15.35,
+    "AIR": 2.18,
+    "NAV": 3.89,
+    "STR": 0.0,
+    "C4I": 11.06,
+    "PER": 38.2,
+    "ECO": 22.27,
+    "IND": 1.83,
+    "LOG": 19.43,
+    "GEO": 39.89,
+    "ALL": 22.75,
+    "GOV": 35.28
+   }
+  }
+ }
+}

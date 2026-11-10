@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "BDI",
+ "data": {
+  "extended": {
+   "iso3": "BDI",
+   "name_ru": "Бурунди",
+   "name_en": "Burundi",
+   "set": "extended",
+   "rank": 98,
+   "ivm": 11.83,
+   "ivm_autonomous": 11.81,
+   "p5": 11.85,
+   "p50": 13.85,
+   "p95": 15.83,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.786,
+   "imputed_share": 0.214,
+   "nuclear_class": 0,
+   "lambda": 2.49,
+   "pillars": {
+    "GRD": 14.79,
+    "AIR": 3.55,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 4.15,
+    "PER": 36.21,
+    "ECO": 17.45,
+    "IND": 6.23,
+    "LOG": 7.54,
+    "GEO": 32.76,
+    "ALL": 12.19,
+    "GOV": 36.0
+   }
+  }
+ }
+}

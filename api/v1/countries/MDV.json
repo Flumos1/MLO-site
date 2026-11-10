@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MDV",
+ "data": {
+  "extended": {
+   "iso3": "MDV",
+   "name_ru": "Мальдивы",
+   "name_en": "Maldives",
+   "set": "extended",
+   "rank": 69,
+   "ivm": 17.91,
+   "ivm_autonomous": 17.81,
+   "p5": 17.66,
+   "p50": 20.0,
+   "p95": 22.33,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.744,
+   "imputed_share": 0.256,
+   "nuclear_class": 0,
+   "lambda": 3.1,
+   "pillars": {
+    "GRD": 19.88,
+    "AIR": 13.6,
+    "NAV": 8.87,
+    "STR": 0.0,
+    "C4I": 13.05,
+    "PER": 45.18,
+    "ECO": 22.64,
+    "IND": 5.54,
+    "LOG": 16.62,
+    "GEO": 22.34,
+    "ALL": 19.36,
+    "GOV": 33.57
+   }
+  }
+ }
+}

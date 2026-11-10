@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "SLV",
+ "data": {
+  "extended": {
+   "iso3": "SLV",
+   "name_ru": "Сальвадор",
+   "name_en": "El Salvador",
+   "set": "extended",
+   "rank": 80,
+   "ivm": 15.75,
+   "ivm_autonomous": 14.95,
+   "p5": 15.27,
+   "p50": 17.52,
+   "p95": 19.5,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.888,
+   "imputed_share": 0.112,
+   "nuclear_class": 0,
+   "lambda": 2.31,
+   "pillars": {
+    "GRD": 16.01,
+    "AIR": 7.91,
+    "NAV": 3.66,
+    "STR": 0.0,
+    "C4I": 9.11,
+    "PER": 45.13,
+    "ECO": 20.07,
+    "IND": 7.08,
+    "LOG": 7.73,
+    "GEO": 30.96,
+    "ALL": 29.55,
+    "GOV": 41.23
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "BGR",
+ "data": {
+  "extended": {
+   "iso3": "BGR",
+   "name_ru": "Болгария",
+   "name_en": "Bulgaria",
+   "set": "extended",
+   "rank": 45,
+   "ivm": 28.85,
+   "ivm_autonomous": 27.44,
+   "p5": 27.45,
+   "p50": 29.38,
+   "p95": 31.29,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 2.78,
+   "pillars": {
+    "GRD": 36.27,
+    "AIR": 17.87,
+    "NAV": 17.22,
+    "STR": 3.8,
+    "C4I": 20.33,
+    "PER": 47.59,
+    "ECO": 32.73,
+    "IND": 19.89,
+    "LOG": 28.15,
+    "GEO": 29.81,
+    "ALL": 52.84,
+    "GOV": 38.78
+   }
+  }
+ }
+}

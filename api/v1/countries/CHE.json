@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "CHE",
+ "data": {
+  "extended": {
+   "iso3": "CHE",
+   "name_ru": "Швейцария",
+   "name_en": "Switzerland",
+   "set": "extended",
+   "rank": 37,
+   "ivm": 32.13,
+   "ivm_autonomous": 32.54,
+   "p5": 30.39,
+   "p50": 32.97,
+   "p95": 35.22,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.884,
+   "imputed_share": 0.116,
+   "nuclear_class": 0,
+   "lambda": 2.55,
+   "pillars": {
+    "GRD": 46.24,
+    "AIR": 28.2,
+    "NAV": 0.0,
+    "STR": 0.54,
+    "C4I": 35.31,
+    "PER": 53.14,
+    "ECO": 42.97,
+    "IND": 28.63,
+    "LOG": 36.98,
+    "GEO": 30.35,
+    "ALL": 26.44,
+    "GOV": 53.61
+   }
+  }
+ }
+}

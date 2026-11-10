@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "PER",
+ "data": {
+  "extended": {
+   "iso3": "PER",
+   "name_ru": "Перу",
+   "name_en": "Peru",
+   "set": "extended",
+   "rank": 47,
+   "ivm": 27.4,
+   "ivm_autonomous": 27.09,
+   "p5": 26.26,
+   "p50": 28.33,
+   "p95": 30.33,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.944,
+   "imputed_share": 0.056,
+   "nuclear_class": 0,
+   "lambda": 3.02,
+   "pillars": {
+    "GRD": 31.32,
+    "AIR": 18.74,
+    "NAV": 23.8,
+    "STR": 0.0,
+    "C4I": 17.16,
+    "PER": 52.53,
+    "ECO": 33.19,
+    "IND": 6.68,
+    "LOG": 32.09,
+    "GEO": 48.46,
+    "ALL": 32.02,
+    "GOV": 37.99
+   }
+  }
+ }
+}

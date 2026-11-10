@@ -4,7 +4,7 @@
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
  "generated": "2026-11-10",
- "count": 61,
+ "count": 100,
  "data": [
   {
    "iso3": "AFG",
@@ -53,8 +53,22 @@
    ]
   },
   {
+   "iso3": "BDI",
+   "name_en": "Burundi",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "BEL",
    "name_en": "Belgium",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BEN",
+   "name_en": "Benin",
    "sets": [
     "extended"
    ]
@@ -69,6 +83,20 @@
   {
    "iso3": "BGD",
    "name_en": "Bangladesh",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BGR",
+   "name_en": "Bulgaria",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BHS",
+   "name_en": "Bahamas",
    "sets": [
     "extended"
    ]
@@ -90,8 +118,29 @@
    ]
   },
   {
+   "iso3": "BRB",
+   "name_en": "Barbados",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BWA",
+   "name_en": "Botswana",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "CAN",
    "name_en": "Canada",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CHE",
+   "name_en": "Switzerland",
    "sets": [
     "extended"
    ]
@@ -112,11 +161,46 @@
    ]
   },
   {
+   "iso3": "CMR",
+   "name_en": "Cameroon",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "COD",
    "name_en": "DR Congo",
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "COM",
+   "name_en": "Comoros",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CRI",
+   "name_en": "Costa Rica",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CUB",
+   "name_en": "Cuba",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "CYP",
+   "name_en": "Cyprus",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -155,6 +239,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "ESP",
+   "name_en": "Spain",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -197,6 +288,13 @@
    ]
   },
   {
+   "iso3": "GHA",
+   "name_en": "Ghana",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "GRC",
    "name_en": "Greece",
    "sets": [
@@ -236,6 +334,13 @@
    ]
   },
   {
+   "iso3": "ISL",
+   "name_en": "Iceland",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "ISR",
    "name_en": "Israel",
    "sets": [
@@ -267,6 +372,13 @@
    ]
   },
   {
+   "iso3": "KEN",
+   "name_en": "Kenya",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "KHM",
    "name_en": "Cambodia",
    "sets": [
@@ -283,6 +395,48 @@
    ]
   },
   {
+   "iso3": "LAO",
+   "name_en": "Laos",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "LBN",
+   "name_en": "Lebanon",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "LTU",
+   "name_en": "Lithuania",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "LUX",
+   "name_en": "Luxembourg",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MDV",
+   "name_en": "Maldives",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MEX",
+   "name_en": "Mexico",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "MOZ",
    "name_en": "Mozambique",
    "sets": [
@@ -290,8 +444,36 @@
    ]
   },
   {
+   "iso3": "MUS",
+   "name_en": "Mauritius",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "MYS",
    "name_en": "Malaysia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NGA",
+   "name_en": "Nigeria",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NLD",
+   "name_en": "Netherlands",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NPL",
+   "name_en": "Nepal",
    "sets": [
     "extended"
    ]
@@ -305,11 +487,32 @@
    ]
   },
   {
+   "iso3": "PAN",
+   "name_en": "Panama",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "PER",
+   "name_en": "Peru",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "PHL",
    "name_en": "Philippines",
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "PNG",
+   "name_en": "Papua New Guinea",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -326,6 +529,27 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "PRT",
+   "name_en": "Portugal",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "PRY",
+   "name_en": "Paraguay",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "ROU",
+   "name_en": "Romania",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -362,6 +586,13 @@
   {
    "iso3": "SGP",
    "name_en": "Singapore",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "SLV",
+   "name_en": "El Salvador",
    "sets": [
     "extended"
    ]
@@ -405,8 +636,29 @@
    ]
   },
   {
+   "iso3": "TJK",
+   "name_en": "Tajikistan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "TKM",
    "name_en": "Turkmenistan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "TLS",
+   "name_en": "Timor-Leste",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "TON",
+   "name_en": "Tonga",
    "sets": [
     "extended"
    ]
@@ -428,11 +680,32 @@
    ]
   },
   {
+   "iso3": "TZA",
+   "name_en": "Tanzania",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "UGA",
+   "name_en": "Uganda",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "UKR",
    "name_en": "Ukraine",
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "URY",
+   "name_en": "Uruguay",
+   "sets": [
+    "extended"
    ]
   },
   {

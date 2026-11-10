@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "NPL",
+ "data": {
+  "extended": {
+   "iso3": "NPL",
+   "name_ru": "Непал",
+   "name_en": "Nepal",
+   "set": "extended",
+   "rank": 81,
+   "ivm": 15.47,
+   "ivm_autonomous": 15.36,
+   "p5": 15.15,
+   "p50": 17.28,
+   "p95": 19.37,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.851,
+   "imputed_share": 0.149,
+   "nuclear_class": 0,
+   "lambda": 2.58,
+   "pillars": {
+    "GRD": 23.31,
+    "AIR": 5.56,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 8.36,
+    "PER": 42.7,
+    "ECO": 21.39,
+    "IND": 7.21,
+    "LOG": 10.31,
+    "GEO": 42.8,
+    "ALL": 17.08,
+    "GOV": 34.32
+   }
+  }
+ }
+}

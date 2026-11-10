@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "LUX",
+ "data": {
+  "extended": {
+   "iso3": "LUX",
+   "name_ru": "Люксембург",
+   "name_en": "Luxembourg",
+   "set": "extended",
+   "rank": 73,
+   "ivm": 16.99,
+   "ivm_autonomous": 15.53,
+   "p5": 16.49,
+   "p50": 18.92,
+   "p95": 21.1,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.865,
+   "imputed_share": 0.135,
+   "nuclear_class": 0,
+   "lambda": 2.67,
+   "pillars": {
+    "GRD": 12.21,
+    "AIR": 0.34,
+    "NAV": 0.0,
+    "STR": 3.53,
+    "C4I": 23.32,
+    "PER": 45.39,
+    "ECO": 29.92,
+    "IND": 11.08,
+    "LOG": 15.89,
+    "GEO": 21.67,
+    "ALL": 45.13,
+    "GOV": 43.89
+   }
+  }
+ }
+}

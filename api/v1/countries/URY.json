@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "URY",
+ "data": {
+  "extended": {
+   "iso3": "URY",
+   "name_ru": "Уругвай",
+   "name_en": "Uruguay",
+   "set": "extended",
+   "rank": 59,
+   "ivm": 21.7,
+   "ivm_autonomous": 21.13,
+   "p5": 20.86,
+   "p50": 22.83,
+   "p95": 24.82,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 3.0,
+   "pillars": {
+    "GRD": 25.0,
+    "AIR": 12.62,
+    "NAV": 8.16,
+    "STR": 0.27,
+    "C4I": 18.89,
+    "PER": 46.68,
+    "ECO": 29.01,
+    "IND": 8.58,
+    "LOG": 19.25,
+    "GEO": 30.0,
+    "ALL": 30.76,
+    "GOV": 42.58
+   }
+  }
+ }
+}

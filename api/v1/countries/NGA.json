@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "NGA",
+ "data": {
+  "extended": {
+   "iso3": "NGA",
+   "name_ru": "Нигерия",
+   "name_en": "Nigeria",
+   "set": "extended",
+   "rank": 51,
+   "ivm": 25.37,
+   "ivm_autonomous": 25.64,
+   "p5": 24.06,
+   "p50": 26.2,
+   "p95": 28.29,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.926,
+   "imputed_share": 0.074,
+   "nuclear_class": 0,
+   "lambda": 3.48,
+   "pillars": {
+    "GRD": 32.96,
+    "AIR": 15.45,
+    "NAV": 12.89,
+    "STR": 0.0,
+    "C4I": 13.59,
+    "PER": 53.9,
+    "ECO": 28.95,
+    "IND": 7.51,
+    "LOG": 40.81,
+    "GEO": 55.42,
+    "ALL": 21.73,
+    "GOV": 36.74
+   }
+  }
+ }
+}

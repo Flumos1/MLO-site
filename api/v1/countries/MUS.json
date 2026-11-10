@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MUS",
+ "data": {
+  "extended": {
+   "iso3": "MUS",
+   "name_ru": "Маврикий",
+   "name_en": "Mauritius",
+   "set": "extended",
+   "rank": 96,
+   "ivm": 12.2,
+   "ivm_autonomous": 11.74,
+   "p5": 12.71,
+   "p50": 14.7,
+   "p95": 16.76,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.781,
+   "imputed_share": 0.219,
+   "nuclear_class": 0,
+   "lambda": 2.57,
+   "pillars": {
+    "GRD": 9.23,
+    "AIR": 0.37,
+    "NAV": 2.84,
+    "STR": 0.0,
+    "C4I": 11.12,
+    "PER": 37.15,
+    "ECO": 17.4,
+    "IND": 6.24,
+    "LOG": 12.0,
+    "GEO": 24.33,
+    "ALL": 19.78,
+    "GOV": 37.69
+   }
+  }
+ }
+}

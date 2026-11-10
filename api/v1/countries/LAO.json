@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "LAO",
+ "data": {
+  "extended": {
+   "iso3": "LAO",
+   "name_ru": "Лаос",
+   "name_en": "Laos",
+   "set": "extended",
+   "rank": 89,
+   "ivm": 13.74,
+   "ivm_autonomous": 13.95,
+   "p5": 13.5,
+   "p50": 15.52,
+   "p95": 17.61,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.828,
+   "imputed_share": 0.172,
+   "nuclear_class": 0,
+   "lambda": 2.38,
+   "pillars": {
+    "GRD": 24.14,
+    "AIR": 4.73,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 6.19,
+    "PER": 40.91,
+    "ECO": 15.83,
+    "IND": 6.78,
+    "LOG": 13.79,
+    "GEO": 31.44,
+    "ALL": 10.85,
+    "GOV": 31.13
+   }
+  }
+ }
+}

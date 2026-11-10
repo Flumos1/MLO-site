@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "TJK",
+ "data": {
+  "extended": {
+   "iso3": "TJK",
+   "name_ru": "Таджикистан",
+   "name_en": "Tajikistan",
+   "set": "extended",
+   "rank": 82,
+   "ivm": 15.32,
+   "ivm_autonomous": 14.76,
+   "p5": 14.88,
+   "p50": 16.97,
+   "p95": 19.12,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.851,
+   "imputed_share": 0.149,
+   "nuclear_class": 0,
+   "lambda": 2.56,
+   "pillars": {
+    "GRD": 21.45,
+    "AIR": 4.05,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 7.39,
+    "PER": 41.87,
+    "ECO": 24.01,
+    "IND": 6.03,
+    "LOG": 13.34,
+    "GEO": 36.4,
+    "ALL": 24.45,
+    "GOV": 36.98
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "TLS",
+ "data": {
+  "extended": {
+   "iso3": "TLS",
+   "name_ru": "Восточный Тимор",
+   "name_en": "Timor-Leste",
+   "set": "extended",
+   "rank": 100,
+   "ivm": 10.65,
+   "ivm_autonomous": 10.58,
+   "p5": 10.81,
+   "p50": 12.7,
+   "p95": 14.78,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.767,
+   "imputed_share": 0.233,
+   "nuclear_class": 0,
+   "lambda": 2.34,
+   "pillars": {
+    "GRD": 9.45,
+    "AIR": 0.45,
+    "NAV": 1.05,
+    "STR": 0.0,
+    "C4I": 5.11,
+    "PER": 33.06,
+    "ECO": 19.27,
+    "IND": 0.86,
+    "LOG": 16.08,
+    "GEO": 27.82,
+    "ALL": 11.68,
+    "GOV": 38.38
+   }
+  }
+ }
+}

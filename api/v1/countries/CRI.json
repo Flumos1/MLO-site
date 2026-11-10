@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "CRI",
+ "data": {
+  "extended": {
+   "iso3": "CRI",
+   "name_ru": "Коста-Рика",
+   "name_en": "Costa Rica",
+   "set": "extended",
+   "rank": 86,
+   "ivm": 14.24,
+   "ivm_autonomous": 13.72,
+   "p5": 14.36,
+   "p50": 16.47,
+   "p95": 18.72,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.763,
+   "imputed_share": 0.237,
+   "nuclear_class": 0,
+   "lambda": 2.56,
+   "pillars": {
+    "GRD": 14.21,
+    "AIR": 0.45,
+    "NAV": 3.17,
+    "STR": 0.0,
+    "C4I": 11.41,
+    "PER": 38.98,
+    "ECO": 22.22,
+    "IND": 7.23,
+    "LOG": 10.54,
+    "GEO": 36.99,
+    "ALL": 22.75,
+    "GOV": 39.08
+   }
+  }
+ }
+}
