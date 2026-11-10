@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "IRQ",
+ "data": {
+  "extended": {
+   "iso3": "IRQ",
+   "name_ru": "Ирак",
+   "name_en": "Iraq",
+   "set": "extended",
+   "rank": 52,
+   "ivm": 28.05,
+   "ivm_autonomous": 28.24,
+   "p5": 26.62,
+   "p50": 29.14,
+   "p95": 31.23,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.944,
+   "imputed_share": 0.056,
+   "nuclear_class": 0,
+   "lambda": 2.85,
+   "pillars": {
+    "GRD": 51.04,
+    "AIR": 23.43,
+    "NAV": 8.5,
+    "STR": 0.0,
+    "C4I": 14.73,
+    "PER": 54.25,
+    "ECO": 35.97,
+    "IND": 5.98,
+    "LOG": 41.77,
+    "GEO": 37.85,
+    "ALL": 25.45,
+    "GOV": 42.55
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MKD",
+ "data": {
+  "extended": {
+   "iso3": "MKD",
+   "name_ru": "Северная Македония",
+   "name_en": "North Macedonia",
+   "set": "extended",
+   "rank": 90,
+   "ivm": 16.14,
+   "ivm_autonomous": 14.57,
+   "p5": 15.87,
+   "p50": 18.22,
+   "p95": 20.34,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.86,
+   "imputed_share": 0.14,
+   "nuclear_class": 0,
+   "lambda": 2.65,
+   "pillars": {
+    "GRD": 19.15,
+    "AIR": 1.49,
+    "NAV": 2.84,
+    "STR": 3.26,
+    "C4I": 13.29,
+    "PER": 40.87,
+    "ECO": 23.44,
+    "IND": 8.31,
+    "LOG": 16.49,
+    "GEO": 22.72,
+    "ALL": 47.73,
+    "GOV": 37.43
+   }
+  }
+ }
+}

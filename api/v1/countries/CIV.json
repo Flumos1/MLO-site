@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "CIV",
+ "data": {
+  "extended": {
+   "iso3": "CIV",
+   "name_ru": "Кот-д'Ивуар",
+   "name_en": "Côte d'Ivoire",
+   "set": "extended",
+   "rank": 85,
+   "ivm": 16.7,
+   "ivm_autonomous": 16.3,
+   "p5": 15.79,
+   "p50": 18.19,
+   "p95": 20.3,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.879,
+   "imputed_share": 0.121,
+   "nuclear_class": 0,
+   "lambda": 2.73,
+   "pillars": {
+    "GRD": 17.68,
+    "AIR": 6.4,
+    "NAV": 3.6,
+    "STR": 0.0,
+    "C4I": 9.32,
+    "PER": 43.07,
+    "ECO": 24.09,
+    "IND": 5.67,
+    "LOG": 18.98,
+    "GEO": 41.37,
+    "ALL": 22.94,
+    "GOV": 39.44
+   }
+  }
+ }
+}

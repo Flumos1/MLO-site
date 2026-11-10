@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "KAZ",
+ "data": {
+  "extended": {
+   "iso3": "KAZ",
+   "name_ru": "Казахстан",
+   "name_en": "Kazakhstan",
+   "set": "extended",
+   "rank": 45,
+   "ivm": 29.53,
+   "ivm_autonomous": 29.03,
+   "p5": 28.07,
+   "p50": 30.33,
+   "p95": 32.32,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.94,
+   "imputed_share": 0.06,
+   "nuclear_class": 0,
+   "lambda": 3.01,
+   "pillars": {
+    "GRD": 43.36,
+    "AIR": 24.44,
+    "NAV": 6.89,
+    "STR": 1.63,
+    "C4I": 22.03,
+    "PER": 43.17,
+    "ECO": 29.16,
+    "IND": 18.56,
+    "LOG": 46.03,
+    "GEO": 43.28,
+    "ALL": 37.2,
+    "GOV": 37.89
+   }
+  }
+ }
+}

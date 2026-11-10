@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "SDN",
+ "data": {
+  "extended": {
+   "iso3": "SDN",
+   "name_ru": "Судан",
+   "name_en": "Sudan",
+   "set": "extended",
+   "rank": 71,
+   "ivm": 19.5,
+   "ivm_autonomous": 19.1,
+   "p5": 19.05,
+   "p50": 21.26,
+   "p95": 23.47,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.898,
+   "imputed_share": 0.102,
+   "nuclear_class": 0,
+   "lambda": 2.72,
+   "pillars": {
+    "GRD": 39.72,
+    "AIR": 15.33,
+    "NAV": 2.0,
+    "STR": 0.0,
+    "C4I": 10.05,
+    "PER": 43.66,
+    "ECO": 13.21,
+    "IND": 6.19,
+    "LOG": 19.63,
+    "GEO": 43.42,
+    "ALL": 25.62,
+    "GOV": 37.27
+   }
+  }
+ }
+}

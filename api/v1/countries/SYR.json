@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "SYR",
+ "data": {
+  "extended": {
+   "iso3": "SYR",
+   "name_ru": "Сирия",
+   "name_en": "Syria",
+   "set": "extended",
+   "rank": 70,
+   "ivm": 20.73,
+   "ivm_autonomous": 20.67,
+   "p5": 19.94,
+   "p50": 22.12,
+   "p95": 24.15,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.86,
+   "imputed_share": 0.14,
+   "nuclear_class": 0,
+   "lambda": 2.68,
+   "pillars": {
+    "GRD": 26.02,
+    "AIR": 15.15,
+    "NAV": 3.93,
+    "STR": 0.0,
+    "C4I": 15.47,
+    "PER": 58.14,
+    "ECO": 22.81,
+    "IND": 9.87,
+    "LOG": 20.52,
+    "GEO": 32.22,
+    "ALL": 21.63,
+    "GOV": 35.48
+   }
+  }
+ }
+}

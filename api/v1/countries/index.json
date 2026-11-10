@@ -4,7 +4,7 @@
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
  "generated": "2026-11-10",
- "count": 100,
+ "count": 125,
  "data": [
   {
    "iso3": "AFG",
@@ -42,6 +42,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "AUT",
+   "name_en": "Austria",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -110,6 +117,13 @@
    ]
   },
   {
+   "iso3": "BOL",
+   "name_en": "Bolivia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "BRA",
    "name_en": "Brazil",
    "sets": [
@@ -120,6 +134,13 @@
   {
    "iso3": "BRB",
    "name_en": "Barbados",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "BTN",
+   "name_en": "Bhutan",
    "sets": [
     "extended"
    ]
@@ -161,6 +182,13 @@
    ]
   },
   {
+   "iso3": "CIV",
+   "name_en": "Côte d'Ivoire",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "CMR",
    "name_en": "Cameroon",
    "sets": [
@@ -173,6 +201,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "COG",
+   "name_en": "Republic of the Congo",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -249,6 +284,13 @@
    ]
   },
   {
+   "iso3": "EST",
+   "name_en": "Estonia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "ETH",
    "name_en": "Ethiopia",
    "sets": [
@@ -262,6 +304,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "FJI",
+   "name_en": "Fiji",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -288,8 +337,22 @@
    ]
   },
   {
+   "iso3": "GEO",
+   "name_en": "Georgia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "GHA",
    "name_en": "Ghana",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "GMB",
+   "name_en": "Gambia",
    "sets": [
     "extended"
    ]
@@ -300,6 +363,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "GTM",
+   "name_en": "Guatemala",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -331,6 +401,13 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "IRQ",
+   "name_en": "Iraq",
+   "sets": [
+    "extended"
    ]
   },
   {
@@ -372,6 +449,13 @@
    ]
   },
   {
+   "iso3": "KAZ",
+   "name_en": "Kazakhstan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "KEN",
    "name_en": "Kenya",
    "sets": [
@@ -409,6 +493,13 @@
    ]
   },
   {
+   "iso3": "LBR",
+   "name_en": "Liberia",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "LTU",
    "name_en": "Lithuania",
    "sets": [
@@ -423,6 +514,20 @@
    ]
   },
   {
+   "iso3": "MAR",
+   "name_en": "Morocco",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MDG",
+   "name_en": "Madagascar",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "MDV",
    "name_en": "Maldives",
    "sets": [
@@ -432,6 +537,13 @@
   {
    "iso3": "MEX",
    "name_en": "Mexico",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "MKD",
+   "name_en": "North Macedonia",
    "sets": [
     "extended"
    ]
@@ -458,6 +570,13 @@
    ]
   },
   {
+   "iso3": "NER",
+   "name_en": "Niger",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "NGA",
    "name_en": "Nigeria",
    "sets": [
@@ -472,8 +591,22 @@
    ]
   },
   {
+   "iso3": "NOR",
+   "name_en": "Norway",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "NPL",
    "name_en": "Nepal",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "NZL",
+   "name_en": "New Zealand",
    "sets": [
     "extended"
    ]
@@ -577,6 +710,13 @@
    ]
   },
   {
+   "iso3": "SDN",
+   "name_en": "Sudan",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "SEN",
    "name_en": "Senegal",
    "sets": [
@@ -606,6 +746,13 @@
    ]
   },
   {
+   "iso3": "SUR",
+   "name_en": "Suriname",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "SVN",
    "name_en": "Slovenia",
    "sets": [
@@ -621,8 +768,22 @@
    ]
   },
   {
+   "iso3": "SYR",
+   "name_en": "Syria",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
    "iso3": "TCD",
    "name_en": "Chad",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "TGO",
+   "name_en": "Togo",
    "sets": [
     "extended"
    ]
@@ -730,6 +891,20 @@
    "sets": [
     "extended",
     "pilot40"
+   ]
+  },
+  {
+   "iso3": "VUT",
+   "name_en": "Vanuatu",
+   "sets": [
+    "extended"
+   ]
+  },
+  {
+   "iso3": "WSM",
+   "name_en": "Samoa",
+   "sets": [
+    "extended"
    ]
   },
   {

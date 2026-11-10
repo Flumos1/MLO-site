@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "BOL",
+ "data": {
+  "extended": {
+   "iso3": "BOL",
+   "name_ru": "Боливия",
+   "name_en": "Bolivia",
+   "set": "extended",
+   "rank": 99,
+   "ivm": 14.62,
+   "ivm_autonomous": 14.91,
+   "p5": 14.23,
+   "p50": 16.29,
+   "p95": 18.2,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.86,
+   "imputed_share": 0.14,
+   "nuclear_class": 0,
+   "lambda": 2.73,
+   "pillars": {
+    "GRD": 17.58,
+    "AIR": 6.29,
+    "NAV": 0.0,
+    "STR": 0.0,
+    "C4I": 8.6,
+    "PER": 39.27,
+    "ECO": 17.26,
+    "IND": 6.38,
+    "LOG": 24.28,
+    "GEO": 39.07,
+    "ALL": 10.75,
+    "GOV": 30.61
+   }
+  }
+ }
+}

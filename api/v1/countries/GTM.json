@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "GTM",
+ "data": {
+  "extended": {
+   "iso3": "GTM",
+   "name_ru": "Гватемала",
+   "name_en": "Guatemala",
+   "set": "extended",
+   "rank": 93,
+   "ivm": 16.06,
+   "ivm_autonomous": 15.32,
+   "p5": 15.57,
+   "p50": 17.91,
+   "p95": 19.98,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.902,
+   "imputed_share": 0.098,
+   "nuclear_class": 0,
+   "lambda": 2.39,
+   "pillars": {
+    "GRD": 14.41,
+    "AIR": 5.99,
+    "NAV": 4.03,
+    "STR": 0.0,
+    "C4I": 7.78,
+    "PER": 43.81,
+    "ECO": 27.54,
+    "IND": 7.23,
+    "LOG": 10.76,
+    "GEO": 39.41,
+    "ALL": 28.56,
+    "GOV": 36.52
+   }
+  }
+ }
+}

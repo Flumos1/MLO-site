@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "TGO",
+ "data": {
+  "extended": {
+   "iso3": "TGO",
+   "name_ru": "Того",
+   "name_en": "Togo",
+   "set": "extended",
+   "rank": 118,
+   "ivm": 11.86,
+   "ivm_autonomous": 11.44,
+   "p5": 12.26,
+   "p50": 14.11,
+   "p95": 16.05,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.8,
+   "imputed_share": 0.2,
+   "nuclear_class": 0,
+   "lambda": 3.12,
+   "pillars": {
+    "GRD": 10.36,
+    "AIR": 2.67,
+    "NAV": 1.76,
+    "STR": 0.27,
+    "C4I": 7.83,
+    "PER": 37.15,
+    "ECO": 19.94,
+    "IND": 5.35,
+    "LOG": 10.69,
+    "GEO": 27.18,
+    "ALL": 18.57,
+    "GOV": 31.42
+   }
+  }
+ }
+}

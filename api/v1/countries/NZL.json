@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "NZL",
+ "data": {
+  "extended": {
+   "iso3": "NZL",
+   "name_ru": "Новая Зеландия",
+   "name_en": "New Zealand",
+   "set": "extended",
+   "rank": 48,
+   "ivm": 29.2,
+   "ivm_autonomous": 28.35,
+   "p5": 27.48,
+   "p50": 29.77,
+   "p95": 31.92,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.926,
+   "imputed_share": 0.074,
+   "nuclear_class": 0,
+   "lambda": 3.03,
+   "pillars": {
+    "GRD": 31.17,
+    "AIR": 18.15,
+    "NAV": 17.92,
+    "STR": 0.27,
+    "C4I": 30.41,
+    "PER": 49.26,
+    "ECO": 31.66,
+    "IND": 10.97,
+    "LOG": 30.25,
+    "GEO": 41.18,
+    "ALL": 42.82,
+    "GOV": 53.63
+   }
+  }
+ }
+}

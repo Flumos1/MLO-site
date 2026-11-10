@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "LBR",
+ "data": {
+  "extended": {
+   "iso3": "LBR",
+   "name_ru": "Либерия",
+   "name_en": "Liberia",
+   "set": "extended",
+   "rank": 123,
+   "ivm": 11.03,
+   "ivm_autonomous": 10.63,
+   "p5": 11.35,
+   "p50": 13.3,
+   "p95": 15.27,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.87,
+   "imputed_share": 0.13,
+   "nuclear_class": 0,
+   "lambda": 3.24,
+   "pillars": {
+    "GRD": 6.18,
+    "AIR": 1.87,
+    "NAV": 2.53,
+    "STR": 0.0,
+    "C4I": 4.39,
+    "PER": 29.92,
+    "ECO": 20.1,
+    "IND": 5.19,
+    "LOG": 11.15,
+    "GEO": 36.36,
+    "ALL": 17.49,
+    "GOV": 40.88
+   }
+  }
+ }
+}

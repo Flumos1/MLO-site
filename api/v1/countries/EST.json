@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "EST",
+ "data": {
+  "extended": {
+   "iso3": "EST",
+   "name_ru": "Эстония",
+   "name_en": "Estonia",
+   "set": "extended",
+   "rank": 58,
+   "ivm": 24.24,
+   "ivm_autonomous": 22.79,
+   "p5": 22.84,
+   "p50": 25.57,
+   "p95": 27.91,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.935,
+   "imputed_share": 0.065,
+   "nuclear_class": 0,
+   "lambda": 2.84,
+   "pillars": {
+    "GRD": 32.39,
+    "AIR": 2.97,
+    "NAV": 6.17,
+    "STR": 3.26,
+    "C4I": 33.69,
+    "PER": 51.72,
+    "ECO": 29.61,
+    "IND": 14.8,
+    "LOG": 28.12,
+    "GEO": 25.22,
+    "ALL": 49.93,
+    "GOV": 54.84
+   }
+  }
+ }
+}

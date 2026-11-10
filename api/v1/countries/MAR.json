@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "MAR",
+ "data": {
+  "extended": {
+   "iso3": "MAR",
+   "name_ru": "Марокко",
+   "name_en": "Morocco",
+   "set": "extended",
+   "rank": 38,
+   "ivm": 32.52,
+   "ivm_autonomous": 32.21,
+   "p5": 31.09,
+   "p50": 33.13,
+   "p95": 35.26,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.921,
+   "imputed_share": 0.079,
+   "nuclear_class": 0,
+   "lambda": 3.28,
+   "pillars": {
+    "GRD": 51.09,
+    "AIR": 29.34,
+    "NAV": 23.5,
+    "STR": 0.0,
+    "C4I": 23.9,
+    "PER": 54.79,
+    "ECO": 34.23,
+    "IND": 10.97,
+    "LOG": 26.71,
+    "GEO": 41.34,
+    "ALL": 37.16,
+    "GOV": 40.38
+   }
+  }
+ }
+}

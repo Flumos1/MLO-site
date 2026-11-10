@@ -1,0 +1,42 @@
+{
+ "api_version": "v1",
+ "kind": "country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-10",
+ "iso3": "GEO",
+ "data": {
+  "extended": {
+   "iso3": "GEO",
+   "name_ru": "Грузия",
+   "name_en": "Georgia",
+   "set": "extended",
+   "rank": 69,
+   "ivm": 21.23,
+   "ivm_autonomous": 21.25,
+   "p5": 19.99,
+   "p50": 22.44,
+   "p95": 24.28,
+   "rank_lo": null,
+   "rank_hi": null,
+   "coverage": 0.944,
+   "imputed_share": 0.056,
+   "nuclear_class": 0,
+   "lambda": 2.36,
+   "pillars": {
+    "GRD": 33.18,
+    "AIR": 7.61,
+    "NAV": 6.29,
+    "STR": 0.54,
+    "C4I": 21.99,
+    "PER": 45.72,
+    "ECO": 27.88,
+    "IND": 13.8,
+    "LOG": 17.81,
+    "GEO": 24.28,
+    "ALL": 20.92,
+    "GOV": 44.43
+   }
+  }
+ }
+}
