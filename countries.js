@@ -758,7 +758,7 @@ window.IVM_PASSPORT = {
    0.29,
    0.71
   ],
-  "show_wide": false
+  "show_wide": true
  },
  "spotcheck2": {
   "pooled": {
@@ -925,7 +925,9 @@ window.IVM_PASSPORT = {
  "wide_confirmed": {
   "n_confirmed": 21,
   "n_new": 137,
-  "n_shown": 61,
+  "n_shown": 150,
+  "n_public": 150,
+  "n_manual": 89,
   "iso3": [
    "AGO",
    "ALB",
