@@ -3248,7 +3248,7 @@ function setLang(v) {
 }
 document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => { if (LANG !== b.dataset.v) setLang(b.dataset.v); }));
 /* ---------- Обратная связь: форма → GitHub Issues (MLO-site) или письмо ---------- */
-const FEEDBACK = { mail: "braimstill@gmail.com", issues: "https://github.com/Flumos1/MLO-site/issues/new", version: "0.9-rc · 23.10.2026" };
+const FEEDBACK = { mail: "braimstill@gmail.com", issues: "https://github.com/Flumos1/MLO-site/issues/new", version: "0.9-rc · 12.11.2026" };
 function renderVersion() {
   const el = $("site-version"); if (!el) return;
   el.innerHTML = L(`Версия ${esc(FEEDBACK.version)} (экспертный предпросмотр) · срез данных 2025 г. · <a href="CHANGELOG.md" target="_blank" rel="noopener">журнал изменений</a>`,
