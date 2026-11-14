@@ -6,9 +6,10 @@
 <title>Флеш Ф-002 · Индия — Пакистан</title>
 <script>
   (function () {
+    var root = document.documentElement;
     try {
-      var t = localStorage.getItem("ivm-flash-theme");
-      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      var t = localStorage.getItem("ivm-flash-theme") || localStorage.getItem("ivm-theme");
+      if (t === "light" || t === "dark") root.setAttribute("data-theme", t);
     } catch (e) {}
   })();
 </script>
@@ -183,7 +184,10 @@
     themeBtns.forEach(function (b) {
       b.addEventListener("click", function () {
         root.setAttribute("data-theme", b.dataset.themeSet);
-        try { localStorage.setItem("ivm-flash-theme", b.dataset.themeSet); } catch (e) {}
+        try {
+          localStorage.setItem("ivm-flash-theme", b.dataset.themeSet);
+          localStorage.setItem("ivm-theme", b.dataset.themeSet); // общий ключ с основным сайтом
+        } catch (e) {}
         paintTheme();
       });
     });
@@ -193,6 +197,7 @@
     langBtns.forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.langSet === curLang));
       b.addEventListener("click", function () {
+        try { localStorage.setItem("ivm-lang", b.dataset.langSet); } catch (e) {}
         var target = b.dataset.langSet === "en" ? document.body.dataset.hrefEn : document.body.dataset.hrefRu;
         if (target) location.href = target;
       });
