@@ -1,0 +1,763 @@
+{
+ "api_version": "v1",
+ "kind": "flash-track",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-14",
+ "note": "Публичный трек-рекорд флеш-аналитики: вероятности событий, каналы до активов, статус. Рыночные ряды третьих сторон не отдаются.",
+ "data": {
+  "updated": "2026-11-14",
+  "protocol": "core/lanmil/flash.py",
+  "rule": "Прогноз фиксируется до исхода; протокол не меняется после расчёта; результат публикуется в любом случае, включая промах.",
+  "fixed": "2026-11-14",
+  "summary": {
+   "n_flashes": 10,
+   "n_pending": 10,
+   "pending": [
+    "Ф-001",
+    "Ф-002",
+    "Ф-003",
+    "Ф-004",
+    "Ф-005",
+    "Ф-006",
+    "Ф-007",
+    "Ф-008",
+    "Ф-009",
+    "Ф-010"
+   ],
+   "n_rows": 0
+  },
+  "flashes": [
+   {
+    "id": "Ф-001",
+    "pair": "RUS-UKR",
+    "names": "Россия — Украина",
+    "event_class": "energy_strike",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.693,
+    "interval80": [
+     0.4877,
+     0.8427
+    ],
+    "p_year": 0.9917,
+    "assets": [
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "wti",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "henry_hub",
+      "direction": "up",
+      "threshold_pct": 10.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "bdry",
+      "direction": "up",
+      "threshold_pct": 10.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "kie",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.4,
+      "p_flash": 0.46
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     }
+    ]
+   },
+   {
+    "id": "Ф-002",
+    "pair": "IND-PAK",
+    "names": "Индия — Пакистан",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.571,
+    "interval80": [
+     0.3599,
+     0.7598
+    ],
+    "p_year": 0.9678,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-003",
+    "pair": "COD-RWA",
+    "names": "ДР Конго — Руанда",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.57,
+    "interval80": [
+     0.3586,
+     0.7588
+    ],
+    "p_year": 0.9674,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-004",
+    "pair": "IRN-ISR",
+    "names": "Иран — Израиль",
+    "event_class": "energy_strike",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.522,
+    "interval80": [
+     0.3148,
+     0.7211
+    ],
+    "p_year": 0.9497,
+    "assets": [
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "wti",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "henry_hub",
+      "direction": "up",
+      "threshold_pct": 10.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "bdry",
+      "direction": "up",
+      "threshold_pct": 10.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "kie",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.4,
+      "p_flash": 0.46
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     }
+    ]
+   },
+   {
+    "id": "Ф-005",
+    "pair": "AFG-PAK",
+    "names": "Афганистан — Пакистан",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.501,
+    "interval80": [
+     0.2977,
+     0.7046
+    ],
+    "p_year": 0.9405,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-006",
+    "pair": "IRN-USA",
+    "names": "Иран — США",
+    "event_class": "chokepoint",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.406,
+    "interval80": [
+     0.224,
+     0.6189
+    ],
+    "p_year": 0.8794,
+    "assets": [
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "bdry",
+      "direction": "up",
+      "threshold_pct": 10.0,
+      "p_clim": 0.8,
+      "p_flash": 0.9
+     },
+     {
+      "series": "kie",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.4,
+      "p_flash": 0.5
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.3
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.14
+     },
+     {
+      "series": "jpy",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "krw",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     }
+    ]
+   },
+   {
+    "id": "Ф-007",
+    "pair": "KHM-THA",
+    "names": "Камбоджа — Таиланд",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.351,
+    "interval80": [
+     0.1854,
+     0.5615
+    ],
+    "p_year": 0.8263,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-008",
+    "pair": "ARM-AZE",
+    "names": "Армения — Азербайджан",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.058,
+    "interval80": [
+     0.0252,
+     0.1269
+    ],
+    "p_year": 0.2143,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-009",
+    "pair": "ERI-ETH",
+    "names": "Эритрея — Эфиопия",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.009,
+    "interval80": [
+     0.0038,
+     0.0208
+    ],
+    "p_year": 0.0355,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   },
+   {
+    "id": "Ф-010",
+    "pair": "CHN-IND",
+    "names": "Китай — Индия",
+    "event_class": "border_war",
+    "horizon_days": 90,
+    "fixed": "2026-11-14",
+    "resolves": "2027-02-12",
+    "p": 0.006,
+    "interval80": [
+     0.0027,
+     0.0148
+    ],
+    "p_year": 0.0252,
+    "assets": [
+     {
+      "series": "vix",
+      "direction": "up",
+      "threshold_pct": 20.0,
+      "p_clim": 0.2,
+      "p_flash": 0.26
+     },
+     {
+      "series": "gold",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.8,
+      "p_flash": 0.86
+     },
+     {
+      "series": "ita",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "xar",
+      "direction": "up",
+      "threshold_pct": 4.0,
+      "p_clim": 0.6,
+      "p_flash": 0.66
+     },
+     {
+      "series": "inr",
+      "direction": "down",
+      "threshold_pct": 3.0,
+      "p_clim": 0.0,
+      "p_flash": 0.05
+     },
+     {
+      "series": "rub",
+      "direction": "down",
+      "threshold_pct": 5.0,
+      "p_clim": 0.4,
+      "p_flash": 0.34
+     },
+     {
+      "series": "cny",
+      "direction": "down",
+      "threshold_pct": 2.0,
+      "p_clim": 0.2,
+      "p_flash": 0.17
+     },
+     {
+      "series": "brent",
+      "direction": "up",
+      "threshold_pct": 5.0,
+      "p_clim": 0.2,
+      "p_flash": 0.23
+     }
+    ]
+   }
+  ]
+ }
+}

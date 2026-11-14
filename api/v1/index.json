@@ -3,7 +3,7 @@
  "kind": "api-index",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-12",
+ "generated": "2026-11-14",
  "data": {
   "base": "https://flumos1.github.io/MLO-site/api/v1",
   "endpoints": [
@@ -46,6 +46,10 @@
    {
     "path": "/forecast_log.json",
     "description": "Журнал прогнозов"
+   },
+   {
+    "path": "/flash/index.json",
+    "description": "Флеш-аналитика: публичный трек-рекорд"
    }
   ],
   "openapi": "https://flumos1.github.io/MLO-site/api/v1/openapi.json",

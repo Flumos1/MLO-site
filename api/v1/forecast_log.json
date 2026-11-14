@@ -3,9 +3,9 @@
  "kind": "forecast-log",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-12",
+ "generated": "2026-11-14",
  "data": {
-  "updated": "2026-11-10",
+  "updated": "2026-11-14",
   "rule": "Прогноз фиксируется коммитом до проверяемого периода; протокол не меняется после расчёта; результат публикуется в любом случае, в том числе промах.",
   "rule_en": "A forecast is fixed by a commit before the period under test; the protocol does not change after the calculation; the result is published in any case, including a miss.",
   "entries": [
@@ -140,6 +140,116 @@
     "status": "pending",
     "ru_note": "322 события, 80% интервал 236–408; проверка по выпуску Candidate, покрывающему декабрь 2026 г. (февраль–март 2027); расхождение с полным ACD — в примечании, без пересчёта.",
     "en_note": "322 events, 80% interval 236–408; scored from the Candidate release covering December 2026 (Feb–Mar 2027)."
+   },
+   {
+    "id": "Ф-001",
+    "ru": "Флеш Россия — Украина: Эскалация в паре Россия — Украина в пределах горизонта — вероятность 0.69 на 90 сут",
+    "en": "Flash Россия — Украина: escalation probability 0.69 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-002",
+    "ru": "Флеш Индия — Пакистан: Эскалация в паре Индия — Пакистан в пределах горизонта — вероятность 0.57 на 90 сут",
+    "en": "Flash Индия — Пакистан: escalation probability 0.57 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-003",
+    "ru": "Флеш ДР Конго — Руанда: Эскалация в паре ДР Конго — Руанда в пределах горизонта — вероятность 0.57 на 90 сут",
+    "en": "Flash ДР Конго — Руанда: escalation probability 0.57 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-004",
+    "ru": "Флеш Иран — Израиль: Эскалация в паре Иран — Израиль в пределах горизонта — вероятность 0.52 на 90 сут",
+    "en": "Flash Иран — Израиль: escalation probability 0.52 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-005",
+    "ru": "Флеш Афганистан — Пакистан: Эскалация в паре Афганистан — Пакистан в пределах горизонта — вероятность 0.50 на 90 сут",
+    "en": "Flash Афганистан — Пакистан: escalation probability 0.50 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-006",
+    "ru": "Флеш Иран — США: Эскалация в паре Иран — США в пределах горизонта — вероятность 0.41 на 90 сут",
+    "en": "Flash Иран — США: escalation probability 0.41 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-007",
+    "ru": "Флеш Камбоджа — Таиланд: Эскалация в паре Камбоджа — Таиланд в пределах горизонта — вероятность 0.35 на 90 сут",
+    "en": "Flash Камбоджа — Таиланд: escalation probability 0.35 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-008",
+    "ru": "Флеш Армения — Азербайджан: Эскалация в паре Армения — Азербайджан в пределах горизонта — вероятность 0.06 на 90 сут",
+    "en": "Flash Армения — Азербайджан: escalation probability 0.06 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-009",
+    "ru": "Флеш Эритрея — Эфиопия: Эскалация в паре Эритрея — Эфиопия в пределах горизонта — вероятность 0.01 на 90 сут",
+    "en": "Flash Эритрея — Эфиопия: escalation probability 0.01 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
+   },
+   {
+    "id": "Ф-010",
+    "ru": "Флеш Китай — Индия: Эскалация в паре Китай — Индия в пределах горизонта — вероятность 0.01 на 90 сут",
+    "en": "Flash Китай — Индия: escalation probability 0.01 over 90 days",
+    "fixed": "2026-11-14",
+    "commit": "pending",
+    "resolves": "2027-02-12",
+    "status": "pending",
+    "ru_note": "Активов в канале: 8; скоринг — Брайер события и попадание направления активов против климатологии; триггеры отмены — 5.",
+    "en_note": "Assets in the channel: 8; scoring — event Brier and asset direction hit rate against climatology; 5 cancellation triggers."
    }
   ]
  }

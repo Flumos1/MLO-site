@@ -195,6 +195,23 @@
      }
     }
    }
+  },
+  "/flash/index.json": {
+   "get": {
+    "summary": "Флеш-аналитика: публичный трек-рекорд",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {
