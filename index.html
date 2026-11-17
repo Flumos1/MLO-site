@@ -3094,14 +3094,20 @@ function reportMarkdown() {
     `- ${L("Вероятность, что перевеса хватает", "Probability that superiority suffices")}: **${c.pS === null ? "—" : fmt(c.pS * 100, 0) + "%"}**${c.pS === null ? "" : " — " + probTxt(c.pS, d.conf)}`, "");
   if (reportPair) {
     const a = reportPair.a, b = reportPair.b, dA = det[a], dB = det[b], rk = ranksOf(det.map((x) => x.Ieff));
+    const mcA = mc && det[a] ? mc[a] : null, mcB = mc && det[b] ? mc[b] : null;
+    const loA = mcA ? mcA.p5 : dA.Ieff, hiA = mcA ? mcA.p95 : dA.Ieff;
+    const loB = mcB ? mcB.p5 : dB.Ieff, hiB = mcB ? mcB.p95 : dB.Ieff;
+    const ratLo = hiB > 0 ? loA / hiB : null, ratHi = loB > 0 ? hiA / loB : null;
     L1.push(`## ${L("Профиль сторон", "Profile of the sides")}`, "",
       `| | A — ${cName(COUNTRIES[a])} | B — ${cName(COUNTRIES[b])} |`, "|---|---|---|",
       `| ${L("ИВМ (с ядерной осью)", "MPI (with nuclear axis)")} | ${fmt(dA.Ieff * 100, 1)} (${L("место", "rank")} ${rk[a]}) | ${fmt(dB.Ieff * 100, 1)} (${L("место", "rank")} ${rk[b]}) |`,
+      `| ${L("90% интервал ИВМ", "90% MPI interval")} | ${fmt(loA * 100, 1)}–${fmt(hiA * 100, 1)} | ${fmt(loB * 100, 1)}–${fmt(hiB * 100, 1)} |`,
       `| ${L("ИВМ без ядерной оси", "MPI excl. nuclear")} | ${fmt(dA.conv * 100, 1)} | ${fmt(dB.conv * 100, 1)} |`,
       `| λ, ${L("тыс. км", "k km")} | ${fmt(dA.lambda, 1)} | ${fmt(dB.lambda, 1)} |`);
     PILLARS.forEach((p, pi) => L1.push(`| ${pName(p)} | ${fmt(dA.P[pi] * 100, 0)} | ${fmt(dB.P[pi] * 100, 0)} |`));
     L1.push("", L(`Соотношение ИВМ: ${fmt(dA.Ieff / dB.Ieff, 2)} : 1. В расчёте баланса A — нападающий, B — обороняющийся (по умолчанию «подготовленная оборона», d = ${fmt(coal.d, 1)}).`,
       `MPI ratio: ${fmt(dA.Ieff / dB.Ieff, 2)} : 1. In the balance calculation A attacks and B defends (default “prepared defence”, d = ${fmt(coal.d, 1)}).`), "");
+    if (ratLo !== null && ratHi !== null) L1.push(`- ${L("90% интервал соотношения ИВМ", "90% interval of the MPI ratio")}: **${fmt(ratLo, 2)}–${fmt(ratHi, 2)} : 1** (${L("консервативная оценка по интервалам сторон", "conservative combination of the two countries' intervals")}).`, "");
   }
   if (DS.kind !== "real") L1.push(L(`> Набор данных «${DS.kind === "wide" ? "расширенный набор" : "40 государств"}»: значения части показателей получены из оценки ИИ (класс D, низший приоритет) и восстановлены по аналогам; интервалы неопределённости — в рейтинге.`, `> Dataset “${DS.kind === "wide" ? "extended set" : "40 states"}”: some indicator values come from an AI estimate (class D, lowest priority) or were reconstructed from analogues; uncertainty intervals are shown in the ranking.`), "");
   L1.push(`## ${L("Стороны", "Sides")}`, "");
