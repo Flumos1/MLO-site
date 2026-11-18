@@ -3,7 +3,7 @@
  "kind": "country",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "iso3": "USA",
  "data": {
   "pilot40": {
@@ -44,11 +44,11 @@
    "name_en": "United States",
    "set": "extended",
    "rank": 1,
-   "ivm": 79.57,
-   "ivm_autonomous": 78.7,
-   "p5": 77.09,
-   "p50": 78.52,
-   "p95": 79.94,
+   "ivm": 78.7,
+   "ivm_autonomous": 78.38,
+   "p5": 76.3,
+   "p50": 77.69,
+   "p95": 79.11,
    "rank_lo": null,
    "rank_hi": null,
    "coverage": 0.995,
@@ -60,13 +60,13 @@
     "AIR": 87.54,
     "NAV": 78.31,
     "STR": 92.07,
-    "C4I": 96.72,
+    "C4I": 92.97,
     "PER": 71.61,
     "ECO": 75.28,
     "IND": 78.31,
     "LOG": 68.9,
     "GEO": 64.13,
-    "ALL": 92.55,
+    "ALL": 83.27,
     "GOV": 71.86
    }
   }

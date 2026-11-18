@@ -3,7 +3,7 @@
  "kind": "country",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "iso3": "FRA",
  "data": {
   "pilot40": {
@@ -44,11 +44,11 @@
    "name_en": "France",
    "set": "extended",
    "rank": 4,
-   "ivm": 59.52,
-   "ivm_autonomous": 57.66,
-   "p5": 57.65,
-   "p50": 59.23,
-   "p95": 60.7,
+   "ivm": 58.72,
+   "ivm_autonomous": 57.55,
+   "p5": 56.94,
+   "p50": 58.45,
+   "p95": 59.83,
    "rank_lo": null,
    "rank_hi": null,
    "coverage": 0.986,
@@ -60,13 +60,13 @@
     "AIR": 54.52,
     "NAV": 63.44,
     "STR": 42.91,
-    "C4I": 72.98,
+    "C4I": 69.86,
     "PER": 62.25,
     "ECO": 53.19,
-    "IND": 61.68,
+    "IND": 60.45,
     "LOG": 46.23,
-    "GEO": 46.51,
-    "ALL": 89.58,
+    "GEO": 50.21,
+    "ALL": 76.69,
     "GOV": 61.48
    }
   }

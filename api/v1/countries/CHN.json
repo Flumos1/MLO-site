@@ -3,7 +3,7 @@
  "kind": "country",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "iso3": "CHN",
  "data": {
   "pilot40": {
@@ -44,11 +44,11 @@
    "name_en": "China",
    "set": "extended",
    "rank": 2,
-   "ivm": 75.74,
-   "ivm_autonomous": 77.47,
-   "p5": 73.57,
-   "p50": 75.14,
-   "p95": 76.67,
+   "ivm": 75.18,
+   "ivm_autonomous": 77.2,
+   "p5": 72.94,
+   "p50": 74.52,
+   "p95": 76.04,
    "rank_lo": null,
    "rank_hi": null,
    "coverage": 0.986,
@@ -60,13 +60,13 @@
     "AIR": 78.42,
     "NAV": 89.45,
     "STR": 77.06,
-    "C4I": 88.06,
+    "C4I": 84.31,
     "PER": 69.96,
     "ECO": 70.71,
-    "IND": 89.2,
+    "IND": 89.82,
     "LOG": 69.39,
     "GEO": 62.73,
-    "ALL": 53.11,
+    "ALL": 49.21,
     "GOV": 57.18
    }
   }

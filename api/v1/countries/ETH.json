@@ -3,7 +3,7 @@
  "kind": "country",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "iso3": "ETH",
  "data": {
   "pilot40": {
@@ -44,11 +44,11 @@
    "name_en": "Ethiopia",
    "set": "extended",
    "rank": 74,
-   "ivm": 22.59,
-   "ivm_autonomous": 23.3,
-   "p5": 21.52,
-   "p50": 23.63,
-   "p95": 25.76,
+   "ivm": 22.24,
+   "ivm_autonomous": 23.09,
+   "p5": 21.21,
+   "p50": 23.27,
+   "p95": 25.43,
    "rank_lo": null,
    "rank_hi": null,
    "coverage": 0.972,
@@ -60,13 +60,13 @@
     "AIR": 18.75,
     "NAV": 0.0,
     "STR": 0.0,
-    "C4I": 16.58,
+    "C4I": 14.7,
     "PER": 55.48,
     "ECO": 22.86,
     "IND": 10.16,
     "LOG": 19.56,
     "GEO": 43.19,
-    "ALL": 13.64,
+    "ALL": 11.86,
     "GOV": 40.15
    }
   }

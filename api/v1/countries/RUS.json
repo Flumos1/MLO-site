@@ -3,7 +3,7 @@
  "kind": "country",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "iso3": "RUS",
  "data": {
   "pilot40": {
@@ -44,11 +44,11 @@
    "name_en": "Russia",
    "set": "extended",
    "rank": 3,
-   "ivm": 71.08,
-   "ivm_autonomous": 71.78,
-   "p5": 69.12,
-   "p50": 70.7,
-   "p95": 72.19,
+   "ivm": 70.23,
+   "ivm_autonomous": 71.45,
+   "p5": 68.22,
+   "p50": 69.83,
+   "p95": 71.3,
    "rank_lo": null,
    "rank_hi": null,
    "coverage": 0.986,
@@ -60,13 +60,13 @@
     "AIR": 73.82,
     "NAV": 78.17,
     "STR": 92.93,
-    "C4I": 79.85,
+    "C4I": 76.1,
     "PER": 70.18,
     "ECO": 69.07,
     "IND": 74.23,
     "LOG": 66.31,
     "GEO": 54.97,
-    "ALL": 61.36,
+    "ALL": 53.89,
     "GOV": 57.32
    }
   }
