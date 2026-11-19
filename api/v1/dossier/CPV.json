@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "CPV",
+ "data": {
+  "iso3": "CPV",
+  "name_ru": "Кабо-Верде",
+  "name_en": "Cabo Verde",
+  "rank": 147,
+  "ivm": 13.15,
+  "p5": 13.36,
+  "p50": 15.51,
+  "p95": 17.71,
+  "rank_lo": 119,
+  "rank_hi": 167,
+  "nuclear_class": 0,
+  "lambda": 2.78,
+  "coverage": 0.744,
+  "imputed_share": 0.256,
+  "pillars": {
+   "GRD": 11.0,
+   "AIR": 5.9,
+   "NAV": 3.2,
+   "STR": 0.0,
+   "C4I": 8.6,
+   "PER": 44.5,
+   "ECO": 20.4,
+   "IND": 6.6,
+   "LOG": 8.3,
+   "GEO": 34.1,
+   "ALL": 6.2,
+   "GOV": 39.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/CPV.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "CYP",
+ "data": {
+  "iso3": "CYP",
+  "name_ru": "Кипр",
+  "name_en": "Cyprus",
+  "rank": 88,
+  "ivm": 20.44,
+  "p5": 19.83,
+  "p50": 22.25,
+  "p95": 24.36,
+  "rank_lo": 74,
+  "rank_hi": 96,
+  "nuclear_class": 0,
+  "lambda": 3.53,
+  "coverage": 0.791,
+  "imputed_share": 0.209,
+  "pillars": {
+   "GRD": 22.3,
+   "AIR": 13.6,
+   "NAV": 7.4,
+   "STR": 0.0,
+   "C4I": 20.5,
+   "PER": 49.9,
+   "ECO": 23.9,
+   "IND": 7.0,
+   "LOG": 18.5,
+   "GEO": 21.2,
+   "ALL": 28.4,
+   "GOV": 44.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/CYP.html"
+ }
+}

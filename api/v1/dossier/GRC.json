@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "GRC",
+ "data": {
+  "iso3": "GRC",
+  "name_ru": "Греция",
+  "name_en": "Greece",
+  "rank": 27,
+  "ivm": 41.03,
+  "p5": 39.36,
+  "p50": 41.23,
+  "p95": 42.82,
+  "rank_lo": 23,
+  "rank_hi": 29,
+  "nuclear_class": 0,
+  "lambda": 4.18,
+  "coverage": 0.986,
+  "imputed_share": 0.014,
+  "pillars": {
+   "GRD": 49.5,
+   "AIR": 48.6,
+   "NAV": 32.5,
+   "STR": 3.3,
+   "C4I": 41.3,
+   "PER": 59.4,
+   "ECO": 36.0,
+   "IND": 15.2,
+   "LOG": 32.8,
+   "GEO": 39.9,
+   "ALL": 62.1,
+   "GOV": 50.1
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/GRC.html"
+ }
+}

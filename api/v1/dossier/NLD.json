@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "NLD",
+ "data": {
+  "iso3": "NLD",
+  "name_ru": "Нидерланды",
+  "name_en": "Netherlands",
+  "rank": 31,
+  "ivm": 38.66,
+  "p5": 37.12,
+  "p50": 38.83,
+  "p95": 40.48,
+  "rank_lo": 28,
+  "rank_hi": 34,
+  "nuclear_class": 0,
+  "lambda": 3.35,
+  "coverage": 0.953,
+  "imputed_share": 0.047,
+  "pillars": {
+   "GRD": 41.5,
+   "AIR": 26.6,
+   "NAV": 33.9,
+   "STR": 4.9,
+   "C4I": 35.9,
+   "PER": 54.3,
+   "ECO": 50.4,
+   "IND": 29.8,
+   "LOG": 36.3,
+   "GEO": 34.6,
+   "ALL": 38.8,
+   "GOV": 57.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/NLD.html"
+ }
+}

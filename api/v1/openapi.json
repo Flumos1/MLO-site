@@ -212,6 +212,51 @@
      }
     }
    }
+  },
+  "/dossier/index.json": {
+   "get": {
+    "summary": "Досье 150 публичных стран (сводка)",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/dossier/{iso3}.json": {
+   "get": {
+    "summary": "Досье страны: ИВМ, интервал, столпы, покрытие",
+    "responses": {
+     "200": {
+      "description": "Успех",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Envelope"
+        }
+       }
+      }
+     }
+    },
+    "parameters": [
+     {
+      "name": "iso3",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "pattern": "^[A-Z]{3}$"
+      }
+     }
+    ]
+   }
   }
  },
  "components": {

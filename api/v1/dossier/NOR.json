@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "NOR",
+ "data": {
+  "iso3": "NOR",
+  "name_ru": "Норвегия",
+  "name_en": "Norway",
+  "rank": 25,
+  "ivm": 41.47,
+  "p5": 39.77,
+  "p50": 41.57,
+  "p95": 43.4,
+  "rank_lo": 22,
+  "rank_hi": 29,
+  "nuclear_class": 0,
+  "lambda": 3.48,
+  "coverage": 0.958,
+  "imputed_share": 0.042,
+  "pillars": {
+   "GRD": 39.0,
+   "AIR": 28.2,
+   "NAV": 37.6,
+   "STR": 3.3,
+   "C4I": 39.2,
+   "PER": 59.8,
+   "ECO": 50.0,
+   "IND": 31.2,
+   "LOG": 56.5,
+   "GEO": 37.9,
+   "ALL": 38.7,
+   "GOV": 58.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/NOR.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "HUN",
+ "data": {
+  "iso3": "HUN",
+  "name_ru": "Венгрия",
+  "name_en": "Hungary",
+  "rank": 64,
+  "ivm": 27.05,
+  "p5": 25.78,
+  "p50": 28.04,
+  "p95": 29.99,
+  "rank_lo": 53,
+  "rank_hi": 67,
+  "nuclear_class": 0,
+  "lambda": 2.45,
+  "coverage": 0.912,
+  "imputed_share": 0.088,
+  "pillars": {
+   "GRD": 40.5,
+   "AIR": 20.0,
+   "NAV": 0.0,
+   "STR": 4.3,
+   "C4I": 24.9,
+   "PER": 50.2,
+   "ECO": 36.9,
+   "IND": 19.2,
+   "LOG": 29.6,
+   "GEO": 30.6,
+   "ALL": 34.3,
+   "GOV": 41.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/HUN.html"
+ }
+}

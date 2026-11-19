@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "BTN",
+ "data": {
+  "iso3": "BTN",
+  "name_ru": "Бутан",
+  "name_en": "Bhutan",
+  "rank": 93,
+  "ivm": 18.75,
+  "p5": 18.0,
+  "p50": 20.56,
+  "p95": 22.93,
+  "rank_lo": 81,
+  "rank_hi": 111,
+  "nuclear_class": 0,
+  "lambda": 3.08,
+  "coverage": 0.8,
+  "imputed_share": 0.2,
+  "pillars": {
+   "GRD": 21.2,
+   "AIR": 11.6,
+   "NAV": 8.9,
+   "STR": 0.0,
+   "C4I": 13.8,
+   "PER": 54.1,
+   "ECO": 22.0,
+   "IND": 6.5,
+   "LOG": 14.3,
+   "GEO": 32.1,
+   "ALL": 13.6,
+   "GOV": 42.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/BTN.html"
+ }
+}

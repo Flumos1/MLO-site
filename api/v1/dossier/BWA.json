@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "BWA",
+ "data": {
+  "iso3": "BWA",
+  "name_ru": "Ботсвана",
+  "name_en": "Botswana",
+  "rank": 92,
+  "ivm": 18.9,
+  "p5": 18.2,
+  "p50": 20.35,
+  "p95": 22.22,
+  "rank_lo": 86,
+  "rank_hi": 108,
+  "nuclear_class": 0,
+  "lambda": 2.53,
+  "coverage": 0.847,
+  "imputed_share": 0.153,
+  "pillars": {
+   "GRD": 28.7,
+   "AIR": 13.5,
+   "NAV": 0.0,
+   "STR": 0.0,
+   "C4I": 13.8,
+   "PER": 42.2,
+   "ECO": 24.7,
+   "IND": 6.3,
+   "LOG": 16.0,
+   "GEO": 29.5,
+   "ALL": 24.6,
+   "GOV": 43.5
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/BWA.html"
+ }
+}

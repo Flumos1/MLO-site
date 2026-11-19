@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SRB",
+ "data": {
+  "iso3": "SRB",
+  "name_ru": "Сербия",
+  "name_en": "Serbia",
+  "rank": 57,
+  "ivm": 28.42,
+  "p5": 27.36,
+  "p50": 29.6,
+  "p95": 31.58,
+  "rank_lo": 46,
+  "rank_hi": 63,
+  "nuclear_class": 0,
+  "lambda": 2.69,
+  "coverage": 0.935,
+  "imputed_share": 0.065,
+  "pillars": {
+   "GRD": 42.6,
+   "AIR": 28.0,
+   "NAV": 4.1,
+   "STR": 0.0,
+   "C4I": 26.3,
+   "PER": 51.3,
+   "ECO": 32.8,
+   "IND": 28.6,
+   "LOG": 29.5,
+   "GEO": 28.4,
+   "ALL": 14.3,
+   "GOV": 44.1
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SRB.html"
+ }
+}

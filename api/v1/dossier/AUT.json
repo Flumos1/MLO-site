@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "AUT",
+ "data": {
+  "iso3": "AUT",
+  "name_ru": "Австрия",
+  "name_en": "Austria",
+  "rank": 55,
+  "ivm": 28.49,
+  "p5": 26.85,
+  "p50": 29.55,
+  "p95": 31.69,
+  "rank_lo": 45,
+  "rank_hi": 64,
+  "nuclear_class": 0,
+  "lambda": 2.49,
+  "coverage": 0.902,
+  "imputed_share": 0.098,
+  "pillars": {
+   "GRD": 40.4,
+   "AIR": 20.4,
+   "NAV": 0.0,
+   "STR": 0.0,
+   "C4I": 23.9,
+   "PER": 54.5,
+   "ECO": 37.4,
+   "IND": 21.6,
+   "LOG": 29.0,
+   "GEO": 34.4,
+   "ALL": 38.6,
+   "GOV": 50.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/AUT.html"
+ }
+}

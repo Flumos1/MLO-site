@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "PHL",
+ "data": {
+  "iso3": "PHL",
+  "name_ru": "Филиппины",
+  "name_en": "Philippines",
+  "rank": 47,
+  "ivm": 30.61,
+  "p5": 29.41,
+  "p50": 31.26,
+  "p95": 33.18,
+  "rank_lo": 40,
+  "rank_hi": 55,
+  "nuclear_class": 0,
+  "lambda": 4.1,
+  "coverage": 0.972,
+  "imputed_share": 0.028,
+  "pillars": {
+   "GRD": 30.0,
+   "AIR": 17.9,
+   "NAV": 24.9,
+   "STR": 2.2,
+   "C4I": 19.3,
+   "PER": 61.6,
+   "ECO": 35.9,
+   "IND": 13.9,
+   "LOG": 29.2,
+   "GEO": 65.6,
+   "ALL": 35.8,
+   "GOV": 44.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/PHL.html"
+ }
+}

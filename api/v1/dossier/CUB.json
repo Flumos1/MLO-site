@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "CUB",
+ "data": {
+  "iso3": "CUB",
+  "name_ru": "Куба",
+  "name_en": "Cuba",
+  "rank": 80,
+  "ivm": 21.79,
+  "p5": 20.56,
+  "p50": 22.9,
+  "p95": 25.24,
+  "rank_lo": 71,
+  "rank_hi": 91,
+  "nuclear_class": 0,
+  "lambda": 3.02,
+  "coverage": 0.828,
+  "imputed_share": 0.172,
+  "pillars": {
+   "GRD": 40.9,
+   "AIR": 14.6,
+   "NAV": 14.9,
+   "STR": 0.0,
+   "C4I": 18.5,
+   "PER": 47.5,
+   "ECO": 23.1,
+   "IND": 4.2,
+   "LOG": 23.2,
+   "GEO": 40.7,
+   "ALL": 4.7,
+   "GOV": 35.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/CUB.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "KEN",
+ "data": {
+  "iso3": "KEN",
+  "name_ru": "Кения",
+  "name_en": "Kenya",
+  "rank": 84,
+  "ivm": 20.98,
+  "p5": 20.08,
+  "p50": 22.3,
+  "p95": 24.35,
+  "rank_lo": 75,
+  "rank_hi": 94,
+  "nuclear_class": 0,
+  "lambda": 2.81,
+  "coverage": 0.926,
+  "imputed_share": 0.074,
+  "pillars": {
+   "GRD": 33.3,
+   "AIR": 13.9,
+   "NAV": 4.7,
+   "STR": 0.0,
+   "C4I": 12.6,
+   "PER": 47.4,
+   "ECO": 24.7,
+   "IND": 7.0,
+   "LOG": 19.7,
+   "GEO": 48.5,
+   "ALL": 17.6,
+   "GOV": 39.8
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/KEN.html"
+ }
+}

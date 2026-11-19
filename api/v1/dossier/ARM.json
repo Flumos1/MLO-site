@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ARM",
+ "data": {
+  "iso3": "ARM",
+  "name_ru": "Армения",
+  "name_en": "Armenia",
+  "rank": 70,
+  "ivm": 24.06,
+  "p5": 22.75,
+  "p50": 24.93,
+  "p95": 26.85,
+  "rank_lo": 67,
+  "rank_hi": 79,
+  "nuclear_class": 0,
+  "lambda": 2.25,
+  "coverage": 0.967,
+  "imputed_share": 0.033,
+  "pillars": {
+   "GRD": 39.4,
+   "AIR": 24.9,
+   "NAV": 0.0,
+   "STR": 1.6,
+   "C4I": 21.7,
+   "PER": 50.7,
+   "ECO": 34.7,
+   "IND": 9.8,
+   "LOG": 17.0,
+   "GEO": 25.6,
+   "ALL": 23.9,
+   "GOV": 43.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ARM.html"
+ }
+}

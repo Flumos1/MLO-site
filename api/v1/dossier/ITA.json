@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ITA",
+ "data": {
+  "iso3": "ITA",
+  "name_ru": "Италия",
+  "name_en": "Italy",
+  "rank": 11,
+  "ivm": 53.32,
+  "p5": 51.7,
+  "p50": 53.21,
+  "p95": 54.69,
+  "rank_lo": 9,
+  "rank_hi": 11,
+  "nuclear_class": 0,
+  "lambda": 6.97,
+  "coverage": 1.0,
+  "imputed_share": 0.0,
+  "pillars": {
+   "GRD": 52.7,
+   "AIR": 57.6,
+   "NAV": 54.3,
+   "STR": 4.3,
+   "C4I": 59.3,
+   "PER": 56.9,
+   "ECO": 49.6,
+   "IND": 48.7,
+   "LOG": 38.7,
+   "GEO": 46.7,
+   "ALL": 70.0,
+   "GOV": 54.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ITA.html"
+ }
+}

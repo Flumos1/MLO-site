@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SUR",
+ "data": {
+  "iso3": "SUR",
+  "name_ru": "Суринам",
+  "name_en": "Suriname",
+  "rank": 167,
+  "ivm": 11.73,
+  "p5": 11.93,
+  "p50": 14.12,
+  "p95": 16.21,
+  "rank_lo": 139,
+  "rank_hi": 174,
+  "nuclear_class": 0,
+  "lambda": 2.37,
+  "coverage": 0.847,
+  "imputed_share": 0.153,
+  "pillars": {
+   "GRD": 12.3,
+   "AIR": 3.3,
+   "NAV": 4.0,
+   "STR": 0.0,
+   "C4I": 5.9,
+   "PER": 33.1,
+   "ECO": 12.9,
+   "IND": 5.2,
+   "LOG": 12.4,
+   "GEO": 34.8,
+   "ALL": 10.4,
+   "GOV": 35.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SUR.html"
+ }
+}

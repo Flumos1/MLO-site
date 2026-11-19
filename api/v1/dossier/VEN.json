@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "VEN",
+ "data": {
+  "iso3": "VEN",
+  "name_ru": "Венесуэла",
+  "name_en": "Venezuela",
+  "rank": 77,
+  "ivm": 22.35,
+  "p5": 21.49,
+  "p50": 23.47,
+  "p95": 25.34,
+  "rank_lo": 71,
+  "rank_hi": 87,
+  "nuclear_class": 0,
+  "lambda": 3.85,
+  "coverage": 0.935,
+  "imputed_share": 0.065,
+  "pillars": {
+   "GRD": 31.6,
+   "AIR": 27.5,
+   "NAV": 17.3,
+   "STR": 0.0,
+   "C4I": 16.1,
+   "PER": 39.4,
+   "ECO": 13.4,
+   "IND": 5.1,
+   "LOG": 33.5,
+   "GEO": 53.2,
+   "ALL": 7.7,
+   "GOV": 25.9
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/VEN.html"
+ }
+}

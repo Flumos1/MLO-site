@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "FJI",
+ "data": {
+  "iso3": "FJI",
+  "name_ru": "Фиджи",
+  "name_en": "Fiji",
+  "rank": 168,
+  "ivm": 11.61,
+  "p5": 12.18,
+  "p50": 14.15,
+  "p95": 16.02,
+  "rank_lo": 142,
+  "rank_hi": 173,
+  "nuclear_class": 0,
+  "lambda": 2.81,
+  "coverage": 0.763,
+  "imputed_share": 0.237,
+  "pillars": {
+   "GRD": 9.4,
+   "AIR": 2.5,
+   "NAV": 2.8,
+   "STR": 0.0,
+   "C4I": 7.0,
+   "PER": 36.9,
+   "ECO": 17.0,
+   "IND": 4.7,
+   "LOG": 8.2,
+   "GEO": 36.4,
+   "ALL": 14.0,
+   "GOV": 38.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/FJI.html"
+ }
+}

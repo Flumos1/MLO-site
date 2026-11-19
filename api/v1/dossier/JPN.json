@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "JPN",
+ "data": {
+  "iso3": "JPN",
+  "name_ru": "Япония",
+  "name_en": "Japan",
+  "rank": 8,
+  "ivm": 55.19,
+  "p5": 53.66,
+  "p50": 55.1,
+  "p95": 56.59,
+  "rank_lo": 6,
+  "rank_hi": 10,
+  "nuclear_class": 0,
+  "lambda": 6.93,
+  "coverage": 0.986,
+  "imputed_share": 0.014,
+  "pillars": {
+   "GRD": 59.3,
+   "AIR": 61.9,
+   "NAV": 55.9,
+   "STR": 19.4,
+   "C4I": 50.3,
+   "PER": 54.2,
+   "ECO": 56.2,
+   "IND": 57.2,
+   "LOG": 46.2,
+   "GEO": 59.8,
+   "ALL": 43.1,
+   "GOV": 55.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/JPN.html"
+ }
+}

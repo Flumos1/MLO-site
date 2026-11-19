@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "DNK",
+ "data": {
+  "iso3": "DNK",
+  "name_ru": "Дания",
+  "name_en": "Denmark",
+  "rank": 36,
+  "ivm": 35.69,
+  "p5": 34.0,
+  "p50": 35.96,
+  "p95": 37.8,
+  "rank_lo": 33,
+  "rank_hi": 38,
+  "nuclear_class": 0,
+  "lambda": 3.19,
+  "coverage": 0.921,
+  "imputed_share": 0.079,
+  "pillars": {
+   "GRD": 36.1,
+   "AIR": 26.6,
+   "NAV": 28.2,
+   "STR": 3.3,
+   "C4I": 34.1,
+   "PER": 55.9,
+   "ECO": 48.9,
+   "IND": 21.9,
+   "LOG": 33.9,
+   "GEO": 30.3,
+   "ALL": 37.0,
+   "GOV": 58.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/DNK.html"
+ }
+}

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Досье: Мадагаскар</title>
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var t = localStorage.getItem("ivm-flash-theme") || localStorage.getItem("ivm-theme");
+      if (t === "light" || t === "dark") root.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  :root{
+    --bg:#07090d; --panel:#0d1219; --panel2:#111926; --line:#1e2a38;
+    --ink:#e9eef6; --muted:#8395a9; --dim:#5d6c7e;
+    --accent:#59e0ff; --lime:#c6f24e; --amber:#ffb340; --warn:#ff6b57;
+    --on-accent:#04212b; --on-lime:#16210a; --on-amber:#2a1a02; --on-warn:#2a0a06;
+    --glow1:rgba(89,224,255,.09); --glow2:rgba(198,242,78,.06);
+    --range:rgba(89,224,255,.22); --stamp-bg:rgba(255,107,87,.05);
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color-scheme:dark;
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f8f6; --panel:#ffffff; --panel2:#eef1ee; --line:#d7ddd8;
+    --ink:#12181d; --muted:#5b6b78; --dim:#7c8b97;
+    --accent:#0b7f9e; --lime:#4f7d00; --amber:#a56200; --warn:#b3382a;
+    --on-accent:#ffffff; --on-lime:#ffffff; --on-amber:#ffffff; --on-warn:#ffffff;
+    --glow1:rgba(11,127,158,.07); --glow2:rgba(79,125,0,.05);
+    --range:rgba(11,127,158,.18); --stamp-bg:rgba(179,56,42,.05);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f7f8f6; --panel:#ffffff; --panel2:#eef1ee; --line:#d7ddd8;
+      --ink:#12181d; --muted:#5b6b78; --dim:#7c8b97;
+      --accent:#0b7f9e; --lime:#4f7d00; --amber:#a56200; --warn:#b3382a;
+      --on-accent:#ffffff; --on-lime:#ffffff; --on-amber:#ffffff; --on-warn:#ffffff;
+      --glow1:rgba(11,127,158,.07); --glow2:rgba(79,125,0,.05);
+      --range:rgba(11,127,158,.18); --stamp-bg:rgba(179,56,42,.05);
+      color-scheme:light;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(1200px 600px at 15% -10%, var(--glow1), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, var(--glow2), transparent 55%),
+      var(--bg);
+    color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .sheet{max-width:1120px;margin:0 auto;padding:24px 20px 56px}
+  .top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
+    border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:34px;height:34px;border:1px solid var(--accent);border-radius:6px;position:relative;
+    box-shadow:0 0 18px var(--range) inset;flex:none}
+  .mark::before,.mark::after{content:"";position:absolute;background:var(--lime)}
+  .mark::before{left:7px;right:7px;top:16px;height:2px;transform:rotate(-24deg)}
+  .mark::after{left:16px;top:7px;bottom:7px;width:2px;transform:rotate(24deg);opacity:.55}
+  .kicker{font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  .brand h1{margin:5px 0 0;font-size:19px;letter-spacing:.01em}
+  .stamp{border:1px solid var(--warn);color:var(--warn);border-radius:4px;padding:7px 10px;
+    font:600 10px/1.25 var(--mono);letter-spacing:.14em;text-transform:uppercase;max-width:260px;text-align:center;
+    transform:rotate(-1.2deg);background:var(--stamp-bg)}
+  .bar-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    margin:0 0 22px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .nav{display:flex;gap:14px;flex-wrap:wrap;font:600 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .nav a{color:var(--muted)} .nav a:hover,.nav a[aria-current]{color:var(--accent)}
+  .tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+  .seg button{border:0;background:transparent;color:var(--muted);font:600 11px/1 var(--mono);
+    padding:7px 10px;cursor:pointer;letter-spacing:.06em}
+  .seg button[aria-pressed="true"]{background:var(--panel2);color:var(--ink)}
+  .seg button:hover{color:var(--accent)}
+  .meta{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 24px;font:500 12px/1.4 var(--mono);color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:600}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:1.35fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--panel2),transparent 70%),var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:.65}
+  .card.lime::before{background:var(--lime)} .card.amber::before{background:var(--amber)}
+  .card h2{margin:0 0 12px;font:600 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .card p{margin:0 0 10px}
+  .lead{font-size:17px;line-height:1.45}
+  .prob{display:flex;align-items:flex-end;gap:14px;margin:6px 0 10px}
+  .prob .num{font:700 54px/1 var(--mono);letter-spacing:-.03em;color:var(--lime)}
+  .prob .unit{font:600 11px/1.3 var(--mono);color:var(--muted);padding-bottom:7px}
+  .bar{height:9px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);position:relative;margin:12px 0 6px}
+  .bar .range{position:absolute;top:0;bottom:0;background:var(--range);border-left:1px solid var(--accent);border-right:1px solid var(--accent)}
+  .bar .point{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--lime);border-radius:2px}
+  .scale{display:flex;justify-content:space-between;font:500 10px/1 var(--mono);color:var(--dim)}
+  .note{font-size:12.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font:500 12.5px/1.4 var(--mono)}
+  th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  td.r,th.r{text-align:right}
+  .chip{display:inline-block;padding:2px 7px;border-radius:3px;font:600 10px/1.5 var(--mono);letter-spacing:.06em}
+  .up{background:var(--lime);color:var(--on-lime);border:1px solid var(--lime)}
+  .down{background:var(--warn);color:var(--on-warn);border:1px solid var(--warn)}
+  .conf{color:var(--muted)}
+  ol.trig{margin:0;padding-left:0;list-style:none;counter-reset:t}
+  ol.trig li{counter-increment:t;position:relative;padding:7px 0 7px 34px;border-bottom:1px dashed var(--line);font-size:13.5px}
+  ol.trig li:last-child{border-bottom:0}
+  ol.trig li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:7px;
+    font:600 10px/1.6 var(--mono);color:var(--accent);border:1px solid var(--line);border-radius:3px;padding:1px 5px}
+  .foot{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:11.5px}
+  .foot p{margin:0 0 6px}
+  .track td{font-size:12px}
+  .status{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+  .pending{color:var(--amber)} .scored{color:var(--lime)}
+  .kpi{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 20px}
+  .kpi div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;min-width:150px}
+  .kpi b{display:block;font:700 26px/1.1 var(--mono);color:var(--ink)}
+  .kpi span{font:600 9.5px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .doc{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:var(--panel)}
+  .doc h3{margin:0 0 6px;font-size:15px}
+  .doc p{margin:0 0 8px;font-size:13.5px;color:var(--muted)}
+  .doc .links{font:600 11px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  .refs h3{margin:22px 0 8px;font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .refs ol{margin:0;padding-left:22px}
+  .refs li{margin:0 0 7px;font-size:13px;line-height:1.45}
+  .refs li .yr{font:600 11px/1 var(--mono);color:var(--dim);margin-right:6px}
+  .refs li a{font-size:11.5px}
+  .search{width:100%;max-width:420px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);
+    background:var(--panel);color:var(--ink);font:500 13px/1.3 var(--sans);margin:0 0 18px}
+  .search:focus{outline:2px solid var(--accent);outline-offset:1px}
+  @media print{
+    body{background:#fff;color:#111}
+    .card,.kpi div,.doc{background:#fff;border-color:#ccc}
+    .card::before{display:none}
+    .stamp{color:#b33;border-color:#b33}
+    a{color:#111}
+    .prob .num{color:#111}
+    .bar-nav,.tools{display:none}
+  }
+</style>
+</head>
+<body data-href-ru="MDG.html" data-href-en="en/MDG.html">
+<div class="sheet">
+  <div class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <div class="kicker">DOSSIER / страна</div>
+        <h1>Досье: Мадагаскар</h1>
+      </div>
+    </div>
+    <div class="stamp">Не является инвестиционной рекомендацией<br>Not investment advice</div>
+  </div>
+  <div class="bar-nav">
+    <nav class="nav"><a href="index.html">Все страны</a><a href="../scenario/index.html">Сценарии</a><a href="../index.html">Основной сайт</a></nav>
+    <div class="tools">
+      <span class="seg" id="theme-switch" role="group" aria-label="Светлая / Тёмная">
+        <button type="button" data-theme-set="light">Светлая</button>
+        <button type="button" data-theme-set="dark">Тёмная</button>
+      </span>
+      <span class="seg" id="lang-switch" role="group" aria-label="Язык">
+        <button type="button" data-lang-set="ru">RU</button>
+        <button type="button" data-lang-set="en">EN</button>
+      </span>
+    </div>
+  </div>
+  <div class="kpi"><div><b>12.9</b><span>ИВМ</span></div><div><b>12.6–16.7</b><span>90% интервал</span></div><div><b>152</b><span>место</span></div><div><b>нет ЯО</b><span>ЯО</span></div><div><b>2.7</b><span>λ</span></div></div><div class="grid g2"><div class="card lime"><h2>Столпы</h2><table><thead><tr><th class="">Столп</th><th class="r">Балл</th><th class=""></th></tr></thead><tbody><tr><td class="">Сухопутные силы</td><td class="r">10.9</td><td class=""></td></tr><tr><td class="">Авиация</td><td class="r">3.4</td><td class=""></td></tr><tr><td class="">Флот</td><td class="r">3.2</td><td class=""></td></tr><tr><td class="">Стратегический щит</td><td class="r">0.0</td><td class="">▶</td></tr><tr><td class="">Управление и связь</td><td class="r">5.3</td><td class=""></td></tr><tr><td class="">Личный состав</td><td class="r">32.5</td><td class=""></td></tr><tr><td class="">Экономика</td><td class="r">15.7</td><td class=""></td></tr><tr><td class="">Промышленность</td><td class="r">6.6</td><td class=""></td></tr><tr><td class="">Логистика</td><td class="r">12.9</td><td class=""></td></tr><tr><td class="">География</td><td class="r">54.7</td><td class="">◀</td></tr><tr><td class="">Союзники</td><td class="r">17.9</td><td class=""></td></tr><tr><td class="">Государство</td><td class="r">32.7</td><td class=""></td></tr></tbody></table></div><div class="card amber"><h2>Что не подтверждено</h2><p>Число надёжно настолько, насколько полны данные. Ниже — что именно не подтверждено.</p><ul style="margin:0 0 10px 18px;font-size:13.5px"><li>Покрытие среза: <b>88%</b></li><li>Доля восстановленных значений: <b>12%</b></li><li>Доля класса D в наборе (оценка ИИ): <b>31.8%</b></li></ul><p class="note">Доля класса D — общая для набора: значения класса D у страны на сайте скрыты до панели экспертов.</p></div></div><div style="margin-top:16px"><div class="card "><h2>Ключевые числа</h2><table><thead><tr><th class="">Показатель</th><th class="r">Значение</th><th class="r">Год</th><th class="">Класс</th><th class="">Источник</th><th class="">Ссылка</th></tr></thead><tbody><tr><td class="">P01</td><td class="r">13.5</td><td class="r">2024</td><td class="">B</td><td class="">wiki</td><td class="">IISS Military Balance 2025 через Википедию</td></tr><tr><td class="">P03</td><td class="r">8.1</td><td class="r">2024</td><td class="">B</td><td class="">wiki</td><td class="">IISS Military Balance 2025 через Википедию</td></tr><tr><td class="">P10</td><td class="r">9.0</td><td class="r">2024</td><td class="">C</td><td class="">derived</td><td class="">расчёт: E01 (SIPRI) / P01 (IISS)</td></tr><tr><td class="">A01</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">gfp</td><td class="">Global Firepower 2026</td></tr><tr><td class="">A02</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">gfp</td><td class="">Global Firepower 2026</td></tr><tr><td class="">A03</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">manual</td><td class="">OSINT</td></tr><tr><td class="">G01</td><td class="r">12.0</td><td class="r">2025</td><td class="">C</td><td class="">gfp</td><td class="">Global Firepower 2026</td></tr><tr><td class="">N10</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">gfp</td><td class="">Global Firepower 2026</td></tr><tr><td class="">N15</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">manual</td><td class="">OSINT</td></tr><tr><td class="">E01</td><td class="r">0.1</td><td class="r">2025</td><td class="">B</td><td class="">sipri</td><td class="">SIPRI Milex 2026</td></tr><tr><td class="">E02</td><td class="r">0.4</td><td class="r">2025</td><td class="">C</td><td class="">sipri</td><td class="">SIPRI Milex 2026 × IMF PPPGDP</td></tr><tr><td class="">E03</td><td class="r">0.6</td><td class="r">2025</td><td class="">B</td><td class="">sipri</td><td class="">SIPRI Milex 2026</td></tr><tr><td class="">E05</td><td class="r">5.0</td><td class="r">2025</td><td class="">D</td><td class="">ai</td><td class="">Оценка ИИ (Claude Sonnet 5.5) по открытым источникам, 19.10.</td></tr><tr><td class="">I01</td><td class="r">0.0</td><td class="r">2024</td><td class="">B</td><td class="">extra</td><td class="">SIPRI Top-100 (2024)</td></tr><tr><td class="">I03</td><td class="r">3.0</td><td class="r">2025</td><td class="">B</td><td class="">wb</td><td class="">WB MS.MIL.MPRT.KD</td></tr><tr><td class="">I11</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">open2</td><td class="">UNCTADstat US.ShipBuilding (суда от 100 GT)</td></tr><tr><td class="">L01</td><td class="r">0.8</td><td class="r">2018</td><td class="">C</td><td class="">factbook</td><td class="">CIA World Factbook</td></tr><tr><td class="">D03</td><td class="r">27.8</td><td class="r">2024</td><td class="">C</td><td class="">open2</td><td class="">Nunn–Puga (2012) rugged_pc; WB AG.LND.FRST.ZS</td></tr><tr><td class="">S05</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">proxy2</td><td class="">IAEA PRIS — Nuclear power by country (Википедия, сводка PRIS</td></tr><tr><td class="">C08</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">proxy2</td><td class="">List of cyber warfare forces (Википедия; открытые источники </td></tr><tr><td class="">D07</td><td class="r">0.0</td><td class="r">2025</td><td class="">C</td><td class="">proxy2</td><td class="">UCDP/PRIO ACD v26.1 (территория, межгосударственный) + CIA W</td></tr><tr><td class="">X04</td><td class="r">0.1</td><td class="r">2025</td><td class="">C</td><td class="">proxy2</td><td class="">data/ref/defense_treaties.csv; Research &amp; Politics 2018 (41 </td></tr></tbody></table></div></div><div style="margin-top:16px"><div class="card "><h2>Что смотреть дальше</h2><ol style="margin:0 0 0 18px;font-size:13.5px"><li>Слабый столп — Стратегический щит: посмотреть, какие показатели его тянут вниз.</li><li>Сильный столп — География: проверить, не является ли это следствием весов.</li><li>Открыть карточку страны на сайте: там рычаги «что если».</li></ol></div></div>
+  <div class="foot"><p>ИВМ «Ланчестер–Осипов», досье Мадагаскар, срез 2025. Лицензия CC BY 4.0, ссылка обязательна.</p><p>Данные третьих сторон не перепродаются; значения класса D скрыты.</p></div>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var themeBtns = document.querySelectorAll("[data-theme-set]");
+    function paintTheme() {
+      var cur = root.getAttribute("data-theme") || "dark";
+      themeBtns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.themeSet === cur));
+      });
+    }
+    themeBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.setAttribute("data-theme", b.dataset.themeSet);
+        try {
+          localStorage.setItem("ivm-flash-theme", b.dataset.themeSet);
+          localStorage.setItem("ivm-theme", b.dataset.themeSet); // общий ключ с основным сайтом
+        } catch (e) {}
+        paintTheme();
+      });
+    });
+    paintTheme();
+    var langBtns = document.querySelectorAll("[data-lang-set]");
+    var curLang = document.documentElement.lang === "en" ? "en" : "ru";
+    langBtns.forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.langSet === curLang));
+      b.addEventListener("click", function () {
+        try { localStorage.setItem("ivm-lang", b.dataset.langSet); } catch (e) {}
+        var target = b.dataset.langSet === "en" ? document.body.dataset.hrefEn : document.body.dataset.hrefRu;
+        if (target) location.href = target;
+      });
+    });
+    var box = document.getElementById("ref-filter");
+    if (box) {
+      var items = document.querySelectorAll(".refs li");
+      box.addEventListener("input", function () {
+        var q = box.value.trim().toLowerCase();
+        items.forEach(function (li) {
+          li.style.display = !q || li.textContent.toLowerCase().indexOf(q) !== -1 ? "" : "none";
+        });
+      });
+    }
+  })();
+</script>
+</body>
+</html>

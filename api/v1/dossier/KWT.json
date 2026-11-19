@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "KWT",
+ "data": {
+  "iso3": "KWT",
+  "name_ru": "Кувейт",
+  "name_en": "Kuwait",
+  "rank": 62,
+  "ivm": 27.39,
+  "p5": 26.27,
+  "p50": 28.53,
+  "p95": 30.61,
+  "rank_lo": 51,
+  "rank_hi": 66,
+  "nuclear_class": 0,
+  "lambda": 3.29,
+  "coverage": 0.94,
+  "imputed_share": 0.06,
+  "pillars": {
+   "GRD": 41.6,
+   "AIR": 28.0,
+   "NAV": 10.8,
+   "STR": 0.0,
+   "C4I": 19.5,
+   "PER": 48.7,
+   "ECO": 42.0,
+   "IND": 3.2,
+   "LOG": 44.3,
+   "GEO": 29.2,
+   "ALL": 24.9,
+   "GOV": 37.2
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/KWT.html"
+ }
+}

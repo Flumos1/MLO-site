@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "FIN",
+ "data": {
+  "iso3": "FIN",
+  "name_ru": "Финляндия",
+  "name_en": "Finland",
+  "rank": 26,
+  "ivm": 41.09,
+  "p5": 39.32,
+  "p50": 41.16,
+  "p95": 42.83,
+  "rank_lo": 23,
+  "rank_hi": 30,
+  "nuclear_class": 0,
+  "lambda": 3.35,
+  "coverage": 0.995,
+  "imputed_share": 0.005,
+  "pillars": {
+   "GRD": 53.6,
+   "AIR": 37.8,
+   "NAV": 17.1,
+   "STR": 4.3,
+   "C4I": 41.3,
+   "PER": 54.9,
+   "ECO": 38.2,
+   "IND": 27.9,
+   "LOG": 42.5,
+   "GEO": 36.5,
+   "ALL": 58.3,
+   "GOV": 67.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/FIN.html"
+ }
+}

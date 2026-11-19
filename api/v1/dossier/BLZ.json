@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "BLZ",
+ "data": {
+  "iso3": "BLZ",
+  "name_ru": "Белиз",
+  "name_en": "Belize",
+  "rank": 160,
+  "ivm": 12.23,
+  "p5": 12.29,
+  "p50": 14.38,
+  "p95": 16.38,
+  "rank_lo": 136,
+  "rank_hi": 173,
+  "nuclear_class": 0,
+  "lambda": 2.9,
+  "coverage": 0.86,
+  "imputed_share": 0.14,
+  "pillars": {
+   "GRD": 12.5,
+   "AIR": 3.3,
+   "NAV": 3.9,
+   "STR": 0.0,
+   "C4I": 6.2,
+   "PER": 34.9,
+   "ECO": 17.6,
+   "IND": 6.0,
+   "LOG": 12.0,
+   "GEO": 29.2,
+   "ALL": 10.4,
+   "GOV": 37.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/BLZ.html"
+ }
+}

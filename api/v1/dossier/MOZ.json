@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "MOZ",
+ "data": {
+  "iso3": "MOZ",
+  "name_ru": "Мозамбик",
+  "name_en": "Mozambique",
+  "rank": 109,
+  "ivm": 16.36,
+  "p5": 15.78,
+  "p50": 17.99,
+  "p95": 20.04,
+  "rank_lo": 98,
+  "rank_hi": 137,
+  "nuclear_class": 0,
+  "lambda": 2.91,
+  "coverage": 0.921,
+  "imputed_share": 0.079,
+  "pillars": {
+   "GRD": 19.8,
+   "AIR": 6.6,
+   "NAV": 4.0,
+   "STR": 0.0,
+   "C4I": 8.5,
+   "PER": 42.7,
+   "ECO": 12.4,
+   "IND": 6.5,
+   "LOG": 21.8,
+   "GEO": 48.9,
+   "ALL": 22.0,
+   "GOV": 37.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/MOZ.html"
+ }
+}

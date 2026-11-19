@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "KOR",
+ "data": {
+  "iso3": "KOR",
+  "name_ru": "Республика Корея",
+  "name_en": "South Korea",
+  "rank": 5,
+  "ivm": 57.13,
+  "p5": 55.49,
+  "p50": 57.07,
+  "p95": 58.5,
+  "rank_lo": 4,
+  "rank_hi": 7,
+  "nuclear_class": 0,
+  "lambda": 5.69,
+  "coverage": 0.991,
+  "imputed_share": 0.009,
+  "pillars": {
+   "GRD": 69.4,
+   "AIR": 62.0,
+   "NAV": 54.4,
+   "STR": 17.1,
+   "C4I": 48.0,
+   "PER": 63.9,
+   "ECO": 58.6,
+   "IND": 65.3,
+   "LOG": 44.8,
+   "GEO": 49.5,
+   "ALL": 43.0,
+   "GOV": 56.5
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/KOR.html"
+ }
+}

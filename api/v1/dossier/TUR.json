@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "TUR",
+ "data": {
+  "iso3": "TUR",
+  "name_ru": "Турция",
+  "name_en": "Türkiye",
+  "rank": 10,
+  "ivm": 54.3,
+  "p5": 52.64,
+  "p50": 54.21,
+  "p95": 55.91,
+  "rank_lo": 7,
+  "rank_hi": 11,
+  "nuclear_class": 0,
+  "lambda": 7.21,
+  "coverage": 0.981,
+  "imputed_share": 0.019,
+  "pillars": {
+   "GRD": 70.3,
+   "AIR": 51.1,
+   "NAV": 43.2,
+   "STR": 7.4,
+   "C4I": 44.3,
+   "PER": 64.9,
+   "ECO": 49.0,
+   "IND": 50.4,
+   "LOG": 40.3,
+   "GEO": 61.0,
+   "ALL": 72.2,
+   "GOV": 57.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/TUR.html"
+ }
+}

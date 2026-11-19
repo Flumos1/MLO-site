@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "TON",
+ "data": {
+  "iso3": "TON",
+  "name_ru": "Тонга",
+  "name_en": "Tonga",
+  "rank": 170,
+  "ivm": 11.16,
+  "p5": 11.93,
+  "p50": 14.04,
+  "p95": 16.13,
+  "rank_lo": 139,
+  "rank_hi": 174,
+  "nuclear_class": 0,
+  "lambda": 2.62,
+  "coverage": 0.744,
+  "imputed_share": 0.256,
+  "pillars": {
+   "GRD": 9.4,
+   "AIR": 2.5,
+   "NAV": 2.8,
+   "STR": 0.0,
+   "C4I": 6.0,
+   "PER": 34.5,
+   "ECO": 22.3,
+   "IND": 7.9,
+   "LOG": 6.3,
+   "GEO": 31.2,
+   "ALL": 6.2,
+   "GOV": 35.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/TON.html"
+ }
+}

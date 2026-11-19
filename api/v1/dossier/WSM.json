@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "WSM",
+ "data": {
+  "iso3": "WSM",
+  "name_ru": "Самоа",
+  "name_en": "Samoa",
+  "rank": 161,
+  "ivm": 12.09,
+  "p5": 12.78,
+  "p50": 15.11,
+  "p95": 17.55,
+  "rank_lo": 122,
+  "rank_hi": 170,
+  "nuclear_class": 0,
+  "lambda": 2.53,
+  "coverage": 0.698,
+  "imputed_share": 0.302,
+  "pillars": {
+   "GRD": 9.4,
+   "AIR": 2.5,
+   "NAV": 2.8,
+   "STR": 0.0,
+   "C4I": 6.4,
+   "PER": 48.6,
+   "ECO": 30.6,
+   "IND": 5.4,
+   "LOG": 5.4,
+   "GEO": 33.3,
+   "ALL": 6.2,
+   "GOV": 36.2
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/WSM.html"
+ }
+}

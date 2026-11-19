@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "YEM",
+ "data": {
+  "iso3": "YEM",
+  "name_ru": "Йемен",
+  "name_en": "Yemen",
+  "rank": 108,
+  "ivm": 16.39,
+  "p5": 15.95,
+  "p50": 18.18,
+  "p95": 20.44,
+  "rank_lo": 96,
+  "rank_hi": 136,
+  "nuclear_class": 0,
+  "lambda": 2.94,
+  "coverage": 0.833,
+  "imputed_share": 0.167,
+  "pillars": {
+   "GRD": 20.4,
+   "AIR": 11.6,
+   "NAV": 4.0,
+   "STR": 0.0,
+   "C4I": 4.7,
+   "PER": 38.5,
+   "ECO": 19.4,
+   "IND": 7.5,
+   "LOG": 15.9,
+   "GEO": 51.1,
+   "ALL": 13.4,
+   "GOV": 34.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/YEM.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "GMB",
+ "data": {
+  "iso3": "GMB",
+  "name_ru": "Гамбия",
+  "name_en": "Gambia, The",
+  "rank": 176,
+  "ivm": 9.81,
+  "p5": 10.69,
+  "p50": 12.73,
+  "p95": 14.77,
+  "rank_lo": 157,
+  "rank_hi": 177,
+  "nuclear_class": 0,
+  "lambda": 2.42,
+  "coverage": 0.721,
+  "imputed_share": 0.279,
+  "pillars": {
+   "GRD": 6.2,
+   "AIR": 2.2,
+   "NAV": 1.8,
+   "STR": 0.0,
+   "C4I": 5.8,
+   "PER": 38.8,
+   "ECO": 17.1,
+   "IND": 5.3,
+   "LOG": 4.7,
+   "GEO": 27.5,
+   "ALL": 6.7,
+   "GOV": 41.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/GMB.html"
+ }
+}

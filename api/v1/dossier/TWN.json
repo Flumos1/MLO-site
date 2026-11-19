@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "TWN",
+ "data": {
+  "iso3": "TWN",
+  "name_ru": "Тайвань",
+  "name_en": "Taiwan",
+  "rank": 15,
+  "ivm": 45.5,
+  "p5": 43.85,
+  "p50": 45.61,
+  "p95": 47.37,
+  "rank_lo": 14,
+  "rank_hi": 20,
+  "nuclear_class": 0,
+  "lambda": 3.84,
+  "coverage": 0.893,
+  "imputed_share": 0.107,
+  "pillars": {
+   "GRD": 53.3,
+   "AIR": 53.2,
+   "NAV": 44.6,
+   "STR": 7.9,
+   "C4I": 30.4,
+   "PER": 61.8,
+   "ECO": 53.8,
+   "IND": 42.2,
+   "LOG": 31.8,
+   "GEO": 50.8,
+   "ALL": 24.3,
+   "GOV": 49.2
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/TWN.html"
+ }
+}

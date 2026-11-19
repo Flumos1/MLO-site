@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "TGO",
+ "data": {
+  "iso3": "TGO",
+  "name_ru": "Того",
+  "name_en": "Togo",
+  "rank": 162,
+  "ivm": 12.08,
+  "p5": 12.53,
+  "p50": 14.4,
+  "p95": 16.33,
+  "rank_lo": 137,
+  "rank_hi": 172,
+  "nuclear_class": 0,
+  "lambda": 3.16,
+  "coverage": 0.786,
+  "imputed_share": 0.214,
+  "pillars": {
+   "GRD": 13.2,
+   "AIR": 2.7,
+   "NAV": 1.8,
+   "STR": 0.0,
+   "C4I": 7.2,
+   "PER": 37.1,
+   "ECO": 19.9,
+   "IND": 5.3,
+   "LOG": 10.7,
+   "GEO": 31.4,
+   "ALL": 13.9,
+   "GOV": 31.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/TGO.html"
+ }
+}

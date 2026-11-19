@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "UGA",
+ "data": {
+  "iso3": "UGA",
+  "name_ru": "Уганда",
+  "name_en": "Uganda",
+  "rank": 96,
+  "ivm": 18.43,
+  "p5": 17.78,
+  "p50": 20.13,
+  "p95": 22.21,
+  "rank_lo": 87,
+  "rank_hi": 111,
+  "nuclear_class": 0,
+  "lambda": 2.87,
+  "coverage": 0.874,
+  "imputed_share": 0.126,
+  "pillars": {
+   "GRD": 27.0,
+   "AIR": 9.8,
+   "NAV": 2.8,
+   "STR": 0.0,
+   "C4I": 10.9,
+   "PER": 47.2,
+   "ECO": 23.6,
+   "IND": 5.8,
+   "LOG": 14.7,
+   "GEO": 47.4,
+   "ALL": 16.8,
+   "GOV": 45.1
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/UGA.html"
+ }
+}

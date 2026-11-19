@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "CHN",
+ "data": {
+  "iso3": "CHN",
+  "name_ru": "Китай",
+  "name_en": "China",
+  "rank": 2,
+  "ivm": 75.18,
+  "p5": 72.94,
+  "p50": 74.52,
+  "p95": 76.04,
+  "rank_lo": 2,
+  "rank_hi": 2,
+  "nuclear_class": 4,
+  "lambda": 9.21,
+  "coverage": 0.986,
+  "imputed_share": 0.014,
+  "pillars": {
+   "GRD": 86.6,
+   "AIR": 78.4,
+   "NAV": 89.5,
+   "STR": 77.1,
+   "C4I": 84.3,
+   "PER": 70.0,
+   "ECO": 70.7,
+   "IND": 89.8,
+   "LOG": 69.4,
+   "GEO": 62.7,
+   "ALL": 49.2,
+   "GOV": 57.2
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/CHN.html"
+ }
+}

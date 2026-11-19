@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "RUS",
+ "data": {
+  "iso3": "RUS",
+  "name_ru": "Россия",
+  "name_en": "Russia",
+  "rank": 3,
+  "ivm": 70.23,
+  "p5": 68.22,
+  "p50": 69.83,
+  "p95": 71.3,
+  "rank_lo": 3,
+  "rank_hi": 3,
+  "nuclear_class": 4,
+  "lambda": 8.09,
+  "coverage": 0.986,
+  "imputed_share": 0.014,
+  "pillars": {
+   "GRD": 81.3,
+   "AIR": 73.8,
+   "NAV": 78.2,
+   "STR": 92.9,
+   "C4I": 76.1,
+   "PER": 70.2,
+   "ECO": 69.1,
+   "IND": 74.2,
+   "LOG": 66.3,
+   "GEO": 55.0,
+   "ALL": 53.9,
+   "GOV": 57.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/RUS.html"
+ }
+}

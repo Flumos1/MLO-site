@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "BRA",
+ "data": {
+  "iso3": "BRA",
+  "name_ru": "Бразилия",
+  "name_en": "Brazil",
+  "rank": 29,
+  "ivm": 39.19,
+  "p5": 37.96,
+  "p50": 39.5,
+  "p95": 41.13,
+  "rank_lo": 27,
+  "rank_hi": 32,
+  "nuclear_class": 0,
+  "lambda": 5.03,
+  "coverage": 0.991,
+  "imputed_share": 0.009,
+  "pillars": {
+   "GRD": 34.9,
+   "AIR": 30.8,
+   "NAV": 34.6,
+   "STR": 1.1,
+   "C4I": 29.4,
+   "PER": 54.7,
+   "ECO": 42.5,
+   "IND": 31.8,
+   "LOG": 51.6,
+   "GEO": 65.1,
+   "ALL": 34.8,
+   "GOV": 43.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/BRA.html"
+ }
+}

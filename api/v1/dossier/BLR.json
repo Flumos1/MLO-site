@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "BLR",
+ "data": {
+  "iso3": "BLR",
+  "name_ru": "Белоруссия",
+  "name_en": "Belarus",
+  "rank": 40,
+  "ivm": 32.11,
+  "p5": 30.38,
+  "p50": 32.78,
+  "p95": 34.92,
+  "rank_lo": 38,
+  "rank_hi": 48,
+  "nuclear_class": 0,
+  "lambda": 2.17,
+  "coverage": 0.995,
+  "imputed_share": 0.005,
+  "pillars": {
+   "GRD": 51.7,
+   "AIR": 39.6,
+   "NAV": 0.0,
+   "STR": 4.9,
+   "C4I": 28.5,
+   "PER": 53.8,
+   "ECO": 30.9,
+   "IND": 27.0,
+   "LOG": 34.8,
+   "GEO": 32.3,
+   "ALL": 36.1,
+   "GOV": 38.5
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/BLR.html"
+ }
+}

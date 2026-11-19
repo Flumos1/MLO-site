@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ISL",
+ "data": {
+  "iso3": "ISL",
+  "name_ru": "Исландия",
+  "name_en": "Iceland",
+  "rank": 133,
+  "ivm": 14.35,
+  "p5": 14.28,
+  "p50": 16.54,
+  "p95": 18.73,
+  "rank_lo": 109,
+  "rank_hi": 154,
+  "nuclear_class": 0,
+  "lambda": 2.77,
+  "coverage": 0.86,
+  "imputed_share": 0.14,
+  "pillars": {
+   "GRD": 6.5,
+   "AIR": 0.3,
+   "NAV": 2.0,
+   "STR": 3.3,
+   "C4I": 17.3,
+   "PER": 49.2,
+   "ECO": 20.0,
+   "IND": 7.5,
+   "LOG": 20.2,
+   "GEO": 33.4,
+   "ALL": 22.7,
+   "GOV": 42.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ISL.html"
+ }
+}

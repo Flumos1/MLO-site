@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "PRK",
+ "data": {
+  "iso3": "PRK",
+  "name_ru": "КНДР",
+  "name_en": "North Korea",
+  "rank": 35,
+  "ivm": 36.14,
+  "p5": 34.66,
+  "p50": 36.58,
+  "p95": 38.49,
+  "rank_lo": 32,
+  "rank_hi": 37,
+  "nuclear_class": 2,
+  "lambda": 3.45,
+  "coverage": 0.847,
+  "imputed_share": 0.153,
+  "pillars": {
+   "GRD": 58.1,
+   "AIR": 35.7,
+   "NAV": 32.4,
+   "STR": 25.4,
+   "C4I": 27.1,
+   "PER": 51.0,
+   "ECO": 10.1,
+   "IND": 38.5,
+   "LOG": 37.8,
+   "GEO": 51.2,
+   "ALL": 25.5,
+   "GOV": 42.7
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/PRK.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "MEX",
+ "data": {
+  "iso3": "MEX",
+  "name_ru": "Мексика",
+  "name_en": "Mexico",
+  "rank": 51,
+  "ivm": 29.12,
+  "p5": 27.87,
+  "p50": 29.98,
+  "p95": 32.19,
+  "rank_lo": 44,
+  "rank_hi": 61,
+  "nuclear_class": 0,
+  "lambda": 3.54,
+  "coverage": 0.93,
+  "imputed_share": 0.07,
+  "pillars": {
+   "GRD": 31.1,
+   "AIR": 16.4,
+   "NAV": 16.9,
+   "STR": 0.5,
+   "C4I": 24.3,
+   "PER": 57.4,
+   "ECO": 41.4,
+   "IND": 15.6,
+   "LOG": 43.4,
+   "GEO": 60.6,
+   "ALL": 13.5,
+   "GOV": 35.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/MEX.html"
+ }
+}

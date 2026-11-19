@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ESP",
+ "data": {
+  "iso3": "ESP",
+  "name_ru": "Испания",
+  "name_en": "Spain",
+  "rank": 21,
+  "ivm": 43.71,
+  "p5": 42.11,
+  "p50": 43.8,
+  "p95": 45.52,
+  "rank_lo": 16,
+  "rank_hi": 24,
+  "nuclear_class": 0,
+  "lambda": 5.44,
+  "coverage": 0.953,
+  "imputed_share": 0.047,
+  "pillars": {
+   "GRD": 51.5,
+   "AIR": 33.0,
+   "NAV": 44.5,
+   "STR": 4.3,
+   "C4I": 40.8,
+   "PER": 56.4,
+   "ECO": 52.0,
+   "IND": 34.0,
+   "LOG": 36.5,
+   "GEO": 48.1,
+   "ALL": 43.0,
+   "GOV": 47.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ESP.html"
+ }
+}

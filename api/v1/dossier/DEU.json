@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "DEU",
+ "data": {
+  "iso3": "DEU",
+  "name_ru": "Германия",
+  "name_en": "Germany",
+  "rank": 9,
+  "ivm": 54.3,
+  "p5": 52.79,
+  "p50": 54.3,
+  "p95": 55.78,
+  "rank_lo": 7,
+  "rank_hi": 11,
+  "nuclear_class": 0,
+  "lambda": 5.08,
+  "coverage": 0.995,
+  "imputed_share": 0.005,
+  "pillars": {
+   "GRD": 56.5,
+   "AIR": 52.8,
+   "NAV": 36.9,
+   "STR": 5.8,
+   "C4I": 55.6,
+   "PER": 60.1,
+   "ECO": 61.6,
+   "IND": 60.7,
+   "LOG": 44.7,
+   "GEO": 47.2,
+   "ALL": 69.5,
+   "GOV": 57.5
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/DEU.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "EGY",
+ "data": {
+  "iso3": "EGY",
+  "name_ru": "Египет",
+  "name_en": "Egypt",
+  "rank": 22,
+  "ivm": 43.27,
+  "p5": 41.74,
+  "p50": 43.46,
+  "p95": 45.24,
+  "rank_lo": 17,
+  "rank_hi": 25,
+  "nuclear_class": 0,
+  "lambda": 5.54,
+  "coverage": 0.977,
+  "imputed_share": 0.023,
+  "pillars": {
+   "GRD": 65.4,
+   "AIR": 49.7,
+   "NAV": 40.0,
+   "STR": 0.5,
+   "C4I": 31.4,
+   "PER": 59.0,
+   "ECO": 28.5,
+   "IND": 24.5,
+   "LOG": 41.2,
+   "GEO": 60.7,
+   "ALL": 37.4,
+   "GOV": 43.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/EGY.html"
+ }
+}

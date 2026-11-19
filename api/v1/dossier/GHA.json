@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "GHA",
+ "data": {
+  "iso3": "GHA",
+  "name_ru": "Гана",
+  "name_en": "Ghana",
+  "rank": 103,
+  "ivm": 17.48,
+  "p5": 16.77,
+  "p50": 19.1,
+  "p95": 21.18,
+  "rank_lo": 91,
+  "rank_hi": 123,
+  "nuclear_class": 0,
+  "lambda": 2.9,
+  "coverage": 0.888,
+  "imputed_share": 0.112,
+  "pillars": {
+   "GRD": 17.7,
+   "AIR": 6.8,
+   "NAV": 4.0,
+   "STR": 0.0,
+   "C4I": 13.4,
+   "PER": 42.1,
+   "ECO": 21.9,
+   "IND": 6.5,
+   "LOG": 21.2,
+   "GEO": 47.3,
+   "ALL": 19.6,
+   "GOV": 41.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/GHA.html"
+ }
+}

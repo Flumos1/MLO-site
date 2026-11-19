@@ -50,6 +50,14 @@
    {
     "path": "/flash/index.json",
     "description": "Флеш-аналитика: публичный трек-рекорд"
+   },
+   {
+    "path": "/dossier/index.json",
+    "description": "Досье 150 публичных стран (сводка)"
+   },
+   {
+    "path": "/dossier/{iso3}.json",
+    "description": "Досье страны: ИВМ, интервал, столпы, покрытие"
    }
   ],
   "openapi": "https://flumos1.github.io/MLO-site/api/v1/openapi.json",

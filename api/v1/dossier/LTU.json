@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "LTU",
+ "data": {
+  "iso3": "LTU",
+  "name_ru": "Литва",
+  "name_en": "Lithuania",
+  "rank": 69,
+  "ivm": 24.61,
+  "p5": 23.37,
+  "p50": 25.88,
+  "p95": 27.91,
+  "rank_lo": 63,
+  "rank_hi": 77,
+  "nuclear_class": 0,
+  "lambda": 2.69,
+  "coverage": 0.935,
+  "imputed_share": 0.065,
+  "pillars": {
+   "GRD": 36.1,
+   "AIR": 7.0,
+   "NAV": 7.8,
+   "STR": 3.3,
+   "C4I": 27.0,
+   "PER": 49.2,
+   "ECO": 35.9,
+   "IND": 12.5,
+   "LOG": 26.7,
+   "GEO": 24.6,
+   "ALL": 33.8,
+   "GOV": 51.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/LTU.html"
+ }
+}

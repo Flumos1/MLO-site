@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "IND",
+ "data": {
+  "iso3": "IND",
+  "name_ru": "Индия",
+  "name_en": "India",
+  "rank": 6,
+  "ivm": 56.91,
+  "p5": 55.35,
+  "p50": 56.85,
+  "p95": 58.34,
+  "rank_lo": 4,
+  "rank_hi": 7,
+  "nuclear_class": 3,
+  "lambda": 7.59,
+  "coverage": 0.986,
+  "imputed_share": 0.014,
+  "pillars": {
+   "GRD": 60.9,
+   "AIR": 59.1,
+   "NAV": 63.0,
+   "STR": 45.5,
+   "C4I": 53.4,
+   "PER": 70.0,
+   "ECO": 55.6,
+   "IND": 52.8,
+   "LOG": 54.6,
+   "GEO": 62.6,
+   "ALL": 29.8,
+   "GOV": 60.9
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/IND.html"
+ }
+}

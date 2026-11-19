@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "PRT",
+ "data": {
+  "iso3": "PRT",
+  "name_ru": "Португалия",
+  "name_en": "Portugal",
+  "rank": 46,
+  "ivm": 30.7,
+  "p5": 29.34,
+  "p50": 31.33,
+  "p95": 33.13,
+  "rank_lo": 40,
+  "rank_hi": 55,
+  "nuclear_class": 0,
+  "lambda": 3.72,
+  "coverage": 0.949,
+  "imputed_share": 0.051,
+  "pillars": {
+   "GRD": 36.5,
+   "AIR": 24.3,
+   "NAV": 25.7,
+   "STR": 3.3,
+   "C4I": 22.2,
+   "PER": 54.1,
+   "ECO": 36.8,
+   "IND": 10.2,
+   "LOG": 29.3,
+   "GEO": 36.4,
+   "ALL": 36.6,
+   "GOV": 49.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/PRT.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "VNM",
+ "data": {
+  "iso3": "VNM",
+  "name_ru": "Вьетнам",
+  "name_en": "Viet Nam",
+  "rank": 34,
+  "ivm": 36.72,
+  "p5": 35.31,
+  "p50": 37.21,
+  "p95": 38.96,
+  "rank_lo": 31,
+  "rank_hi": 37,
+  "nuclear_class": 0,
+  "lambda": 3.95,
+  "coverage": 0.995,
+  "imputed_share": 0.005,
+  "pillars": {
+   "GRD": 41.4,
+   "AIR": 33.5,
+   "NAV": 34.2,
+   "STR": 0.0,
+   "C4I": 27.9,
+   "PER": 60.8,
+   "ECO": 41.9,
+   "IND": 23.9,
+   "LOG": 41.6,
+   "GEO": 56.8,
+   "ALL": 11.3,
+   "GOV": 46.3
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/VNM.html"
+ }
+}

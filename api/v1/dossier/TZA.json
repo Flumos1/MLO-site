@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "TZA",
+ "data": {
+  "iso3": "TZA",
+  "name_ru": "Танзания",
+  "name_en": "Tanzania",
+  "rank": 90,
+  "ivm": 19.45,
+  "p5": 18.73,
+  "p50": 20.98,
+  "p95": 23.15,
+  "rank_lo": 81,
+  "rank_hi": 102,
+  "nuclear_class": 0,
+  "lambda": 3.27,
+  "coverage": 0.907,
+  "imputed_share": 0.093,
+  "pillars": {
+   "GRD": 24.7,
+   "AIR": 9.4,
+   "NAV": 3.5,
+   "STR": 0.0,
+   "C4I": 11.7,
+   "PER": 44.1,
+   "ECO": 23.3,
+   "IND": 6.2,
+   "LOG": 21.1,
+   "GEO": 55.4,
+   "ALL": 26.4,
+   "GOV": 41.1
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/TZA.html"
+ }
+}

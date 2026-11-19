@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "DZA",
+ "data": {
+  "iso3": "DZA",
+  "name_ru": "Алжир",
+  "name_en": "Algeria",
+  "rank": 32,
+  "ivm": 37.64,
+  "p5": 36.0,
+  "p50": 38.09,
+  "p95": 39.84,
+  "rank_lo": 29,
+  "rank_hi": 36,
+  "nuclear_class": 0,
+  "lambda": 3.52,
+  "coverage": 0.949,
+  "imputed_share": 0.051,
+  "pillars": {
+   "GRD": 56.4,
+   "AIR": 36.2,
+   "NAV": 33.2,
+   "STR": 0.0,
+   "C4I": 20.1,
+   "PER": 49.8,
+   "ECO": 48.5,
+   "IND": 20.0,
+   "LOG": 42.1,
+   "GEO": 48.6,
+   "ALL": 22.6,
+   "GOV": 42.5
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/DZA.html"
+ }
+}

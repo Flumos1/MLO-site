@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SVK",
+ "data": {
+  "iso3": "SVK",
+  "name_ru": "Словакия",
+  "name_en": "Slovakia",
+  "rank": 71,
+  "ivm": 23.83,
+  "p5": 22.74,
+  "p50": 24.97,
+  "p95": 27.08,
+  "rank_lo": 66,
+  "rank_hi": 80,
+  "nuclear_class": 0,
+  "lambda": 3.04,
+  "coverage": 0.884,
+  "imputed_share": 0.116,
+  "pillars": {
+   "GRD": 29.7,
+   "AIR": 16.1,
+   "NAV": 6.4,
+   "STR": 4.3,
+   "C4I": 22.6,
+   "PER": 43.9,
+   "ECO": 32.0,
+   "IND": 10.1,
+   "LOG": 25.1,
+   "GEO": 27.2,
+   "ALL": 35.4,
+   "GOV": 44.6
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SVK.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "CHL",
+ "data": {
+  "iso3": "CHL",
+  "name_ru": "Чили",
+  "name_en": "Chile",
+  "rank": 41,
+  "ivm": 31.47,
+  "p5": 30.33,
+  "p50": 32.01,
+  "p95": 33.7,
+  "rank_lo": 39,
+  "rank_hi": 50,
+  "nuclear_class": 0,
+  "lambda": 3.59,
+  "coverage": 0.958,
+  "imputed_share": 0.042,
+  "pillars": {
+   "GRD": 35.1,
+   "AIR": 27.5,
+   "NAV": 29.3,
+   "STR": 0.0,
+   "C4I": 26.3,
+   "PER": 52.5,
+   "ECO": 35.1,
+   "IND": 11.7,
+   "LOG": 33.4,
+   "GEO": 43.1,
+   "ALL": 27.5,
+   "GOV": 42.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/CHL.html"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ZWE",
+ "data": {
+  "iso3": "ZWE",
+  "name_ru": "Зимбабве",
+  "name_en": "Zimbabwe",
+  "rank": 114,
+  "ivm": 15.96,
+  "p5": 15.72,
+  "p50": 17.64,
+  "p95": 19.59,
+  "rank_lo": 101,
+  "rank_hi": 138,
+  "nuclear_class": 0,
+  "lambda": 2.77,
+  "coverage": 0.86,
+  "imputed_share": 0.14,
+  "pillars": {
+   "GRD": 19.8,
+   "AIR": 10.5,
+   "NAV": 1.3,
+   "STR": 0.0,
+   "C4I": 7.4,
+   "PER": 36.5,
+   "ECO": 19.5,
+   "IND": 6.7,
+   "LOG": 16.1,
+   "GEO": 44.8,
+   "ALL": 19.7,
+   "GOV": 33.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ZWE.html"
+ }
+}

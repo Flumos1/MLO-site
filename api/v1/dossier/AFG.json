@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "AFG",
+ "data": {
+  "iso3": "AFG",
+  "name_ru": "Афганистан",
+  "name_en": "Afghanistan",
+  "rank": 166,
+  "ivm": 11.81,
+  "p5": 11.82,
+  "p50": 13.68,
+  "p95": 15.83,
+  "rank_lo": 147,
+  "rank_hi": 175,
+  "nuclear_class": 0,
+  "lambda": 2.23,
+  "coverage": 0.874,
+  "imputed_share": 0.126,
+  "pillars": {
+   "GRD": 11.6,
+   "AIR": 4.4,
+   "NAV": 0.0,
+   "STR": 0.0,
+   "C4I": 4.2,
+   "PER": 49.6,
+   "ECO": 19.7,
+   "IND": 3.0,
+   "LOG": 15.1,
+   "GEO": 35.8,
+   "ALL": 3.2,
+   "GOV": 34.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/AFG.html"
+ }
+}

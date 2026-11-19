@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SWZ",
+ "data": {
+  "iso3": "SWZ",
+  "name_ru": "Эсватини",
+  "name_en": "Eswatini",
+  "rank": 113,
+  "ivm": 15.99,
+  "p5": 15.87,
+  "p50": 17.87,
+  "p95": 20.13,
+  "rank_lo": 97,
+  "rank_hi": 139,
+  "nuclear_class": 0,
+  "lambda": 2.6,
+  "coverage": 0.749,
+  "imputed_share": 0.251,
+  "pillars": {
+   "GRD": 20.7,
+   "AIR": 13.1,
+   "NAV": 0.0,
+   "STR": 0.0,
+   "C4I": 13.8,
+   "PER": 37.1,
+   "ECO": 18.0,
+   "IND": 6.7,
+   "LOG": 11.9,
+   "GEO": 27.9,
+   "ALL": 18.4,
+   "GOV": 34.9
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SWZ.html"
+ }
+}

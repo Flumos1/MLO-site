@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "ISR",
+ "data": {
+  "iso3": "ISR",
+  "name_ru": "Израиль",
+  "name_en": "Israel",
+  "rank": 12,
+  "ivm": 50.9,
+  "p5": 48.67,
+  "p50": 50.59,
+  "p95": 52.57,
+  "rank_lo": 12,
+  "rank_hi": 13,
+  "nuclear_class": 2,
+  "lambda": 4.2,
+  "coverage": 0.958,
+  "imputed_share": 0.042,
+  "pillars": {
+   "GRD": 65.5,
+   "AIR": 65.7,
+   "NAV": 27.6,
+   "STR": 36.2,
+   "C4I": 66.7,
+   "PER": 63.1,
+   "ECO": 57.4,
+   "IND": 50.1,
+   "LOG": 34.4,
+   "GEO": 21.5,
+   "ALL": 37.2,
+   "GOV": 65.1
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/ISR.html"
+ }
+}

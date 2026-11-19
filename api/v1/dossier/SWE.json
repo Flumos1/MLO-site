@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SWE",
+ "data": {
+  "iso3": "SWE",
+  "name_ru": "Швеция",
+  "name_en": "Sweden",
+  "rank": 17,
+  "ivm": 45.22,
+  "p5": 43.48,
+  "p50": 45.2,
+  "p95": 46.8,
+  "rank_lo": 15,
+  "rank_hi": 21,
+  "nuclear_class": 0,
+  "lambda": 4.5,
+  "coverage": 0.981,
+  "imputed_share": 0.019,
+  "pillars": {
+   "GRD": 46.7,
+   "AIR": 42.5,
+   "NAV": 26.6,
+   "STR": 4.3,
+   "C4I": 43.1,
+   "PER": 53.2,
+   "ECO": 48.1,
+   "IND": 41.6,
+   "LOG": 42.1,
+   "GEO": 49.2,
+   "ALL": 58.6,
+   "GOV": 62.0
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SWE.html"
+ }
+}

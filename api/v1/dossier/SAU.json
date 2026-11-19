@@ -1,0 +1,39 @@
+{
+ "api_version": "v1",
+ "kind": "dossier-country",
+ "license": "CC BY 4.0",
+ "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
+ "generated": "2026-11-19",
+ "iso3": "SAU",
+ "data": {
+  "iso3": "SAU",
+  "name_ru": "Саудовская Аравия",
+  "name_en": "Saudi Arabia",
+  "rank": 18,
+  "ivm": 44.53,
+  "p5": 42.78,
+  "p50": 44.71,
+  "p95": 46.64,
+  "rank_lo": 15,
+  "rank_hi": 22,
+  "nuclear_class": 0,
+  "lambda": 4.01,
+  "coverage": 0.981,
+  "imputed_share": 0.019,
+  "pillars": {
+   "GRD": 57.1,
+   "AIR": 58.0,
+   "NAV": 24.2,
+   "STR": 4.3,
+   "C4I": 31.2,
+   "PER": 64.1,
+   "ECO": 62.4,
+   "IND": 20.0,
+   "LOG": 45.6,
+   "GEO": 50.1,
+   "ALL": 38.4,
+   "GOV": 45.4
+  },
+  "page_ru": "https://flumos1.github.io/MLO-site/dossier/SAU.html"
+ }
+}
