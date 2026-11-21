@@ -1,6 +1,6 @@
 {
  "note": "Литература и источники проекта ИВМ «Ланчестер–Осипов»; основа — автореферат (документ 9), группа З добавлена 24.10.2026.",
- "count": 94,
+ "count": 95,
  "items": [
   {
    "id": "R001",
@@ -1320,6 +1320,23 @@
    "id": "R082",
    "group": "Ж",
    "group_title": "Ж. Хроника событий и конкурентная среда",
+   "text": "TENET Intelligence: A Quantitative Framework for Modern Military Power: The TENET MCI; Force Size vs. Force Quality; Forecast Record (tenetintel.com, 2025–2026; копии — Wayback Machine).",
+   "year": 2025,
+   "doi": null,
+   "arxiv": null,
+   "used_in": [
+    "docs/word/09_Автореферат.docx"
+   ],
+   "topics": [
+    "хроника",
+    "конкурентная среда"
+   ],
+   "text_en": "TENET Intelligence: A Quantitative Framework for Modern Military Power: The TENET MCI; Force Size vs. Force Quality; Forecast Record (tenetintel.com, 2025–2026; copies — Wayback Machine)."
+  },
+  {
+   "id": "R083",
+   "group": "Ж",
+   "group_title": "Ж. Хроника событий и конкурентная среда",
    "text": "Verisk Maplecroft. Predictive War Index (май 2026) // Fortune. 14.06.2026.",
    "year": 2026,
    "doi": null,
@@ -1334,7 +1351,7 @@
    "text_en": "Verisk Maplecroft. Predictive War Index (May 2026) // Fortune. 14.06.2026."
   },
   {
-   "id": "R083",
+   "id": "R084",
    "group": "Ж",
    "group_title": "Ж. Хроника событий и конкурентная среда",
    "text": "Rhombus Power. Guardian (rhombuspower.com; Federal News Network, 2023).",
@@ -1350,7 +1367,7 @@
    ]
   },
   {
-   "id": "R084",
+   "id": "R085",
    "group": "Ж",
    "group_title": "Ж. Хроника событий и конкурентная среда",
    "text": "Johns Hopkins APL. GenWar Lab (2025); U.S. Air Force RFI «WarMatrix Ecosystem» (2025).",
@@ -1366,7 +1383,7 @@
    ]
   },
   {
-   "id": "R085",
+   "id": "R086",
    "group": "Ж",
    "group_title": "Ж. Хроника событий и конкурентная среда",
    "text": "VIEWS — Violence & Impacts Early-Warning System (PRIO, Uppsala University); ACLED Conflict Index 2026.",
@@ -1382,7 +1399,7 @@
    ]
   },
   {
-   "id": "R086",
+   "id": "R087",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Schelling T. C. The Strategy of Conflict. Cambridge, MA: Harvard University Press, 1960.",
@@ -1400,7 +1417,7 @@
    ]
   },
   {
-   "id": "R087",
+   "id": "R088",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Schelling T. C. Arms and Influence. New Haven: Yale University Press, 1966.",
@@ -1417,7 +1434,7 @@
    ]
   },
   {
-   "id": "R088",
+   "id": "R089",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Kahn H. On Escalation: Metaphors and Scenarios. New York: Praeger, 1965.",
@@ -1433,7 +1450,7 @@
    ]
   },
   {
-   "id": "R089",
+   "id": "R090",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Kahn H. Thinking about the Unthinkable. New York: Horizon Press, 1962.",
@@ -1449,7 +1466,7 @@
    ]
   },
   {
-   "id": "R090",
+   "id": "R091",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Davis P. K., Stan P. J. E. Concepts and Models of Escalation. Santa Monica: RAND Corporation, R-3235, 1984.",
@@ -1466,7 +1483,7 @@
    ]
   },
   {
-   "id": "R091",
+   "id": "R092",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Fearon J. D. Rationalist explanations for war // International Organization. 1995. Vol. 49, № 3. P. 379–414.",
@@ -1483,7 +1500,7 @@
    ]
   },
   {
-   "id": "R092",
+   "id": "R093",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Shapley L. S. A value for n-person games // Kuhn H. W., Tucker A. W. (eds.) Contributions to the Theory of Games, Vol. II. Princeton: Princeton University Press, 1953. P. 307–317.",
@@ -1499,7 +1516,7 @@
    ]
   },
   {
-   "id": "R093",
+   "id": "R094",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Leeds B. A., Long A. G., Mitchell S. M. Reevaluating alliance reliability: specific threats, specific promises // Journal of Conflict Resolution. 2000. Vol. 44, № 5. P. 686–699.",
@@ -1515,7 +1532,7 @@
    ]
   },
   {
-   "id": "R094",
+   "id": "R095",
    "group": "З",
    "group_title": "З. Теория игр, эскалация и союзы (добавлено 24.10.2026)",
    "text": "Reassessing the fulfillment of alliance commitments in war // Research & Politics. 2018. doi 10.1177/2053168018779697.",
