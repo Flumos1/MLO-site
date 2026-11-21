@@ -3,13 +3,14 @@
  "kind": "country-list",
  "license": "CC BY 4.0",
  "attribution": "ИВМ Ланчестера–Осипова, https://flumos1.github.io/MLO-site/",
- "generated": "2026-11-20",
+ "generated": "2026-11-21",
  "count": 150,
  "data": [
   {
    "iso3": "AFG",
    "name_en": "Afghanistan",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -18,6 +19,7 @@
    "iso3": "AGO",
    "name_en": "Angola",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -25,6 +27,7 @@
    "iso3": "ALB",
    "name_en": "Albania",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -32,6 +35,7 @@
    "iso3": "ARE",
    "name_en": "United Arab Emirates",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -39,6 +43,7 @@
    "iso3": "ARM",
    "name_en": "Armenia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -47,6 +52,7 @@
    "iso3": "AUS",
    "name_en": "Australia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -55,6 +61,7 @@
    "iso3": "AUT",
    "name_en": "Austria",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -62,6 +69,7 @@
    "iso3": "AZE",
    "name_en": "Azerbaijan",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -70,6 +78,7 @@
    "iso3": "BDI",
    "name_en": "Burundi",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -77,6 +86,7 @@
    "iso3": "BEL",
    "name_en": "Belgium",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -84,6 +94,7 @@
    "iso3": "BEN",
    "name_en": "Benin",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -91,6 +102,7 @@
    "iso3": "BFA",
    "name_en": "Burkina Faso",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -98,6 +110,7 @@
    "iso3": "BGD",
    "name_en": "Bangladesh",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -105,6 +118,7 @@
    "iso3": "BGR",
    "name_en": "Bulgaria",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -112,6 +126,7 @@
    "iso3": "BHR",
    "name_en": "Bahrain",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -119,6 +134,7 @@
    "iso3": "BHS",
    "name_en": "Bahamas",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -126,6 +142,7 @@
    "iso3": "BLR",
    "name_en": "Belarus",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -134,6 +151,7 @@
    "iso3": "BLZ",
    "name_en": "Belize",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -141,6 +159,7 @@
    "iso3": "BOL",
    "name_en": "Bolivia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -148,6 +167,7 @@
    "iso3": "BRA",
    "name_en": "Brazil",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -156,6 +176,7 @@
    "iso3": "BRB",
    "name_en": "Barbados",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -163,6 +184,7 @@
    "iso3": "BTN",
    "name_en": "Bhutan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -170,6 +192,7 @@
    "iso3": "BWA",
    "name_en": "Botswana",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -177,6 +200,7 @@
    "iso3": "CAN",
    "name_en": "Canada",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -184,6 +208,7 @@
    "iso3": "CHE",
    "name_en": "Switzerland",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -191,6 +216,7 @@
    "iso3": "CHL",
    "name_en": "Chile",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -198,6 +224,7 @@
    "iso3": "CHN",
    "name_en": "China",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -206,6 +233,7 @@
    "iso3": "CIV",
    "name_en": "Côte d'Ivoire",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -213,6 +241,7 @@
    "iso3": "CMR",
    "name_en": "Cameroon",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -220,6 +249,7 @@
    "iso3": "COD",
    "name_en": "DR Congo",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -228,6 +258,7 @@
    "iso3": "COG",
    "name_en": "Republic of the Congo",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -235,6 +266,7 @@
    "iso3": "COM",
    "name_en": "Comoros",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -242,6 +274,7 @@
    "iso3": "CPV",
    "name_en": "Cabo Verde",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -249,6 +282,7 @@
    "iso3": "CRI",
    "name_en": "Costa Rica",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -256,6 +290,7 @@
    "iso3": "CUB",
    "name_en": "Cuba",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -263,6 +298,7 @@
    "iso3": "CYP",
    "name_en": "Cyprus",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -270,6 +306,7 @@
    "iso3": "CZE",
    "name_en": "Czechia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -277,6 +314,7 @@
    "iso3": "DEU",
    "name_en": "Germany",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -285,6 +323,7 @@
    "iso3": "DNK",
    "name_en": "Denmark",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -292,6 +331,7 @@
    "iso3": "DZA",
    "name_en": "Algeria",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -299,6 +339,7 @@
    "iso3": "ECU",
    "name_en": "Ecuador",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -306,6 +347,7 @@
    "iso3": "EGY",
    "name_en": "Egypt",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -314,6 +356,7 @@
    "iso3": "ERI",
    "name_en": "Eritrea",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -322,6 +365,7 @@
    "iso3": "ESP",
    "name_en": "Spain",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -329,6 +373,7 @@
    "iso3": "EST",
    "name_en": "Estonia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -336,6 +381,7 @@
    "iso3": "ETH",
    "name_en": "Ethiopia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -344,6 +390,7 @@
    "iso3": "FIN",
    "name_en": "Finland",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -352,6 +399,7 @@
    "iso3": "FJI",
    "name_en": "Fiji",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -359,6 +407,7 @@
    "iso3": "FRA",
    "name_en": "France",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -367,6 +416,7 @@
    "iso3": "GAB",
    "name_en": "Gabon",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -374,6 +424,7 @@
    "iso3": "GBR",
    "name_en": "United Kingdom",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -382,6 +433,7 @@
    "iso3": "GEO",
    "name_en": "Georgia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -389,6 +441,7 @@
    "iso3": "GHA",
    "name_en": "Ghana",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -396,6 +449,7 @@
    "iso3": "GMB",
    "name_en": "Gambia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -403,6 +457,7 @@
    "iso3": "GRC",
    "name_en": "Greece",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -411,6 +466,7 @@
    "iso3": "GTM",
    "name_en": "Guatemala",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -418,6 +474,7 @@
    "iso3": "GUY",
    "name_en": "Guyana",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -425,6 +482,7 @@
    "iso3": "HRV",
    "name_en": "Croatia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -432,6 +490,7 @@
    "iso3": "HUN",
    "name_en": "Hungary",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -439,6 +498,7 @@
    "iso3": "IDN",
    "name_en": "Indonesia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -447,6 +507,7 @@
    "iso3": "IND",
    "name_en": "India",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -455,6 +516,7 @@
    "iso3": "IRN",
    "name_en": "Iran",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -463,6 +525,7 @@
    "iso3": "IRQ",
    "name_en": "Iraq",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -470,6 +533,7 @@
    "iso3": "ISL",
    "name_en": "Iceland",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -477,6 +541,7 @@
    "iso3": "ISR",
    "name_en": "Israel",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -485,6 +550,7 @@
    "iso3": "ITA",
    "name_en": "Italy",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -493,6 +559,7 @@
    "iso3": "JAM",
    "name_en": "Jamaica",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -500,6 +567,7 @@
    "iso3": "JOR",
    "name_en": "Jordan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -507,6 +575,7 @@
    "iso3": "JPN",
    "name_en": "Japan",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -515,6 +584,7 @@
    "iso3": "KAZ",
    "name_en": "Kazakhstan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -522,6 +592,7 @@
    "iso3": "KEN",
    "name_en": "Kenya",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -529,6 +600,7 @@
    "iso3": "KHM",
    "name_en": "Cambodia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -537,6 +609,7 @@
    "iso3": "KOR",
    "name_en": "Republic of Korea",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -545,6 +618,7 @@
    "iso3": "KWT",
    "name_en": "Kuwait",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -552,6 +626,7 @@
    "iso3": "LAO",
    "name_en": "Laos",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -559,6 +634,7 @@
    "iso3": "LBN",
    "name_en": "Lebanon",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -566,6 +642,7 @@
    "iso3": "LBR",
    "name_en": "Liberia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -573,6 +650,7 @@
    "iso3": "LTU",
    "name_en": "Lithuania",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -580,6 +658,7 @@
    "iso3": "LUX",
    "name_en": "Luxembourg",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -587,6 +666,7 @@
    "iso3": "LVA",
    "name_en": "Latvia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -594,6 +674,7 @@
    "iso3": "MAR",
    "name_en": "Morocco",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -601,6 +682,7 @@
    "iso3": "MDG",
    "name_en": "Madagascar",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -608,6 +690,7 @@
    "iso3": "MDV",
    "name_en": "Maldives",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -615,6 +698,7 @@
    "iso3": "MEX",
    "name_en": "Mexico",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -622,6 +706,7 @@
    "iso3": "MKD",
    "name_en": "North Macedonia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -629,6 +714,7 @@
    "iso3": "MMR",
    "name_en": "Myanmar",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -636,6 +722,7 @@
    "iso3": "MNG",
    "name_en": "Mongolia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -643,6 +730,7 @@
    "iso3": "MOZ",
    "name_en": "Mozambique",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -650,6 +738,7 @@
    "iso3": "MUS",
    "name_en": "Mauritius",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -657,6 +746,7 @@
    "iso3": "MWI",
    "name_en": "Malawi",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -664,6 +754,7 @@
    "iso3": "MYS",
    "name_en": "Malaysia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -671,6 +762,7 @@
    "iso3": "NAM",
    "name_en": "Namibia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -678,6 +770,7 @@
    "iso3": "NER",
    "name_en": "Niger",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -685,6 +778,7 @@
    "iso3": "NGA",
    "name_en": "Nigeria",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -692,6 +786,7 @@
    "iso3": "NIC",
    "name_en": "Nicaragua",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -699,6 +794,7 @@
    "iso3": "NLD",
    "name_en": "Netherlands",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -706,6 +802,7 @@
    "iso3": "NOR",
    "name_en": "Norway",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -713,6 +810,7 @@
    "iso3": "NPL",
    "name_en": "Nepal",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -720,6 +818,7 @@
    "iso3": "NZL",
    "name_en": "New Zealand",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -727,6 +826,7 @@
    "iso3": "OMN",
    "name_en": "Oman",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -734,6 +834,7 @@
    "iso3": "PAK",
    "name_en": "Pakistan",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -742,6 +843,7 @@
    "iso3": "PAN",
    "name_en": "Panama",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -749,6 +851,7 @@
    "iso3": "PER",
    "name_en": "Peru",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -756,6 +859,7 @@
    "iso3": "PHL",
    "name_en": "Philippines",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -764,6 +868,7 @@
    "iso3": "PNG",
    "name_en": "Papua New Guinea",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -771,6 +876,7 @@
    "iso3": "POL",
    "name_en": "Poland",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -779,6 +885,7 @@
    "iso3": "PRK",
    "name_en": "North Korea",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -787,6 +894,7 @@
    "iso3": "PRT",
    "name_en": "Portugal",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -794,6 +902,7 @@
    "iso3": "PRY",
    "name_en": "Paraguay",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -801,6 +910,7 @@
    "iso3": "QAT",
    "name_en": "Qatar",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -808,6 +918,7 @@
    "iso3": "ROU",
    "name_en": "Romania",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -815,6 +926,7 @@
    "iso3": "RUS",
    "name_en": "Russia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -823,6 +935,7 @@
    "iso3": "RWA",
    "name_en": "Rwanda",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -831,6 +944,7 @@
    "iso3": "SAU",
    "name_en": "Saudi Arabia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -839,6 +953,7 @@
    "iso3": "SDN",
    "name_en": "Sudan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -846,6 +961,7 @@
    "iso3": "SEN",
    "name_en": "Senegal",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -853,6 +969,7 @@
    "iso3": "SGP",
    "name_en": "Singapore",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -860,6 +977,7 @@
    "iso3": "SLV",
    "name_en": "El Salvador",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -867,6 +985,7 @@
    "iso3": "SOM",
    "name_en": "Somalia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -874,6 +993,7 @@
    "iso3": "SRB",
    "name_en": "Serbia",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -882,6 +1002,7 @@
    "iso3": "SUR",
    "name_en": "Suriname",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -889,6 +1010,7 @@
    "iso3": "SVK",
    "name_en": "Slovakia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -896,6 +1018,7 @@
    "iso3": "SVN",
    "name_en": "Slovenia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -903,6 +1026,7 @@
    "iso3": "SWE",
    "name_en": "Sweden",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -911,6 +1035,7 @@
    "iso3": "SWZ",
    "name_en": "Eswatini",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -918,6 +1043,7 @@
    "iso3": "SYC",
    "name_en": "Seychelles",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -925,6 +1051,7 @@
    "iso3": "SYR",
    "name_en": "Syria",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -932,6 +1059,7 @@
    "iso3": "TCD",
    "name_en": "Chad",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -939,6 +1067,7 @@
    "iso3": "TGO",
    "name_en": "Togo",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -946,6 +1075,7 @@
    "iso3": "THA",
    "name_en": "Thailand",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -954,6 +1084,7 @@
    "iso3": "TJK",
    "name_en": "Tajikistan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -961,6 +1092,7 @@
    "iso3": "TKM",
    "name_en": "Turkmenistan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -968,6 +1100,7 @@
    "iso3": "TLS",
    "name_en": "Timor-Leste",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -975,6 +1108,7 @@
    "iso3": "TON",
    "name_en": "Tonga",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -982,6 +1116,7 @@
    "iso3": "TUN",
    "name_en": "Tunisia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -989,6 +1124,7 @@
    "iso3": "TUR",
    "name_en": "Türkiye",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -997,6 +1133,7 @@
    "iso3": "TWN",
    "name_en": "Taiwan",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -1005,6 +1142,7 @@
    "iso3": "TZA",
    "name_en": "Tanzania",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1012,6 +1150,7 @@
    "iso3": "UGA",
    "name_en": "Uganda",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1019,6 +1158,7 @@
    "iso3": "UKR",
    "name_en": "Ukraine",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -1027,6 +1167,7 @@
    "iso3": "URY",
    "name_en": "Uruguay",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1034,6 +1175,7 @@
    "iso3": "USA",
    "name_en": "United States",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -1042,6 +1184,7 @@
    "iso3": "UZB",
    "name_en": "Uzbekistan",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1049,6 +1192,7 @@
    "iso3": "VEN",
    "name_en": "Venezuela",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -1057,6 +1201,7 @@
    "iso3": "VNM",
    "name_en": "Vietnam",
    "sets": [
+    "ext_series",
     "extended",
     "pilot40"
    ]
@@ -1065,6 +1210,7 @@
    "iso3": "VUT",
    "name_en": "Vanuatu",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1072,6 +1218,7 @@
    "iso3": "WSM",
    "name_en": "Samoa",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1079,6 +1226,7 @@
    "iso3": "YEM",
    "name_en": "Yemen",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1086,6 +1234,7 @@
    "iso3": "ZMB",
    "name_en": "Zambia",
    "sets": [
+    "ext_series",
     "extended"
    ]
   },
@@ -1093,6 +1242,7 @@
    "iso3": "ZWE",
    "name_en": "Zimbabwe",
    "sets": [
+    "ext_series",
     "extended"
    ]
   }

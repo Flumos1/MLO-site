@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>ИВМ Ланчестер–Осипов</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1661,7 +1662,10 @@ function renderProfile() {
     [L("Радиус проекции <span class=\"sym\">λ</span>", "Projection radius <span class=\"sym\">λ</span>"), L(`${fmt(d.lambda, 1)} тыс. км`, `${fmt(d.lambda, 1)} thousand km`), L(`на 5 тыс. км сохраняется ${fmt(Math.exp(-5 / d.lambda) * 100, 0)}%`, `${fmt(Math.exp(-5 / d.lambda) * 100, 0)}% retained at 5 thousand km`)],
     isReal() ? [L("Данные", "Data"), L(`класс ${c.dqL}`, `class ${c.dqL}`), L(`экспертные баллы столпов, σ = ${c.sigma}`, `expert pillar scores, σ = ${c.sigma}`)]
       : [L("Данные", "Data"), L(`класс ${DQ_LETTER(c.dq)}`, `class ${DQ_LETTER(c.dq)}`), L(`наблюдения по ${fmt(COMPLETE[ci] * 100, 0)}% показателей индекса`, `observations for ${fmt(COMPLETE[ci] * 100, 0)}% of index indicators`)]
-  ].map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
+  ].concat(c.iext ? [[L("Расширенная серия", "Extended series"), fmt(c.iext.I, 1),
+    L(`+ показатели с оценкой модели (класс D), базовые веса; разница ${fmt(c.iext.I - d.Ieff * 100, 1)}`,
+      `+ indicators filled by a model estimate (class D), base weights; gap ${fmt(c.iext.I - d.Ieff * 100, 1)}`)]] : [])
+   .map(([l, b, s]) => `<div class="tile"><span class="lbl">${l}</span><div class="big num">${b}</div><div class="sub">${s}</div></div>`).join("");
   const med = medianPillars();
   $("pf-radar").innerHTML = radarSVG([
     { vals: med, fill: "none", stroke: "var(--muted)", dash: true, label: L("Медиана", "Median") },
